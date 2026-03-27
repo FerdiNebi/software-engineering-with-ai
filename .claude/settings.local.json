@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:*)",
+      "WebFetch(domain:hackernoon.com)",
+      "WebFetch(domain:monday.com)",
+      "WebFetch(domain:ventionteams.com)"
+    ]
+  }
+}
