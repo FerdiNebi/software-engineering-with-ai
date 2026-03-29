@@ -40,22 +40,49 @@ A phase-by-phase reference site organized as a sidebar navigation. Each phase co
 4. **What the industry does** — how leading software agencies approach this phase
 5. **AI-assisted workflow** — tools, how to use them, in what sequence *(v2)*
 
-**Phases covered:**
+**Phases covered (each with sub-section pages):**
 - Pre-Sales & Business Development
+  - Lead Qualification & Scoping Calls
+  - Proposal Writing
+  - SOW & Contract Drafting
+  - Pricing & Estimation
 - Discovery
+  - Stakeholder Interviews
+  - Requirements Workshops
+  - Prototyping & Proof of Concept
+  - Estimation & Cost Commitment
+  - Discovery Deliverables & Sign-Off
 - Requirements & Design
+  - Functional & Non-Functional Requirements
+  - UX/UI Design
+  - System Architecture
+  - Infrastructure Design
 - Development
-  - Frontend development
-  - Backend development
-  - Code review
-  - Testing
-  - Security validation
-  - Performance validation
-  - DevOps
-  - Repository structure & AI agent setup
+  - Repository Structure & Branching Strategy
+  - DevOps & CI/CD
+  - Backend Development
+  - Frontend Development
+  - Developer Testing
+  - Code Review
+  - Secure Development Practices
+  - Performance Engineering
+  - Technical Documentation
 - QA / Testing
+  - Test Strategy & Planning
+  - Functional & Regression Testing
+  - Performance Testing
+  - Security Testing
+  - User Acceptance Testing (UAT)
 - Deployment / Launch
+  - Infrastructure Provisioning
+  - Deployment Execution & Smoke Testing
+  - Monitoring & Observability Setup
+  - Client Handoff & Launch Checklist
 - Maintenance & Retainer
+  - Bug Fixes & Patch Management
+  - Feature Iteration
+  - Incident Response
+  - Retainer Structure & SLAs
 
 All phase content is pre-built by LLM agents doing deep research per topic, then reviewed and curated by the author. The site is static, deploys to GitHub Pages, and updates through a Git workflow — no runtime API calls, no infrastructure to maintain.
 

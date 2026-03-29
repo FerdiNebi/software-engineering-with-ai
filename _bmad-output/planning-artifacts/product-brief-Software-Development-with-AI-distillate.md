@@ -28,28 +28,21 @@ purpose: "Token-efficient context for downstream PRD creation"
 
 Ordered sidebar navigation, top to bottom:
 
-1. **Pre-Sales & Business Development** — explicitly included; covers scoping calls, proposals, SOW drafting, contract negotiation
-2. **Discovery** — often sold as a separate paid engagement before full contract; stakeholder interviews, PRD workshops, prototype, cost estimation
-3. **Requirements & Design** — functional/non-functional requirements, UX/UI, system architecture, API contracts, infra design
-4. **Development** — iterative sprints; contains sub-sections (see below)
-5. **QA / Testing** — functional, regression, performance, security, UAT
-6. **Deployment / Launch** — infra provisioning, pipeline execution, smoke testing, monitoring setup, client handoff
-7. **Maintenance & Retainer** — bug fixes, feature iteration, incident response, retainer structure
+1. **Pre-Sales & Business Development** — Lead Qualification & Scoping Calls, Proposal Writing, SOW & Contract Drafting, Pricing & Estimation
+2. **Discovery** — Stakeholder Interviews, Requirements Workshops, Prototyping & Proof of Concept, Estimation & Cost Commitment, Discovery Deliverables & Sign-Off
+3. **Requirements & Design** — Functional & Non-Functional Requirements, UX/UI Design, System Architecture, Infrastructure Design
+4. **Development** — Repository Structure & Branching Strategy, DevOps & CI/CD, Backend Development, Frontend Development, Developer Testing, Code Review, Secure Development Practices, Performance Engineering, Technical Documentation
+5. **QA / Testing** — Test Strategy & Planning, Functional & Regression Testing, Performance Testing, Security Testing, User Acceptance Testing (UAT)
+6. **Deployment / Launch** — Infrastructure Provisioning, Deployment Execution & Smoke Testing, Monitoring & Observability Setup, Client Handoff & Launch Checklist
+7. **Maintenance & Retainer** — Bug Fixes & Patch Management, Feature Iteration, Incident Response, Retainer Structure & SLAs
 
-### Development Sub-Sections (ordered)
+### Page Structure
 
-- Frontend development
-- Backend development
-- Code review
-- Testing
-- Security validation
-- Performance validation
-- DevOps
-- Repository structure & AI agent setup
+Each phase has an overview page plus dedicated sub-section pages (43 content pages total: 1 home + 7 phase overviews + 35 sub-sections).
 
 ## Per-Phase Content Structure
 
-Each phase page contains these sections:
+Each phase and sub-section page contains these sections:
 1. What happens here (description, goals, stakeholders)
 2. Best practices (industry-researched, not opinionated)
 3. Desired outcomes (deliverables, "done" definition, sign-off criteria)

@@ -1,11 +1,11 @@
 {
   "permissions": {
     "allow": [
+      "Read",
+      "Write",
+      "Edit",
       "WebSearch",
-      "WebFetch(domain:*)",
-      "WebFetch(domain:hackernoon.com)",
-      "WebFetch(domain:monday.com)",
-      "WebFetch(domain:ventionteams.com)"
+      "WebFetch(domain:*)"
     ]
   }
 }
