@@ -49,7 +49,7 @@ _This document builds collaboratively through step-by-step discovery. Sections a
 
 ### Technical Constraints & Dependencies
 
-- **Deployment target: GitHub Pages** (user-confirmed 2026-04-20). Implies project-scoped URL (`<username>.github.io/<repo>/`) and consequent base-path handling in framework config and internal links.
+- **Deployment target: GitHub Pages** (user-confirmed 2026-04-20). Project-scoped URL confirmed as `ferdinebi.github.io/software-engineering-with-ai/` (repo: `FerdiNebi/software-engineering-with-ai`). Base-path handling required in framework config and internal links.
 - **Zero runtime dependencies** (NFR9): no server functions, no API routes, no databases, no runtime LLM calls. All content pre-built at compile time.
 - **Static-first rendering with JS-enhanced interactivity** (NFR4, revised 2026-04-20): pages must be SSG with core text readable without JS, but the architecture must actively support client-side interactive components (islands/MDX components) for content enhancements such as dynamic diagrams. This upgrades interactivity from a tolerated exception to a first-class concern and shapes the framework decision.
 - **Authoring-first maintainability** (NFR7, FR23, FR24): framework config must express sidebar as declarative data, not code; Markdown/MDX files must be portable with no proprietary extensions.
@@ -195,10 +195,11 @@ Not applicable — no runtime API.
 
 ### Infrastructure & Deployment
 
-- **Hosting:** GitHub Pages (project-scoped URL: `<username>.github.io/<repo>/`)
+- **Hosting:** GitHub Pages (project-scoped URL: `https://ferdinebi.github.io/software-engineering-with-ai/`)
+- **Repo:** `FerdiNebi/software-engineering-with-ai` (confirmed 2026-04-20 from git remote)
 - **CI/CD:** GitHub Actions with `withastro/action@v3`; Pages source set to "GitHub Actions" (D1)
 - **Trigger:** push to `main` → build → deploy (D2)
-- **Base path:** set in `astro.config.mjs` via `site` + `base`; all internal links relative or base-path-aware (D3)
+- **Base path:** set in `astro.config.mjs` — `site: 'https://ferdinebi.github.io'`, `base: '/software-engineering-with-ai/'`. All internal links relative or base-path-aware (D3)
 - **Node version:** 20 LTS (or active LTS at scaffold time), pinned via `.nvmrc` (D4)
 - **Package manager:** pnpm, pinned via `packageManager` field in `package.json` (D4)
 - **Environment configuration:** no env vars required in v1 (D5)
@@ -286,7 +287,7 @@ Every content page contains exactly these four H2 headings, in this order, with 
 **Internal-link convention (FR16, base-path safety):**
 
 - Use Starlight's relative-link resolution: write `](/discovery/requirements-workshops/)` with leading slash; Starlight resolves against the configured `base`.
-- Never hardcode `https://<username>.github.io/<repo>/...` — breaks the site at any base-path change.
+- Never hardcode `https://ferdinebi.github.io/software-engineering-with-ai/...` — breaks the site at any base-path change.
 - Never use `./foo.md` or `../bar.md` — these break after file moves.
 - Cross-phase links are encouraged (FR16) — every phase page should link forward and backward to its neighbors in the SDLC.
 
@@ -748,8 +749,9 @@ All identified conflict points addressed: frontmatter (Zod), headings (template 
 - Analytics
 - `pnpm astro check` as a dedicated CI step separate from `pnpm build`
 
-**Implementation-time blocker (not architectural):**
-- `site` and `base` values in `astro.config.mjs` cannot be filled in until the exact GitHub repo name is chosen. This is part of story 1 (scaffold + first deploy), not a defect in the architecture.
+**Implementation-time blocker (resolved 2026-04-20):**
+- Previously flagged: `site` and `base` values in `astro.config.mjs` could not be filled in until the exact GitHub repo name was chosen.
+- **Resolved:** Repo is `FerdiNebi/software-engineering-with-ai` (confirmed from git remote). `site: 'https://ferdinebi.github.io'`, `base: '/software-engineering-with-ai/'`. No outstanding blockers.
 
 ### Validation Issues Addressed
 
