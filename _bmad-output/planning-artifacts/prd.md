@@ -24,6 +24,9 @@ classification:
 **Complexity:** Low (content-driven, not technically complex)
 **Project Context:** Greenfield
 
+**Revisions:**
+- 2026-04-20 — NFR4 amended during architecture workflow: relaxed from strict "works without JS" to "static-first at build time, with JS permitted for UI features and interactive content enhancements (e.g. dynamic diagrams)". Core page text must still render when interactive components fail.
+
 ## Executive Summary
 
 *End-to-End Software Engineering with AI* is a free, static reference site covering the complete software agency delivery lifecycle — from pre-sales through post-launch maintenance — for senior software engineers stepping into consulting and client-facing roles.
@@ -304,7 +307,7 @@ The site is organized as a sidebar navigation with seven phases and 35 sub-secti
 
 ### Content Rendering
 
-- NFR4: All pages render correctly with JavaScript disabled (static HTML output)
+- NFR4: Content is pre-rendered as static HTML at build time — no runtime server-side rendering, no request-time API calls, no CMS. JavaScript is permitted both for UI features (search, theme toggle, mobile menu) and for interactive content enhancements (e.g. dynamic diagrams, expandable explainers, embedded interactive examples). Core page text must remain readable when any given interactive component fails to load; JS-only feature parity is not required.
 - NFR5: Content is readable and navigable on viewports from 320px (mobile) to 2560px (ultrawide) without horizontal scrolling
 - NFR6: Dark mode and light mode both render all content legibly with sufficient contrast
 
