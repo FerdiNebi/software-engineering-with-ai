@@ -2,7 +2,7 @@
 title: 'Scaffold Astro Starlight site (walking skeleton)'
 type: 'feature'
 created: '2026-04-23'
-status: 'in-review'
+status: 'done'
 baseline_commit: '403fe6899c9c4d4c8cbd10ce418b792bf5b511bb'
 context:
   - '_bmad-output/planning-artifacts/architecture.md'
@@ -124,3 +124,46 @@ Three-reviewer adversarial review surfaced the following patches (applied; no sp
 - Confirm `dist/` contains the 43 expected HTML files under the phase folder layout.
 - Confirm `.github/workflows/deploy.yml` uses `withastro/action@v3` and triggers only on `main`.
 - After first merge to `main`, confirm GitHub Pages serves the landing page at the expected URL.
+
+## Suggested Review Order
+
+**Navigation & content structure**
+
+- Sidebar SSoT — 7 phases × (Overview + N sub-sections) = 43 entries. Explicit per FR24/NFR7.
+  [`astro.config.mjs:14`](../../astro.config.mjs#L14)
+
+- Extended `docsSchema` — architecture frontmatter contract; custom fields optional for splash home.
+  [`content.config.ts:17`](../../src/content.config.ts#L17)
+
+- Splash home page — deliberately frontmatter-light, uses Starlight's `splash` template.
+  [`index.mdx:1`](../../src/content/docs/index.mdx#L1)
+
+- Sample stub pattern — pinned 4-H2 template + architecture frontmatter.
+  [`pre-sales/index.md:1`](../../src/content/docs/pre-sales/index.md#L1)
+
+**Deploy pipeline**
+
+- Dual-branch trigger + PR build-only gate; artifact handoff via `withastro/action@v3` + `deploy-pages@v4`.
+  [`deploy.yml:3`](../../.github/workflows/deploy.yml#L3)
+
+- Package manager pin must match `deploy.yml` (see Spec Change Log).
+  [`package.json:6`](../../package.json#L6)
+
+**Cross-platform hygiene**
+
+- LF enforcement on Windows-authored repo.
+  [`.gitattributes:1`](../../.gitattributes#L1)
+
+- Editor defaults shared across contributors.
+  [`.editorconfig:1`](../../.editorconfig#L1)
+
+- Active-LTS Node pin, per architecture.md.
+  [`.nvmrc:1`](../../.nvmrc#L1)
+
+**Implementation trail**
+
+- Deviations from architecture/spec are all logged and justified here.
+  [`spec-site-scaffold.md — Spec Change Log`](./spec-site-scaffold.md)
+
+- Follow-ups not in scope for this cycle.
+  [`deferred-work.md`](./deferred-work.md)
