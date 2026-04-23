@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ferdinebi.github.io/software-engineering-with-ai/sitemap-index.xml

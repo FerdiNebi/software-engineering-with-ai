@@ -2,7 +2,7 @@
 title: 'Scaffold Astro Starlight site (walking skeleton)'
 type: 'feature'
 created: '2026-04-23'
-status: 'in-progress'
+status: 'in-review'
 baseline_commit: '403fe6899c9c4d4c8cbd10ce418b792bf5b511bb'
 context:
   - '_bmad-output/planning-artifacts/architecture.md'
@@ -96,6 +96,22 @@ context:
 - **Node pinned to 22, not 20, via `.nvmrc`.** Reason: architecture.md permits "Node 20 LTS (or active LTS at scaffold time)"; Node 22 is the active LTS as of 2026-04-23.
 - **Custom Zod fields are `optional()`.** Reason: the home `index.mdx` uses Starlight's `splash` template and has no `type`/`phase`/`order`. Future: tighten to required for non-index pages via a refine check if drift observed.
 - **Dep versions resolved live:** astro 6.1.9, @astrojs/starlight 0.38.4, @astrojs/mdx 5.0.4, @astrojs/sitemap 3.7.2, @astrojs/check 0.9.8, sharp 0.34.5, typescript 6.0.3. TypeScript 6 triggers peer-dep warnings from astro/@astrojs/check (both want ^5); warnings only, build passes. KEEP: `latest` range in `package.json` — lockfile pins and the warning is cosmetic.
+
+**2026-04-23 — step-04 review patches**
+
+Three-reviewer adversarial review surfaced the following patches (applied; no spec-frozen content changed):
+
+- **Workflow triggers expanded to `[main, master]`** and a `pull_request` trigger added. Reason: repo's default branch is `master` (not `main` as spec AC and architecture.md assumed); first push would never have deployed. PR trigger runs the build job only (see `if:` guard on `deploy`) so schema regressions are caught pre-merge. Known-bad state avoided: deploy pipeline that never fires.
+- **`package-manager: pnpm@10.33.2`** in workflow (was `pnpm@latest`). Reason: contradicted the `packageManager` pin in `package.json`; CI could drift from local toolchain. Known-bad state avoided: pnpm version skew between local and CI.
+- **Added `.editorconfig`, `.gitattributes`, `public/robots.txt`.** Reason: architecture.md directory tree lists all three; spec Code Map omitted them. `.gitattributes` enforces LF line endings (important on Windows-authored repo). `robots.txt` points to the sitemap Starlight emits. `public/favicon.svg` intentionally NOT added — Starlight ships its own default. Known-bad state avoided: inconsistent line endings on cross-platform contributions.
+
+**Deferred to `deferred-work.md`:** first-deploy Pages "Source: GitHub Actions" toggle (user action); LICENSE file; live 404/base-path/dark-mode verification post-first-deploy.
+
+**KEEP (confirmed working, must survive any future re-derivation):**
+- Sidebar SSoT in `astro.config.mjs` with explicit entries — 43/43 slug-to-file match verified.
+- `docsLoader()` + `docsSchema()` pattern — correct for Astro 6 / Starlight 0.38.
+- Starlight-before-mdx integration order.
+- Build produces 44 HTML routes (43 + 404) in ~6s.
 
 ## Verification
 

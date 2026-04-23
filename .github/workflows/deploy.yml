@@ -2,7 +2,9 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main]
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
   workflow_dispatch:
 
 permissions:
@@ -24,12 +26,13 @@ jobs:
       - name: Build site
         uses: withastro/action@v3
         with:
-          package-manager: pnpm@latest
+          package-manager: pnpm@10.33.2
           node-version: 22
 
   deploy:
     needs: build
     runs-on: ubuntu-latest
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
