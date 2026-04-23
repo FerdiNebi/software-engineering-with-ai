@@ -55,12 +55,12 @@ context:
 
 - `package.json` -- pnpm pin, scripts (`dev`, `build`, `preview`), Starlight + `@astrojs/sitemap` deps
 - `astro.config.mjs` -- `site`, `base`, Starlight integration, sitemap integration, explicit sidebar for all 43 pages
-- `src/content/config.ts` -- Zod schemas for `phase-overview` and `sub-section` collections (discriminant: `type`)
+- `src/content.config.ts` -- Zod schema (Starlight `docsSchema` extended with `type`, `phase`, `order`, `status`). Astro 6 moved this file from `src/content/config.ts`.
 - `src/content/docs/index.mdx` -- home/landing stub
 - `src/content/docs/<phase>/index.md` x7 -- phase overview stubs
 - `src/content/docs/<phase>/<sub-section>.md` x35 -- sub-section stubs (names per architecture.md directory tree)
 - `.github/workflows/deploy.yml` -- `withastro/action@v3` on push to `main`
-- `.nvmrc` -- `20`
+- `.nvmrc` -- `22` (active LTS at scaffold time; architecture permits "20 LTS or active LTS")
 - `tsconfig.json` -- strict, path aliases (`@components/*`, `@content/*`)
 - `.gitignore` -- `node_modules/`, `dist/`, `.astro/`, `.env*`, OS cruft
 - `public/favicon.svg`, `public/robots.txt` -- default placeholders acceptable
@@ -68,16 +68,16 @@ context:
 ## Tasks & Acceptance
 
 **Execution:**
-- [ ] Run `pnpm create astro@latest -- --template starlight --typescript strict` at repo root; accept defaults that don't conflict with constraints; answer **Ask First** prompts if they appear
-- [ ] `astro.config.mjs` -- set `site: 'https://ferdinebi.github.io'`, `base: '/software-engineering-with-ai/'`; add `@astrojs/sitemap` integration; replace default sidebar with explicit 7-phase sidebar referencing all 43 slugs in PRD/architecture order
-- [ ] `src/content/config.ts` -- define Zod schemas for `phase-overview` and `sub-section` collections matching architecture.md frontmatter spec
-- [ ] `src/content/docs/index.mdx` -- home stub (title, description, short intro paragraph explaining the site purpose, sidebar visible)
-- [ ] `src/content/docs/<phase>/index.md` x7 -- phase overview stubs with required frontmatter + four H2 headings + TODO lines
-- [ ] `src/content/docs/<phase>/<sub-section>.md` x35 -- sub-section stubs with required frontmatter + four H2 headings + TODO lines (filenames from architecture.md directory tree)
-- [ ] `.github/workflows/deploy.yml` -- checkout → setup-pnpm → setup-node (`.nvmrc`) → `pnpm install --frozen-lockfile` → `pnpm build` → `withastro/action@v3` publish
-- [ ] `.nvmrc` -- `20`; `package.json` -- add `packageManager: "pnpm@<version>"` field
-- [ ] `tsconfig.json` -- path aliases `@components/*`, `@content/*` (verify scaffold defaults; amend if missing)
-- [ ] `.gitignore` -- append `dist/`, `.astro/`, `node_modules/`, `.env*` (verify Astro defaults; amend if missing)
+- [x] Manual scaffold (equivalent to `pnpm create astro` — see Spec Change Log). Produced `package.json`, `tsconfig.json`, `src/env.d.ts`, `src/content.config.ts` (Astro 6 required rename from `src/content/config.ts`).
+- [x] `astro.config.mjs` -- set `site: 'https://ferdinebi.github.io'`, `base: '/software-engineering-with-ai/'`; `@astrojs/sitemap` integration; explicit 7-phase sidebar referencing all 43 slugs in PRD/architecture order; mdx + starlight integration ordered with starlight before mdx (see Spec Change Log)
+- [x] `src/content.config.ts` -- Starlight `docsSchema` extended with `type`, `phase`, `order`, `status` (optional to accommodate the splash-template home page)
+- [x] `src/content/docs/index.mdx` -- home stub with splash template and short intro paragraph
+- [x] `src/content/docs/<phase>/index.md` x7 -- phase overview stubs with frontmatter + four H2 headings + TODO lines
+- [x] `src/content/docs/<phase>/<sub-section>.md` x35 -- sub-section stubs with frontmatter + four H2 headings + TODO lines
+- [x] `.github/workflows/deploy.yml` -- `withastro/action@v3` on push to `main`; separate `deploy` job using `actions/deploy-pages@v4`
+- [x] `.nvmrc` -- `22` (active LTS as of 2026-04 — arch permits "20 LTS or active LTS at scaffold time"); `package.json` -- `packageManager: "pnpm@10.33.2"`
+- [x] `tsconfig.json` -- extends `astro/tsconfigs/strict`; path aliases `@components/*`, `@content/*`
+- [x] `.gitignore` -- `node_modules/`, `dist/`, `.astro/`, `.env*`, OS cruft
 
 **Acceptance Criteria:**
 - Given a clean clone, when `pnpm install && pnpm build` runs, then it succeeds in under 60s and produces `dist/` with 43 HTML routes.
@@ -85,6 +85,17 @@ context:
 - Given any stub page, when loaded, then the frontmatter passes Zod validation and the rendered page contains the four required H2 headings in the specified order.
 - Given a push to `main`, when the GitHub Actions workflow runs, then it deploys to GitHub Pages at `https://ferdinebi.github.io/software-engineering-with-ai/`.
 - Given dark mode toggle, when toggled, then both modes render legibly (Starlight default contrast).
+
+## Spec Change Log
+
+**2026-04-23 — implementation deviations (step-03, pre-review)**
+
+- **Scaffolded manually instead of via `pnpm create astro@latest -- --template starlight --typescript strict`.** Reason: the create-astro CLI is interactive and resists scaffolding into a non-empty directory; this repo already has `_bmad/`, `.claude/`, `CLAUDE.md`, etc. Hand-authored `package.json`, `astro.config.mjs`, `tsconfig.json`, `src/env.d.ts` — mirrors Starlight template layout and uses `docsLoader()` + `docsSchema()`.
+- **Content config file lives at `src/content.config.ts`, not `src/content/config.ts`.** Reason: Astro 6 removed the legacy nested location; build errored with `LegacyContentConfigError` until moved. Architecture.md references the old path — treat this entry as the canonical correction.
+- **Integration order in `astro.config.mjs`: `starlight()` before `mdx()`.** Reason: Starlight 0.38 registers `astro-expressive-code` internally, and expressive-code must be registered before `@astrojs/mdx` or the build errors at `astro:config:setup`. Spec task text was silent on order; documenting here so future readers don't re-introduce the original (broken) order.
+- **Node pinned to 22, not 20, via `.nvmrc`.** Reason: architecture.md permits "Node 20 LTS (or active LTS at scaffold time)"; Node 22 is the active LTS as of 2026-04-23.
+- **Custom Zod fields are `optional()`.** Reason: the home `index.mdx` uses Starlight's `splash` template and has no `type`/`phase`/`order`. Future: tighten to required for non-index pages via a refine check if drift observed.
+- **Dep versions resolved live:** astro 6.1.9, @astrojs/starlight 0.38.4, @astrojs/mdx 5.0.4, @astrojs/sitemap 3.7.2, @astrojs/check 0.9.8, sharp 0.34.5, typescript 6.0.3. TypeScript 6 triggers peer-dep warnings from astro/@astrojs/check (both want ^5); warnings only, build passes. KEEP: `latest` range in `package.json` — lockfile pins and the warning is cosmetic.
 
 ## Verification
 
