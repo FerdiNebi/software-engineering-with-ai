@@ -1,5 +1,5 @@
 # generated: 2026-05-01
-# last_updated: 2026-05-01  # bumped when Epic 8 stories were created
+# last_updated: 2026-05-01  # bumped when Epic 9 unconditional stories (9-1..9-5) were created — 9-6..9-9 stay backlog (gated)
 # project: Software Development with AI
 # project_key: NOKEY
 # tracking_system: file-system
@@ -120,12 +120,12 @@ development_status:
   epic-8-retrospective: optional
 
   # Epic 9: v1 Launch Readiness
-  epic-9: backlog
-  9-1-add-mit-license-file: backlog
-  9-2-tighten-the-content-collection-schema: backlog
-  9-3-pre-launch-manual-accessibility-audit: backlog
-  9-4-post-first-deploy-live-verification: backlog
-  9-5-document-the-github-pages-source-github-actions-setup-step: backlog
+  epic-9: in-progress
+  9-1-add-mit-license-file: ready-for-dev
+  9-2-tighten-the-content-collection-schema: ready-for-dev
+  9-3-pre-launch-manual-accessibility-audit: ready-for-dev
+  9-4-post-first-deploy-live-verification: ready-for-dev
+  9-5-document-the-github-pages-source-github-actions-setup-step: ready-for-dev
   9-6-outcomechecklist-component-conditional: backlog
   9-7-phasehandoff-component-conditional: backlog
   9-8-phasebadge-component-conditional: backlog
