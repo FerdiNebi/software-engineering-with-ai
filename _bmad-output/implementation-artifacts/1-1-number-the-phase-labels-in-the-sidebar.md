@@ -1,6 +1,6 @@
 # Story 1.1: Number the phase labels in the sidebar
 
-Status: review
+Status: done
 
 <!-- Note: Validation is optional. Run validate-create-story for quality check before dev-story. -->
 
@@ -50,6 +50,19 @@ So that I read the sidebar as a lifecycle map, not as a flat menu.
 
 - [x] **Task 3 — Commit** (per CLAUDE.md git rules)
   - [x] One commit, scope `Epic 1 / Story 1.1`. Message references AC #1–#6 implicitly (e.g., `Number the phase labels in the sidebar (Epic 1 Story 1.1)`).
+
+### Review Findings
+
+_Code review of commit `fe8338a` on 2026-05-01 (Blind Hunter + Edge Case Hunter + Acceptance Auditor). Acceptance Auditor: PASS — all 6 ACs satisfied at the code level. Triage: 0 decision-needed, 0 patch, 6 defer, 9 dismiss._
+
+- [x] [Review][Defer] Pagefind may index prefixed phase labels [astro.config.mjs:16,26,37,47,62,73,83] — verify post-deploy that searching `1`, `2`, etc. doesn't surface spurious sidebar matches. Acceptable trade-off if it does (sidebar is short and finite).
+- [x] [Review][Defer] Sidebar collapse-state persistence churn [astro.config.mjs:16-83] — Starlight's localStorage key for collapse state may be the label string; returning visitors will see all 7 phases re-collapsed on first visit after deploy. One-time UX papercut.
+- [x] [Review][Defer] Screen-reader may announce "one dot Pre-Sales…" [astro.config.mjs:16-83] — a11y consideration. Defer to Story 9.3 (pre-launch manual accessibility audit). Mitigation if needed: explicit `attrs: { 'aria-label': 'Pre-Sales & Business Development' }`.
+- [x] [Review][Defer] Mobile narrow-viewport label wrap at 320px [astro.config.mjs:83] — `'7. Maintenance & Retainer'` is the longest label; verify it doesn't two-line wrap at the NFR5 lower bound. Covered by AC #4 user manual check (still unchecked above).
+- [x] [Review][Defer] sprint-status `last_updated` lacks timestamp granularity [_bmad-output/implementation-artifacts/sprint-status.yaml:2,38] — same-day status changes are indistinguishable from initial generation. Switch to ISO 8601 timestamps if intra-day audit becomes needed. Pre-existing pattern; not introduced by this story.
+- [x] [Review][Defer] English-ordinal "N. " hardcoded; not i18n-safe [astro.config.mjs:16-83] — site has no `locales` configured (English-only per PRD), so this is fine today. Revisit if i18n is ever added.
+
+_Dismissed (9): subtask audit-trail concern (false positive — diff summary in reviewer prompt elided detail; real story file shows all subtasks individually marked); review-while-ACs-pending (documented state machine — `review` = ready for code review, not "all human checks done"); non-falsifiable build claim (Dev Agent Record is for transparency, dist/ is the artifact); mobile-subtask-added-post-hoc (false positive — was in original story); sprint-status editorial comment (pre-existing pattern, not introduced here); `/* unchanged */` in items (false positive — reviewer-prompt synthesis); slash in `5. QA / Testing` label (Starlight uses `slug:` field for routing, label is presentational); build-time sidebar.length assertion (out of scope per Dev Notes "Forbidden in this story"); dev-story workflow searches `ready-for-dev` (informational, not a finding)._
 
 ## Dev Notes
 
@@ -124,3 +137,4 @@ claude-opus-4-7 (1M context) via Claude Code `/bmad-dev-story` skill on 2026-05-
 | Date       | Author | Change |
 |------------|--------|--------|
 | 2026-05-01 | Amelia (claude-opus-4-7 / `/bmad-dev-story`) | Implemented Story 1.1: prefixed the 7 sidebar phase labels in `astro.config.mjs` with `1. ` … `7. `; verified `pnpm build` passes (44 HTML files, 43 content routes + 404). Status moved ready-for-dev → in-progress → review. Visual subtasks (AC #4/#5) left unchecked pending user browser verification. |
+| 2026-05-01 | claude-opus-4-7 / `/bmad-code-review` | Code review on commit `fe8338a`: Acceptance Auditor PASS, 0 decision-needed, 0 patch, 6 defer (logged in deferred-work.md), 9 dismiss. Status → done. Visual ACs #4/#5 still pending user manual browser pass — flip back to in-progress if any visual check fails. |
