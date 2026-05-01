@@ -1,5 +1,5 @@
 # generated: 2026-05-01
-# last_updated: 2026-05-01  # bumped when Epic 5 stories were created
+# last_updated: 2026-05-01  # bumped when Epic 6 stories were created
 # project: Software Development with AI
 # project_key: NOKEY
 # tracking_system: file-system
@@ -92,13 +92,13 @@ development_status:
   epic-5-retrospective: optional
 
   # Epic 6: QA / Testing Content
-  epic-6: backlog
-  6-1-qa-testing-phase-overview: backlog
-  6-2-test-strategy-and-planning: backlog
-  6-3-functional-and-regression-testing: backlog
-  6-4-performance-testing: backlog
-  6-5-security-testing: backlog
-  6-6-user-acceptance-testing: backlog
+  epic-6: in-progress
+  6-1-qa-testing-phase-overview: ready-for-dev
+  6-2-test-strategy-and-planning: ready-for-dev
+  6-3-functional-and-regression-testing: ready-for-dev
+  6-4-performance-testing: ready-for-dev
+  6-5-security-testing: ready-for-dev
+  6-6-user-acceptance-testing: ready-for-dev
   epic-6-retrospective: optional
 
   # Epic 7: Deployment / Launch Content
