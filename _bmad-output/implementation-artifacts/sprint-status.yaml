@@ -1,5 +1,5 @@
 # generated: 2026-05-01
-# last_updated: 2026-05-01
+# last_updated: 2026-05-01  # bumped when 1-1 went ready-for-dev
 # project: Software Development with AI
 # project_key: NOKEY
 # tracking_system: file-system
@@ -43,8 +43,8 @@ story_location: _bmad-output/implementation-artifacts
 
 development_status:
   # Epic 1: Home-page Lifecycle Framing
-  epic-1: backlog
-  1-1-number-the-phase-labels-in-the-sidebar: backlog
+  epic-1: in-progress
+  1-1-number-the-phase-labels-in-the-sidebar: ready-for-dev
   1-2-replace-the-home-pages-default-content-with-a-phaselist-framing: backlog
   1-3-set-a-single-muted-accent-color-for-the-site: backlog
   epic-1-retrospective: optional
