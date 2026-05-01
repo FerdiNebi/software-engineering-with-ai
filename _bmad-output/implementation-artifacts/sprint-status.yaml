@@ -1,5 +1,5 @@
 # generated: 2026-05-01
-# last_updated: 2026-05-01  # bumped when Epic 4 stories were created
+# last_updated: 2026-05-01  # bumped when Epic 5 stories were created
 # project: Software Development with AI
 # project_key: NOKEY
 # tracking_system: file-system
@@ -78,17 +78,17 @@ development_status:
   epic-4-retrospective: optional
 
   # Epic 5: Development Content
-  epic-5: backlog
-  5-1-development-phase-overview: backlog
-  5-2-repository-structure-and-branching-strategy: backlog
-  5-3-devops-and-ci-cd: backlog
-  5-4-backend-development: backlog
-  5-5-frontend-development: backlog
-  5-6-developer-testing: backlog
-  5-7-code-review: backlog
-  5-8-secure-development-practices: backlog
-  5-9-performance-engineering: backlog
-  5-10-technical-documentation: backlog
+  epic-5: in-progress
+  5-1-development-phase-overview: ready-for-dev
+  5-2-repository-structure-and-branching-strategy: ready-for-dev
+  5-3-devops-and-ci-cd: ready-for-dev
+  5-4-backend-development: ready-for-dev
+  5-5-frontend-development: ready-for-dev
+  5-6-developer-testing: ready-for-dev
+  5-7-code-review: ready-for-dev
+  5-8-secure-development-practices: ready-for-dev
+  5-9-performance-engineering: ready-for-dev
+  5-10-technical-documentation: ready-for-dev
   epic-5-retrospective: optional
 
   # Epic 6: QA / Testing Content
