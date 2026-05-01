@@ -1,5 +1,5 @@
 # generated: 2026-05-01
-# last_updated: 2026-05-01  # bumped when Epic 6 stories were created
+# last_updated: 2026-05-01  # bumped when Epic 7 stories were created
 # project: Software Development with AI
 # project_key: NOKEY
 # tracking_system: file-system
@@ -102,12 +102,12 @@ development_status:
   epic-6-retrospective: optional
 
   # Epic 7: Deployment / Launch Content
-  epic-7: backlog
-  7-1-deployment-launch-phase-overview: backlog
-  7-2-infrastructure-provisioning: backlog
-  7-3-deployment-execution-and-smoke-testing: backlog
-  7-4-monitoring-and-observability-setup: backlog
-  7-5-client-handoff-and-launch-checklist: backlog
+  epic-7: in-progress
+  7-1-deployment-launch-phase-overview: ready-for-dev
+  7-2-infrastructure-provisioning: ready-for-dev
+  7-3-deployment-execution-and-smoke-testing: ready-for-dev
+  7-4-monitoring-and-observability-setup: ready-for-dev
+  7-5-client-handoff-and-launch-checklist: ready-for-dev
   epic-7-retrospective: optional
 
   # Epic 8: Maintenance & Retainer Content
