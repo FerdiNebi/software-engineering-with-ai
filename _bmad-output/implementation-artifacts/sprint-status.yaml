@@ -1,5 +1,5 @@
 # generated: 2026-05-01
-# last_updated: 2026-05-01  # bumped when Epic 7 stories were created
+# last_updated: 2026-05-01  # bumped when Epic 8 stories were created
 # project: Software Development with AI
 # project_key: NOKEY
 # tracking_system: file-system
@@ -111,12 +111,12 @@ development_status:
   epic-7-retrospective: optional
 
   # Epic 8: Maintenance & Retainer Content
-  epic-8: backlog
-  8-1-maintenance-and-retainer-phase-overview: backlog
-  8-2-bug-fixes-and-patch-management: backlog
-  8-3-feature-iteration: backlog
-  8-4-incident-response: backlog
-  8-5-retainer-structure-and-slas: backlog
+  epic-8: in-progress
+  8-1-maintenance-and-retainer-phase-overview: ready-for-dev
+  8-2-bug-fixes-and-patch-management: ready-for-dev
+  8-3-feature-iteration: ready-for-dev
+  8-4-incident-response: ready-for-dev
+  8-5-retainer-structure-and-slas: ready-for-dev
   epic-8-retrospective: optional
 
   # Epic 9: v1 Launch Readiness
