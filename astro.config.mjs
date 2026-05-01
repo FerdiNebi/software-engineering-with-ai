@@ -13,7 +13,7 @@ export default defineConfig({
         'The agency and consulting delivery lifecycle for senior software engineers — pre-sales through maintenance.',
       sidebar: [
         {
-          label: 'Pre-Sales & Business Development',
+          label: '1. Pre-Sales & Business Development',
           items: [
             { label: 'Overview', slug: 'pre-sales' },
             { label: 'Lead Qualification & Scoping Calls', slug: 'pre-sales/lead-qualification-scoping-calls' },
@@ -23,7 +23,7 @@ export default defineConfig({
           ],
         },
         {
-          label: 'Discovery',
+          label: '2. Discovery',
           items: [
             { label: 'Overview', slug: 'discovery' },
             { label: 'Stakeholder Interviews', slug: 'discovery/stakeholder-interviews' },
@@ -34,7 +34,7 @@ export default defineConfig({
           ],
         },
         {
-          label: 'Requirements & Design',
+          label: '3. Requirements & Design',
           items: [
             { label: 'Overview', slug: 'requirements-design' },
             { label: 'Functional & Non-Functional Requirements', slug: 'requirements-design/functional-nonfunctional-requirements' },
@@ -44,7 +44,7 @@ export default defineConfig({
           ],
         },
         {
-          label: 'Development',
+          label: '4. Development',
           items: [
             { label: 'Overview', slug: 'development' },
             { label: 'Repository Structure & Branching Strategy', slug: 'development/repository-structure-branching' },
@@ -59,7 +59,7 @@ export default defineConfig({
           ],
         },
         {
-          label: 'QA / Testing',
+          label: '5. QA / Testing',
           items: [
             { label: 'Overview', slug: 'qa-testing' },
             { label: 'Test Strategy & Planning', slug: 'qa-testing/test-strategy-planning' },
@@ -70,7 +70,7 @@ export default defineConfig({
           ],
         },
         {
-          label: 'Deployment / Launch',
+          label: '6. Deployment / Launch',
           items: [
             { label: 'Overview', slug: 'deployment-launch' },
             { label: 'Infrastructure Provisioning', slug: 'deployment-launch/infrastructure-provisioning' },
@@ -80,7 +80,7 @@ export default defineConfig({
           ],
         },
         {
-          label: 'Maintenance & Retainer',
+          label: '7. Maintenance & Retainer',
           items: [
             { label: 'Overview', slug: 'maintenance-retainer' },
             { label: 'Bug Fixes & Patch Management', slug: 'maintenance-retainer/bug-fixes-patch-management' },

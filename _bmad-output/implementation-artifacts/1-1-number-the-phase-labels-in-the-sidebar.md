@@ -1,6 +1,6 @@
 # Story 1.1: Number the phase labels in the sidebar
 
-Status: ready-for-dev
+Status: review
 
 <!-- Note: Validation is optional. Run validate-create-story for quality check before dev-story. -->
 
@@ -33,23 +33,23 @@ So that I read the sidebar as a lifecycle map, not as a flat menu.
 
 ## Tasks / Subtasks
 
-- [ ] **Task 1 — Edit `astro.config.mjs` to prefix the 7 phase labels** (AC: #1, #2, #3)
-  - [ ] Update each of the 7 `label:` strings in the `sidebar:` array, in order, with `1. ` … `7. ` prefixes per AC #1
-  - [ ] Confirm all 7 sub-section `items` arrays are untouched (labels and slugs unchanged)
-  - [ ] Confirm phase group order in the array is unchanged
+- [x] **Task 1 — Edit `astro.config.mjs` to prefix the 7 phase labels** (AC: #1, #2, #3)
+  - [x] Update each of the 7 `label:` strings in the `sidebar:` array, in order, with `1. ` … `7. ` prefixes per AC #1
+  - [x] Confirm all 7 sub-section `items` arrays are untouched (labels and slugs unchanged)
+  - [x] Confirm phase group order in the array is unchanged
 
-- [ ] **Task 2 — Local verification** (AC: #4, #5, #6)
-  - [ ] Run `pnpm build` — must complete without errors; all 43 routes generated
-  - [ ] Run `pnpm dev` (or `pnpm preview` after build) and visually verify on desktop:
+- [x] **Task 2 — Local verification** (AC: #4, #5, #6)
+  - [x] Run `pnpm build` — must complete without errors; all 43 routes generated *(verified: 44 HTML files = 43 content routes + auto-generated 404; no sidebar-config errors)*
+  - [ ] Run `pnpm dev` (or `pnpm preview` after build) and visually verify on desktop: *(pending user — CLI agent cannot drive a browser)*
     - [ ] All 7 phase labels show their `N. ` prefix
     - [ ] Sub-section labels show no number prefix
     - [ ] Toggling light → dark theme: prefixes legible, no contrast regression
     - [ ] Click into a phase: that phase auto-expands; current-page highlight works
     - [ ] Search (`/` or `Cmd+K`) still opens Pagefind
-  - [ ] Resize to mobile width (≤767px): hamburger menu opens; phase labels still show prefixes; sub-sections unprefixed
+  - [ ] Resize to mobile width (≤767px): hamburger menu opens; phase labels still show prefixes; sub-sections unprefixed *(pending user — visual)*
 
-- [ ] **Task 3 — Commit** (per CLAUDE.md git rules)
-  - [ ] One commit, scope `Epic 1 / Story 1.1`. Message references AC #1–#6 implicitly (e.g., `Number the phase labels in the sidebar (Epic 1 Story 1.1)`).
+- [x] **Task 3 — Commit** (per CLAUDE.md git rules)
+  - [x] One commit, scope `Epic 1 / Story 1.1`. Message references AC #1–#6 implicitly (e.g., `Number the phase labels in the sidebar (Epic 1 Story 1.1)`).
 
 ## Dev Notes
 
@@ -98,10 +98,29 @@ No previous *story* file exists (this is the first story of the project).
 
 ### Agent Model Used
 
-_To be filled by dev-story agent._
+claude-opus-4-7 (1M context) via Claude Code `/bmad-dev-story` skill on 2026-05-01.
 
 ### Debug Log References
 
+- `corepack pnpm build` → exit 0; 44 HTML files emitted (43 content routes + auto-generated 404); Pagefind index built; sitemap-index.xml emitted. No sidebar-config errors.
+
 ### Completion Notes List
 
+- **AC #1 — phase labels prefixed:** Edited `astro.config.mjs` in place. The 7 `label:` strings now read `1. Pre-Sales & Business Development`, `2. Discovery`, `3. Requirements & Design`, `4. Development`, `5. QA / Testing`, `6. Deployment / Launch`, `7. Maintenance & Retainer`.
+- **AC #2 — sub-section labels untouched:** Diff confirms only the 7 group `label:` lines changed; every `items[].label` and `items[].slug` is byte-identical to pre-edit state, including `Overview` rows.
+- **AC #3 — order unchanged:** The 7 phase groups appear in the same array order as before; numbering matches lifecycle order; numbering is the only sidebar-array change.
+- **AC #6 — build passes:** `corepack pnpm build` succeeded, all 43 content routes resolved.
+- **AC #4 / AC #5 — visual verification pending user.** A CLI agent cannot drive a browser to confirm prefix rendering across light/dark themes, mobile width, current-phase auto-expand, or Pagefind search. The risk is low because Starlight renders the literal `label:` string as-is and no CSS was changed — but per the workflow's "no lying" rule, those subtasks remain unchecked. Suggested user check: `corepack pnpm preview` and walk the 5 desktop bullets + the mobile bullet under Task 2.
+- **Scope discipline:** No new files, no helper module, no derived constant, no slug or sub-section changes — per Dev Notes "Forbidden in this story" list.
+
 ### File List
+
+- `astro.config.mjs` (modified — 7 phase `label:` strings prefixed with `1. ` … `7. `)
+- `_bmad-output/implementation-artifacts/sprint-status.yaml` (modified — 1-1 status moved ready-for-dev → in-progress → review; `last_updated` bumped)
+- `_bmad-output/implementation-artifacts/1-1-number-the-phase-labels-in-the-sidebar.md` (modified — Status, Tasks/Subtasks checkboxes, Dev Agent Record, File List, Change Log)
+
+## Change Log
+
+| Date       | Author | Change |
+|------------|--------|--------|
+| 2026-05-01 | Amelia (claude-opus-4-7 / `/bmad-dev-story`) | Implemented Story 1.1: prefixed the 7 sidebar phase labels in `astro.config.mjs` with `1. ` … `7. `; verified `pnpm build` passes (44 HTML files, 43 content routes + 404). Status moved ready-for-dev → in-progress → review. Visual subtasks (AC #4/#5) left unchecked pending user browser verification. |
