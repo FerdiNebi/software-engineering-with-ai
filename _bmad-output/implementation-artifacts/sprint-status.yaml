@@ -1,5 +1,5 @@
 # generated: 2026-05-01
-# last_updated: 2026-05-01  # bumped when Epic 3 stories were created
+# last_updated: 2026-05-01  # bumped when Epic 4 stories were created
 # project: Software Development with AI
 # project_key: NOKEY
 # tracking_system: file-system
@@ -69,12 +69,12 @@ development_status:
   epic-3-retrospective: optional
 
   # Epic 4: Requirements & Design Content
-  epic-4: backlog
-  4-1-requirements-and-design-phase-overview: backlog
-  4-2-functional-and-non-functional-requirements: backlog
-  4-3-ux-ui-design: backlog
-  4-4-system-architecture: backlog
-  4-5-infrastructure-design: backlog
+  epic-4: in-progress
+  4-1-requirements-and-design-phase-overview: ready-for-dev
+  4-2-functional-and-non-functional-requirements: ready-for-dev
+  4-3-ux-ui-design: ready-for-dev
+  4-4-system-architecture: ready-for-dev
+  4-5-infrastructure-design: ready-for-dev
   epic-4-retrospective: optional
 
   # Epic 5: Development Content
