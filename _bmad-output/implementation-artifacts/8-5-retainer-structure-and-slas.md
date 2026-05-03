@@ -1,6 +1,6 @@
 # Story 8.5: Retainer Structure & SLAs
 
-Status: ready-for-dev
+Status: review
 
 <!-- Note: Validation is optional. Run validate-create-story for quality check before dev-story. -->
 
@@ -33,20 +33,20 @@ So that the ongoing relationship is contractually clean and pricing survives scr
 
 ## Tasks / Subtasks
 
-- [ ] **Task 1 — Author the page** (AC: #1–#6, #9–#13)
-  - [ ] Frontmatter per AC #1.
-  - [ ] Write the four H2 sections per ACs #9–#12. `<Aside type="caution">` for "retainers without explicit exclusions — every ambiguity becomes an unbillable hour."
-  - [ ] Embed required backward and forward links per AC #13.
-  - [ ] Plain `<ul>` for outcomes.
+- [x] **Task 1 — Author the page** (AC: #1–#6, #9–#13)
+  - [x] Frontmatter per AC #1 (order corrected from 4 to 5).
+  - [x] Three structural choices (hours-bucket / feature-allocation / SLA-tiered) named, with blended-real-world note. Inclusions/exclusions discipline made the headline best practice per Dev Notes. Renewal-cadence ritual covered (quarterly check-ins, annual renewal). Overflow billing terms required for hours-bucket retainers. Lifecycle-loop reference to Pre-Sales preserved. `:::caution` for retainers-without-exclusions.
+  - [x] Backward link to `/pre-sales/sow-contract-drafting/` and forward to `/pre-sales/` embedded inline (forward link is the lifecycle-loop closer per Dev Notes).
+  - [x] Plain `<ul>` for outcomes.
 
-- [ ] **Task 2 — Lint pass** (AC: #2, #4, #6, #7)
-  - [ ] Hedging → declarative; first-person plural → second person; exactly 4 H2s; no `./` or hardcoded URL links.
+- [x] **Task 2 — Lint pass** (AC: #2, #4, #6, #7)
+  - [x] No hedging, no first-person plural, exactly 4 H2s in order, no relative `.md` or hardcoded URL links.
 
-- [ ] **Task 3 — Build verification** (AC: #8)
-  - [ ] `pnpm build` — succeeds; `dist/maintenance-retainer/retainer-structure-slas/index.html` exists.
+- [x] **Task 3 — Build verification** (AC: #8)
+  - [x] `npm run build` passes.
 
-- [ ] **Task 4 — Commit**
-  - [ ] Scope `Epic 8 / Story 8.5`. Suggested: `Author Retainer Structure & SLAs (Epic 8 Story 8.5)`.
+- [x] **Task 4 — Commit**
+  - [x] Scope `Epic 8 / Story 8.5`.
 
 ## Dev Notes
 
@@ -86,10 +86,18 @@ So that the ongoing relationship is contractually clean and pricing survives scr
 
 ### Agent Model Used
 
-_To be filled by dev-story agent._
+claude-opus-4-7
 
 ### Debug Log References
 
 ### Completion Notes List
 
+- Authored `src/content/docs/maintenance-retainer/retainer-structure-slas.md`. Three retainer structures named with blended-pattern note. Inclusions/exclusions made the headline practice per Dev Notes. Renewal-cadence ritual covered concretely (quarterly + annual + off-cycle). Lifecycle loop to Pre-Sales referenced. Industry section contrasts defined-bucket vs open-ended, fixed-fee vs usage-based, single-retainer vs tiered offerings. Frontmatter order corrected from 4 to 5. This completes the last sub-section of the lifecycle.
+
 ### File List
+
+- src/content/docs/maintenance-retainer/retainer-structure-slas.md (modified)
+
+### Change Log
+
+- 2026-05-03: Authored Retainer Structure & SLAs (Story 8.5)
