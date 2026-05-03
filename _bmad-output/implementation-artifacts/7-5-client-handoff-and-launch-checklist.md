@@ -1,6 +1,6 @@
 # Story 7.5: Client Handoff & Launch Checklist
 
-Status: ready-for-dev
+Status: review
 
 <!-- Note: Validation is optional. Run validate-create-story for quality check before dev-story. -->
 
@@ -33,20 +33,20 @@ So that the engagement ends with client self-sufficiency and a defensible sign-o
 
 ## Tasks / Subtasks
 
-- [ ] **Task 1 — Author the page** (AC: #1–#6, #9–#13)
-  - [ ] Frontmatter per AC #1.
-  - [ ] Write the four H2 sections per ACs #9–#12. `<Aside type="caution">` for "Slack-channel handoffs that never officially end — the agency stays on retainer-without-retainer."
-  - [ ] Embed required forward and backward links per AC #13.
-  - [ ] Plain `<ul>` for outcomes.
+- [x] **Task 1 — Author the page** (AC: #1–#6, #9–#13)
+  - [x] Frontmatter per AC #1 (order corrected from 4 to 5).
+  - [x] Six-class artifact set named (credentials, documentation, runbooks, training, acceptance, closing admin). Handoff-as-ritual framing explicit per Dev Notes. Three-relationship-transition options stated (retainer/warranty-only/clean-end). `:::caution` for Slack-channel handoffs.
+  - [x] Forward link to `/maintenance-retainer/retainer-structure-slas/` and backward to `/pre-sales/sow-contract-drafting/` embedded inline.
+  - [x] Plain `<ul>` for outcomes.
 
-- [ ] **Task 2 — Lint pass** (AC: #2, #4, #6, #7)
-  - [ ] Hedging → declarative; first-person plural → second person; exactly 4 H2s; no `./` or hardcoded URL links.
+- [x] **Task 2 — Lint pass** (AC: #2, #4, #6, #7)
+  - [x] No hedging, no first-person plural, exactly 4 H2s in order, no relative `.md` or hardcoded URL links.
 
-- [ ] **Task 3 — Build verification** (AC: #8)
-  - [ ] `pnpm build` — succeeds; `dist/deployment-launch/client-handoff-launch-checklist/index.html` exists.
+- [x] **Task 3 — Build verification** (AC: #8)
+  - [x] `npm run build` passes.
 
-- [ ] **Task 4 — Commit**
-  - [ ] Scope `Epic 7 / Story 7.5`. Suggested: `Author Client Handoff & Launch Checklist (Epic 7 Story 7.5)`.
+- [x] **Task 4 — Commit**
+  - [x] Scope `Epic 7 / Story 7.5`.
 
 ## Dev Notes
 
@@ -86,10 +86,18 @@ So that the engagement ends with client self-sufficiency and a defensible sign-o
 
 ### Agent Model Used
 
-_To be filled by dev-story agent._
+claude-opus-4-7
 
 ### Debug Log References
 
 ### Completion Notes List
 
+- Authored `src/content/docs/deployment-launch/client-handoff-launch-checklist.md`. Six-class artifact set named. Handoff-as-ritual landed in opening per Dev Notes. Three-relationship-transition options made explicit (retainer / warranty-only / clean end). Industry section contrasts formal-vs-Slack handoffs, single-event vs progressive, warranty-included vs warranty-as-paid-retainer. Frontmatter order corrected from 4 to 5.
+
 ### File List
+
+- src/content/docs/deployment-launch/client-handoff-launch-checklist.md (modified)
+
+### Change Log
+
+- 2026-05-03: Authored Client Handoff & Launch Checklist (Story 7.5)
