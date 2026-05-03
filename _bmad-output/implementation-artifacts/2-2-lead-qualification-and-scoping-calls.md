@@ -1,6 +1,6 @@
 # Story 2.2: Lead Qualification & Scoping Calls
 
-Status: ready-for-dev
+Status: review
 
 <!-- Note: Validation is optional. Run validate-create-story for quality check before dev-story. -->
 
@@ -33,23 +33,20 @@ So that I can distinguish serious prospects from time-wasters and produce the ri
 
 ## Tasks / Subtasks
 
-- [ ] **Task 1 — Author the page** (AC: #1, #2, #3, #4, #5, #6, #9, #10, #11, #12, #13)
-  - [ ] Set / verify frontmatter at `src/content/docs/pre-sales/lead-qualification-scoping-calls.md` per AC #1.
-  - [ ] Write the four H2 sections per ACs #9–#12. Use `<Aside type="tip">` for pull-out best practices and `<Aside type="caution">` for the most common anti-pattern (e.g., taking a scoping call without pre-call research).
-  - [ ] Insert the required forward and cross-phase links inline in prose per AC #13.
-  - [ ] Use plain Markdown `<ul>` for the desired-outcomes list (`<OutcomeChecklist>` is gated for Epic 9).
+- [x] **Task 1 — Author the page** (AC: #1, #2, #3, #4, #5, #6, #9, #10, #11, #12, #13)
+  - [x] Frontmatter set per AC #1.
+  - [x] Four H2 sections authored. `:::tip` for pull-out best practice, `:::caution` for the no-pre-call-research anti-pattern.
+  - [x] Forward link to `/pre-sales/proposal-writing/` and cross-phase link to `/discovery/` embedded inline.
+  - [x] Desired outcomes as plain `<ul>`.
 
-- [ ] **Task 2 — Lint pass before commit** (AC: #2, #4, #6, #7)
-  - [ ] Replace any hedging (`typically`, `usually`, `often`, `depending`, `in most cases`) with declarative phrasing.
-  - [ ] Replace first-person plural (`we`, `our`) with second person.
-  - [ ] Confirm exactly 4 H2s in order; no H1; no extra H2.
-  - [ ] Confirm no `./` or hardcoded URL links; only leading-slash internal paths.
+- [x] **Task 2 — Lint pass before commit** (AC: #2, #4, #6, #7)
+  - [x] No hedging, no first-person plural, exactly 4 H2s in order, no relative `.md` or hardcoded URL links.
 
-- [ ] **Task 3 — Build verification** (AC: #8)
-  - [ ] `pnpm build` — must succeed; the page appears at `dist/pre-sales/lead-qualification-scoping-calls/index.html`; no schema errors.
+- [x] **Task 3 — Build verification** (AC: #8)
+  - [x] `npm run build` passes — 44 pages built, no schema errors.
 
-- [ ] **Task 4 — Commit** (per CLAUDE.md git rules)
-  - [ ] Single commit, scope `Epic 2 / Story 2.2`. Suggested message: `Author Lead Qualification & Scoping Calls (Epic 2 Story 2.2)`.
+- [x] **Task 4 — Commit** (per CLAUDE.md git rules)
+  - [x] Single commit, scope `Epic 2 / Story 2.2`.
 
 ## Dev Notes
 
@@ -95,10 +92,18 @@ So that I can distinguish serious prospects from time-wasters and produce the ri
 
 ### Agent Model Used
 
-_To be filled by dev-story agent._
+claude-sonnet-4-6
 
 ### Debug Log References
 
 ### Completion Notes List
 
+- Authored `src/content/docs/pre-sales/lead-qualification-scoping-calls.md`. BANT/MEDDIC frameworks named, four qualification axes detailed, scoping-call protocol covered. Build verified passing (44 pages).
+
 ### File List
+
+- src/content/docs/pre-sales/lead-qualification-scoping-calls.md (modified)
+
+### Change Log
+
+- 2026-05-03: Authored Lead Qualification & Scoping Calls (Story 2.2)
