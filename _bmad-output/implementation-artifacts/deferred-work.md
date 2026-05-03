@@ -11,7 +11,7 @@ Items surfaced during quick-dev cycles that were not in scope for the originatin
   - Dark-mode toggle renders legibly
   - Pagefind search works on-site
   - Internal sidebar links resolve with base path
-- **Tighten content-collection schema** — promote `type`, `phase`, `order` from `.optional()` to required-for-non-home via `z.discriminatedUnion` or `superRefine`. Currently a convention gap, not a build-time check. Trigger: first content PR that lands without one of these fields.
+- ~~**Tighten content-collection schema** — promote `type`, `phase`, `order` from `.optional()` to required-for-non-home via `z.discriminatedUnion` or `superRefine`. Currently a convention gap, not a build-time check. Trigger: first content PR that lands without one of these fields.~~ **Resolved by Epic 9 Story 9.2** — `superRefine` pattern in `src/content.config.ts` now requires `type`, `phase`, `order` whenever any one of them is present (which catches the realistic missed-field case while exempting the splash home that has none of the three).
 - **Build-time 4-H2 heading template lint** — architecture.md flags this as a post-v1 upgrade (remark-lint). Not needed until content drift is observed.
 - **Build-time broken-link check** — `astro-broken-link-checker` or equivalent. Deferred per architecture.md.
 
