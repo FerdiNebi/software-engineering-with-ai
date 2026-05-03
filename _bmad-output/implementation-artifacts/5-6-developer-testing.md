@@ -1,6 +1,6 @@
 # Story 5.6: Developer Testing
 
-Status: ready-for-dev
+Status: review
 
 <!-- Note: Validation is optional. Run validate-create-story for quality check before dev-story. -->
 
@@ -33,20 +33,20 @@ So that the delivery ships tested without over-investing where the client has no
 
 ## Tasks / Subtasks
 
-- [ ] **Task 1 — Author the page** (AC: #1–#6, #9–#13)
-  - [ ] Frontmatter per AC #1.
-  - [ ] Write the four H2 sections per ACs #9–#12. `<Aside type="caution">` for "100%-coverage targets that the client hasn't paid for" — over-investment is also a failure mode.
-  - [ ] Embed required forward and cross-phase links per AC #13.
-  - [ ] Plain `<ul>` for outcomes.
+- [x] **Task 1 — Author the page** (AC: #1–#6, #9–#13)
+  - [x] Frontmatter per AC #1 (order corrected from 5 to 6).
+  - [x] Developer-vs-QA boundary made explicit per Dev Notes. Test-the-contract, property-based for critical paths, avoid over-mocking, coverage threshold gate all named. Commercial framing of coverage decisions covered. `:::caution` for over-investment.
+  - [x] Forward link to `/development/code-review/` and cross-phase to `/qa-testing/functional-regression-testing/` embedded inline.
+  - [x] Plain `<ul>` for outcomes.
 
-- [ ] **Task 2 — Lint pass** (AC: #2, #4, #6, #7)
-  - [ ] Hedging → declarative; first-person plural → second person; exactly 4 H2s; no `./` or hardcoded URL links.
+- [x] **Task 2 — Lint pass** (AC: #2, #4, #6, #7)
+  - [x] No hedging, no first-person plural, exactly 4 H2s in order, no relative `.md` or hardcoded URL links.
 
-- [ ] **Task 3 — Build verification** (AC: #8)
-  - [ ] `pnpm build` — succeeds; `dist/development/developer-testing/index.html` exists.
+- [x] **Task 3 — Build verification** (AC: #8)
+  - [x] `npm run build` passes.
 
-- [ ] **Task 4 — Commit**
-  - [ ] Scope `Epic 5 / Story 5.6`. Suggested: `Author Developer Testing (Epic 5 Story 5.6)`.
+- [x] **Task 4 — Commit**
+  - [x] Scope `Epic 5 / Story 5.6`.
 
 ## Dev Notes
 
@@ -89,10 +89,18 @@ Land this distinction in `## What happens here`.
 
 ### Agent Model Used
 
-_To be filled by dev-story agent._
+claude-opus-4-7
 
 ### Debug Log References
 
 ### Completion Notes List
 
+- Authored `src/content/docs/development/developer-testing.md`. Developer-vs-QA boundary made load-bearing in opening section. Commercial framing ("how much testing is a pricing decision, not a quality decision") explicit per Dev Notes. Five practices named (test the contract, property-based on critical paths, avoid over-mocking, coverage threshold gate, document test conventions). Industry section contrasts TDD-strict vs pragmatic, threshold-mandated vs coverage-as-signal, classic-pyramid vs inverted-pyramid. Frontmatter order corrected from 5 to 6.
+
 ### File List
+
+- src/content/docs/development/developer-testing.md (modified)
+
+### Change Log
+
+- 2026-05-03: Authored Developer Testing (Story 5.6)
