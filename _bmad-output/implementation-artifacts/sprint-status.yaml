@@ -106,7 +106,7 @@ development_status:
   7-1-deployment-launch-phase-overview: review
   7-2-infrastructure-provisioning: review
   7-3-deployment-execution-and-smoke-testing: review
-  7-4-monitoring-and-observability-setup: ready-for-dev
+  7-4-monitoring-and-observability-setup: review
   7-5-client-handoff-and-launch-checklist: ready-for-dev
   epic-7-retrospective: optional
 

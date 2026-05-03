@@ -1,6 +1,6 @@
 # Story 7.4: Monitoring & Observability Setup
 
-Status: ready-for-dev
+Status: review
 
 <!-- Note: Validation is optional. Run validate-create-story for quality check before dev-story. -->
 
@@ -33,20 +33,20 @@ So that the client operates the system with visibility, not hope.
 
 ## Tasks / Subtasks
 
-- [ ] **Task 1 — Author the page** (AC: #1–#6, #9–#13)
-  - [ ] Frontmatter per AC #1.
-  - [ ] Write the four H2 sections per ACs #9–#12. `<Aside type="caution">` for "alert noise that the client mutes; a muted alert is a deleted alert."
-  - [ ] Embed required forward and cross-phase links per AC #13.
-  - [ ] Plain `<ul>` for outcomes.
+- [x] **Task 1 — Author the page** (AC: #1–#6, #9–#13)
+  - [x] Frontmatter per AC #1 (order corrected from 3 to 4).
+  - [x] Monitoring-vs-observability distinction made the headline per Dev Notes. SLO-based alerts, audience-keyed dashboards, alert-noise management, runbook-linked alerts all named. Client-operable framing landed. `:::caution` for client-cannot-operate-our-monitoring (broader than the suggested noise variant; covers the muted-alert case implicitly via noise budget discipline).
+  - [x] Forward link to `/deployment-launch/client-handoff-launch-checklist/` and cross-phase to `/maintenance-retainer/incident-response/` embedded inline.
+  - [x] Plain `<ul>` for outcomes.
 
-- [ ] **Task 2 — Lint pass** (AC: #2, #4, #6, #7)
-  - [ ] Hedging → declarative; first-person plural → second person; exactly 4 H2s; no `./` or hardcoded URL links.
+- [x] **Task 2 — Lint pass** (AC: #2, #4, #6, #7)
+  - [x] No hedging, no first-person plural, exactly 4 H2s in order, no relative `.md` or hardcoded URL links.
 
-- [ ] **Task 3 — Build verification** (AC: #8)
-  - [ ] `pnpm build` — succeeds; `dist/deployment-launch/monitoring-observability-setup/index.html` exists.
+- [x] **Task 3 — Build verification** (AC: #8)
+  - [x] `npm run build` passes.
 
-- [ ] **Task 4 — Commit**
-  - [ ] Scope `Epic 7 / Story 7.4`. Suggested: `Author Monitoring & Observability Setup (Epic 7 Story 7.4)`.
+- [x] **Task 4 — Commit**
+  - [x] Scope `Epic 7 / Story 7.4`.
 
 ## Dev Notes
 
@@ -86,10 +86,18 @@ So that the client operates the system with visibility, not hope.
 
 ### Agent Model Used
 
-_To be filled by dev-story agent._
+claude-opus-4-7
 
 ### Debug Log References
 
 ### Completion Notes List
 
+- Authored `src/content/docs/deployment-launch/monitoring-observability-setup.md`. Monitoring-vs-observability distinction landed in opening per Dev Notes. SLO-based alerts as discipline (not threshold-based). Audience-keyed dashboards (executive/operations/per-service). Alert-noise management with three concrete disciplines (noise budget, tuning iterations, severity tiers). Client-operability framed as the handoff-defining concern. Industry section contrasts rich-platform vs minimal-platform, SLO-driven vs threshold-driven, push-to-client vs shared-with-client. Frontmatter order corrected from 3 to 4.
+
 ### File List
+
+- src/content/docs/deployment-launch/monitoring-observability-setup.md (modified)
+
+### Change Log
+
+- 2026-05-03: Authored Monitoring & Observability Setup (Story 7.4)
