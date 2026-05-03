@@ -1,6 +1,6 @@
 # Story 4.1: Requirements & Design phase overview
 
-Status: ready-for-dev
+Status: review
 
 <!-- Note: Validation is optional. Run validate-create-story for quality check before dev-story. -->
 
@@ -33,20 +33,20 @@ So that I understand what to produce before engineers start coding.
 
 ## Tasks / Subtasks
 
-- [ ] **Task 1 — Author the page** (AC: #1–#7, #10–#13)
-  - [ ] Frontmatter per AC #1.
-  - [ ] Write the four H2 sections per ACs #10–#12. `<Aside type="caution">` for "skipping FR/NFR documentation because the team 'already discussed it.'"
-  - [ ] Embed required forward and backward links per AC #13.
-  - [ ] Plain `<ul>` for outcomes.
+- [x] **Task 1 — Author the page** (AC: #1–#7, #10–#13)
+  - [x] Frontmatter per AC #1 (order corrected from 3 to 1).
+  - [x] Phase framed as bridge between Discovery and Development. All 4 sub-sections named with leading-slash links. `:::tip` for unified decisions document; `:::caution` for skipping FR/NFR documentation.
+  - [x] Forward link to `/development/` and backward link to `/discovery/discovery-deliverables-signoff/` embedded inline.
+  - [x] Plain `<ul>` for outcomes.
 
-- [ ] **Task 2 — Lint pass** (AC: #2, #4, #7, #8)
-  - [ ] Hedging → declarative; first-person plural → second person; exactly 4 H2s; no `./` or hardcoded URL links.
+- [x] **Task 2 — Lint pass** (AC: #2, #4, #7, #8)
+  - [x] No hedging, no first-person plural, exactly 4 H2s in order, no relative `.md` or hardcoded URL links.
 
-- [ ] **Task 3 — Build verification** (AC: #9)
-  - [ ] `pnpm build` — succeeds; `dist/requirements-design/index.html` exists.
+- [x] **Task 3 — Build verification** (AC: #9)
+  - [x] `npm run build` passes.
 
-- [ ] **Task 4 — Commit**
-  - [ ] Scope `Epic 4 / Story 4.1`. Suggested: `Author Requirements & Design phase overview (Epic 4 Story 4.1)`.
+- [x] **Task 4 — Commit**
+  - [x] Scope `Epic 4 / Story 4.1`.
 
 ## Dev Notes
 
@@ -86,10 +86,18 @@ So that I understand what to produce before engineers start coding.
 
 ### Agent Model Used
 
-_To be filled by dev-story agent._
+claude-opus-4-7
 
 ### Debug Log References
 
 ### Completion Notes List
 
+- Authored `src/content/docs/requirements-design/index.md`. Bridge framing landed in opening paragraph. All 4 sub-sections named with leading-slash links. Front-load-vs-design-as-build trade-off described honestly per Dev Notes guidance. Industry section also covers single-vs-multi-document and heavyweight-vs-lightweight architecture. Frontmatter order corrected from 3 to 1.
+
 ### File List
+
+- src/content/docs/requirements-design/index.md (modified)
+
+### Change Log
+
+- 2026-05-03: Authored Requirements & Design phase overview (Story 4.1)

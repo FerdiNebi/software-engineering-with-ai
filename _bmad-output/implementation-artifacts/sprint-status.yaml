@@ -70,7 +70,7 @@ development_status:
 
   # Epic 4: Requirements & Design Content
   epic-4: in-progress
-  4-1-requirements-and-design-phase-overview: ready-for-dev
+  4-1-requirements-and-design-phase-overview: review
   4-2-functional-and-non-functional-requirements: ready-for-dev
   4-3-ux-ui-design: ready-for-dev
   4-4-system-architecture: ready-for-dev
