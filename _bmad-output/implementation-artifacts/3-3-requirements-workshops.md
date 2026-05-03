@@ -1,6 +1,6 @@
 # Story 3.3: Requirements Workshops
 
-Status: ready-for-dev
+Status: review
 
 <!-- Note: Validation is optional. Run validate-create-story for quality check before dev-story. -->
 
@@ -33,20 +33,20 @@ So that I walk in with an agenda and walk out with signed deliverables, not just
 
 ## Tasks / Subtasks
 
-- [ ] **Task 1 — Author the page** (AC: #1–#6, #9–#13)
-  - [ ] Frontmatter per AC #1.
-  - [ ] Write the four H2 sections per ACs #9–#12.
-  - [ ] Embed required forward and cross-phase links per AC #13.
-  - [ ] Plain `<ul>` for outcomes.
+- [x] **Task 1 — Author the page** (AC: #1–#6, #9–#13)
+  - [x] Frontmatter per AC #1 (order corrected from 2 to 3).
+  - [x] Workshop-vs-requirements-doc distinction made explicit. Pre-read 48h, agenda time-boxes, in-session decision capture, parking-lot all named. `:::tip` for silent-write rounds; `:::caution` for workshop-without-interviews. Four anti-patterns named (status-update, kitchen-sink, facilitator-as-stakeholder, verbal sign-off).
+  - [x] Cross-links: backward to `/discovery/stakeholder-interviews/`, forward to `/discovery/prototyping-proof-of-concept/`, cross-phase to `/requirements-design/functional-nonfunctional-requirements/`.
+  - [x] Plain `<ul>` for outcomes.
 
-- [ ] **Task 2 — Lint pass** (AC: #2, #4, #6, #7)
-  - [ ] Hedging → declarative; first-person plural → second person; exactly 4 H2s; no `./` or hardcoded URL links.
+- [x] **Task 2 — Lint pass** (AC: #2, #4, #6, #7)
+  - [x] No hedging, no first-person plural, exactly 4 H2s in order, no relative `.md` or hardcoded URL links.
 
-- [ ] **Task 3 — Build verification** (AC: #8)
-  - [ ] `pnpm build` — succeeds; `dist/discovery/requirements-workshops/index.html` exists.
+- [x] **Task 3 — Build verification** (AC: #8)
+  - [x] `npm run build` passes.
 
-- [ ] **Task 4 — Commit**
-  - [ ] Scope `Epic 3 / Story 3.3`. Suggested: `Author Requirements Workshops (Epic 3 Story 3.3)`.
+- [x] **Task 4 — Commit**
+  - [x] Scope `Epic 3 / Story 3.3`.
 
 ## Dev Notes
 
@@ -86,10 +86,18 @@ So that I walk in with an agenda and walk out with signed deliverables, not just
 
 ### Agent Model Used
 
-_To be filled by dev-story agent._
+claude-opus-4-7
 
 ### Debug Log References
 
 ### Completion Notes List
 
+- Authored `src/content/docs/discovery/requirements-workshops.md`. Workshop framed as decision-producing session, not discovery in disguise. Four decision categories named (scope, priority, constraint, open-question). Pre-read 48h, time-boxed agenda, in-session decision capture, parking-lot all covered concretely. Four anti-patterns named: status-update, kitchen-sink, facilitator-as-stakeholder, verbal-sign-off. Industry section contrasts single-vs-series, in-person-vs-remote, consensus-vs-decision-maker styles. Frontmatter order corrected from 2 to 3.
+
 ### File List
+
+- src/content/docs/discovery/requirements-workshops.md (modified)
+
+### Change Log
+
+- 2026-05-03: Authored Requirements Workshops (Story 3.3)
