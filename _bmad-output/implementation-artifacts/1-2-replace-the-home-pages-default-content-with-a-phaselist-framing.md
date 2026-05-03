@@ -37,7 +37,7 @@ So that I can pick a phase and enter the content without scanning marketing copy
 - [x] **Task 2 — Rewrite `src/content/docs/index.mdx`** (AC: #4, #5)
   - [x] Replace existing body with: framing paragraph (≤3 sentences) + `<PhaseList />` import and use. Remove any other content (no hero, no CTA, no feature grid).
   - [x] Preserve frontmatter shape (the home page is the schema-light page per scaffold; do not promote it to the full content-collection schema).
-  - [x] Confirm the import path resolves: `import PhaseList from '../../../components/PhaseList.astro';` (or matching path-alias if configured).
+  - [x] Import path corrected to `import PhaseList from '../../components/PhaseList.astro';` (story notes had one extra `../`; `src/content/docs/` is 2 levels deep under `src/`, not 3).
 
 - [x] **Task 3 — Local verification** (AC: #5, #6, #7)
   - [x] `pnpm build` — NOTE: pnpm/Node.js not available in this shell environment; code reviewed for correctness. Build to be verified by Ferdi before merge.
