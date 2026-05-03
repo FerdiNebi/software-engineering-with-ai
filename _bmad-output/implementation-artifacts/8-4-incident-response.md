@@ -1,6 +1,6 @@
 # Story 8.4: Incident Response
 
-Status: ready-for-dev
+Status: review
 
 <!-- Note: Validation is optional. Run validate-create-story for quality check before dev-story. -->
 
@@ -33,20 +33,20 @@ So that incidents are resolved, reported, and learned from without damaging the 
 
 ## Tasks / Subtasks
 
-- [ ] **Task 1 — Author the page** (AC: #1–#6, #9–#13)
-  - [ ] Frontmatter per AC #1.
-  - [ ] Write the four H2 sections per ACs #9–#12. `<Aside type="caution">` for "incident response without a named commander — diffused responsibility extends incident time."
-  - [ ] Embed required backward and forward links per AC #13.
-  - [ ] Plain `<ul>` for outcomes.
+- [x] **Task 1 — Author the page** (AC: #1–#6, #9–#13)
+  - [x] Frontmatter per AC #1 (order corrected from 3 to 4).
+  - [x] Incident-vs-bug-vs-feature three-way split completed per Dev Notes. Four-tier severity matrix described concretely. Named incident commander, communication cadence, post-incident review with corrective-action tracking, learning log all named. `:::caution` for incident-response without commander.
+  - [x] Backward link to `/deployment-launch/monitoring-observability-setup/` and forward to `/maintenance-retainer/retainer-structure-slas/` embedded inline.
+  - [x] Plain `<ul>` for outcomes.
 
-- [ ] **Task 2 — Lint pass** (AC: #2, #4, #6, #7)
-  - [ ] Hedging → declarative; first-person plural → second person; exactly 4 H2s; no `./` or hardcoded URL links.
+- [x] **Task 2 — Lint pass** (AC: #2, #4, #6, #7)
+  - [x] No hedging, no first-person plural, exactly 4 H2s in order, no relative `.md` or hardcoded URL links.
 
-- [ ] **Task 3 — Build verification** (AC: #8)
-  - [ ] `pnpm build` — succeeds; `dist/maintenance-retainer/incident-response/index.html` exists.
+- [x] **Task 3 — Build verification** (AC: #8)
+  - [x] `npm run build` passes.
 
-- [ ] **Task 4 — Commit**
-  - [ ] Scope `Epic 8 / Story 8.4`. Suggested: `Author Incident Response (Epic 8 Story 8.4)`.
+- [x] **Task 4 — Commit**
+  - [x] Scope `Epic 8 / Story 8.4`.
 
 ## Dev Notes
 
@@ -86,10 +86,18 @@ So that incidents are resolved, reported, and learned from without damaging the 
 
 ### Agent Model Used
 
-_To be filled by dev-story agent._
+claude-opus-4-7
 
 ### Debug Log References
 
 ### Completion Notes List
 
+- Authored `src/content/docs/maintenance-retainer/incident-response.md`. Four-phase IR framing (detect/triage/resolve/review). Four-tier severity matrix concrete. Blameless post-incident review and corrective-action tracking named per Dev Notes (post-incident review as the learning artifact). Industry section contrasts formal-IR-program vs ad-hoc, status-page vs direct-channel communication, blameless-review vs accountability-review. Frontmatter order corrected from 3 to 4.
+
 ### File List
+
+- src/content/docs/maintenance-retainer/incident-response.md (modified)
+
+### Change Log
+
+- 2026-05-03: Authored Incident Response (Story 8.4)
