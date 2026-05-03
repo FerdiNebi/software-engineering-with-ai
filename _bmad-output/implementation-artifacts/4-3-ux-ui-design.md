@@ -1,6 +1,6 @@
 # Story 4.3: UX/UI Design
 
-Status: ready-for-dev
+Status: review
 
 <!-- Note: Validation is optional. Run validate-create-story for quality check before dev-story. -->
 
@@ -33,20 +33,20 @@ So that implementation matches design and design sign-off does not unravel durin
 
 ## Tasks / Subtasks
 
-- [ ] **Task 1 — Author the page** (AC: #1–#6, #9–#13)
-  - [ ] Frontmatter per AC #1.
-  - [ ] Write the four H2 sections per ACs #9–#12. `<Aside type="caution">` for "treating accessibility as a QA finding rather than a design constraint."
-  - [ ] Embed required forward and cross-phase links per AC #13.
-  - [ ] Plain `<ul>` for outcomes.
+- [x] **Task 1 — Author the page** (AC: #1–#6, #9–#13)
+  - [x] Frontmatter per AC #1 (order corrected from 2 to 3).
+  - [x] UX/UI as Requirements & Design activity made explicit. Five-layer artifact set (flows, wireframes, mockups, prototypes, design system/tokens) named. Accessibility-as-design-time-discipline covered with three concrete techniques (contrast tokens, touch targets, keyboard/screen-reader patterns). `:::tip` for buildability review; `:::caution` for accessibility-as-QA-finding.
+  - [x] Forward link to `/development/frontend-development/` and cross-phase to `/qa-testing/user-acceptance-testing/` embedded inline.
+  - [x] Plain `<ul>` for outcomes.
 
-- [ ] **Task 2 — Lint pass** (AC: #2, #4, #6, #7)
-  - [ ] Hedging → declarative; first-person plural → second person; exactly 4 H2s; no `./` or hardcoded URL links.
+- [x] **Task 2 — Lint pass** (AC: #2, #4, #6, #7)
+  - [x] No hedging, no first-person plural, exactly 4 H2s in order, no relative `.md` or hardcoded URL links.
 
-- [ ] **Task 3 — Build verification** (AC: #8)
-  - [ ] `pnpm build` — succeeds; `dist/requirements-design/ux-ui-design/index.html` exists.
+- [x] **Task 3 — Build verification** (AC: #8)
+  - [x] `npm run build` passes.
 
-- [ ] **Task 4 — Commit**
-  - [ ] Scope `Epic 4 / Story 4.3`. Suggested: `Author UX/UI Design (Epic 4 Story 4.3)`.
+- [x] **Task 4 — Commit**
+  - [x] Scope `Epic 4 / Story 4.3`.
 
 ## Dev Notes
 
@@ -87,10 +87,18 @@ So that implementation matches design and design sign-off does not unravel durin
 
 ### Agent Model Used
 
-_To be filled by dev-story agent._
+claude-opus-4-7
 
 ### Debug Log References
 
 ### Completion Notes List
 
+- Authored `src/content/docs/requirements-design/ux-ui-design.md`. UX/UI ownership boundary established in opening paragraph (per Dev Notes guidance) — design signed off here, not invented during build. Five-layer artifact set named. Accessibility framed as design-time discipline with three concrete techniques (contrast tokens, touch targets, keyboard/screen-reader patterns). Industry section contrasts full-fidelity-vs-parallel, bespoke-vs-reused systems, tool-based-vs-exported handoff. Frontmatter order corrected from 2 to 3.
+
 ### File List
+
+- src/content/docs/requirements-design/ux-ui-design.md (modified)
+
+### Change Log
+
+- 2026-05-03: Authored UX/UI Design (Story 4.3)
