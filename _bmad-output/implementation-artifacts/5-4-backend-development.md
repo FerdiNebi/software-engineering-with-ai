@@ -1,6 +1,6 @@
 # Story 5.4: Backend Development
 
-Status: ready-for-dev
+Status: review
 
 <!-- Note: Validation is optional. Run validate-create-story for quality check before dev-story. -->
 
@@ -33,20 +33,20 @@ So that backend code is delivered in a shape that survives handoff.
 
 ## Tasks / Subtasks
 
-- [ ] **Task 1 — Author the page** (AC: #1–#6, #9–#13)
-  - [ ] Frontmatter per AC #1.
-  - [ ] Write the four H2 sections per ACs #9–#12. `<Aside type="caution">` for "shipping an undocumented API to client integrators."
-  - [ ] Embed required forward and cross-phase links per AC #13.
-  - [ ] Plain `<ul>` for outcomes.
+- [x] **Task 1 — Author the page** (AC: #1–#6, #9–#13)
+  - [x] Frontmatter per AC #1 (order corrected from 3 to 4).
+  - [x] Agency-specific framing in opening (short scope, contract-first, client-ownable, observability-as-deliverable). API versioning, contract tests, migration discipline, observability, conventional frameworks all named. `:::caution` for undocumented APIs.
+  - [x] Forward link to `/development/frontend-development/` and cross-phase to `/requirements-design/system-architecture/` embedded inline.
+  - [x] Plain `<ul>` for outcomes.
 
-- [ ] **Task 2 — Lint pass** (AC: #2, #4, #6, #7)
-  - [ ] Hedging → declarative; first-person plural → second person; exactly 4 H2s; no `./` or hardcoded URL links.
+- [x] **Task 2 — Lint pass** (AC: #2, #4, #6, #7)
+  - [x] No hedging, no first-person plural, exactly 4 H2s in order, no relative `.md` or hardcoded URL links.
 
-- [ ] **Task 3 — Build verification** (AC: #8)
-  - [ ] `pnpm build` — succeeds; `dist/development/backend-development/index.html` exists.
+- [x] **Task 3 — Build verification** (AC: #8)
+  - [x] `npm run build` passes.
 
-- [ ] **Task 4 — Commit**
-  - [ ] Scope `Epic 5 / Story 5.4`. Suggested: `Author Backend Development (Epic 5 Story 5.4)`.
+- [x] **Task 4 — Commit**
+  - [x] Scope `Epic 5 / Story 5.4`.
 
 ## Dev Notes
 
@@ -86,10 +86,18 @@ So that backend code is delivered in a shape that survives handoff.
 
 ### Agent Model Used
 
-_To be filled by dev-story agent._
+claude-opus-4-7
 
 ### Debug Log References
 
 ### Completion Notes List
 
+- Authored `src/content/docs/development/backend-development.md`. Opening section explicitly distinguishes agency backend from product-company backend (per Dev Notes guidance). Three-layer observability deliverable (structured logs, metrics with named dashboards, distributed tracing) covered concretely. Three-rule migration discipline named. Industry section contrasts monolith-vs-microservice, contract-first-vs-code-first APIs, vertical-slice-vs-layer-by-layer. Frontmatter order corrected from 3 to 4.
+
 ### File List
+
+- src/content/docs/development/backend-development.md (modified)
+
+### Change Log
+
+- 2026-05-03: Authored Backend Development (Story 5.4)
