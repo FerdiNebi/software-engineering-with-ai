@@ -1,0 +1,107 @@
+---
+const phases = [
+  {
+    number: 1,
+    slug: 'pre-sales',
+    title: 'Pre-Sales & Business Development',
+    oneLiner: 'How agency engagements begin: qualifying leads, writing proposals, drafting SOWs, pricing.',
+  },
+  {
+    number: 2,
+    slug: 'discovery',
+    title: 'Discovery',
+    oneLiner: 'Stakeholder interviews, workshops, prototypes, and the sign-off that closes discovery.',
+  },
+  {
+    number: 3,
+    slug: 'requirements-design',
+    title: 'Requirements & Design',
+    oneLiner: 'Convert discovery output into FR/NFRs, UX, architecture, and infra plans.',
+  },
+  {
+    number: 4,
+    slug: 'development',
+    title: 'Development',
+    oneLiner: 'Repos, CI/CD, backend, frontend, testing, review, security, performance, docs.',
+  },
+  {
+    number: 5,
+    slug: 'qa-testing',
+    title: 'QA / Testing',
+    oneLiner: 'Test strategy, functional/regression, performance, security, and UAT.',
+  },
+  {
+    number: 6,
+    slug: 'deployment-launch',
+    title: 'Deployment / Launch',
+    oneLiner: 'Provision, deploy, smoke, monitor, and hand off the live system.',
+  },
+  {
+    number: 7,
+    slug: 'maintenance-retainer',
+    title: 'Maintenance & Retainer',
+    oneLiner: 'Patch management, feature iteration, incident response, retainers and SLAs.',
+  },
+];
+---
+<ol class="phase-list">
+  {phases.map(p => (
+    <li>
+      <a href={`/${p.slug}/`}>
+        <span class="phase-number">{p.number}.</span>
+        <span class="phase-title">{p.title}</span>
+        <span class="phase-oneliner">{p.oneLiner}</span>
+      </a>
+    </li>
+  ))}
+</ol>
+
+<style>
+  .phase-list {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+  }
+
+  .phase-list li {
+    margin-bottom: 0.75rem;
+  }
+
+  .phase-list a {
+    display: grid;
+    grid-template-columns: 2rem 1fr;
+    grid-template-rows: auto auto;
+    gap: 0 0.5rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 0.375rem;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.15s ease;
+  }
+
+  .phase-list a:hover {
+    border-color: var(--sl-color-accent);
+  }
+
+  .phase-number {
+    grid-row: 1 / 3;
+    font-weight: 700;
+    color: var(--sl-color-accent);
+    font-size: 1.1rem;
+    line-height: 1.4;
+  }
+
+  .phase-title {
+    font-weight: 600;
+    color: var(--sl-color-text);
+    line-height: 1.4;
+  }
+
+  .phase-oneliner {
+    grid-column: 2;
+    font-size: 0.875rem;
+    color: var(--sl-color-gray-2);
+    line-height: 1.4;
+  }
+</style>

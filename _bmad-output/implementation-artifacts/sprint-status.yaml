@@ -45,7 +45,7 @@ development_status:
   # Epic 1: Home-page Lifecycle Framing
   epic-1: in-progress
   1-1-number-the-phase-labels-in-the-sidebar: done
-  1-2-replace-the-home-pages-default-content-with-a-phaselist-framing: ready-for-dev
+  1-2-replace-the-home-pages-default-content-with-a-phaselist-framing: review
   1-3-set-a-single-muted-accent-color-for-the-site: ready-for-dev
   epic-1-retrospective: optional
 
