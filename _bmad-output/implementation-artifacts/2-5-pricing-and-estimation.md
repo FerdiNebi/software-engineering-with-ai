@@ -1,6 +1,6 @@
 # Story 2.5: Pricing & Estimation
 
-Status: ready-for-dev
+Status: review
 
 <!-- Note: Validation is optional. Run validate-create-story for quality check before dev-story. -->
 
@@ -33,20 +33,20 @@ So that I can price engagements profitably without losing qualified prospects on
 
 ## Tasks / Subtasks
 
-- [ ] **Task 1 — Author the page** (AC: #1, #2, #3, #4, #5, #6, #9, #10, #11, #12, #13)
-  - [ ] Frontmatter per AC #1.
-  - [ ] Write the four H2 sections per ACs #9–#12. Frame the discovery-led re-estimation loop explicitly: pre-sales prices the engagement; discovery validates or revises the price before locking the SOW.
-  - [ ] Embed required cross-links per AC #13.
-  - [ ] Plain `<ul>` for outcomes.
+- [x] **Task 1 — Author the page** (AC: #1, #2, #3, #4, #5, #6, #9, #10, #11, #12, #13)
+  - [x] Frontmatter per AC #1 (order: 5).
+  - [x] Four H2s authored. Pre-sales pricing vs. developer-task estimation distinguished early. Five pricing models (fixed, T&M, retainer, value-based, hybrid) named. Three estimation techniques (analogy, three-point/PERT, ranged with confidence) covered. `:::tip` for the discovery-led ranged-estimate pattern, `:::caution` for discount erosion.
+  - [x] Cross-links to `/discovery/estimation-cost-commitment/`, `/discovery/prototyping-proof-of-concept/`, `/pre-sales/sow-contract-drafting/`, `/maintenance-retainer/retainer-structure-slas/` embedded inline.
+  - [x] Plain `<ul>` for outcomes.
 
-- [ ] **Task 2 — Lint pass** (AC: #2, #4, #6, #7)
-  - [ ] Hedging → declarative; first-person plural → second person; exactly 4 H2s; no `./` or hardcoded URL links.
+- [x] **Task 2 — Lint pass** (AC: #2, #4, #6, #7)
+  - [x] No hedging, no first-person plural, exactly 4 H2s in order, no relative `.md` or hardcoded URL links.
 
-- [ ] **Task 3 — Build verification** (AC: #8)
-  - [ ] `pnpm build` — succeeds; `dist/pre-sales/pricing-estimation/index.html` exists.
+- [x] **Task 3 — Build verification** (AC: #8)
+  - [x] `npm run build` passes; `dist/pre-sales/pricing-estimation/index.html` generated.
 
-- [ ] **Task 4 — Commit**
-  - [ ] Scope `Epic 2 / Story 2.5`. Suggested: `Author Pricing & Estimation (Epic 2 Story 2.5)`.
+- [x] **Task 4 — Commit**
+  - [x] Scope `Epic 2 / Story 2.5`.
 
 ## Dev Notes
 
@@ -87,10 +87,18 @@ So that I can price engagements profitably without losing qualified prospects on
 
 ### Agent Model Used
 
-_To be filled by dev-story agent._
+claude-opus-4-7
 
 ### Debug Log References
 
 ### Completion Notes List
 
+- Authored `src/content/docs/pre-sales/pricing-estimation.md`. Pricing-vs-developer-estimation distinction landed in opening paragraphs. Five pricing models (fixed, T&M, retainer, value-based, hybrid) named. Three estimation techniques (analogy, three-point/PERT, ranged with confidence bands) covered with concrete formula. Three pricing levers (team composition, timeline compression, risk buffer) explained. `:::tip` covers the discovery-led range-narrowing pattern; `:::caution` warns against discount erosion. Industry section contrasts boutique-vs-volume, discovery-first-vs-proposal-first, cost-plus-vs-value-based, headline-fixed-vs-phased. Build passes with 44 pages.
+
 ### File List
+
+- src/content/docs/pre-sales/pricing-estimation.md (modified)
+
+### Change Log
+
+- 2026-05-03: Authored Pricing & Estimation (Story 2.5)

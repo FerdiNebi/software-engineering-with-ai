@@ -35,7 +35,7 @@
 # - Dev moves story to 'review', then runs code-review (fresh context, different LLM recommended)
 
 generated: 2026-05-01
-last_updated: 2026-05-01
+last_updated: 2026-05-03
 project: Software Development with AI
 project_key: NOKEY
 tracking_system: file-system
@@ -55,7 +55,7 @@ development_status:
   2-2-lead-qualification-and-scoping-calls: review
   2-3-proposal-writing: review
   2-4-sow-and-contract-drafting: review
-  2-5-pricing-and-estimation: ready-for-dev
+  2-5-pricing-and-estimation: review
   epic-2-retrospective: optional
 
   # Epic 3: Discovery Content
