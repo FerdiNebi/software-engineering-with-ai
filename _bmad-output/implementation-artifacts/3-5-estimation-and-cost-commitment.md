@@ -1,6 +1,6 @@
 # Story 3.5: Estimation & Cost Commitment
 
-Status: ready-for-dev
+Status: review
 
 <!-- Note: Validation is optional. Run validate-create-story for quality check before dev-story. -->
 
@@ -33,20 +33,20 @@ So that the estimate is defensible, the client is informed, and commitment is ma
 
 ## Tasks / Subtasks
 
-- [ ] **Task 1 — Author the page** (AC: #1–#6, #9–#13)
-  - [ ] Frontmatter per AC #1.
-  - [ ] Write the four H2 sections per ACs #9–#12. `<Aside type="caution">` for "estimation that ignores prototype findings."
-  - [ ] Embed required backward and forward links per AC #13.
-  - [ ] Plain `<ul>` for outcomes.
+- [x] **Task 1 — Author the page** (AC: #1–#6, #9–#13)
+  - [x] Frontmatter per AC #1 (order corrected from 4 to 5).
+  - [x] Three-tier estimation model (pre-sales pricing / discovery estimation / developer-task estimation) made explicit. Four re-estimation outcomes (confirmed/raised/lowered/scope-adjusted) named. Bottom-up, reference-class forecasting, ranges with confidence, sizing against prototype findings all covered. `:::tip` for reconciliation document; `:::caution` for ignoring prototype findings.
+  - [x] Backward link to `/pre-sales/pricing-estimation/` and forward to `/discovery/discovery-deliverables-signoff/` embedded inline.
+  - [x] Plain `<ul>` for outcomes.
 
-- [ ] **Task 2 — Lint pass** (AC: #2, #4, #6, #7)
-  - [ ] Hedging → declarative; first-person plural → second person; exactly 4 H2s; no `./` or hardcoded URL links.
+- [x] **Task 2 — Lint pass** (AC: #2, #4, #6, #7)
+  - [x] No hedging, no first-person plural, exactly 4 H2s in order, no relative `.md` or hardcoded URL links.
 
-- [ ] **Task 3 — Build verification** (AC: #8)
-  - [ ] `pnpm build` — succeeds; `dist/discovery/estimation-cost-commitment/index.html` exists.
+- [x] **Task 3 — Build verification** (AC: #8)
+  - [x] `npm run build` passes.
 
-- [ ] **Task 4 — Commit**
-  - [ ] Scope `Epic 3 / Story 3.5`. Suggested: `Author Estimation & Cost Commitment (Epic 3 Story 3.5)`.
+- [x] **Task 4 — Commit**
+  - [x] Scope `Epic 3 / Story 3.5`.
 
 ## Dev Notes
 
@@ -92,10 +92,18 @@ State the three-tier model explicitly in `## What happens here`.
 
 ### Agent Model Used
 
-_To be filled by dev-story agent._
+claude-opus-4-7
 
 ### Debug Log References
 
 ### Completion Notes List
 
+- Authored `src/content/docs/discovery/estimation-cost-commitment.md`. Three-tier estimation model made explicit. Four re-estimation outcomes named with practitioner-grade descriptions. Renegotiation conversation framed honestly per Dev Notes guidance. `:::tip` for reconciliation document; `:::caution` for estimates that ignore prototype findings. Three anti-patterns named (defensive, optimistic, hold-the-price). Industry section contrasts re-price-freely-vs-hold-the-number, bottom-up-vs-analogy-only, heavyweight-vs-lightweight estimate documents. Frontmatter order corrected from 4 to 5.
+
 ### File List
+
+- src/content/docs/discovery/estimation-cost-commitment.md (modified)
+
+### Change Log
+
+- 2026-05-03: Authored Estimation & Cost Commitment (Story 3.5)
