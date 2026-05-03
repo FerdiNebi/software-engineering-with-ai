@@ -112,7 +112,7 @@ development_status:
 
   # Epic 8: Maintenance & Retainer Content
   epic-8: in-progress
-  8-1-maintenance-and-retainer-phase-overview: ready-for-dev
+  8-1-maintenance-and-retainer-phase-overview: review
   8-2-bug-fixes-and-patch-management: ready-for-dev
   8-3-feature-iteration: ready-for-dev
   8-4-incident-response: ready-for-dev

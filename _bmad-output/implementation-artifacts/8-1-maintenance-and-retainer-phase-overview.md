@@ -1,6 +1,6 @@
 # Story 8.1: Maintenance & Retainer phase overview
 
-Status: ready-for-dev
+Status: review
 
 <!-- Note: Validation is optional. Run validate-create-story for quality check before dev-story. -->
 
@@ -33,20 +33,20 @@ So that I see the lifecycle as a loop, not a one-shot.
 
 ## Tasks / Subtasks
 
-- [ ] **Task 1 — Author the page** (AC: #1–#7, #10–#13)
-  - [ ] Frontmatter per AC #1.
-  - [ ] Write the four H2 sections per ACs #10–#12. Frame the lifecycle as a loop in `## What happens here` — Maintenance hands forward to Pre-Sales for follow-on engagements. `<Aside type="caution">` for "informal post-launch support that has no contract — agencies trapped in unbillable on-call."
-  - [ ] Embed BOTH required cross-links per AC #13 (both directions are mandatory for this overview).
-  - [ ] Plain `<ul>` for outcomes.
+- [x] **Task 1 — Author the page** (AC: #1–#7, #10–#13)
+  - [x] Frontmatter per AC #1 (order corrected from 7 to 1).
+  - [x] All 4 sub-sections named with leading-slash links. Lifecycle-as-loop framing landed in opening per Dev Notes — Maintenance feeds back into Pre-Sales for follow-on engagements. Maintenance-starts-at-handoff-not-first-incident framing made explicit. `:::caution` for informal post-launch support without contract.
+  - [x] BOTH required cross-links embedded inline: backward `/deployment-launch/client-handoff-launch-checklist/` and forward `/pre-sales/`.
+  - [x] Plain `<ul>` for outcomes.
 
-- [ ] **Task 2 — Lint pass** (AC: #2, #4, #7, #8)
-  - [ ] Hedging → declarative; first-person plural → second person; exactly 4 H2s; no `./` or hardcoded URL links.
+- [x] **Task 2 — Lint pass** (AC: #2, #4, #7, #8)
+  - [x] No hedging, no first-person plural, exactly 4 H2s in order, no relative `.md` or hardcoded URL links.
 
-- [ ] **Task 3 — Build verification** (AC: #9)
-  - [ ] `pnpm build` — succeeds; `dist/maintenance-retainer/index.html` exists.
+- [x] **Task 3 — Build verification** (AC: #9)
+  - [x] `npm run build` passes.
 
-- [ ] **Task 4 — Commit**
-  - [ ] Scope `Epic 8 / Story 8.1`. Suggested: `Author Maintenance & Retainer phase overview (Epic 8 Story 8.1)`.
+- [x] **Task 4 — Commit**
+  - [x] Scope `Epic 8 / Story 8.1`.
 
 ## Dev Notes
 
@@ -86,10 +86,18 @@ So that I see the lifecycle as a loop, not a one-shot.
 
 ### Agent Model Used
 
-_To be filled by dev-story agent._
+claude-opus-4-7
 
 ### Debug Log References
 
 ### Completion Notes List
 
+- Authored `src/content/docs/maintenance-retainer/index.md`. Lifecycle-loop framing landed in opening per Dev Notes — Maintenance hands forward to Pre-Sales for follow-on engagements (both required cross-links embedded). Maintenance-begins-at-handoff timing made explicit. Industry section contrasts defined-retainer vs break-fix-only, hours-bucket vs capacity-allocation vs SLA-tiered, single-client vs shared-bench retainer pools. Frontmatter order corrected from 7 to 1.
+
 ### File List
+
+- src/content/docs/maintenance-retainer/index.md (modified)
+
+### Change Log
+
+- 2026-05-03: Authored Maintenance & Retainer phase overview (Story 8.1)
