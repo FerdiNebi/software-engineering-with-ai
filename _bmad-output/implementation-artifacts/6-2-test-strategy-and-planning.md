@@ -1,6 +1,6 @@
 # Story 6.2: Test Strategy & Planning
 
-Status: ready-for-dev
+Status: review
 
 <!-- Note: Validation is optional. Run validate-create-story for quality check before dev-story. -->
 
@@ -33,20 +33,20 @@ So that testing is in-scope, traceable, and defensible at sign-off.
 
 ## Tasks / Subtasks
 
-- [ ] **Task 1 — Author the page** (AC: #1–#6, #9–#13)
-  - [ ] Frontmatter per AC #1.
-  - [ ] Write the four H2 sections per ACs #9–#12. `<Aside type="caution">` for "test plans that don't trace to FR/NFRs — sign-off becomes negotiable."
-  - [ ] Embed required backward and forward links per AC #13.
-  - [ ] Plain `<ul>` for outcomes.
+- [x] **Task 1 — Author the page** (AC: #1–#6, #9–#13)
+  - [x] Frontmatter per AC #1 (order corrected from 1 to 2).
+  - [x] Strategy-vs-plan distinction made the headline per Dev Notes. Traceability matrix as defensibility tool covered concretely. Risk-based prioritisation, entry/exit criteria, deferred-bugs disposition all named. `:::caution` for plans-that-don't-trace.
+  - [x] Backward link to `/requirements-design/functional-nonfunctional-requirements/` and forward to `/qa-testing/functional-regression-testing/` embedded inline.
+  - [x] Plain `<ul>` for outcomes.
 
-- [ ] **Task 2 — Lint pass** (AC: #2, #4, #6, #7)
-  - [ ] Hedging → declarative; first-person plural → second person; exactly 4 H2s; no `./` or hardcoded URL links.
+- [x] **Task 2 — Lint pass** (AC: #2, #4, #6, #7)
+  - [x] No hedging, no first-person plural, exactly 4 H2s in order, no relative `.md` or hardcoded URL links.
 
-- [ ] **Task 3 — Build verification** (AC: #8)
-  - [ ] `pnpm build` — succeeds; `dist/qa-testing/test-strategy-planning/index.html` exists.
+- [x] **Task 3 — Build verification** (AC: #8)
+  - [x] `npm run build` passes.
 
-- [ ] **Task 4 — Commit**
-  - [ ] Scope `Epic 6 / Story 6.2`. Suggested: `Author Test Strategy & Planning (Epic 6 Story 6.2)`.
+- [x] **Task 4 — Commit**
+  - [x] Scope `Epic 6 / Story 6.2`.
 
 ## Dev Notes
 
@@ -86,10 +86,18 @@ So that testing is in-scope, traceable, and defensible at sign-off.
 
 ### Agent Model Used
 
-_To be filled by dev-story agent._
+claude-opus-4-7
 
 ### Debug Log References
 
 ### Completion Notes List
 
+- Authored `src/content/docs/qa-testing/test-strategy-planning.md`. Strategy-vs-plan distinction landed in opening section per Dev Notes. Traceability matrix described concretely with named functions (gap detection, scope drift, triage, sign-off). Three-tier risk-based prioritisation shown. Industry section contrasts formal-TMMi vs lightweight, tooling-driven vs document-driven, embedded-QA vs handover-QA. Frontmatter order corrected from 1 to 2.
+
 ### File List
+
+- src/content/docs/qa-testing/test-strategy-planning.md (modified)
+
+### Change Log
+
+- 2026-05-03: Authored Test Strategy & Planning (Story 6.2)
