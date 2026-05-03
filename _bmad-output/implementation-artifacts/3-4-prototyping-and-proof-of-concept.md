@@ -1,6 +1,6 @@
 # Story 3.4: Prototyping & Proof of Concept
 
-Status: ready-for-dev
+Status: review
 
 <!-- Note: Validation is optional. Run validate-create-story for quality check before dev-story. -->
 
@@ -33,20 +33,20 @@ So that I surface unknowns before they become fixed-price commitments.
 
 ## Tasks / Subtasks
 
-- [ ] **Task 1 — Author the page** (AC: #1–#6, #9–#13)
-  - [ ] Frontmatter per AC #1.
-  - [ ] Write the four H2 sections per ACs #9–#12. `<Aside type="caution">` for "the most common POC anti-pattern: using it as the start of production code."
-  - [ ] Embed forward link per AC #13.
-  - [ ] Plain `<ul>` for outcomes.
+- [x] **Task 1 — Author the page** (AC: #1–#6, #9–#13)
+  - [x] Frontmatter per AC #1 (order corrected from 3 to 4).
+  - [x] Prototype-vs-POC distinction made explicit. Time-box, narrow scope, write-the-question-first, throw-away posture, written findings all named. `:::tip` for ≥3 user testers; `:::caution` for productionizing POC code.
+  - [x] Forward link to `/discovery/estimation-cost-commitment/` embedded inline.
+  - [x] Plain `<ul>` for outcomes.
 
-- [ ] **Task 2 — Lint pass** (AC: #2, #4, #6, #7)
-  - [ ] Hedging → declarative; first-person plural → second person; exactly 4 H2s; no `./` or hardcoded URL links.
+- [x] **Task 2 — Lint pass** (AC: #2, #4, #6, #7)
+  - [x] No hedging, no first-person plural, exactly 4 H2s in order, no relative `.md` or hardcoded URL links.
 
-- [ ] **Task 3 — Build verification** (AC: #8)
-  - [ ] `pnpm build` — succeeds; `dist/discovery/prototyping-proof-of-concept/index.html` exists.
+- [x] **Task 3 — Build verification** (AC: #8)
+  - [x] `npm run build` passes.
 
-- [ ] **Task 4 — Commit**
-  - [ ] Scope `Epic 3 / Story 3.4`. Suggested: `Author Prototyping & Proof of Concept (Epic 3 Story 3.4)`.
+- [x] **Task 4 — Commit**
+  - [x] Scope `Epic 3 / Story 3.4`.
 
 ## Dev Notes
 
@@ -86,10 +86,18 @@ So that I surface unknowns before they become fixed-price commitments.
 
 ### Agent Model Used
 
-_To be filled by dev-story agent._
+claude-opus-4-7
 
 ### Debug Log References
 
 ### Completion Notes List
 
+- Authored `src/content/docs/discovery/prototyping-proof-of-concept.md`. Prototype (UX) vs POC (technical) cleanly distinguished. Five practices named (write-question-first, time-box strictly, scope to riskiest unknown, throw-away posture, document findings). `:::tip` for external user testing; `:::caution` for productionizing POC code (the most common discovery-to-build trap). Three anti-patterns named (POC-becomes-MVP, infinite spike, POC-by-committee). Industry section contrasts time-boxed-vs-full-fidelity, disposable-vs-stepping-stone, internal-only-vs-user-tested. Frontmatter order corrected from 3 to 4.
+
 ### File List
+
+- src/content/docs/discovery/prototyping-proof-of-concept.md (modified)
+
+### Change Log
+
+- 2026-05-03: Authored Prototyping & Proof of Concept (Story 3.4)
