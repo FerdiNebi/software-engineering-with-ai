@@ -88,7 +88,7 @@ development_status:
   5-7-code-review: review
   5-8-secure-development-practices: review
   5-9-performance-engineering: review
-  5-10-technical-documentation: ready-for-dev
+  5-10-technical-documentation: review
   epic-5-retrospective: optional
 
   # Epic 6: QA / Testing Content

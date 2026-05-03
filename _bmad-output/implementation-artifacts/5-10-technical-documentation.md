@@ -1,6 +1,6 @@
 # Story 5.10: Technical Documentation
 
-Status: ready-for-dev
+Status: review
 
 <!-- Note: Validation is optional. Run validate-create-story for quality check before dev-story. -->
 
@@ -33,20 +33,20 @@ So that documentation is a real handoff deliverable, not a retrospective exercis
 
 ## Tasks / Subtasks
 
-- [ ] **Task 1 — Author the page** (AC: #1–#6, #9–#13)
-  - [ ] Frontmatter per AC #1.
-  - [ ] Write the four H2 sections per ACs #9–#12. `<Aside type="caution">` for "documentation written for the agency's own team, not for the client receiving the handoff."
-  - [ ] Embed required forward and cross-phase links per AC #13. Three cross-links here is the maximum the page should carry; don't add more.
-  - [ ] Plain `<ul>` for outcomes.
+- [x] **Task 1 — Author the page** (AC: #1–#6, #9–#13)
+  - [x] Frontmatter per AC #1 (order corrected from 9 to 10).
+  - [x] Handoff-deliverable framing made the headline. Five-artifact set named (architecture, API, runbook, onboarding, known-issues log). Reader-calibration, executable-documentation, last-updated discipline, deliberate-non-documentation choices all named per Dev Notes. `:::caution` for documentation-for-agency-team.
+  - [x] Cross-phase links to `/deployment-launch/client-handoff-launch-checklist/` and `/maintenance-retainer/` embedded inline (kept to two cross-phase links per Dev Notes guidance).
+  - [x] Plain `<ul>` for outcomes.
 
-- [ ] **Task 2 — Lint pass** (AC: #2, #4, #6, #7)
-  - [ ] Hedging → declarative; first-person plural → second person; exactly 4 H2s; no `./` or hardcoded URL links.
+- [x] **Task 2 — Lint pass** (AC: #2, #4, #6, #7)
+  - [x] No hedging, no first-person plural, exactly 4 H2s in order, no relative `.md` or hardcoded URL links.
 
-- [ ] **Task 3 — Build verification** (AC: #8)
-  - [ ] `pnpm build` — succeeds; `dist/development/technical-documentation/index.html` exists.
+- [x] **Task 3 — Build verification** (AC: #8)
+  - [x] `npm run build` passes.
 
-- [ ] **Task 4 — Commit**
-  - [ ] Scope `Epic 5 / Story 5.10`. Suggested: `Author Technical Documentation (Epic 5 Story 5.10)`.
+- [x] **Task 4 — Commit**
+  - [x] Scope `Epic 5 / Story 5.10`.
 
 ## Dev Notes
 
@@ -86,10 +86,18 @@ So that documentation is a real handoff deliverable, not a retrospective exercis
 
 ### Agent Model Used
 
-_To be filled by dev-story agent._
+claude-opus-4-7
 
 ### Debug Log References
 
 ### Completion Notes List
 
+- Authored `src/content/docs/development/technical-documentation.md`. Reader-calibration framed as the agency-specific skill per Dev Notes. Three executable-documentation classes named (running code samples, generated reference, tested runbook commands). Three categories of "deliberately do not document" listed (exhaustive hand-maintained API refs, step-by-step UI walkthroughs, internal team process docs). Industry section contrasts minimalist vs exhaustive, docs-as-code vs wiki-driven, generated-reference vs hand-written-reference cultures. Frontmatter order corrected from 9 to 10.
+
 ### File List
+
+- src/content/docs/development/technical-documentation.md (modified)
+
+### Change Log
+
+- 2026-05-03: Authored Technical Documentation (Story 5.10)
