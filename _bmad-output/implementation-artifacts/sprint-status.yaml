@@ -96,7 +96,7 @@ development_status:
   6-1-qa-testing-phase-overview: review
   6-2-test-strategy-and-planning: review
   6-3-functional-and-regression-testing: review
-  6-4-performance-testing: ready-for-dev
+  6-4-performance-testing: review
   6-5-security-testing: ready-for-dev
   6-6-user-acceptance-testing: ready-for-dev
   epic-6-retrospective: optional

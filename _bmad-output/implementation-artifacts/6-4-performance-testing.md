@@ -1,6 +1,6 @@
 # Story 6.4: Performance Testing
 
-Status: ready-for-dev
+Status: review
 
 <!-- Note: Validation is optional. Run validate-create-story for quality check before dev-story. -->
 
@@ -33,20 +33,20 @@ So that performance sign-off is defensible and does not surprise launch.
 
 ## Tasks / Subtasks
 
-- [ ] **Task 1 — Author the page** (AC: #1–#6, #9–#13)
-  - [ ] Frontmatter per AC #1.
-  - [ ] Write the four H2 sections per ACs #9–#12. `<Aside type="danger">` for "load-testing shared client infrastructure without written approval — this is the 'lose the client' anti-pattern" (use `danger` per UX-DR11 sparingly; this qualifies).
-  - [ ] Embed required backward and forward links per AC #13.
-  - [ ] Plain `<ul>` for outcomes.
+- [x] **Task 1 — Author the page** (AC: #1–#6, #9–#13)
+  - [x] Frontmatter per AC #1 (order corrected from 3 to 4).
+  - [x] Four test types (load/stress/soak/spike) named with NFR-question framing per Dev Notes. Environment parity, representative data, baseline-early, NFR-traceable reporting all named. `:::danger` for load-testing shared client infrastructure without written approval (qualifies under UX-DR11 "lose-the-client" reservation).
+  - [x] Backward link to `/development/performance-engineering/` and forward to `/qa-testing/security-testing/` embedded inline.
+  - [x] Plain `<ul>` for outcomes.
 
-- [ ] **Task 2 — Lint pass** (AC: #2, #4, #6, #7)
-  - [ ] Hedging → declarative; first-person plural → second person; exactly 4 H2s; no `./` or hardcoded URL links.
+- [x] **Task 2 — Lint pass** (AC: #2, #4, #6, #7)
+  - [x] No hedging, no first-person plural, exactly 4 H2s in order, no relative `.md` or hardcoded URL links.
 
-- [ ] **Task 3 — Build verification** (AC: #8)
-  - [ ] `pnpm build` — succeeds; `dist/qa-testing/performance-testing/index.html` exists.
+- [x] **Task 3 — Build verification** (AC: #8)
+  - [x] `npm run build` passes.
 
-- [ ] **Task 4 — Commit**
-  - [ ] Scope `Epic 6 / Story 6.4`. Suggested: `Author Performance Testing (Epic 6 Story 6.4)`.
+- [x] **Task 4 — Commit**
+  - [x] Scope `Epic 6 / Story 6.4`.
 
 ## Dev Notes
 
@@ -86,10 +86,18 @@ So that performance sign-off is defensible and does not surprise launch.
 
 ### Agent Model Used
 
-_To be filled by dev-story agent._
+claude-opus-4-7
 
 ### Debug Log References
 
 ### Completion Notes List
 
+- Authored `src/content/docs/qa-testing/performance-testing.md`. Four test types (load/stress/soak/spike) named with the NFR question each answers. `:::danger` Aside used (per UX-DR11 reservation) for load-testing-shared-client-infra. Industry section contrasts full-rig vs spot-check, cloud-load-service vs self-hosted, single-tester vs embedded-with-engineering. Frontmatter order corrected from 3 to 4.
+
 ### File List
+
+- src/content/docs/qa-testing/performance-testing.md (modified)
+
+### Change Log
+
+- 2026-05-03: Authored Performance Testing (Story 6.4)
