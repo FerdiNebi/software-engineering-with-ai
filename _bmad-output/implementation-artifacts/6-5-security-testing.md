@@ -1,6 +1,6 @@
 # Story 6.5: Security Testing
 
-Status: ready-for-dev
+Status: review
 
 <!-- Note: Validation is optional. Run validate-create-story for quality check before dev-story. -->
 
@@ -33,20 +33,20 @@ So that security sign-off is proportionate and findings do not block launch unre
 
 ## Tasks / Subtasks
 
-- [ ] **Task 1 — Author the page** (AC: #1–#6, #9–#13)
-  - [ ] Frontmatter per AC #1.
-  - [ ] Write the four H2 sections per ACs #9–#12. `<Aside type="caution">` for "treating SAST/DAST output as gospel — false positives are real and triage matters."
-  - [ ] Embed required backward and forward links per AC #13.
-  - [ ] Plain `<ul>` for outcomes.
+- [x] **Task 1 — Author the page** (AC: #1–#6, #9–#13)
+  - [x] Frontmatter per AC #1 (order corrected from 4 to 5).
+  - [x] Four-activity set named (SAST, DAST, dependency scanning, pen test). Risk-proportional framing per Dev Notes — pen test recommended for regulated clients, not for low-risk engagements. Triage with four dispositions (remediated/risk-accepted/false-positive/deferred). `:::caution` for treating scanner output as gospel.
+  - [x] Backward link to `/development/secure-development-practices/` and forward to `/qa-testing/user-acceptance-testing/` embedded inline.
+  - [x] Plain `<ul>` for outcomes.
 
-- [ ] **Task 2 — Lint pass** (AC: #2, #4, #6, #7)
-  - [ ] Hedging → declarative; first-person plural → second person; exactly 4 H2s; no `./` or hardcoded URL links.
+- [x] **Task 2 — Lint pass** (AC: #2, #4, #6, #7)
+  - [x] No hedging, no first-person plural, exactly 4 H2s in order, no relative `.md` or hardcoded URL links.
 
-- [ ] **Task 3 — Build verification** (AC: #8)
-  - [ ] `pnpm build` — succeeds; `dist/qa-testing/security-testing/index.html` exists.
+- [x] **Task 3 — Build verification** (AC: #8)
+  - [x] `npm run build` passes.
 
-- [ ] **Task 4 — Commit**
-  - [ ] Scope `Epic 6 / Story 6.5`. Suggested: `Author Security Testing (Epic 6 Story 6.5)`.
+- [x] **Task 4 — Commit**
+  - [x] Scope `Epic 6 / Story 6.5`.
 
 ## Dev Notes
 
@@ -86,10 +86,18 @@ So that security sign-off is proportionate and findings do not block launch unre
 
 ### Agent Model Used
 
-_To be filled by dev-story agent._
+claude-opus-4-7
 
 ### Debug Log References
 
 ### Completion Notes List
 
+- Authored `src/content/docs/qa-testing/security-testing.md`. Four-activity set with risk-proportional sizing per Dev Notes. Triage discipline named with four dispositions. Industry section contrasts in-house-only vs third-party-pentest, compliance-led vs threat-model-led, SAST-heavy vs DAST-heavy vs balanced portfolios. Frontmatter order corrected from 4 to 5.
+
 ### File List
+
+- src/content/docs/qa-testing/security-testing.md (modified)
+
+### Change Log
+
+- 2026-05-03: Authored Security Testing (Story 6.5)
