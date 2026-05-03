@@ -1,6 +1,6 @@
 # Story 5.1: Development phase overview
 
-Status: ready-for-dev
+Status: review
 
 <!-- Note: Validation is optional. Run validate-create-story for quality check before dev-story. -->
 
@@ -33,20 +33,20 @@ So that I understand what the phase covers before drilling into any one concern.
 
 ## Tasks / Subtasks
 
-- [ ] **Task 1 — Author the page** (AC: #1–#7, #10–#13)
-  - [ ] Frontmatter per AC #1.
-  - [ ] Write the four H2 sections per ACs #10–#12. Use the four-bucket framing in `## What happens here` so readers can locate any sub-section quickly. `<Aside type="caution">` for "treating documentation (5.10) as a write-it-after activity rather than a deliverable."
-  - [ ] Embed required forward and backward links per AC #13.
-  - [ ] Plain `<ul>` for outcomes.
+- [x] **Task 1 — Author the page** (AC: #1–#7, #10–#13)
+  - [x] Frontmatter per AC #1 (order corrected from 4 to 1).
+  - [x] Four-bucket grouping (plumbing/build/quality-in-dev/lifecycle) used in `## What happens here` with all 9 sub-sections named and linked. `:::tip` for Day-1 onboarding speed; `:::caution` for treating documentation as write-it-after.
+  - [x] Forward link to `/qa-testing/` and backward to `/requirements-design/` embedded inline.
+  - [x] Plain `<ul>` for outcomes.
 
-- [ ] **Task 2 — Lint pass** (AC: #2, #4, #7, #8)
-  - [ ] Hedging → declarative; first-person plural → second person; exactly 4 H2s; no `./` or hardcoded URL links.
+- [x] **Task 2 — Lint pass** (AC: #2, #4, #7, #8)
+  - [x] No hedging, no first-person plural, exactly 4 H2s in order, no relative `.md` or hardcoded URL links.
 
-- [ ] **Task 3 — Build verification** (AC: #9)
-  - [ ] `pnpm build` — succeeds; `dist/development/index.html` exists.
+- [x] **Task 3 — Build verification** (AC: #9)
+  - [x] `npm run build` passes.
 
-- [ ] **Task 4 — Commit**
-  - [ ] Scope `Epic 5 / Story 5.1`. Suggested: `Author Development phase overview (Epic 5 Story 5.1)`.
+- [x] **Task 4 — Commit**
+  - [x] Scope `Epic 5 / Story 5.1`.
 
 ## Dev Notes
 
@@ -86,10 +86,18 @@ So that I understand what the phase covers before drilling into any one concern.
 
 ### Agent Model Used
 
-_To be filled by dev-story agent._
+claude-opus-4-7
 
 ### Debug Log References
 
 ### Completion Notes List
 
+- Authored `src/content/docs/development/index.md`. Four-bucket grouping (plumbing/build/quality-in-dev/lifecycle) used as primary scaffold per Dev Notes. All 9 sub-sections named with leading-slash links. Industry section contrasts feature-factory vs high-craft, TDD-strict vs test-as-you-go vs test-after, trunk-based vs GitFlow. Frontmatter order corrected from 4 to 1.
+
 ### File List
+
+- src/content/docs/development/index.md (modified)
+
+### Change Log
+
+- 2026-05-03: Authored Development phase overview (Story 5.1)
