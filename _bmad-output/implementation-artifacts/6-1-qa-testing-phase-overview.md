@@ -1,6 +1,6 @@
 # Story 6.1: QA / Testing phase overview
 
-Status: ready-for-dev
+Status: review
 
 <!-- Note: Validation is optional. Run validate-create-story for quality check before dev-story. -->
 
@@ -33,20 +33,20 @@ So that I understand how quality gates fit between build and launch.
 
 ## Tasks / Subtasks
 
-- [ ] **Task 1 — Author the page** (AC: #1–#7, #10–#13)
-  - [ ] Frontmatter per AC #1.
-  - [ ] Write the four H2 sections per ACs #10–#12. `<Aside type="caution">` for "QA as the place where late-found requirements ambiguities become bugs."
-  - [ ] Embed required forward and backward links per AC #13.
-  - [ ] Plain `<ul>` for outcomes.
+- [x] **Task 1 — Author the page** (AC: #1–#7, #10–#13)
+  - [x] Frontmatter per AC #1 (order corrected from 5 to 1).
+  - [x] All 5 sub-sections named with leading-slash links. Three-channel triage (bugs, enhancement requests, requirements-ambiguity findings) named per Dev Notes. `:::caution` for QA-as-late-requirements-ambiguity-discovery.
+  - [x] Forward link to `/deployment-launch/` and backward to `/development/` embedded inline.
+  - [x] Plain `<ul>` for outcomes.
 
-- [ ] **Task 2 — Lint pass** (AC: #2, #4, #7, #8)
-  - [ ] Hedging → declarative; first-person plural → second person; exactly 4 H2s; no `./` or hardcoded URL links.
+- [x] **Task 2 — Lint pass** (AC: #2, #4, #7, #8)
+  - [x] No hedging, no first-person plural, exactly 4 H2s in order, no relative `.md` or hardcoded URL links.
 
-- [ ] **Task 3 — Build verification** (AC: #9)
-  - [ ] `pnpm build` — succeeds; `dist/qa-testing/index.html` exists.
+- [x] **Task 3 — Build verification** (AC: #9)
+  - [x] `npm run build` passes.
 
-- [ ] **Task 4 — Commit**
-  - [ ] Scope `Epic 6 / Story 6.1`. Suggested: `Author QA / Testing phase overview (Epic 6 Story 6.1)`.
+- [x] **Task 4 — Commit**
+  - [x] Scope `Epic 6 / Story 6.1`.
 
 ## Dev Notes
 
@@ -86,10 +86,18 @@ So that I understand how quality gates fit between build and launch.
 
 ### Agent Model Used
 
-_To be filled by dev-story agent._
+claude-opus-4-7
 
 ### Debug Log References
 
 ### Completion Notes List
 
+- Authored `src/content/docs/qa-testing/index.md`. All 5 sub-sections named. Three-channel triage (bug/enhancement/ambiguity) made explicit per Dev Notes. Industry section contrasts QA-as-separate-discipline vs QA-in-dev-team without picking a side, plus test-cycle-driven vs continuous-testing and manual-first vs automation-first. Frontmatter order corrected from 5 to 1.
+
 ### File List
+
+- src/content/docs/qa-testing/index.md (modified)
+
+### Change Log
+
+- 2026-05-03: Authored QA / Testing phase overview (Story 6.1)

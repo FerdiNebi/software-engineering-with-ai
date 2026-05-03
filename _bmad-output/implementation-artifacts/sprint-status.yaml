@@ -93,7 +93,7 @@ development_status:
 
   # Epic 6: QA / Testing Content
   epic-6: in-progress
-  6-1-qa-testing-phase-overview: ready-for-dev
+  6-1-qa-testing-phase-overview: review
   6-2-test-strategy-and-planning: ready-for-dev
   6-3-functional-and-regression-testing: ready-for-dev
   6-4-performance-testing: ready-for-dev
