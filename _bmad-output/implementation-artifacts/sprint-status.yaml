@@ -121,7 +121,7 @@ development_status:
 
   # Epic 9: v1 Launch Readiness
   epic-9: in-progress
-  9-1-add-mit-license-file: ready-for-dev
+  9-1-add-mit-license-file: review
   9-2-tighten-the-content-collection-schema: ready-for-dev
   9-3-pre-launch-manual-accessibility-audit: ready-for-dev
   9-4-post-first-deploy-live-verification: ready-for-dev

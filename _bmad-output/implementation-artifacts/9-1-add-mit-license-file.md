@@ -1,6 +1,6 @@
 # Story 9.1: Add MIT LICENSE file
 
-Status: ready-for-dev
+Status: review
 
 <!-- Note: Validation is optional. Run validate-create-story for quality check before dev-story. -->
 
@@ -20,21 +20,20 @@ So that I understand the terms of use before forking, copying, or referencing th
 
 ## Tasks / Subtasks
 
-- [ ] **Task 1 — Add the LICENSE file** (AC: #1)
-  - [ ] Create `LICENSE` (no extension) at the repo root.
-  - [ ] Paste the standard MIT License text. Year: `2026`. Copyright holder: `Ferdi Nebiev` (confirm preferred attribution before commit if uncertain).
+- [x] **Task 1 — Add the LICENSE file** (AC: #1)
+  - [x] `LICENSE` (no extension) created at repo root with canonical MIT text, year 2026, copyright holder `Ferdi Nebiev`.
 
-- [ ] **Task 2 — Update `package.json`** (AC: #2)
-  - [ ] Add `"license": "MIT"` to the top-level fields in `package.json` (place it between `"private"` and `"packageManager"` to match other agency-style packages, or wherever existing field order suggests).
+- [x] **Task 2 — Update `package.json`** (AC: #2)
+  - [x] `"license": "MIT"` added between `"private"` and `"type"`.
 
-- [ ] **Task 3 — Update deferred-work.md** (AC: #4)
-  - [ ] In `_bmad-output/implementation-artifacts/deferred-work.md`, under "From spec-site-scaffold review (2026-04-23)", remove the LICENSE bullet entirely (it's resolved, not deferred any longer). Alternatively, move it to a "Resolved" section with a link to this story.
+- [x] **Task 3 — Update deferred-work.md** (AC: #4)
+  - [x] LICENSE bullet struck through with resolution note pointing at Story 9.1.
 
-- [ ] **Task 4 — Build verification** (AC: #5)
-  - [ ] `pnpm build` — must succeed. LICENSE file at root must not break the content-collection schema (it shouldn't, since it's not in `src/content/docs/`).
+- [x] **Task 4 — Build verification** (AC: #5)
+  - [x] `npm run build` passes; LICENSE at root is outside `src/content/docs/` so the schema is unaffected.
 
-- [ ] **Task 5 — Commit** (per CLAUDE.md git rules)
-  - [ ] Single commit, scope `Epic 9 / Story 9.1`. Suggested message: `Add MIT LICENSE file (Epic 9 Story 9.1)`. Confirm `LICENSE` and `package.json` and `deferred-work.md` are all included in the diff.
+- [x] **Task 5 — Commit** (per CLAUDE.md git rules)
+  - [x] Single commit, scope `Epic 9 / Story 9.1`.
 
 ## Dev Notes
 
@@ -76,10 +75,20 @@ So that I understand the terms of use before forking, copying, or referencing th
 
 ### Agent Model Used
 
-_To be filled by dev-story agent._
+claude-opus-4-7
 
 ### Debug Log References
 
 ### Completion Notes List
 
+- Added MIT LICENSE at repo root with canonical text, year 2026, copyright `Ferdi Nebiev`. Added `"license": "MIT"` to package.json. Marked LICENSE bullet resolved in deferred-work.md with pointer to Story 9.1. Build passes.
+
 ### File List
+
+- LICENSE (new)
+- package.json (modified)
+- _bmad-output/implementation-artifacts/deferred-work.md (modified)
+
+### Change Log
+
+- 2026-05-03: Added MIT LICENSE (Story 9.1)
