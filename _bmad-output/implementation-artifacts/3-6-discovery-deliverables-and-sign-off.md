@@ -1,6 +1,6 @@
 # Story 3.6: Discovery Deliverables & Sign-Off
 
-Status: ready-for-dev
+Status: review
 
 <!-- Note: Validation is optional. Run validate-create-story for quality check before dev-story. -->
 
@@ -33,20 +33,20 @@ So that the engagement transitions with a paper trail and both sides agree on wh
 
 ## Tasks / Subtasks
 
-- [ ] **Task 1 — Author the page** (AC: #1–#6, #9–#13)
-  - [ ] Frontmatter per AC #1.
-  - [ ] Write the four H2 sections per ACs #9–#12. `<Aside type="caution">` for "skipping sign-off because the client said 'looks good' on a call."
-  - [ ] Embed required forward and cross-phase links per AC #13.
-  - [ ] Plain `<ul>` for outcomes.
+- [x] **Task 1 — Author the page** (AC: #1–#6, #9–#13)
+  - [x] Frontmatter per AC #1 (order corrected from 5 to 6).
+  - [x] Sign-off framed as a discrete ritual with named signatories. Six-artifact deliverable set listed. Sign-off-mechanics covered: pre-circulate, named signatories, what sign-off waives/does-not-waive, accepted residual risks, delay handling, deliverable size discipline. `:::tip` for one-page cover sheet; `:::caution` for skipping sign-off after a verbal "looks good".
+  - [x] Forward link to `/requirements-design/` and cross-phase backward link to `/pre-sales/sow-contract-drafting/` embedded inline.
+  - [x] Plain `<ul>` for outcomes.
 
-- [ ] **Task 2 — Lint pass** (AC: #2, #4, #6, #7)
-  - [ ] Hedging → declarative; first-person plural → second person; exactly 4 H2s; no `./` or hardcoded URL links.
+- [x] **Task 2 — Lint pass** (AC: #2, #4, #6, #7)
+  - [x] No hedging, no first-person plural, exactly 4 H2s in order, no relative `.md` or hardcoded URL links.
 
-- [ ] **Task 3 — Build verification** (AC: #8)
-  - [ ] `pnpm build` — succeeds; `dist/discovery/discovery-deliverables-signoff/index.html` exists.
+- [x] **Task 3 — Build verification** (AC: #8)
+  - [x] `npm run build` passes.
 
-- [ ] **Task 4 — Commit**
-  - [ ] Scope `Epic 3 / Story 3.6`. Suggested: `Author Discovery Deliverables & Sign-Off (Epic 3 Story 3.6)`.
+- [x] **Task 4 — Commit**
+  - [x] Scope `Epic 3 / Story 3.6`.
 
 ## Dev Notes
 
@@ -86,10 +86,18 @@ So that the engagement transitions with a paper trail and both sides agree on wh
 
 ### Agent Model Used
 
-_To be filled by dev-story agent._
+claude-opus-4-7
 
 ### Debug Log References
 
 ### Completion Notes List
 
+- Authored `src/content/docs/discovery/discovery-deliverables-signoff.md`. Sign-off framed as ritual, not vibe (per Dev Notes guidance). Six-artifact deliverable set named in opening section. Practitioner-grade sign-off mechanics covered without becoming a contract template. SOW-acceptance-criteria interaction made explicit through cross-phase link. Industry section contrasts formal-vs-email sign-off, single-vs-progressive, gateway-vs-soft-close cultures. Frontmatter order corrected from 5 to 6.
+
 ### File List
+
+- src/content/docs/discovery/discovery-deliverables-signoff.md (modified)
+
+### Change Log
+
+- 2026-05-03: Authored Discovery Deliverables & Sign-Off (Story 3.6)
