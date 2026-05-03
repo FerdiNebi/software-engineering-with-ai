@@ -114,7 +114,7 @@ development_status:
   epic-8: in-progress
   8-1-maintenance-and-retainer-phase-overview: review
   8-2-bug-fixes-and-patch-management: review
-  8-3-feature-iteration: ready-for-dev
+  8-3-feature-iteration: review
   8-4-incident-response: ready-for-dev
   8-5-retainer-structure-and-slas: ready-for-dev
   epic-8-retrospective: optional

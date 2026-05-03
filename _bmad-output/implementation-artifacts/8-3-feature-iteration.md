@@ -1,6 +1,6 @@
 # Story 8.3: Feature Iteration
 
-Status: ready-for-dev
+Status: review
 
 <!-- Note: Validation is optional. Run validate-create-story for quality check before dev-story. -->
 
@@ -33,20 +33,20 @@ So that feature work is either in-retainer or converted into a fresh engagement 
 
 ## Tasks / Subtasks
 
-- [ ] **Task 1 — Author the page** (AC: #1–#6, #9–#13)
-  - [ ] Frontmatter per AC #1.
-  - [ ] Write the four H2 sections per ACs #9–#12. `<Aside type="caution">` for "small features that compound across the retainer until the agency is delivering a new engagement at retainer rates."
-  - [ ] Embed required forward and backward links per AC #13.
-  - [ ] Plain `<ul>` for outcomes.
+- [x] **Task 1 — Author the page** (AC: #1–#6, #9–#13)
+  - [x] Frontmatter per AC #1 (order corrected from 2 to 3).
+  - [x] Re-pricing threshold made explicit per Dev Notes with three concrete examples (hours, calendar, architectural). Lifecycle loop to Pre-Sales framed as positive expansion. Intake queue, change-request form, mini-SOW pattern, client-visible roadmap, quarterly conversations all named. `:::caution` for compounding small features.
+  - [x] Forward link to `/pre-sales/` and backward to `/maintenance-retainer/bug-fixes-patch-management/` embedded inline.
+  - [x] Plain `<ul>` for outcomes.
 
-- [ ] **Task 2 — Lint pass** (AC: #2, #4, #6, #7)
-  - [ ] Hedging → declarative; first-person plural → second person; exactly 4 H2s; no `./` or hardcoded URL links.
+- [x] **Task 2 — Lint pass** (AC: #2, #4, #6, #7)
+  - [x] No hedging, no first-person plural, exactly 4 H2s in order, no relative `.md` or hardcoded URL links.
 
-- [ ] **Task 3 — Build verification** (AC: #8)
-  - [ ] `pnpm build` — succeeds; `dist/maintenance-retainer/feature-iteration/index.html` exists.
+- [x] **Task 3 — Build verification** (AC: #8)
+  - [x] `npm run build` passes.
 
-- [ ] **Task 4 — Commit**
-  - [ ] Scope `Epic 8 / Story 8.3`. Suggested: `Author Feature Iteration (Epic 8 Story 8.3)`.
+- [x] **Task 4 — Commit**
+  - [x] Scope `Epic 8 / Story 8.3`.
 
 ## Dev Notes
 
@@ -86,10 +86,18 @@ So that feature work is either in-retainer or converted into a fresh engagement 
 
 ### Agent Model Used
 
-_To be filled by dev-story agent._
+claude-opus-4-7
 
 ### Debug Log References
 
 ### Completion Notes List
 
+- Authored `src/content/docs/maintenance-retainer/feature-iteration.md`. Re-pricing threshold made the agency-defense mechanism per Dev Notes. Pre-Sales loop framed as positive expansion of the relationship. Mini-SOW pattern named for in-between work. Industry section contrasts fixed-bucket vs elastic retainer, feature-iteration-only vs roadmap-driven, self-serve-mini-SOW vs full-Pre-Sales-for-everything. Frontmatter order corrected from 2 to 3.
+
 ### File List
+
+- src/content/docs/maintenance-retainer/feature-iteration.md (modified)
+
+### Change Log
+
+- 2026-05-03: Authored Feature Iteration (Story 8.3)
