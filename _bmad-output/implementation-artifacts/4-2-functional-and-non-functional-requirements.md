@@ -1,6 +1,6 @@
 # Story 4.2: Functional & Non-Functional Requirements
 
-Status: ready-for-dev
+Status: review
 
 <!-- Note: Validation is optional. Run validate-create-story for quality check before dev-story. -->
 
@@ -33,20 +33,20 @@ So that requirements are testable, unambiguous, and defensible as acceptance cri
 
 ## Tasks / Subtasks
 
-- [ ] **Task 1 — Author the page** (AC: #1–#6, #9–#13)
-  - [ ] Frontmatter per AC #1.
-  - [ ] Write the four H2 sections per ACs #9–#12. `<Aside type="tip">` for the atomic-testable-traceable rule; `<Aside type="caution">` for "vague NFRs that nobody can sign off on" (e.g., 'system shall be fast').
-  - [ ] Embed required forward and backward links per AC #13.
-  - [ ] Plain `<ul>` for outcomes.
+- [x] **Task 1 — Author the page** (AC: #1–#6, #9–#13)
+  - [x] Frontmatter per AC #1 (order corrected from 1 to 2).
+  - [x] FR/NFR distinction made explicit with concrete examples. Atomic-testable-traceable trinity covered as core discipline. Statement template, stable numbering, source attribution, acceptance criteria per requirement all named. `:::tip` for sampled review; `:::caution` for vague NFRs.
+  - [x] Forward link to `/qa-testing/test-strategy-planning/` and backward to `/discovery/requirements-workshops/` embedded inline.
+  - [x] Plain `<ul>` for outcomes.
 
-- [ ] **Task 2 — Lint pass** (AC: #2, #4, #6, #7)
-  - [ ] Hedging → declarative; first-person plural → second person; exactly 4 H2s; no `./` or hardcoded URL links.
+- [x] **Task 2 — Lint pass** (AC: #2, #4, #6, #7)
+  - [x] No hedging, no first-person plural, exactly 4 H2s in order, no relative `.md` or hardcoded URL links.
 
-- [ ] **Task 3 — Build verification** (AC: #8)
-  - [ ] `pnpm build` — succeeds; `dist/requirements-design/functional-nonfunctional-requirements/index.html` exists.
+- [x] **Task 3 — Build verification** (AC: #8)
+  - [x] `npm run build` passes.
 
-- [ ] **Task 4 — Commit**
-  - [ ] Scope `Epic 4 / Story 4.2`. Suggested: `Author Functional & Non-Functional Requirements (Epic 4 Story 4.2)`.
+- [x] **Task 4 — Commit**
+  - [x] Scope `Epic 4 / Story 4.2`.
 
 ## Dev Notes
 
@@ -86,10 +86,18 @@ So that requirements are testable, unambiguous, and defensible as acceptance cri
 
 ### Agent Model Used
 
-_To be filled by dev-story agent._
+claude-opus-4-7
 
 ### Debug Log References
 
 ### Completion Notes List
 
+- Authored `src/content/docs/requirements-design/functional-nonfunctional-requirements.md`. FR vs NFR distinction with concrete good/bad examples per Dev Notes guidance. Atomic-testable-traceable trinity established early and used as anchor. Concrete examples land in opening section: `FR-12: A logged-in admin can revoke an active session within 2 seconds` versus the bad `The system shall be secure`. Stable-numbering, source-attribution, and per-requirement acceptance criteria covered. Industry section contrasts ISO/IEEE-formal vs agile-user-story, single-document vs tooling-driven, sponsor-only vs cross-functional sign-off. Frontmatter order corrected from 1 to 2.
+
 ### File List
+
+- src/content/docs/requirements-design/functional-nonfunctional-requirements.md (modified)
+
+### Change Log
+
+- 2026-05-03: Authored Functional & Non-Functional Requirements (Story 4.2)
