@@ -1,6 +1,6 @@
 # Story 4.5: Infrastructure Design
 
-Status: ready-for-dev
+Status: review
 
 <!-- Note: Validation is optional. Run validate-create-story for quality check before dev-story. -->
 
@@ -33,20 +33,20 @@ So that Day 1 of development is not blocked by missing environments or unresolve
 
 ## Tasks / Subtasks
 
-- [ ] **Task 1 — Author the page** (AC: #1–#6, #9–#13)
-  - [ ] Frontmatter per AC #1.
-  - [ ] Write the four H2 sections per ACs #9–#12. `<Aside type="caution">` for "starting development before the environment plan is signed off."
-  - [ ] Embed required forward and cross-phase links per AC #13.
-  - [ ] Plain `<ul>` for outcomes.
+- [x] **Task 1 — Author the page** (AC: #1–#6, #9–#13)
+  - [x] Frontmatter per AC #1 (order corrected from 4 to 5).
+  - [x] Design-vs-DevOps boundary made explicit in opening paragraph. Six-artifact set named (environment map, hosting, network, cost, secrets, DR). IaC-from-day-one, environment parity, transparent costs, secrets model standardisation, right-sized DR all named. `:::tip` for Day-1 readiness checklist; `:::caution` for starting dev without infrastructure.
+  - [x] Forward link to `/development/devops-ci-cd/` and cross-phase to `/deployment-launch/infrastructure-provisioning/` embedded inline.
+  - [x] Plain `<ul>` for outcomes.
 
-- [ ] **Task 2 — Lint pass** (AC: #2, #4, #6, #7)
-  - [ ] Hedging → declarative; first-person plural → second person; exactly 4 H2s; no `./` or hardcoded URL links.
+- [x] **Task 2 — Lint pass** (AC: #2, #4, #6, #7)
+  - [x] No hedging, no first-person plural, exactly 4 H2s in order, no relative `.md` or hardcoded URL links.
 
-- [ ] **Task 3 — Build verification** (AC: #8)
-  - [ ] `pnpm build` — succeeds; `dist/requirements-design/infrastructure-design/index.html` exists.
+- [x] **Task 3 — Build verification** (AC: #8)
+  - [x] `npm run build` passes.
 
-- [ ] **Task 4 — Commit**
-  - [ ] Scope `Epic 4 / Story 4.5`. Suggested: `Author Infrastructure Design (Epic 4 Story 4.5)`.
+- [x] **Task 4 — Commit**
+  - [x] Scope `Epic 4 / Story 4.5`.
 
 ## Dev Notes
 
@@ -86,10 +86,18 @@ So that Day 1 of development is not blocked by missing environments or unresolve
 
 ### Agent Model Used
 
-_To be filled by dev-story agent._
+claude-opus-4-7
 
 ### Debug Log References
 
 ### Completion Notes List
 
+- Authored `src/content/docs/requirements-design/infrastructure-design.md`. Design-vs-DevOps boundary landed in opening paragraph. Six-artifact set (environment map, hosting model, network diagram, cost estimate, secrets model, DR plan) named. IaC posture covered with examples of variants beyond Terraform (Pulumi, AWS CDK, Bicep, ARM, SST, Wrangler) per Dev Notes. Three secrets-model rules made concrete (no secrets in repo, per-environment scoping, rotation cadence). Industry section contrasts client-hosted vs agency-hosted vs third-party-managed, IaC-everywhere vs console-tolerant, heavyweight-DR vs minimal-viable-recovery. Frontmatter order corrected from 4 to 5.
+
 ### File List
+
+- src/content/docs/requirements-design/infrastructure-design.md (modified)
+
+### Change Log
+
+- 2026-05-03: Authored Infrastructure Design (Story 4.5)
