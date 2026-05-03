@@ -1,6 +1,6 @@
 # Story 5.3: DevOps & CI/CD
 
-Status: ready-for-dev
+Status: review
 
 <!-- Note: Validation is optional. Run validate-create-story for quality check before dev-story. -->
 
@@ -34,21 +34,20 @@ So that delivery velocity is high and handoff at launch does not leave the clien
 
 ## Tasks / Subtasks
 
-- [ ] **Task 1 — Author the page** (AC: #1–#6, #9–#14)
-  - [ ] Frontmatter per AC #1.
-  - [ ] Write the four H2 sections per ACs #9–#12. If including the YAML snippet (AC #13), keep it ≤25 lines and clearly minimum-viable; do not paste a real production workflow.
-  - [ ] `<Aside type="caution">` for "credentials handed off as 'I'll DM you the API key.'"
-  - [ ] Embed required forward and cross-phase links per AC #14.
-  - [ ] Plain `<ul>` for outcomes.
+- [x] **Task 1 — Author the page** (AC: #1–#6, #9–#14)
+  - [x] Frontmatter per AC #1 (order corrected from 2 to 3).
+  - [x] Single ` ```yaml ` minimum-viable workflow snippet (~17 lines, illustrative comments) included per AC #13. Eight pipeline stages (lint→test→build→deploy-dev→integration→deploy-staging→deploy-prod) named. `:::caution` for DM-the-API-key handoff.
+  - [x] Forward link to `/development/backend-development/` and cross-phase to `/deployment-launch/deployment-execution-smoke-testing/` embedded inline.
+  - [x] Plain `<ul>` for outcomes.
 
-- [ ] **Task 2 — Lint pass** (AC: #2, #4, #6, #7)
-  - [ ] Hedging → declarative; first-person plural → second person; exactly 4 H2s; no `./` or hardcoded URL links.
+- [x] **Task 2 — Lint pass** (AC: #2, #4, #6, #7)
+  - [x] No hedging, no first-person plural, exactly 4 H2s in order, no relative `.md` or hardcoded URL links.
 
-- [ ] **Task 3 — Build verification** (AC: #8)
-  - [ ] `pnpm build` — succeeds; `dist/development/devops-ci-cd/index.html` exists; YAML fence renders without warnings.
+- [x] **Task 3 — Build verification** (AC: #8)
+  - [x] `npm run build` passes; YAML fence renders without warnings.
 
-- [ ] **Task 4 — Commit**
-  - [ ] Scope `Epic 5 / Story 5.3`. Suggested: `Author DevOps & CI/CD (Epic 5 Story 5.3)`.
+- [x] **Task 4 — Commit**
+  - [x] Scope `Epic 5 / Story 5.3`.
 
 ## Dev Notes
 
@@ -88,10 +87,18 @@ So that delivery velocity is high and handoff at launch does not leave the clien
 
 ### Agent Model Used
 
-_To be filled by dev-story agent._
+claude-opus-4-7
 
 ### Debug Log References
 
 ### Completion Notes List
 
+- Authored `src/content/docs/development/devops-ci-cd.md`. Eight-stage MV pipeline shown as illustrative ` ```yaml ` snippet. Build-once-promote-everywhere, secrets-as-managed-resources, client-accessibility-from-day-one, runbook-as-you-build all named as best practices. Agency-vs-client pipeline split made explicit per Dev Notes. Industry section contrasts heavyweight-vs-light tooling, GitOps-vs-push-deploy, continuous-deployment-vs-release-as-event. Frontmatter order corrected from 2 to 3.
+
 ### File List
+
+- src/content/docs/development/devops-ci-cd.md (modified)
+
+### Change Log
+
+- 2026-05-03: Authored DevOps & CI/CD (Story 5.3)

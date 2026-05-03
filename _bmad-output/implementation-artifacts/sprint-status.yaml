@@ -81,7 +81,7 @@ development_status:
   epic-5: in-progress
   5-1-development-phase-overview: review
   5-2-repository-structure-and-branching-strategy: review
-  5-3-devops-and-ci-cd: ready-for-dev
+  5-3-devops-and-ci-cd: review
   5-4-backend-development: ready-for-dev
   5-5-frontend-development: ready-for-dev
   5-6-developer-testing: ready-for-dev
