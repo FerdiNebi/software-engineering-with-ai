@@ -1,6 +1,6 @@
 # Story 5.5: Frontend Development
 
-Status: ready-for-dev
+Status: review
 
 <!-- Note: Validation is optional. Run validate-create-story for quality check before dev-story. -->
 
@@ -33,20 +33,20 @@ So that the delivered UI matches the signed design and accessibility is not a la
 
 ## Tasks / Subtasks
 
-- [ ] **Task 1 — Author the page** (AC: #1–#6, #9–#13)
-  - [ ] Frontmatter per AC #1.
-  - [ ] Write the four H2 sections per ACs #9–#12. `<Aside type="caution">` for "designing in the browser instead of implementing the signed design" — common dev-side scope creep.
-  - [ ] Embed required backward and forward links per AC #13.
-  - [ ] Plain `<ul>` for outcomes.
+- [x] **Task 1 — Author the page** (AC: #1–#6, #9–#13)
+  - [x] Frontmatter per AC #1 (order corrected from 4 to 5).
+  - [x] Implementation-not-design framing in opening. Three failure modes named (design drift, a11y gaps at QA, component-library bloat). Token consumption, component-library alignment, a11y at commit-time, responsive testing in dev all named. `:::caution` for designing-in-the-browser.
+  - [x] Backward link to `/requirements-design/ux-ui-design/` and forward to `/development/developer-testing/` embedded inline.
+  - [x] Plain `<ul>` for outcomes.
 
-- [ ] **Task 2 — Lint pass** (AC: #2, #4, #6, #7)
-  - [ ] Hedging → declarative; first-person plural → second person; exactly 4 H2s; no `./` or hardcoded URL links.
+- [x] **Task 2 — Lint pass** (AC: #2, #4, #6, #7)
+  - [x] No hedging, no first-person plural, exactly 4 H2s in order, no relative `.md` or hardcoded URL links.
 
-- [ ] **Task 3 — Build verification** (AC: #8)
-  - [ ] `pnpm build` — succeeds; `dist/development/frontend-development/index.html` exists.
+- [x] **Task 3 — Build verification** (AC: #8)
+  - [x] `npm run build` passes.
 
-- [ ] **Task 4 — Commit**
-  - [ ] Scope `Epic 5 / Story 5.5`. Suggested: `Author Frontend Development (Epic 5 Story 5.5)`.
+- [x] **Task 4 — Commit**
+  - [x] Scope `Epic 5 / Story 5.5`.
 
 ## Dev Notes
 
@@ -86,10 +86,18 @@ So that the delivered UI matches the signed design and accessibility is not a la
 
 ### Agent Model Used
 
-_To be filled by dev-story agent._
+claude-opus-4-7
 
 ### Debug Log References
 
 ### Completion Notes List
 
+- Authored `src/content/docs/development/frontend-development.md`. Implementing-not-designing headline landed in opening per Dev Notes. Three failure modes (design drift, a11y gaps at QA, component-library bloat) made explicit. Three a11y commit-time disciplines (CI a11y testing, keyboard nav as build-time test, screen-reader semantics in components). Industry section contrasts framework-prescriptive vs framework-agnostic, component-library-driven vs utility-first vs atomic-CSS, SSR-first vs CSR-first. Frontmatter order corrected from 4 to 5.
+
 ### File List
+
+- src/content/docs/development/frontend-development.md (modified)
+
+### Change Log
+
+- 2026-05-03: Authored Frontend Development (Story 5.5)
