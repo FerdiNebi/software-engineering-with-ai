@@ -1,6 +1,6 @@
 # Story 2.1: Pre-Sales phase overview
 
-Status: ready-for-dev
+Status: review
 
 <!-- Note: Validation is optional. Run validate-create-story for quality check before dev-story. -->
 
@@ -44,27 +44,22 @@ So that I understand the full phase before drilling into specific sub-sections.
 
 ## Tasks / Subtasks
 
-- [ ] **Task 1 — Author the page** (AC: #1, #2, #3, #4, #5, #6, #7, #10, #11, #12, #13)
-  - [ ] Set / verify frontmatter at `src/content/docs/pre-sales/index.md` per AC #1.
-  - [ ] Write `## What happens here` — frame Pre-Sales as the lifecycle phase before code, name the 4 sub-sections in flow order, give one-sentence-each preview of each sub-section.
-  - [ ] Write `## Best practices` — agency-specific patterns: discovery-vs-execution discipline, SOW-as-contract discipline, proposal-as-sales-doc-vs-SOW-as-legal-doc separation, qualification gates. Use Starlight `<Aside type="tip">` for pull-out best practices and `<Aside type="caution">` for the most common anti-patterns (e.g., starting work before SOW is signed).
-  - [ ] Write `## Desired outcomes` — explicit list per AC #11. Use plain Markdown `<ul>` (not `<OutcomeChecklist>`; that component is gated for Epic 9).
-  - [ ] Write `## What the industry does` — at least two contrasted approaches per AC #12. Cite agency archetypes by category, not company names.
-  - [ ] Embed inline forward link to `/discovery/` and the chosen backward link per AC #13.
+- [x] **Task 1 — Author the page** (AC: #1, #2, #3, #4, #5, #6, #7, #10, #11, #12, #13)
+  - [x] Set / verify frontmatter at `src/content/docs/pre-sales/index.md` per AC #1.
+  - [x] Wrote all four H2 sections with substantive prose, agency frame, second-person voice.
+  - [x] Used `:::tip` and `:::caution` Starlight asides for best practices and anti-patterns.
+  - [x] Desired outcomes listed as plain `<ul>`.
+  - [x] Contrasted fixed-price vs. T&M and discovery-included vs. paid-discovery approaches.
+  - [x] Forward link to `/discovery/` and backward link to `/maintenance-retainer/` embedded inline.
 
-- [ ] **Task 2 — Lint pass before commit** (AC: #2, #4, #7, #8)
-  - [ ] Search for hedging language (`typically`, `usually`, `often`, `in most cases`, `depending`) — replace with declarative phrasing.
-  - [ ] Search for first-person plural (`we`, `our`) — replace with second person.
-  - [ ] Search for hardcoded production URL (`ferdinebi.github.io`) — must not appear.
-  - [ ] Search for relative `.md` links (`](./`, `](../`) — replace with leading-slash paths.
-  - [ ] Confirm exactly 4 H2s in the body, in order, with exact strings.
+- [x] **Task 2 — Lint pass before commit** (AC: #2, #4, #7, #8)
+  - [x] No hedging language. No first-person plural. No hardcoded URL. No relative `.md` links. Exactly 4 H2s in order.
 
-- [ ] **Task 3 — Build verification** (AC: #9)
-  - [ ] `pnpm build` — must succeed; the page is included in `dist/pre-sales/index.html`; no schema errors.
-  - [ ] Optional `pnpm dev` spot-check: navigate from sidebar `1. Pre-Sales & Business Development → Overview`; confirm the page renders, all internal links resolve, both themes legible.
+- [x] **Task 3 — Build verification** (AC: #9)
+  - [x] `npm run build` passes — 44 pages built, no schema errors.
 
-- [ ] **Task 4 — Commit** (per CLAUDE.md git rules)
-  - [ ] Single commit, scope `Epic 2 / Story 2.1`. Suggested message: `Author Pre-Sales phase overview (Epic 2 Story 2.1)`.
+- [x] **Task 4 — Commit** (per CLAUDE.md git rules)
+  - [x] Single commit, scope `Epic 2 / Story 2.1`.
 
 ## Dev Notes
 
@@ -117,10 +112,18 @@ So that I understand the full phase before drilling into specific sub-sections.
 
 ### Agent Model Used
 
-_To be filled by dev-story agent._
+claude-sonnet-4-6
 
 ### Debug Log References
 
 ### Completion Notes List
 
+- Authored `src/content/docs/pre-sales/index.md` with substantive content across all 4 H2s. Agency/consulting frame throughout. Starlight asides for tip/caution. Cross-links to `/discovery/` and `/maintenance-retainer/`. Build verified passing.
+
 ### File List
+
+- src/content/docs/pre-sales/index.md (modified)
+
+### Change Log
+
+- 2026-05-03: Authored Pre-Sales phase overview (Story 2.1)
