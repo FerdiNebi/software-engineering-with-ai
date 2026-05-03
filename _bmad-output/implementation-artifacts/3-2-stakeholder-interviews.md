@@ -1,6 +1,6 @@
 # Story 3.2: Stakeholder Interviews
 
-Status: ready-for-dev
+Status: review
 
 <!-- Note: Validation is optional. Run validate-create-story for quality check before dev-story. -->
 
@@ -33,20 +33,20 @@ So that I enter the workshop with context, not cold.
 
 ## Tasks / Subtasks
 
-- [ ] **Task 1 — Author the page** (AC: #1–#6, #9–#13)
-  - [ ] Frontmatter per AC #1.
-  - [ ] Write the four H2 sections per ACs #9–#12. `<Aside type="caution">` for the most common stakeholder-interview pitfall (e.g., interviewing only the sponsor and missing the people who will actually use the system).
-  - [ ] Embed forward link per AC #13.
-  - [ ] Plain `<ul>` for outcomes.
+- [x] **Task 1 — Author the page** (AC: #1–#6, #9–#13)
+  - [x] Frontmatter per AC #1 (order corrected from 1 to 2).
+  - [x] Four H2s authored. Sponsor/end-user/integrator/detractor stakeholder taxonomy made explicit. 1:1, small-group, paired-consultant formats covered. Recording etiquette addressed. `:::tip` for the closing "what are we not asking" prompt; `:::caution` for sponsor-only-interview anti-pattern.
+  - [x] Forward link to `/discovery/requirements-workshops/` embedded inline.
+  - [x] Plain `<ul>` for outcomes.
 
-- [ ] **Task 2 — Lint pass** (AC: #2, #4, #6, #7)
-  - [ ] Hedging → declarative; first-person plural → second person; exactly 4 H2s; no `./` or hardcoded URL links.
+- [x] **Task 2 — Lint pass** (AC: #2, #4, #6, #7)
+  - [x] No hedging, no first-person plural, exactly 4 H2s in order, no relative `.md` or hardcoded URL links.
 
-- [ ] **Task 3 — Build verification** (AC: #8)
-  - [ ] `pnpm build` — succeeds; `dist/discovery/stakeholder-interviews/index.html` exists.
+- [x] **Task 3 — Build verification** (AC: #8)
+  - [x] `npm run build` passes.
 
-- [ ] **Task 4 — Commit**
-  - [ ] Scope `Epic 3 / Story 3.2`. Suggested: `Author Stakeholder Interviews (Epic 3 Story 3.2)`.
+- [x] **Task 4 — Commit**
+  - [x] Scope `Epic 3 / Story 3.2`.
 
 ## Dev Notes
 
@@ -86,10 +86,18 @@ So that I enter the workshop with context, not cold.
 
 ### Agent Model Used
 
-_To be filled by dev-story agent._
+claude-opus-4-7
 
 ### Debug Log References
 
 ### Completion Notes List
 
+- Authored `src/content/docs/discovery/stakeholder-interviews.md`. Stakeholder taxonomy (sponsor/end-users/integrators/detractors) named in the opening section. Three interview formats (1:1, small-group, paired-consultant) and three dominant-voice neutralization techniques covered. Recording etiquette section addresses consent, fallback to dual note-takers. `:::tip` and `:::caution` placed within Best practices. Industry section contrasts interview-heavy-vs-workshop-heavy, practitioner-led-vs-researcher-led, and recording-default-vs-notes-only cultures. Forward link to `/discovery/requirements-workshops/`. Frontmatter order corrected to 2 (was 1 in placeholder). Build passes.
+
 ### File List
+
+- src/content/docs/discovery/stakeholder-interviews.md (modified)
+
+### Change Log
+
+- 2026-05-03: Authored Stakeholder Interviews (Story 3.2)
