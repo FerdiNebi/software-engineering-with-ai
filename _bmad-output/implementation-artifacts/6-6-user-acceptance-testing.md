@@ -1,6 +1,6 @@
 # Story 6.6: User Acceptance Testing
 
-Status: ready-for-dev
+Status: review
 
 <!-- Note: Validation is optional. Run validate-create-story for quality check before dev-story. -->
 
@@ -33,20 +33,20 @@ So that UAT closes with client acceptance rather than spiraling into re-work.
 
 ## Tasks / Subtasks
 
-- [ ] **Task 1 — Author the page** (AC: #1–#6, #9–#13)
-  - [ ] Frontmatter per AC #1.
-  - [ ] Write the four H2 sections per ACs #9–#12. `<Aside type="caution">` for "client UAT feedback that is enhancement disguised as 'bug' — must triage to change-control, not bug list."
-  - [ ] Embed required forward and backward links per AC #13.
-  - [ ] Plain `<ul>` for outcomes.
+- [x] **Task 1 — Author the page** (AC: #1–#6, #9–#13)
+  - [x] Frontmatter per AC #1 (order corrected from 5 to 6).
+  - [x] UAT-as-client-execution headlined per Dev Notes — "not agency QA in another costume". Three-channel triage (bug/enhancement/clarification) covered. Structured sessions, time-boxed cycles, explicit sign-off ritual, real-users-not-testers all named. `:::caution` for accepting feedback as bug without triage.
+  - [x] Forward link to `/deployment-launch/client-handoff-launch-checklist/` and backward to `/pre-sales/sow-contract-drafting/` embedded inline.
+  - [x] Plain `<ul>` for outcomes.
 
-- [ ] **Task 2 — Lint pass** (AC: #2, #4, #6, #7)
-  - [ ] Hedging → declarative; first-person plural → second person; exactly 4 H2s; no `./` or hardcoded URL links.
+- [x] **Task 2 — Lint pass** (AC: #2, #4, #6, #7)
+  - [x] No hedging, no first-person plural, exactly 4 H2s in order, no relative `.md` or hardcoded URL links.
 
-- [ ] **Task 3 — Build verification** (AC: #8)
-  - [ ] `pnpm build` — succeeds; `dist/qa-testing/user-acceptance-testing/index.html` exists.
+- [x] **Task 3 — Build verification** (AC: #8)
+  - [x] `npm run build` passes.
 
-- [ ] **Task 4 — Commit**
-  - [ ] Scope `Epic 6 / Story 6.6`. Suggested: `Author UAT (Epic 6 Story 6.6)`.
+- [x] **Task 4 — Commit**
+  - [x] Scope `Epic 6 / Story 6.6`.
 
 ## Dev Notes
 
@@ -86,10 +86,18 @@ So that UAT closes with client acceptance rather than spiraling into re-work.
 
 ### Agent Model Used
 
-_To be filled by dev-story agent._
+claude-opus-4-7
 
 ### Debug Log References
 
 ### Completion Notes List
 
+- Authored `src/content/docs/qa-testing/user-acceptance-testing.md`. UAT-as-client-execution distinction made the headline per Dev Notes. Three-channel triage made explicit. SOW backlink anchors the discipline (the SOW's signed acceptance criteria are what UAT verifies). Industry section contrasts formal-UAT vs send-it-to-the-client, single-sign-off vs progressive-acceptance, agency-runs-UAT vs client-runs-UAT cultures. Frontmatter order corrected from 5 to 6.
+
 ### File List
+
+- src/content/docs/qa-testing/user-acceptance-testing.md (modified)
+
+### Change Log
+
+- 2026-05-03: Authored UAT (Story 6.6)

@@ -98,7 +98,7 @@ development_status:
   6-3-functional-and-regression-testing: review
   6-4-performance-testing: review
   6-5-security-testing: review
-  6-6-user-acceptance-testing: ready-for-dev
+  6-6-user-acceptance-testing: review
   epic-6-retrospective: optional
 
   # Epic 7: Deployment / Launch Content
