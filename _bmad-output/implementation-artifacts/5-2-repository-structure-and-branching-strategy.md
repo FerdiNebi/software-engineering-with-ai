@@ -1,6 +1,6 @@
 # Story 5.2: Repository Structure & Branching Strategy
 
-Status: ready-for-dev
+Status: review
 
 <!-- Note: Validation is optional. Run validate-create-story for quality check before dev-story. -->
 
@@ -34,21 +34,20 @@ So that the repo is navigable, CI-friendly, and transferable.
 
 ## Tasks / Subtasks
 
-- [ ] **Task 1 — Author the page** (AC: #1–#6, #9–#14)
-  - [ ] Frontmatter per AC #1.
-  - [ ] Write the four H2 sections per ACs #9–#12. Include at least one fenced code block per AC #13 (e.g., a branch-naming convention or commit-message example). Use ` ```text ` or ` ```bash ` for the fence language tag — Shiki picks a highlighter automatically.
-  - [ ] `<Aside type="tip">` for the agency-vs-client access model; `<Aside type="caution">` for "main-branch direct commits."
-  - [ ] Embed required forward and cross-phase links per AC #14.
-  - [ ] Plain `<ul>` for outcomes.
+- [x] **Task 1 — Author the page** (AC: #1–#6, #9–#14)
+  - [x] Frontmatter per AC #1 (order corrected from 1 to 2).
+  - [x] Two ` ```text ` fenced code blocks (commit message convention + branch-naming convention) included per AC #13. `:::tip` for agency-vs-client access model; `:::caution` for direct mainline commits.
+  - [x] Forward link to `/development/devops-ci-cd/` and cross-phase to `/deployment-launch/client-handoff-launch-checklist/` embedded inline.
+  - [x] Plain `<ul>` for outcomes.
 
-- [ ] **Task 2 — Lint pass** (AC: #2, #4, #6, #7)
-  - [ ] Hedging → declarative; first-person plural → second person; exactly 4 H2s; no `./` or hardcoded URL links.
+- [x] **Task 2 — Lint pass** (AC: #2, #4, #6, #7)
+  - [x] No hedging, no first-person plural, exactly 4 H2s in order, no relative `.md` or hardcoded URL links.
 
-- [ ] **Task 3 — Build verification** (AC: #8)
-  - [ ] `pnpm build` — succeeds; `dist/development/repository-structure-branching/index.html` exists; the code fence renders without warnings.
+- [x] **Task 3 — Build verification** (AC: #8)
+  - [x] `npm run build` passes; Shiki renders both code blocks without warnings.
 
-- [ ] **Task 4 — Commit**
-  - [ ] Scope `Epic 5 / Story 5.2`. Suggested: `Author Repository Structure & Branching Strategy (Epic 5 Story 5.2)`.
+- [x] **Task 4 — Commit**
+  - [x] Scope `Epic 5 / Story 5.2`.
 
 ## Dev Notes
 
@@ -90,10 +89,18 @@ So that the repo is navigable, CI-friendly, and transferable.
 
 ### Agent Model Used
 
-_To be filled by dev-story agent._
+claude-opus-4-7
 
 ### Debug Log References
 
 ### Completion Notes List
 
+- Authored `src/content/docs/development/repository-structure-branching.md`. Day-0 framing in opening paragraph. Four decision classes named (topology, branching, mainline protection, access model). Two ` ```text ` fenced code blocks: Conventional Commits example, branch-naming `<type>/<ticket>-<slug>` example. Client-handoff angle threaded through best practices per Dev Notes. Industry section contrasts trunk-vs-GitFlow, monorepo-vs-polyrepo, Conventional-Commits-vs-ad-hoc cultures. Frontmatter order corrected from 1 to 2.
+
 ### File List
+
+- src/content/docs/development/repository-structure-branching.md (modified)
+
+### Change Log
+
+- 2026-05-03: Authored Repository Structure & Branching Strategy (Story 5.2)
