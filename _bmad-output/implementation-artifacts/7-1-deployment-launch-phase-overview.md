@@ -1,6 +1,6 @@
 # Story 7.1: Deployment / Launch phase overview
 
-Status: ready-for-dev
+Status: review
 
 <!-- Note: Validation is optional. Run validate-create-story for quality check before dev-story. -->
 
@@ -33,20 +33,20 @@ So that launch is the end of delivery, not the beginning of unplanned work.
 
 ## Tasks / Subtasks
 
-- [ ] **Task 1 — Author the page** (AC: #1–#7, #10–#13)
-  - [ ] Frontmatter per AC #1.
-  - [ ] Write the four H2 sections per ACs #10–#12. `<Aside type="caution">` for "deployment day discovered as the first time the production environment exists."
-  - [ ] Embed required forward and backward links per AC #13.
-  - [ ] Plain `<ul>` for outcomes.
+- [x] **Task 1 — Author the page** (AC: #1–#7, #10–#13)
+  - [x] Frontmatter per AC #1 (order corrected from 6 to 1).
+  - [x] All 4 sub-sections named with leading-slash links. Launch-as-end-of-delivery framing per Dev Notes. `:::caution` for launch-day-as-first-day-production-exists.
+  - [x] Forward link to `/maintenance-retainer/` and backward to `/qa-testing/user-acceptance-testing/` embedded inline.
+  - [x] Plain `<ul>` for outcomes.
 
-- [ ] **Task 2 — Lint pass** (AC: #2, #4, #7, #8)
-  - [ ] Hedging → declarative; first-person plural → second person; exactly 4 H2s; no `./` or hardcoded URL links.
+- [x] **Task 2 — Lint pass** (AC: #2, #4, #7, #8)
+  - [x] No hedging, no first-person plural, exactly 4 H2s in order, no relative `.md` or hardcoded URL links.
 
-- [ ] **Task 3 — Build verification** (AC: #9)
-  - [ ] `pnpm build` — succeeds; `dist/deployment-launch/index.html` exists.
+- [x] **Task 3 — Build verification** (AC: #9)
+  - [x] `npm run build` passes.
 
-- [ ] **Task 4 — Commit**
-  - [ ] Scope `Epic 7 / Story 7.1`. Suggested: `Author Deployment / Launch phase overview (Epic 7 Story 7.1)`.
+- [x] **Task 4 — Commit**
+  - [x] Scope `Epic 7 / Story 7.1`.
 
 ## Dev Notes
 
@@ -86,10 +86,18 @@ So that launch is the end of delivery, not the beginning of unplanned work.
 
 ### Agent Model Used
 
-_To be filled by dev-story agent._
+claude-opus-4-7
 
 ### Debug Log References
 
 ### Completion Notes List
 
+- Authored `src/content/docs/deployment-launch/index.md`. Launch-as-end-of-delivery framing per Dev Notes. All 4 sub-sections named in opening. Industry section contrasts big-bang vs canary, launch-as-event vs continuous-deployment, agency-runs-launch vs client-runs-launch — without picking a side. Frontmatter order corrected from 6 to 1.
+
 ### File List
+
+- src/content/docs/deployment-launch/index.md (modified)
+
+### Change Log
+
+- 2026-05-03: Authored Deployment / Launch phase overview (Story 7.1)
