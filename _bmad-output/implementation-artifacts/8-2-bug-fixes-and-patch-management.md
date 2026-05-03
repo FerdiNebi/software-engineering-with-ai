@@ -1,6 +1,6 @@
 # Story 8.2: Bug Fixes & Patch Management
 
-Status: ready-for-dev
+Status: review
 
 <!-- Note: Validation is optional. Run validate-create-story for quality check before dev-story. -->
 
@@ -33,20 +33,20 @@ So that bug-fix work is budgeted, prioritized, and does not accidentally become 
 
 ## Tasks / Subtasks
 
-- [ ] **Task 1 — Author the page** (AC: #1–#6, #9–#13)
-  - [ ] Frontmatter per AC #1.
-  - [ ] Write the four H2 sections per ACs #9–#12. `<Aside type="caution">` for "client-reported 'bugs' that are actually feature requests; mis-classification leaks scope."
-  - [ ] Embed required forward and backward links per AC #13.
-  - [ ] Plain `<ul>` for outcomes.
+- [x] **Task 1 — Author the page** (AC: #1–#6, #9–#13)
+  - [x] Frontmatter per AC #1 (order corrected from 1 to 2).
+  - [x] Three-class split (bug/feature/incident) made the headline per Dev Notes. Triage matrix with four severity tiers, scheduled patch windows, emergency-patch ritual, scope discipline in-ticket, client-visible patch log all named. `:::caution` for misclassified bugs.
+  - [x] Forward link to `/maintenance-retainer/feature-iteration/` and backward to `/qa-testing/functional-regression-testing/` embedded inline.
+  - [x] Plain `<ul>` for outcomes.
 
-- [ ] **Task 2 — Lint pass** (AC: #2, #4, #6, #7)
-  - [ ] Hedging → declarative; first-person plural → second person; exactly 4 H2s; no `./` or hardcoded URL links.
+- [x] **Task 2 — Lint pass** (AC: #2, #4, #6, #7)
+  - [x] No hedging, no first-person plural, exactly 4 H2s in order, no relative `.md` or hardcoded URL links.
 
-- [ ] **Task 3 — Build verification** (AC: #8)
-  - [ ] `pnpm build` — succeeds; `dist/maintenance-retainer/bug-fixes-patch-management/index.html` exists.
+- [x] **Task 3 — Build verification** (AC: #8)
+  - [x] `npm run build` passes.
 
-- [ ] **Task 4 — Commit**
-  - [ ] Scope `Epic 8 / Story 8.2`. Suggested: `Author Bug Fixes & Patch Management (Epic 8 Story 8.2)`.
+- [x] **Task 4 — Commit**
+  - [x] Scope `Epic 8 / Story 8.2`.
 
 ## Dev Notes
 
@@ -86,10 +86,18 @@ So that bug-fix work is budgeted, prioritized, and does not accidentally become 
 
 ### Agent Model Used
 
-_To be filled by dev-story agent._
+claude-opus-4-7
 
 ### Debug Log References
 
 ### Completion Notes List
 
+- Authored `src/content/docs/maintenance-retainer/bug-fixes-patch-management.md`. Three-class split (bug/feature/incident) made the headline per Dev Notes. Four-tier triage matrix described concretely. Client-visible patch log named as renewal-defensibility artifact. Industry section contrasts structured-SLA vs best-effort, routine-cadence vs continuous-deployment, in-house-only vs client-engineer-collaborative patches. Frontmatter order corrected from 1 to 2.
+
 ### File List
+
+- src/content/docs/maintenance-retainer/bug-fixes-patch-management.md (modified)
+
+### Change Log
+
+- 2026-05-03: Authored Bug Fixes & Patch Management (Story 8.2)
