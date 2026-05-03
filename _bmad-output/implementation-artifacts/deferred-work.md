@@ -4,7 +4,7 @@ Items surfaced during quick-dev cycles that were not in scope for the originatin
 
 ## From spec-site-scaffold review (2026-04-23)
 
-- **GitHub Pages "Source: GitHub Actions" toggle** — must be enabled manually in repo Settings → Pages before the first workflow deploy succeeds. User action only; not scriptable without a separate Pages-management API call.
+- ~~**GitHub Pages "Source: GitHub Actions" toggle** — must be enabled manually in repo Settings → Pages before the first workflow deploy succeeds. User action only; not scriptable without a separate Pages-management API call.~~ **Resolved by Epic 9 Story 9.5** — `README.md` now contains an "Initial deployment setup" section that walks through Settings → Pages → 'Build and deployment' → 'GitHub Actions' explicitly and references the workflow. Setting the toggle remains a manual user action.
 - ~~**LICENSE file** — architecture.md suggested MIT. Add before public v1 launch.~~ **Resolved by Epic 9 Story 9.1** — MIT LICENSE added at repo root with copyright `2026 Ferdi Nebiev`; `package.json` declares `"license": "MIT"`.
 - **Live post-deploy verification** — after first successful merge to `master`/`main`:
   - 404 page serves correctly at base path `/software-engineering-with-ai/`

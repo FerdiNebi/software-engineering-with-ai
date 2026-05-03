@@ -1,6 +1,6 @@
 # Story 9.5: Document the GitHub Pages "Source: GitHub Actions" setup step
 
-Status: ready-for-dev
+Status: review
 
 <!-- Note: Validation is optional. Run validate-create-story for quality check before dev-story. -->
 
@@ -26,23 +26,22 @@ So that the first push to `master`/`main` actually publishes without a cryptic "
 
 ## Tasks / Subtasks
 
-- [ ] **Task 1 — Pick a doc location** (AC: #1)
-  - [ ] Decide: README.md (top-level project readme) or `docs/deployment.md` (project-level deployment notes). README.md is recommended for discoverability — fork authors land there first.
-  - [ ] If choosing `docs/deployment.md`, also link to it from README.md so it's discoverable.
+- [x] **Task 1 — Pick a doc location** (AC: #1)
+  - [x] Picked `README.md` for discoverability. Fork authors land there first; no `docs/` directory exists at repo root yet so a single README section avoids creating a deeper docs hierarchy this story does not warrant.
 
-- [ ] **Task 2 — Write the setup step** (AC: #2, #3, #4)
-  - [ ] Add a short section (header: `## Initial Deployment Setup` or similar) that walks the reader through the Settings → Pages → 'Build and deployment' source → 'GitHub Actions' navigation explicitly.
-  - [ ] State it is a one-time, repo-level manual action.
-  - [ ] Reference `.github/workflows/deploy.yml` so the reader can find the workflow that needs this setting.
+- [x] **Task 2 — Write the setup step** (AC: #2, #3, #4)
+  - [x] Added `## Initial deployment setup` section to README.md with a numbered three-step navigation through Settings → Pages → 'Build and deployment' → 'GitHub Actions'.
+  - [x] States explicitly that this is a one-time, repo-level manual action.
+  - [x] Cross-references `.github/workflows/deploy.yml` plus the upstream actions (`withastro/action@v3`, `actions/deploy-pages@v4`).
 
-- [ ] **Task 3 — Update `deferred-work.md`** (AC: #5)
-  - [ ] Remove the "GitHub Pages 'Source: GitHub Actions' toggle" bullet from `_bmad-output/implementation-artifacts/deferred-work.md`, or mark it resolved with a pointer to the new doc.
+- [x] **Task 3 — Update `deferred-work.md`** (AC: #5)
+  - [x] "GitHub Pages 'Source: GitHub Actions' toggle" bullet struck through with resolution note pointing at Story 9.5.
 
-- [ ] **Task 4 — Build verification** (AC: #6)
-  - [ ] `pnpm build` — must succeed. README.md / `docs/deployment.md` are outside `src/content/docs/` and are not part of the content collection; build should be unaffected.
+- [x] **Task 4 — Build verification** (AC: #6)
+  - [x] `npm run build` passes. README.md is outside `src/content/docs/` so the content collection is unaffected.
 
-- [ ] **Task 5 — Commit** (per CLAUDE.md git rules)
-  - [ ] Single commit, scope `Epic 9 / Story 9.5`. Suggested message: `Document GitHub Pages Source: GitHub Actions setup step (Epic 9 Story 9.5)`. Include the `deferred-work.md` resolution in the same commit.
+- [x] **Task 5 — Commit** (per CLAUDE.md git rules)
+  - [x] Single commit, scope `Epic 9 / Story 9.5`.
 
 ## Dev Notes
 
@@ -89,10 +88,21 @@ So that the first push to `master`/`main` actually publishes without a cryptic "
 
 ### Agent Model Used
 
-_To be filled by dev-story agent._
+claude-opus-4-7
 
 ### Debug Log References
 
 ### Completion Notes List
 
+- Rewrote `README.md` (which had been a corrupted UTF-16 single-line header) as a proper project README. The README now covers project description, local-development commands, the `## Initial deployment setup` section satisfying ACs #2–#4, authoring conventions, and a license link.
+- Resolved the deferred-work bullet for the Pages-source toggle.
+- Build still produces 44 pages cleanly; README at repo root is outside the content collection.
+
 ### File List
+
+- README.md (modified — full rewrite)
+- _bmad-output/implementation-artifacts/deferred-work.md (modified)
+
+### Change Log
+
+- 2026-05-03: Documented GitHub Pages setup step (Story 9.5)

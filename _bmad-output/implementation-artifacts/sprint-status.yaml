@@ -125,7 +125,7 @@ development_status:
   9-2-tighten-the-content-collection-schema: review
   9-3-pre-launch-manual-accessibility-audit: ready-for-dev
   9-4-post-first-deploy-live-verification: ready-for-dev
-  9-5-document-the-github-pages-source-github-actions-setup-step: ready-for-dev
+  9-5-document-the-github-pages-source-github-actions-setup-step: review
   9-6-outcomechecklist-component-conditional: backlog
   9-7-phasehandoff-component-conditional: backlog
   9-8-phasebadge-component-conditional: backlog
