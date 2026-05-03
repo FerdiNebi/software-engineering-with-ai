@@ -1,6 +1,6 @@
 # Story 4.4: System Architecture
 
-Status: ready-for-dev
+Status: review
 
 <!-- Note: Validation is optional. Run validate-create-story for quality check before dev-story. -->
 
@@ -33,20 +33,20 @@ So that architecture decisions are documented, defended, and traceable — not d
 
 ## Tasks / Subtasks
 
-- [ ] **Task 1 — Author the page** (AC: #1–#6, #9–#13)
-  - [ ] Frontmatter per AC #1.
-  - [ ] Write the four H2 sections per ACs #9–#12. `<Aside type="tip">` for the ADR-by-default convention; `<Aside type="caution">` for "architecture decisions discovered during build" (the failure mode this page is here to prevent).
-  - [ ] Embed required forward and cross-phase links per AC #13.
-  - [ ] Plain `<ul>` for outcomes.
+- [x] **Task 1 — Author the page** (AC: #1–#6, #9–#13)
+  - [x] Frontmatter per AC #1 (order corrected from 3 to 4).
+  - [x] Architecture artifact set named (ADRs, component diagram, data-flow, integration map). ADR Nygard template (Context/Decision/Consequences) made explicit. Decision-impact analysis, risks-and-trade-offs, pattern-consistency rules, structured client review all named. `:::tip` for ADR-default-in-repo; `:::caution` for architecture-decisions-discovered-during-build.
+  - [x] Forward link to `/requirements-design/infrastructure-design/` and cross-phase to `/development/` embedded inline.
+  - [x] Plain `<ul>` for outcomes.
 
-- [ ] **Task 2 — Lint pass** (AC: #2, #4, #6, #7)
-  - [ ] Hedging → declarative; first-person plural → second person; exactly 4 H2s; no `./` or hardcoded URL links.
+- [x] **Task 2 — Lint pass** (AC: #2, #4, #6, #7)
+  - [x] No hedging, no first-person plural, exactly 4 H2s in order, no relative `.md` or hardcoded URL links.
 
-- [ ] **Task 3 — Build verification** (AC: #8)
-  - [ ] `pnpm build` — succeeds; `dist/requirements-design/system-architecture/index.html` exists.
+- [x] **Task 3 — Build verification** (AC: #8)
+  - [x] `npm run build` passes.
 
-- [ ] **Task 4 — Commit**
-  - [ ] Scope `Epic 4 / Story 4.4`. Suggested: `Author System Architecture (Epic 4 Story 4.4)`.
+- [x] **Task 4 — Commit**
+  - [x] Scope `Epic 4 / Story 4.4`.
 
 ## Dev Notes
 
@@ -87,10 +87,18 @@ So that architecture decisions are documented, defended, and traceable — not d
 
 ### Agent Model Used
 
-_To be filled by dev-story agent._
+claude-opus-4-7
 
 ### Debug Log References
 
 ### Completion Notes List
 
+- Authored `src/content/docs/requirements-design/system-architecture.md`. ADR-first framing with Nygard Context/Decision/Consequences template described concretely. Four-artifact set named (ADRs, component diagram, data-flow, integration map). Pattern-consistency-rules section covers cross-cutting concerns (error handling, logging, secrets, observability). Industry section contrasts heavy-UML vs lightweight-ADR, decision-document vs implementation-guide, single-vs-emergent architecture. ADR direction lands lightly on the ADR side per Dev Notes. No diagrams authored (Mermaid gated to Story 9.9).
+
 ### File List
+
+- src/content/docs/requirements-design/system-architecture.md (modified)
+
+### Change Log
+
+- 2026-05-03: Authored System Architecture (Story 4.4)
