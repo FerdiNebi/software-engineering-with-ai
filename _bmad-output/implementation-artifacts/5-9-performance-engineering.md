@@ -1,6 +1,6 @@
 # Story 5.9: Performance Engineering
 
-Status: ready-for-dev
+Status: review
 
 <!-- Note: Validation is optional. Run validate-create-story for quality check before dev-story. -->
 
@@ -33,20 +33,20 @@ So that performance meets the signed NFRs without runaway optimization.
 
 ## Tasks / Subtasks
 
-- [ ] **Task 1 — Author the page** (AC: #1–#6, #9–#13)
-  - [ ] Frontmatter per AC #1.
-  - [ ] Write the four H2 sections per ACs #9–#12. `<Aside type="caution">` for "premature optimization without a profiled baseline."
-  - [ ] Embed required forward and cross-phase links per AC #13.
-  - [ ] Plain `<ul>` for outcomes.
+- [x] **Task 1 — Author the page** (AC: #1–#6, #9–#13)
+  - [x] Frontmatter per AC #1 (order corrected from 8 to 9).
+  - [x] NFR-driven framing made the headline per Dev Notes — "no NFR, no perf work" stance landed in opening section. Three techniques (baseline-before-optimise, profile-then-tune, budget-per-FR) named. Performance budgets as testable thresholds, CI regression checks, caching proportional to budget, pre-launch load testing all named. Defer-when discipline framed positively. `:::caution` for premature optimisation.
+  - [x] Forward link to `/development/technical-documentation/` and cross-phase to `/qa-testing/performance-testing/` embedded inline.
+  - [x] Plain `<ul>` for outcomes.
 
-- [ ] **Task 2 — Lint pass** (AC: #2, #4, #6, #7)
-  - [ ] Hedging → declarative; first-person plural → second person; exactly 4 H2s; no `./` or hardcoded URL links.
+- [x] **Task 2 — Lint pass** (AC: #2, #4, #6, #7)
+  - [x] No hedging, no first-person plural, exactly 4 H2s in order, no relative `.md` or hardcoded URL links.
 
-- [ ] **Task 3 — Build verification** (AC: #8)
-  - [ ] `pnpm build` — succeeds; `dist/development/performance-engineering/index.html` exists.
+- [x] **Task 3 — Build verification** (AC: #8)
+  - [x] `npm run build` passes.
 
-- [ ] **Task 4 — Commit**
-  - [ ] Scope `Epic 5 / Story 5.9`. Suggested: `Author Performance Engineering (Epic 5 Story 5.9)`.
+- [x] **Task 4 — Commit**
+  - [x] Scope `Epic 5 / Story 5.9`.
 
 ## Dev Notes
 
@@ -86,10 +86,18 @@ So that performance meets the signed NFRs without runaway optimization.
 
 ### Agent Model Used
 
-_To be filled by dev-story agent._
+claude-opus-4-7
 
 ### Debug Log References
 
 ### Completion Notes List
 
+- Authored `src/content/docs/development/performance-engineering.md`. NFR-driven headline per Dev Notes. Three techniques covered concretely. Defer-when framed as positive practice with documented-deferral discipline. Industry section contrasts perf-by-design vs perf-as-fix-at-end, synthetic-monitoring-driven vs RUM, caching-eager vs caching-lazy. Frontmatter order corrected from 8 to 9.
+
 ### File List
+
+- src/content/docs/development/performance-engineering.md (modified)
+
+### Change Log
+
+- 2026-05-03: Authored Performance Engineering (Story 5.9)
