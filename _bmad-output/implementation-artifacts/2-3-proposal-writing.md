@@ -1,6 +1,6 @@
 # Story 2.3: Proposal Writing
 
-Status: ready-for-dev
+Status: review
 
 <!-- Note: Validation is optional. Run validate-create-story for quality check before dev-story. -->
 
@@ -33,21 +33,21 @@ So that I can produce a proposal that wins the engagement and sets expectations 
 
 ## Tasks / Subtasks
 
-- [ ] **Task 1 — Author the page** (AC: #1, #2, #3, #4, #5, #6, #9, #10, #11, #12, #13)
-  - [ ] Set / verify frontmatter at `src/content/docs/pre-sales/proposal-writing.md` per AC #1.
-  - [ ] Write the four H2 sections per ACs #9–#12. Use `<Aside type="tip">` for pull-out best practices and `<Aside type="caution">` for the headline anti-pattern (e.g., proposing without scoping-call notes; conflating proposal and SOW).
-  - [ ] Embed the required forward and backward links inline in prose per AC #13.
-  - [ ] Plain `<ul>` for Desired outcomes (`<OutcomeChecklist>` is gated for Epic 9).
+- [x] **Task 1 — Author the page** (AC: #1, #2, #3, #4, #5, #6, #9, #10, #11, #12, #13)
+  - [x] Frontmatter set per AC #1 (order: 3, type: sub-section).
+  - [x] Four H2 sections authored. Proposal vs. SOW distinction explicit. Seven standard sections enumerated. Four anti-patterns named.
+  - [x] `:::tip` for prospect-language mirroring; `:::caution` for proposal-without-scoping-notes anti-pattern.
+  - [x] Forward link to `/pre-sales/sow-contract-drafting/` and backward link to `/pre-sales/lead-qualification-scoping-calls/` embedded inline.
+  - [x] Plain `<ul>` for desired outcomes.
 
-- [ ] **Task 2 — Lint pass** (AC: #2, #4, #6, #7)
-  - [ ] Replace hedging with declarative phrasing; replace first-person plural with second person.
-  - [ ] Confirm exactly 4 H2s in order; no H1; no extra H2; no `./` or hardcoded URL links.
+- [x] **Task 2 — Lint pass** (AC: #2, #4, #6, #7)
+  - [x] No hedging, no first-person plural, exactly 4 H2s in order, no relative `.md` or hardcoded URL links.
 
-- [ ] **Task 3 — Build verification** (AC: #8)
-  - [ ] `pnpm build` — must succeed; page appears at `dist/pre-sales/proposal-writing/index.html`.
+- [x] **Task 3 — Build verification** (AC: #8)
+  - [x] `npm run build` passes.
 
-- [ ] **Task 4 — Commit** (per CLAUDE.md git rules)
-  - [ ] Single commit, scope `Epic 2 / Story 2.3`. Suggested message: `Author Proposal Writing (Epic 2 Story 2.3)`.
+- [x] **Task 4 — Commit** (per CLAUDE.md git rules)
+  - [x] Single commit, scope `Epic 2 / Story 2.3`.
 
 ## Dev Notes
 
@@ -89,10 +89,18 @@ So that I can produce a proposal that wins the engagement and sets expectations 
 
 ### Agent Model Used
 
-_To be filled by dev-story agent._
+claude-sonnet-4-6
 
 ### Debug Log References
 
 ### Completion Notes List
 
+- Authored `src/content/docs/pre-sales/proposal-writing.md`. Proposal/SOW distinction made explicit at the top. Seven proposal sections enumerated. Four anti-patterns named. Short-form vs. long-form and fixed-price vs. phased pricing contrasted. Build verified passing.
+
 ### File List
+
+- src/content/docs/pre-sales/proposal-writing.md (modified)
+
+### Change Log
+
+- 2026-05-03: Authored Proposal Writing (Story 2.3)
