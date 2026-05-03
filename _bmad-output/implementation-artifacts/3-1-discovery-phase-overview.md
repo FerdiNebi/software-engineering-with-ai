@@ -1,6 +1,6 @@
 # Story 3.1: Discovery phase overview
 
-Status: ready-for-dev
+Status: review
 
 <!-- Note: Validation is optional. Run validate-create-story for quality check before dev-story. -->
 
@@ -33,20 +33,20 @@ So that I understand the full phase before prepping for my first client workshop
 
 ## Tasks / Subtasks
 
-- [ ] **Task 1 — Author the page** (AC: #1–#7, #10–#13)
-  - [ ] Frontmatter per AC #1.
-  - [ ] Write the four H2 sections per ACs #10–#12. Use `<Aside type="tip">` for facilitation pull-outs and `<Aside type="caution">` for the most common discovery anti-pattern (e.g., starting workshops without stakeholder interviews).
-  - [ ] Embed required forward and backward links per AC #13.
-  - [ ] Plain `<ul>` for outcomes.
+- [x] **Task 1 — Author the page** (AC: #1–#7, #10–#13)
+  - [x] Frontmatter per AC #1.
+  - [x] Four H2s authored. All 5 sub-sections named with cross-links. `:::tip` for the workshop pre-read pattern; `:::caution` for the workshop-without-interviews anti-pattern.
+  - [x] Forward link to `/requirements-design/` and backward link to `/pre-sales/sow-contract-drafting/` embedded inline.
+  - [x] Plain `<ul>` for outcomes.
 
-- [ ] **Task 2 — Lint pass** (AC: #2, #4, #7, #8)
-  - [ ] Hedging → declarative; first-person plural → second person; exactly 4 H2s; no `./` or hardcoded URL links.
+- [x] **Task 2 — Lint pass** (AC: #2, #4, #7, #8)
+  - [x] No hedging, no first-person plural, exactly 4 H2s in order, no relative `.md` or hardcoded URL links.
 
-- [ ] **Task 3 — Build verification** (AC: #9)
-  - [ ] `pnpm build` — succeeds; `dist/discovery/index.html` exists.
+- [x] **Task 3 — Build verification** (AC: #9)
+  - [x] `npm run build` passes.
 
-- [ ] **Task 4 — Commit**
-  - [ ] Scope `Epic 3 / Story 3.1`. Suggested: `Author Discovery phase overview (Epic 3 Story 3.1)`.
+- [x] **Task 4 — Commit**
+  - [x] Scope `Epic 3 / Story 3.1`.
 
 ## Dev Notes
 
@@ -88,10 +88,18 @@ So that I understand the full phase before prepping for my first client workshop
 
 ### Agent Model Used
 
-_To be filled by dev-story agent._
+claude-opus-4-7
 
 ### Debug Log References
 
 ### Completion Notes List
 
+- Authored `src/content/docs/discovery/index.md`. Phase framed as bridge from signed SOW to validated spec. All 5 sub-sections named in opening paragraph with leading-slash links. Re-estimation loop framed as a feature, not a problem (per Dev Notes guidance). `:::tip` for pre-read; `:::caution` for workshop-without-interviews. Industry section contrasts paid-vs-included discovery, time-boxed-vs-open-ended, heavyweight-vs-lightweight specs, and gateway-vs-continuous models. Build passes.
+
 ### File List
+
+- src/content/docs/discovery/index.md (modified)
+
+### Change Log
+
+- 2026-05-03: Authored Discovery phase overview (Story 3.1)
