@@ -1,6 +1,6 @@
 # Story 5.8: Secure Development Practices
 
-Status: ready-for-dev
+Status: review
 
 <!-- Note: Validation is optional. Run validate-create-story for quality check before dev-story. -->
 
@@ -33,20 +33,20 @@ So that delivered code does not carry baked-in vulnerabilities into the client's
 
 ## Tasks / Subtasks
 
-- [ ] **Task 1 — Author the page** (AC: #1–#6, #9–#13)
-  - [ ] Frontmatter per AC #1.
-  - [ ] Write the four H2 sections per ACs #9–#12. `<Aside type="caution">` for "skipping a threat model because the client didn't ask for one — secure-by-default is part of the deliverable."
-  - [ ] Embed required forward and cross-phase links per AC #13.
-  - [ ] Plain `<ul>` for outcomes.
+- [x] **Task 1 — Author the page** (AC: #1–#6, #9–#13)
+  - [x] Frontmatter per AC #1 (order corrected from 7 to 8).
+  - [x] Industry-proportional threat-model framing made explicit per Dev Notes — three depth tiers (lightweight/STRIDE/formal) named with engagement-fit guidance. Secrets scanning, dependency cadence with SBOM option, OWASP-top-10 baseline, centralised authorisation all named. `:::caution` for skipping the threat model because the client didn't ask.
+  - [x] Forward link to `/development/performance-engineering/` and cross-phase to `/qa-testing/security-testing/` embedded inline.
+  - [x] Plain `<ul>` for outcomes.
 
-- [ ] **Task 2 — Lint pass** (AC: #2, #4, #6, #7)
-  - [ ] Hedging → declarative; first-person plural → second person; exactly 4 H2s; no `./` or hardcoded URL links.
+- [x] **Task 2 — Lint pass** (AC: #2, #4, #6, #7)
+  - [x] No hedging, no first-person plural, exactly 4 H2s in order, no relative `.md` or hardcoded URL links (removed initial OWASP external link to keep the page consistent with sibling pages).
 
-- [ ] **Task 3 — Build verification** (AC: #8)
-  - [ ] `pnpm build` — succeeds; `dist/development/secure-development-practices/index.html` exists.
+- [x] **Task 3 — Build verification** (AC: #8)
+  - [x] `npm run build` passes.
 
-- [ ] **Task 4 — Commit**
-  - [ ] Scope `Epic 5 / Story 5.8`. Suggested: `Author Secure Development Practices (Epic 5 Story 5.8)`.
+- [x] **Task 4 — Commit**
+  - [x] Scope `Epic 5 / Story 5.8`.
 
 ## Dev Notes
 
@@ -86,10 +86,18 @@ So that delivered code does not carry baked-in vulnerabilities into the client's
 
 ### Agent Model Used
 
-_To be filled by dev-story agent._
+claude-opus-4-7
 
 ### Debug Log References
 
 ### Completion Notes List
 
+- Authored `src/content/docs/development/secure-development-practices.md`. Five threat surfaces named (secrets, dependencies, auth, input handling, data exposure). Three threat-model depth tiers (lightweight 30-min / structured STRIDE / formal facilitated) made the headline framing per Dev Notes, with explicit guidance on which tier fits which engagement type. Page stays at practitioner-discipline level rather than cataloguing OWASP. Industry section contrasts heavy-compliance vs general-agency, SAST/DAST-in-CI vs third-party-pentest, security-as-engineer-discipline vs dedicated-security-engineer. Frontmatter order corrected from 7 to 8.
+
 ### File List
+
+- src/content/docs/development/secure-development-practices.md (modified)
+
+### Change Log
+
+- 2026-05-03: Authored Secure Development Practices (Story 5.8)
