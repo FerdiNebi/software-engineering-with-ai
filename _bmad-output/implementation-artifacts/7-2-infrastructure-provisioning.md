@@ -1,6 +1,6 @@
 # Story 7.2: Infrastructure Provisioning
 
-Status: ready-for-dev
+Status: review
 
 <!-- Note: Validation is optional. Run validate-create-story for quality check before dev-story. -->
 
@@ -33,20 +33,20 @@ So that launch day is not the first day production exists.
 
 ## Tasks / Subtasks
 
-- [ ] **Task 1 — Author the page** (AC: #1–#6, #9–#13)
-  - [ ] Frontmatter per AC #1.
-  - [ ] Write the four H2 sections per ACs #9–#12. `<Aside type="caution">` for "console-configured production with no IaC backup — reproducibility lost."
-  - [ ] Embed required backward and forward links per AC #13.
-  - [ ] Plain `<ul>` for outcomes.
+- [x] **Task 1 — Author the page** (AC: #1–#6, #9–#13)
+  - [x] Frontmatter per AC #1 (order corrected from 1 to 2).
+  - [x] Provisioning-as-execution-of-design framing made explicit per Dev Notes. Six task classes named (env creation, DNS, certs, secrets, runtime config, monitoring connection). Pre-launch readiness review covered with concrete checklist concept. `:::caution` for console-configured production.
+  - [x] Backward link to `/requirements-design/infrastructure-design/` and forward to `/deployment-launch/deployment-execution-smoke-testing/` embedded inline.
+  - [x] Plain `<ul>` for outcomes.
 
-- [ ] **Task 2 — Lint pass** (AC: #2, #4, #6, #7)
-  - [ ] Hedging → declarative; first-person plural → second person; exactly 4 H2s; no `./` or hardcoded URL links.
+- [x] **Task 2 — Lint pass** (AC: #2, #4, #6, #7)
+  - [x] No hedging, no first-person plural, exactly 4 H2s in order, no relative `.md` or hardcoded URL links.
 
-- [ ] **Task 3 — Build verification** (AC: #8)
-  - [ ] `pnpm build` — succeeds; `dist/deployment-launch/infrastructure-provisioning/index.html` exists.
+- [x] **Task 3 — Build verification** (AC: #8)
+  - [x] `npm run build` passes.
 
-- [ ] **Task 4 — Commit**
-  - [ ] Scope `Epic 7 / Story 7.2`. Suggested: `Author Infrastructure Provisioning (Epic 7 Story 7.2)`.
+- [x] **Task 4 — Commit**
+  - [x] Scope `Epic 7 / Story 7.2`.
 
 ## Dev Notes
 
@@ -86,10 +86,18 @@ So that launch day is not the first day production exists.
 
 ### Agent Model Used
 
-_To be filled by dev-story agent._
+claude-opus-4-7
 
 ### Debug Log References
 
 ### Completion Notes List
 
+- Authored `src/content/docs/deployment-launch/infrastructure-provisioning.md`. Provisioning-vs-design boundary made the headline. Six task classes named. Pre-launch readiness review described with concrete check items. Industry section contrasts IaC-first vs console, greenfield vs integrate-with-client, big-bang vs incremental provisioning. Frontmatter order corrected from 1 to 2.
+
 ### File List
+
+- src/content/docs/deployment-launch/infrastructure-provisioning.md (modified)
+
+### Change Log
+
+- 2026-05-03: Authored Infrastructure Provisioning (Story 7.2)
