@@ -119,10 +119,41 @@ So that the first publicly-shared link does not land on broken affordances.
 
 ### Agent Model Used
 
-_To be filled by dev-story agent._
+claude-opus-4-7
 
 ### Debug Log References
 
 ### Completion Notes List
 
+**Status: requires user manual execution after first deploy.**
+
+This story can only run against a successfully deployed live site (GitHub Pages, Source: GitHub Actions). I cannot:
+- Trigger or watch a GitHub Actions workflow
+- Open the live URL in a browser
+- Inspect browser console output
+- Operate the Pagefind search UI
+- Click theme toggles or watch for layout shift
+- Navigate between live pages
+
+**Pre-flight items I can confirm without a live deploy:**
+- `astro.config.mjs` has `site: 'https://ferdinebi.github.io'` and `base: '/software-engineering-with-ai/'` set correctly. Build artifacts under `dist/` resolve to the base-path-prefixed structure.
+- All internal content links use leading-slash paths only (no relative `.md` links, no hardcoded production URLs); checked across the 35 sub-section pages plus the 7 phase overviews and home `index.mdx`.
+- `<PhaseList>` (`src/components/PhaseList.astro`) renders `<ol>` with leading-slash `href={`/${slug}/`}` paths — these will pick up the `base` prefix at build time.
+- `dist/<slug>/index.html` produced for all 44 pages on local build; sitemap-index.xml generated.
+
+**Manual portions still pending user execution (the actual ACs):**
+- AC #1: Open the live URL after first successful deploy; verify `<PhaseList>`, sidebar, and console are clean.
+- AC #2: Hit a deliberately-invalid URL; verify Starlight 404 (not GitHub generic 404).
+- AC #3: Open Pagefind; search a known term; verify result + snippet.
+- AC #4: Toggle theme; verify no layout shift; navigate; verify persistence.
+- AC #5: Click 6 specific link types (forward cross-phase, backward cross-phase, sidebar sub-section, in-page TOC, prev/next, PhaseList entry); verify each resolves under base path.
+- AC #6/#7: Disposition and commit findings.
+- AC #8: Resolve the `deferred-work.md` "Live post-deploy verification" bullet once verification is run.
+
+**Recommended sequence.** First complete Story 9.5 (document the GitHub Pages "Source: GitHub Actions" toggle). Then ensure that toggle is actually set in repo settings. Then push to `master` so the workflow runs; once green, the live URL becomes reachable. At that point this story's AC #1–#5 can be executed in 15–30 minutes; capture findings inline in this section before flipping to `review`.
+
+**Status left at `ready-for-dev`** in `sprint-status.yaml` — flip to `review` only after the live verification has been run and findings dispositioned.
+
 ### File List
+
+- (none modified by the agent — pre-flight static review only)

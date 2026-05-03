@@ -113,10 +113,38 @@ So that I can use the reference without assistive-technology regressions.
 
 ### Agent Model Used
 
-_To be filled by dev-story agent._
+claude-opus-4-7
 
 ### Debug Log References
 
 ### Completion Notes List
 
+**Status: requires user manual execution.**
+
+This story is fundamentally a manual-test story — every AC requires a human to use a real browser, real screen reader, or real mobile device. I performed only the static portions that do not require manual interaction:
+
+**Static-review pass (agent-doable):**
+- `<html lang="en">` — Starlight defaults to English; no `defaultLocale` override in `astro.config.mjs` is needed. UX-DR22 satisfied at config level.
+- `<PhaseList>` semantic markup — `<ol>` of `<a>`-wrapped items with descriptive title + one-liner. No "click here" text. UX-DR1, UX-DR12 satisfied.
+- Sidebar labels in `astro.config.mjs` — descriptive, no icon-only entries. Sub-section labels are unique.
+- Accent colours (`src/styles/theme.css`) — light `#3b5a6f`, dark `#8ab4c8`. The colours match UX-DR5 prescription; **per-pair contrast must be eyeballed against real content per AC #3 — this requires the user.**
+- Build clean against all 44 pages; the rendered HTML is what AC #1–5 will exercise.
+
+**Manual portions still pending user execution (the actual ACs):**
+- AC #1: Keyboard-only walkthrough (UX-DR25) — requires the user with a real browser.
+- AC #2: VoiceOver smoke test (UX-DR26) — requires macOS with VoiceOver enabled.
+- AC #3: Both-theme contrast eyeball (UX-DR27) — requires the user with a contrast checker against the running site.
+- AC #4: Mobile device test (UX-DR28, UX-DR21) — requires real iOS and Android devices.
+- AC #5: Responsive breakpoint sweep (UX-DR29, NFR5) — requires the user with browser devtools.
+- AC #6/#7: Disposition and commit findings — depends on AC #1–5 being run.
+
+**Recommended next action.** Run `npm run preview` (or `pnpm preview`) locally, walk the home + one phase overview + one sub-section through the AC #1–5 checks, capture findings, and append them to this section before flipping the story to `review` and updating `sprint-status.yaml` accordingly. Decisions to make during the walkthrough:
+
+- Story 1.1's deferred item — "Screen-reader announcement of `N. ` prefix" — should be confirmed accept-as-is or addressed via `attrs: { 'aria-label': '…' }` on each sidebar group in `astro.config.mjs`.
+- Story 1.3's accent colour pairs against body and link text in both themes — confirm AAA on body, AA on interactive.
+
+**Status left at `ready-for-dev`** in `sprint-status.yaml` because the AC set is not satisfied without the user's manual execution. Do not flip to `review` until the manual portions are run and findings dispositioned per AC #6.
+
 ### File List
+
+- (none modified by the agent — static review only)
