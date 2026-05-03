@@ -11,6 +11,7 @@ export default defineConfig({
       title: 'End-to-End Software Engineering with AI',
       description:
         'The agency and consulting delivery lifecycle for senior software engineers — pre-sales through maintenance.',
+      customCss: ['./src/styles/theme.css'],
       sidebar: [
         {
           label: '1. Pre-Sales & Business Development',
