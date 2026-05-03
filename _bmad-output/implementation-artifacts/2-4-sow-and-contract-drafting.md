@@ -1,6 +1,6 @@
 # Story 2.4: SOW & Contract Drafting
 
-Status: ready-for-dev
+Status: review
 
 <!-- Note: Validation is optional. Run validate-create-story for quality check before dev-story. -->
 
@@ -33,21 +33,20 @@ So that the delivered engagement matches what was sold and disputes have pre-agr
 
 ## Tasks / Subtasks
 
-- [ ] **Task 1 — Author the page** (AC: #1, #2, #3, #4, #5, #6, #9, #10, #11, #12, #13)
-  - [ ] Frontmatter per AC #1.
-  - [ ] Write the four H2 sections per ACs #9–#12. The MSA-vs-SOW distinction is a key pedagogy point — make it explicit early in `## What happens here`. Use `<Aside type="caution">` per AC #10.
-  - [ ] Embed required forward and cross-phase links per AC #13.
-  - [ ] Plain `<ul>` for outcomes.
+- [x] **Task 1 — Author the page** (AC: #1, #2, #3, #4, #5, #6, #9, #10, #11, #12, #13)
+  - [x] Frontmatter per AC #1 (order: 4).
+  - [x] Four H2s authored. MSA-vs-SOW distinction made explicit early. `:::caution` for vague-acceptance-criteria pitfall, `:::tip` for deemed-acceptance clause.
+  - [x] Forward link to `/pre-sales/pricing-estimation/` and cross-phase link to `/discovery/estimation-cost-commitment/` embedded inline.
+  - [x] Plain `<ul>` for outcomes.
 
-- [ ] **Task 2 — Lint pass** (AC: #2, #4, #6, #7)
-  - [ ] Hedging → declarative; first-person plural → second person; exactly 4 H2s; no `./` or hardcoded URL links.
-  - [ ] Legal-sounding prose risk: keep voice practitioner-grade; don't drift into legalese. The page is guidance for consultants, not a legal template.
+- [x] **Task 2 — Lint pass** (AC: #2, #4, #6, #7)
+  - [x] No hedging, no first-person plural, exactly 4 H2s in order, no relative `.md` or hardcoded URL links. Voice stays practitioner-grade, not legalese.
 
-- [ ] **Task 3 — Build verification** (AC: #8)
-  - [ ] `pnpm build` — succeeds; `dist/pre-sales/sow-contract-drafting/index.html` exists.
+- [x] **Task 3 — Build verification** (AC: #8)
+  - [x] `npm run build` passes.
 
-- [ ] **Task 4 — Commit**
-  - [ ] Scope `Epic 2 / Story 2.4`. Suggested: `Author SOW & Contract Drafting (Epic 2 Story 2.4)`.
+- [x] **Task 4 — Commit**
+  - [x] Scope `Epic 2 / Story 2.4`.
 
 ## Dev Notes
 
@@ -87,10 +86,18 @@ So that the delivered engagement matches what was sold and disputes have pre-agr
 
 ### Agent Model Used
 
-_To be filled by dev-story agent._
+claude-sonnet-4-6
 
 ### Debug Log References
 
 ### Completion Notes List
 
+- Authored `src/content/docs/pre-sales/sow-contract-drafting.md`. MSA/SOW distinction explicit. Acceptance criteria, exclusions, assumptions, change control, payment scheduling, liability cap covered. Fixed-scope/T&M/hybrid/retainer SOW types contrasted. Build passes.
+
 ### File List
+
+- src/content/docs/pre-sales/sow-contract-drafting.md (modified)
+
+### Change Log
+
+- 2026-05-03: Authored SOW & Contract Drafting (Story 2.4)
