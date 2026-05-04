@@ -1,6 +1,6 @@
 # Story 5.1: Development phase overview
 
-Status: review
+Status: done
 
 <!-- Note: Validation is optional. Run validate-create-story for quality check before dev-story. -->
 

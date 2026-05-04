@@ -1,6 +1,6 @@
 # Story 5.6: Developer Testing
 
-Status: review
+Status: done
 
 <!-- Note: Validation is optional. Run validate-create-story for quality check before dev-story. -->
 

@@ -79,16 +79,16 @@ development_status:
 
   # Epic 5: Development Content
   epic-5: in-progress
-  5-1-development-phase-overview: review
-  5-2-repository-structure-and-branching-strategy: review
-  5-3-devops-and-ci-cd: review
-  5-4-backend-development: review
-  5-5-frontend-development: review
-  5-6-developer-testing: review
-  5-7-code-review: review
-  5-8-secure-development-practices: review
-  5-9-performance-engineering: review
-  5-10-technical-documentation: review
+  5-1-development-phase-overview: done
+  5-2-repository-structure-and-branching-strategy: done
+  5-3-devops-and-ci-cd: done
+  5-4-backend-development: done
+  5-5-frontend-development: done
+  5-6-developer-testing: done
+  5-7-code-review: done
+  5-8-secure-development-practices: done
+  5-9-performance-engineering: done
+  5-10-technical-documentation: done
   epic-5-retrospective: optional
 
   # Epic 6: QA / Testing Content
