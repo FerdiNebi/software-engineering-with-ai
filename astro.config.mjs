@@ -2,10 +2,16 @@ import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import sitemap from '@astrojs/sitemap';
 import mdx from '@astrojs/mdx';
+import remarkBasePath from './remark-base-path.mjs';
+
+const base = '/software-engineering-with-ai/';
 
 export default defineConfig({
   site: 'https://ferdinebi.github.io',
-  base: '/software-engineering-with-ai/',
+  base,
+  markdown: {
+    remarkPlugins: [[remarkBasePath, { base }]],
+  },
   integrations: [
     starlight({
       title: 'End-to-End Software Engineering with AI',
