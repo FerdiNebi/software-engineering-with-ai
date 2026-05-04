@@ -1,4 +1,8 @@
 ---
+// import.meta.env.BASE_URL resolves to the `base` configured in astro.config.mjs
+// (e.g. '/software-engineering-with-ai/'). Astro guarantees a trailing slash, so
+// concatenating `${base}${slug}/` produces the correctly-prefixed link.
+const base = import.meta.env.BASE_URL;
 const phases = [
   {
     number: 1,
@@ -47,7 +51,7 @@ const phases = [
 <ol class="phase-list">
   {phases.map(p => (
     <li>
-      <a href={`/${p.slug}/`}>
+      <a href={`${base}${p.slug}/`}>
         <span class="phase-number">{p.number}.</span>
         <span class="phase-title">{p.title}</span>
         <span class="phase-oneliner">{p.oneLiner}</span>
