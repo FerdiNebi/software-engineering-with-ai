@@ -112,11 +112,11 @@ development_status:
 
   # Epic 8: Maintenance & Retainer Content
   epic-8: in-progress
-  8-1-maintenance-and-retainer-phase-overview: review
-  8-2-bug-fixes-and-patch-management: review
-  8-3-feature-iteration: review
-  8-4-incident-response: review
-  8-5-retainer-structure-and-slas: review
+  8-1-maintenance-and-retainer-phase-overview: done
+  8-2-bug-fixes-and-patch-management: done
+  8-3-feature-iteration: done
+  8-4-incident-response: done
+  8-5-retainer-structure-and-slas: done
   epic-8-retrospective: optional
 
   # Epic 9: v1 Launch Readiness
