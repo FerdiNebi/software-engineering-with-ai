@@ -1,6 +1,6 @@
 # Story 7.5: Client Handoff & Launch Checklist
 
-Status: review
+Status: done
 
 <!-- Note: Validation is optional. Run validate-create-story for quality check before dev-story. -->
 

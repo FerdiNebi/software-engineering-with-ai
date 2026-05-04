@@ -1,6 +1,6 @@
 # Story 7.3: Deployment Execution & Smoke Testing
 
-Status: review
+Status: done
 
 <!-- Note: Validation is optional. Run validate-create-story for quality check before dev-story. -->
 

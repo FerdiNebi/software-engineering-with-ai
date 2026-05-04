@@ -1,6 +1,6 @@
 # Story 7.2: Infrastructure Provisioning
 
-Status: review
+Status: done
 
 <!-- Note: Validation is optional. Run validate-create-story for quality check before dev-story. -->
 

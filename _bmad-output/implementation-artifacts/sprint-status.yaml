@@ -103,11 +103,11 @@ development_status:
 
   # Epic 7: Deployment / Launch Content
   epic-7: in-progress
-  7-1-deployment-launch-phase-overview: review
-  7-2-infrastructure-provisioning: review
-  7-3-deployment-execution-and-smoke-testing: review
-  7-4-monitoring-and-observability-setup: review
-  7-5-client-handoff-and-launch-checklist: review
+  7-1-deployment-launch-phase-overview: done
+  7-2-infrastructure-provisioning: done
+  7-3-deployment-execution-and-smoke-testing: done
+  7-4-monitoring-and-observability-setup: done
+  7-5-client-handoff-and-launch-checklist: done
   epic-7-retrospective: optional
 
   # Epic 8: Maintenance & Retainer Content
