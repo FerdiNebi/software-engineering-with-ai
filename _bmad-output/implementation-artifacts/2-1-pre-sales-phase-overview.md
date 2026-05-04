@@ -1,6 +1,6 @@
 # Story 2.1: Pre-Sales phase overview
 
-Status: review
+Status: done
 
 <!-- Note: Validation is optional. Run validate-create-story for quality check before dev-story. -->
 
@@ -127,3 +127,11 @@ claude-sonnet-4-6
 ### Change Log
 
 - 2026-05-03: Authored Pre-Sales phase overview (Story 2.1)
+- 2026-05-04: Code review complete — clean, no patches; status → done
+
+### Review Findings
+
+_Reviewed 2026-05-04. Layers: Acceptance Auditor + lint pass for 4-H2 contract, voice, and link convention._
+
+- [x] All 13 AC verified against `src/content/docs/pre-sales/index.md`: frontmatter pinned (title, description ≤160 chars, type=phase-overview, phase=pre-sales, order=1, lastUpdated, status=v1); exactly 4 H2s in spec order; substantive prose under each; second-person practitioner voice; cross-links to `/discovery/` and `/maintenance-retainer/` (AC #13); fixed-price vs. T&M and discovery-included vs. paid-discovery contrasted (AC #12); 4 sub-sections named in `## What happens here` (AC #10); SOW + countersigned proposal + pricing commitment + handoff package listed in outcomes (AC #11)
+- [x] [Review][Dismiss] First-person plural matches in grep (`we'll be in touch`, `our terms, signed`) all appear inside quoted speech (illustrative dialogue), not narrator voice — acceptable per voice rule

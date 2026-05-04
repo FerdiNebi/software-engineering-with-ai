@@ -1,6 +1,6 @@
 # Story 2.3: Proposal Writing
 
-Status: review
+Status: done
 
 <!-- Note: Validation is optional. Run validate-create-story for quality check before dev-story. -->
 
@@ -104,3 +104,10 @@ claude-sonnet-4-6
 ### Change Log
 
 - 2026-05-03: Authored Proposal Writing (Story 2.3)
+- 2026-05-04: Code review complete — clean, no patches; status → done
+
+### Review Findings
+
+_Reviewed 2026-05-04. Layers: Acceptance Auditor + lint pass._
+
+- [x] All 13 AC verified: order=3, type=sub-section; 4 H2s in spec order; proposal-vs-SOW distinction landed at top (AC #9); 7 standard sections enumerated (AC #10); 4 named anti-patterns (kitchen-sink, boilerplate, "we'll figure it out", covert SOW); tip + caution callouts present; cross-links to `/pre-sales/sow-contract-drafting/` and `/pre-sales/lead-qualification-scoping-calls/` (AC #13); short-form vs. long-form and fixed-price vs. phased pricing contrasted (AC #12)

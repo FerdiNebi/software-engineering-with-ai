@@ -51,11 +51,11 @@ development_status:
 
   # Epic 2: Pre-Sales & Business Development Content
   epic-2: in-progress
-  2-1-pre-sales-phase-overview: review
-  2-2-lead-qualification-and-scoping-calls: review
-  2-3-proposal-writing: review
-  2-4-sow-and-contract-drafting: review
-  2-5-pricing-and-estimation: review
+  2-1-pre-sales-phase-overview: done
+  2-2-lead-qualification-and-scoping-calls: done
+  2-3-proposal-writing: done
+  2-4-sow-and-contract-drafting: done
+  2-5-pricing-and-estimation: done
   epic-2-retrospective: optional
 
   # Epic 3: Discovery Content

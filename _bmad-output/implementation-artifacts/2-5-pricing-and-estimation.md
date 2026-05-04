@@ -1,6 +1,6 @@
 # Story 2.5: Pricing & Estimation
 
-Status: review
+Status: done
 
 <!-- Note: Validation is optional. Run validate-create-story for quality check before dev-story. -->
 
@@ -102,3 +102,10 @@ claude-opus-4-7
 ### Change Log
 
 - 2026-05-03: Authored Pricing & Estimation (Story 2.5)
+- 2026-05-04: Code review complete — clean, no patches; status → done
+
+### Review Findings
+
+_Reviewed 2026-05-04. Layers: Acceptance Auditor + lint pass._
+
+- [x] All 13 AC verified: order=5, type=sub-section; 4 H2s in spec order; pricing-vs-developer-task-estimation distinction landed in opening paragraphs (AC #9); 5 pricing models named (fixed, T&M, retainer, value-based, hybrid); 3 estimation techniques covered (analogy, three-point/PERT, ranged with confidence) and 3 pricing levers (team composition, timeline compression, risk buffer) (AC #10); tip + caution callouts; cross-links to `/discovery/estimation-cost-commitment/` and `/pre-sales/sow-contract-drafting/` (AC #13); 4 industry contrasts (boutique vs. volume, discovery-first vs. proposal-first, cost-plus vs. value-based, headline-fixed vs. phased) (AC #12)

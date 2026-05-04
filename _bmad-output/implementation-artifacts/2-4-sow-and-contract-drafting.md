@@ -1,6 +1,6 @@
 # Story 2.4: SOW & Contract Drafting
 
-Status: review
+Status: done
 
 <!-- Note: Validation is optional. Run validate-create-story for quality check before dev-story. -->
 
@@ -101,3 +101,10 @@ claude-sonnet-4-6
 ### Change Log
 
 - 2026-05-03: Authored SOW & Contract Drafting (Story 2.4)
+- 2026-05-04: Code review complete — clean, no patches; status → done
+
+### Review Findings
+
+_Reviewed 2026-05-04. Layers: Acceptance Auditor + lint pass._
+
+- [x] All 13 AC verified: order=4, type=sub-section; 4 H2s in spec order; MSA vs. SOW distinction made explicit (AC #9); typical SOW sections enumerated (scope, deliverables, acceptance criteria, payment terms, change control, IP, warranties, termination, exclusions); explicit-exclusions, named-assumptions, change-control-as-process, deemed-acceptance covered (AC #10); caution + tip callouts; signed SOW + scope boundaries + change-control + handoff package listed (AC #11); fixed-scope/T&M/hybrid/retainer SOW types contrasted (AC #12); cross-links to `/pre-sales/pricing-estimation/` and `/discovery/estimation-cost-commitment/` (AC #13)

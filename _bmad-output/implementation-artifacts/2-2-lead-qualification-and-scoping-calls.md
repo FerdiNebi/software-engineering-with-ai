@@ -1,6 +1,6 @@
 # Story 2.2: Lead Qualification & Scoping Calls
 
-Status: review
+Status: done
 
 <!-- Note: Validation is optional. Run validate-create-story for quality check before dev-story. -->
 
@@ -107,3 +107,10 @@ claude-sonnet-4-6
 ### Change Log
 
 - 2026-05-03: Authored Lead Qualification & Scoping Calls (Story 2.2)
+- 2026-05-04: Code review complete — clean, no patches; status → done
+
+### Review Findings
+
+_Reviewed 2026-05-04. Layers: Acceptance Auditor + lint pass._
+
+- [x] All 13 AC verified: frontmatter pinned (order=2, type=sub-section); exactly 4 H2s in spec order; BANT and MEDDIC named with the four qualification axes; tip + caution callouts present; cross-links to `/pre-sales/proposal-writing/` and `/discovery/` (AC #13); strict-gate vs. nurture-style contrasted (AC #12); qualify/disqualify decision + scoping summary + agreed next step listed in outcomes (AC #11)
