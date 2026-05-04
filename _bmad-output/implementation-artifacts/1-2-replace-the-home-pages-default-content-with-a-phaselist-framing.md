@@ -1,6 +1,6 @@
 # Story 1.2: Replace the home page's default content with a `<PhaseList>` framing
 
-Status: review
+Status: done
 
 <!-- Note: Validation is optional. Run validate-create-story for quality check before dev-story. -->
 
@@ -155,3 +155,11 @@ claude-sonnet-4-6
 ### Change Log
 
 - 2026-05-03: Created PhaseList component and rewrote home page (Story 1.2)
+- 2026-05-04: Code review complete — clean, no patches needed; status → done
+
+### Review Findings
+
+_Reviewed 2026-05-04. Layers: Acceptance Auditor (AC pass-through), Edge Case Hunter (component a11y + base-path safety)._
+
+- [x] [Review][Defer] Visual phase number ("1.") may be announced redundantly with the `<ol>` ordering by some screen readers — pre-launch a11y audit (Story 9.3) owns the comprehensive sweep
+- [x] All 7 AC verified against `src/components/PhaseList.astro` and `src/content/docs/index.mdx`: zero-JS, semantic `<ol>`, leading-slash hrefs prefixed with `import.meta.env.BASE_URL` (matches Story 1.2 fixup `d5ed6a8` and base-path remark plugin in `60555e2`/`b46f609`/`195147a`), phase slugs match registry order, only Starlight tokens consumed

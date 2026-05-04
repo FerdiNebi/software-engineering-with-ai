@@ -1,6 +1,6 @@
 # Story 1.3: Set a single muted accent color for the site
 
-Status: review
+Status: done
 
 <!-- Note: Validation is optional. Run validate-create-story for quality check before dev-story. -->
 
@@ -114,3 +114,11 @@ claude-sonnet-4-6
 ### Change Log
 
 - 2026-05-03: Added muted slate-blue accent color via CSS custom properties (Story 1.3)
+- 2026-05-04: Code review complete — clean, no patches needed; status → done
+
+### Review Findings
+
+_Reviewed 2026-05-04. Layers: Acceptance Auditor + Edge Case Hunter._
+
+- [x] [Review][Defer] Contrast verification on rendered site deferred to Story 9.3 (pre-launch manual a11y audit) — palette values match UX-DR5 proposed defaults
+- [x] All 7 AC verified against `src/styles/theme.css` and `astro.config.mjs`: only `--sl-color-accent{,-low,-high}` overridden, single delivery via `customCss`, no `<Aside>` extension, no gradients/shadows/border-radius/spacing changes
