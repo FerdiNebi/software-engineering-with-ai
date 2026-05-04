@@ -93,12 +93,12 @@ development_status:
 
   # Epic 6: QA / Testing Content
   epic-6: in-progress
-  6-1-qa-testing-phase-overview: review
-  6-2-test-strategy-and-planning: review
-  6-3-functional-and-regression-testing: review
-  6-4-performance-testing: review
-  6-5-security-testing: review
-  6-6-user-acceptance-testing: review
+  6-1-qa-testing-phase-overview: done
+  6-2-test-strategy-and-planning: done
+  6-3-functional-and-regression-testing: done
+  6-4-performance-testing: done
+  6-5-security-testing: done
+  6-6-user-acceptance-testing: done
   epic-6-retrospective: optional
 
   # Epic 7: Deployment / Launch Content
