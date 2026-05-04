@@ -1,6 +1,6 @@
 # Story 9.2: Tighten the content-collection schema
 
-Status: review
+Status: done
 
 <!-- Note: Validation is optional. Run validate-create-story for quality check before dev-story. -->
 
@@ -112,3 +112,11 @@ claude-opus-4-7
 ### Change Log
 
 - 2026-05-03: Tightened content-collection schema (Story 9.2)
+- 2026-05-04: Code review complete — clean, no patches; status → done
+
+### Review Findings
+
+_Reviewed 2026-05-04. Layers: Acceptance Auditor + Edge Case Hunter._
+
+- [x] All 6 AC verified against `src/content.config.ts`: `superRefine` discriminator pattern correctly enforces "all-or-nothing" on `type`/`phase`/`order` for non-home pages; per-field error messages name the missing field; home `index.mdx` validates because it carries none of the three; build passes for all 42 non-home pages plus home; no content file edited
+- [x] [Review][Dismiss] Documented edge case (a hypothetical content page with literally zero of the three fields would pass as "home") is mitigated by Starlight's base `docsSchema` requiring `title`/`description` — already noted in dev's completion notes

@@ -1,6 +1,6 @@
 # Story 9.1: Add MIT LICENSE file
 
-Status: review
+Status: done
 
 <!-- Note: Validation is optional. Run validate-create-story for quality check before dev-story. -->
 
@@ -92,3 +92,11 @@ claude-opus-4-7
 ### Change Log
 
 - 2026-05-03: Added MIT LICENSE (Story 9.1)
+- 2026-05-04: Code review complete — clean, no patches; status → done
+
+### Review Findings
+
+_Reviewed 2026-05-04. Layers: Acceptance Auditor + Edge Case Hunter._
+
+- [x] All 5 AC verified: `LICENSE` at repo root with canonical MIT text and `Copyright (c) 2026 Ferdi Nebiev`; `package.json` declares `"license": "MIT"`; deferred-work bullet resolved per dev notes; LICENSE outside `src/content/docs/` so schema unaffected
+- [x] [Review][Defer] GitHub auto-rendering of license badge can only be verified post-push (AC #3) — verification deferred to post-deploy

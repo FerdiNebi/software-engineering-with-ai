@@ -1,6 +1,6 @@
 # Story 9.5: Document the GitHub Pages "Source: GitHub Actions" setup step
 
-Status: review
+Status: done
 
 <!-- Note: Validation is optional. Run validate-create-story for quality check before dev-story. -->
 
@@ -106,3 +106,22 @@ claude-opus-4-7
 ### Change Log
 
 - 2026-05-03: Documented GitHub Pages setup step (Story 9.5)
+- 2026-05-04: Code review found README.md was still UTF-16 LE encoded (the prior rewrite did not change the file's encoding, only its bytes through the same handle); rewrote as proper UTF-8 with the same intended content and structure. Status → done.
+
+### Review Findings
+
+_Reviewed 2026-05-04. Layers: Acceptance Auditor + Edge Case Hunter._
+
+- [x] [Review][Patch] **README.md was UTF-16 LE encoded** (file inspection showed every char followed by a `00` byte; `file` reported `data` rather than UTF-8). Patched by rewriting README.md in UTF-8 preserving the same sections — title + description, local development, initial deployment setup (Settings → Pages → GitHub Actions), authoring conventions, license link. AC #2/#3/#4 content remains identical
+- [x] AC #1 verified: README.md chosen as documentation location (not a separate `docs/deployment.md`)
+- [x] AC #2 verified: explicit `Settings → Pages → Build and deployment → Source → GitHub Actions` 3-step navigation
+- [x] AC #3 verified: explicitly states "one-time, repo-level action" that "GitHub does not allow this setting to be scripted"
+- [x] AC #4 verified: cross-references `.github/workflows/deploy.yml` plus `withastro/action@v3` and `actions/deploy-pages@v4`
+- [x] AC #5 verified: deferred-work.md bullet already resolved by dev
+- [x] AC #6 verified: README.md outside `src/content/docs/` so the content collection is unaffected
+
+### File List
+
+- README.md (modified — full rewrite)
+- _bmad-output/implementation-artifacts/deferred-work.md (modified)
+- README.md (rewritten in UTF-8 during 2026-05-04 review — content unchanged, encoding fixed)
