@@ -145,7 +145,7 @@ development_status:
   epic-10-retrospective: optional
 
   # Epic 11: Project Management sub-section content — added 2026-05-06
-  epic-11: in-progress
+  epic-11: done
   11-1-project-management-sub-section-overview: done
   11-2-sprint-planning-and-cadence: done
   11-3-backlog-management: done
@@ -153,7 +153,7 @@ development_status:
   11-5-status-reporting-and-stakeholder-communication: done
   11-6-scope-control-and-change-management: done
   11-7-risk-and-issue-management: done
-  11-8-retrospectives: ready-for-dev
+  11-8-retrospectives: done
   epic-11-retrospective: optional
 
   # Epic 12: Cross-page edits surfaced by the restructure — added 2026-05-06
