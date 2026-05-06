@@ -55,6 +55,12 @@ export default defineConfig({
           items: [
             { label: 'Overview', slug: 'delivery' },
             {
+              label: 'Project Management',
+              items: [
+                { label: 'Overview', slug: 'delivery/project-management' },
+              ],
+            },
+            {
               label: 'Development',
               items: [
                 { label: 'Overview', slug: 'delivery/development' },
