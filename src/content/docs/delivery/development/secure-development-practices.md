@@ -2,9 +2,9 @@
 title: Secure Development Practices
 description: Sizing security work to the engagement — secrets, dependencies, and threat-model depth proportional to client risk, not a one-size-fits-all rulebook.
 type: sub-section
-phase: development
+phase: delivery
 order: 8
-lastUpdated: 2026-05-03
+lastUpdated: 2026-05-06
 status: v1
 ---
 

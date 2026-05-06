@@ -2,9 +2,9 @@
 title: Frontend Development
 description: Implementing against signed UX/UI design — accessibility-first components, design-token discipline, and a UI that matches what was signed.
 type: sub-section
-phase: development
+phase: delivery
 order: 5
-lastUpdated: 2026-05-03
+lastUpdated: 2026-05-06
 status: v1
 ---
 

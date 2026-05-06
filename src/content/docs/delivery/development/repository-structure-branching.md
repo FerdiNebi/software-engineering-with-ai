@@ -2,9 +2,9 @@
 title: Repository Structure & Branching Strategy
 description: Day-0 repo decisions — layout, branching, mainline protection, and access model — that the client will inherit at handoff.
 type: sub-section
-phase: development
+phase: delivery
 order: 2
-lastUpdated: 2026-05-03
+lastUpdated: 2026-05-06
 status: v1
 ---
 

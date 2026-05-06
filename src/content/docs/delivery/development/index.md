@@ -2,9 +2,9 @@
 title: Development
 description: The agency's delivery mechanics — repo, DevOps, backend, frontend, testing, review, security, performance, and documentation as a deliverable.
 type: phase-overview
-phase: development
+phase: delivery
 order: 1
-lastUpdated: 2026-05-03
+lastUpdated: 2026-05-06
 status: v1
 ---
 

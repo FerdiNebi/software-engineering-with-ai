@@ -2,9 +2,9 @@
 title: Developer Testing
 description: Unit and integration tests engineers own — and a coverage posture that fits a commercial engagement, not a 100%-aspiration.
 type: sub-section
-phase: development
+phase: delivery
 order: 6
-lastUpdated: 2026-05-03
+lastUpdated: 2026-05-06
 status: v1
 ---
 

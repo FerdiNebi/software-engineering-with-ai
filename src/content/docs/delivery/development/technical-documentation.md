@@ -2,9 +2,9 @@
 title: Technical Documentation
 description: Documentation as a handoff deliverable — written for the client team inheriting the system, not for the agency engineers who already know it.
 type: sub-section
-phase: development
+phase: delivery
 order: 10
-lastUpdated: 2026-05-03
+lastUpdated: 2026-05-06
 status: v1
 ---
 

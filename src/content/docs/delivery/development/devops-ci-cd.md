@@ -2,9 +2,9 @@
 title: DevOps & CI/CD
 description: Executing the infrastructure-design plan and operating the pipeline so the client inherits a deployment they can run, not just observe.
 type: sub-section
-phase: development
+phase: delivery
 order: 3
-lastUpdated: 2026-05-03
+lastUpdated: 2026-05-06
 status: v1
 ---
 

@@ -2,9 +2,9 @@
 title: Backend Development
 description: Agency-specific backend concerns — contract-first APIs, migration discipline, and observability the client can operate post-handoff.
 type: sub-section
-phase: development
+phase: delivery
 order: 4
-lastUpdated: 2026-05-03
+lastUpdated: 2026-05-06
 status: v1
 ---
 

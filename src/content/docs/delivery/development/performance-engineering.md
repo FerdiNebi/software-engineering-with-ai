@@ -2,9 +2,9 @@
 title: Performance Engineering
 description: NFR-driven performance work — define the budget, profile before tuning, defer what the engagement hasn't paid for.
 type: sub-section
-phase: development
+phase: delivery
 order: 9
-lastUpdated: 2026-05-03
+lastUpdated: 2026-05-06
 status: v1
 ---
 
