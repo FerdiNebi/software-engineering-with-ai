@@ -1334,3 +1334,352 @@ So that I can produce diagrams without leaving the content tree or introducing a
 
 **Given** the build, **When** `pnpm build` runs, **Then** build time stays under the 60s NFR2 target with Mermaid diagrams present.
 **And** the three journey flowcharts already in `ux-design-specification.md` can be authored into at least one v1 phase overview as a reference implementation.
+
+---
+
+## Epic 10: Delivery phase restructure (mechanical move)
+
+_Goal: Replace the 7-phase model with a 6-phase model where Delivery unifies Project Management, Development, and QA / Testing as concurrent sub-sections. Mechanical move only — no rewriting of moved-page content beyond frontmatter and inline cross-link updates. Authored content for the new Project Management sub-section ships in Epic 11._
+
+**User outcome:** Sidebar reflects the corrected lifecycle (PM/Dev/QA running concurrently inside Delivery, not sequentially), the Delivery overview names this concurrency explicitly, and the build passes after every existing internal link to `/development/*` or `/qa-testing/*` has been rewritten to its new `/delivery/*` path.
+
+**FRs covered:** FR2 (sidebar expand/collapse — now with second hop), FR7 (phase ordering — 6 phases visible), FR9 (Delivery overview), FR16 (cross-phase links no longer broken)
+**NFRs covered:** NFR1 (clean-clone build still passes), NFR7 (new content added via Markdown + sidebar config — 3-level nesting is the same mechanism)
+**UX-DRs covered:** UX-DR3 (sidebar numbering — phases now 1–6 instead of 1–7)
+
+**Implementation notes:**
+
+- This epic is a **planning-artifact change + file moves + sidebar edit**, not a content rewrite. The 9 Development pages and 5 QA / Testing pages keep their authored content verbatim. Only their file paths, frontmatter `phase` slug, and any inline links pointing at moved siblings change.
+- The Delivery phase overview page (story 10.4) is *new* content that must explain the concurrency model and cadence handoff to Deployment. It is the only authored page in this epic.
+- The `phaseSlug` Zod enum drops from 7 to 6 entries — `development` and `qa-testing` are removed and `delivery` is added. The schema may also gain a `subsection` field (decided in story 10.1).
+- Sidebar adopts 3-level nesting under Delivery via Starlight's nested `items:` arrays. PM, Development, and QA / Testing are sub-groups rather than top-level entries.
+- `architecture.md` and `prd.md` both already reflect the restructure (committed pre-Epic-10 as planning-artifact updates); this epic's story 10.6/10.7 simply cross-check those edits against the implementation and add any missed details.
+- **Slug-immutability exception** has been recorded in `architecture.md`. Old `/development/*` and `/qa-testing/*` URLs will 404 — no redirects added.
+
+**Standalone:** Yes — all moved-page content survives intact. The site is fully usable after Epic 10 ships even if Epic 11 hasn't started; the only "missing" thing is the Project Management sub-section content (which appears in the sidebar as overview-only with leaf-page stubs).
+
+### Story 10.1: Update `phaseSlug` enum + decide subsection encoding
+
+As a content-collection author,
+I want the Zod schema in `src/content.config.ts` to enforce the 6-phase model and the 3-level nesting under Delivery,
+So that frontmatter on every moved or new page is build-validated against the post-restructure shape.
+
+**Acceptance Criteria:**
+
+**Given** `src/content.config.ts`, **When** inspected, **Then** the `phaseSlug` enum contains exactly the 6 entries `['pre-sales', 'discovery', 'requirements-design', 'delivery', 'deployment-launch', 'maintenance-retainer']` — `development` and `qa-testing` are removed.
+
+**Given** the schema, **When** inspected, **Then** **either** (a) a `subsection` Zod enum field is added with values `['project-management', 'development', 'qa-testing']`, allowed only when `phase === 'delivery'`, OR (b) the schema deliberately omits `subsection` and relies on file-path encoding alone — the choice is documented inline in the schema file as a one-line comment with the date and rationale. Pick whichever yields the simpler sidebar wiring without sacrificing build-time guarantees.
+
+**Given** the existing 41 non-home pages (post-Epic 10 file moves), **When** `pnpm build` runs, **Then** all pass schema validation; `phase` values match the 6 new slugs; if `subsection` is enforced, every page under `delivery/` has a valid `subsection` value.
+
+**Given** an attempted build of a content page with `phase: development`, **When** `pnpm build` runs, **Then** the build fails with a schema-validation error naming the file and the now-invalid slug.
+
+### Story 10.2: Move Development pages into `src/content/docs/delivery/development/`
+
+As an agent restructuring the content tree,
+I want every page under `src/content/docs/development/` moved to `src/content/docs/delivery/development/` with frontmatter updated,
+So that the Development sub-section lives inside Delivery and the schema (post-10.1) accepts every page.
+
+**Acceptance Criteria:**
+
+**Given** `src/content/docs/development/`, **When** inspected after this story, **Then** the directory **does not exist** (or is empty); all 10 files (1 overview + 9 sub-pages) have moved to `src/content/docs/delivery/development/`.
+
+**Given** every moved file, **When** inspected, **Then** frontmatter `phase: development` has been changed to `phase: delivery`; if story 10.1 introduced `subsection`, every file has `subsection: development`. `lastUpdated` is bumped to the move-commit date. All other authored content (body prose, headings, links *to other Delivery sub-pages*) is preserved verbatim except for inline link updates handled in 10.8.
+
+**Given** `pnpm build`, **When** run, **Then** every moved page renders at its new URL (`/delivery/development/<slug>/`).
+
+### Story 10.3: Move QA / Testing pages into `src/content/docs/delivery/qa-testing/`
+
+As an agent restructuring the content tree,
+I want every page under `src/content/docs/qa-testing/` moved to `src/content/docs/delivery/qa-testing/` with frontmatter updated,
+So that the QA / Testing sub-section lives inside Delivery and the schema accepts every page.
+
+**Acceptance Criteria:**
+
+**Given** `src/content/docs/qa-testing/`, **When** inspected after this story, **Then** the directory **does not exist** (or is empty); all 6 files (1 overview + 5 sub-pages) have moved to `src/content/docs/delivery/qa-testing/`.
+
+**Given** every moved file, **When** inspected, **Then** frontmatter `phase: qa-testing` has been changed to `phase: delivery`; if story 10.1 introduced `subsection`, every file has `subsection: qa-testing`. `lastUpdated` is bumped to the move-commit date. Authored content is preserved verbatim except for inline link updates handled in 10.8.
+
+**Given** `pnpm build`, **When** run, **Then** every moved page renders at its new URL (`/delivery/qa-testing/<slug>/`).
+
+### Story 10.4: Author the Delivery phase overview
+
+As a reader entering the Delivery phase for the first time,
+I want an overview that explains the three concurrent streams (Project Management, Development, QA / Testing), the cadence that ties them together, and the handoff to Deployment / Launch,
+So that I understand why Delivery is a *single phase with three streams* instead of three separate phases run sequentially.
+
+**Topic-specific Acceptance Criteria** (in addition to shared structural ACs):
+
+**Given** the overview content, **When** read, **Then** `## What happens here` explicitly names the three sub-sections and frames them as **concurrent**, not sequential — calling out that the older "Dev finishes, then QA starts" model is wrong for agency engagements.
+**And** `## Best practices` describes the cadence that ties the three streams together (sprint cadence, definition of done that requires Dev + QA both green, PM-led demos and stakeholder communication interlocking with sprint boundaries).
+**And** `## Desired outcomes` lists at least: a tested release candidate, a sign-off-ready artifact, a PM-owned change log + risk register, and a documented handoff package to Deployment / Launch.
+**And** `## What the industry does` contrasts at least two delivery cadences (e.g. classic Scrum vs. Kanban-with-release-trains, or onsite-PM vs. fractional-PM agency models).
+**And** the page includes a forward link to `/deployment-launch/` and a backward link to `/requirements-design/`. It also links to all three Delivery sub-section overviews (`/delivery/project-management/`, `/delivery/development/`, `/delivery/qa-testing/`).
+
+**Given** the page file, **When** inspected, **Then** it is at `src/content/docs/delivery/index.md` with frontmatter `type: phase-overview`, `phase: delivery`, `order: 1`. It does NOT have a `subsection` field (the overview itself sits at the phase root, not inside any sub-section).
+
+### Story 10.5: Update `astro.config.mjs` sidebar to 3-level nesting
+
+As a reader scanning the sidebar,
+I want the Delivery phase to render as a single top-level entry containing three nested sub-groups (PM, Development, QA / Testing) — each with its own item list,
+So that the sidebar mirrors the corrected lifecycle and the 7-phase ordering becomes a 6-phase ordering.
+
+**Acceptance Criteria:**
+
+**Given** the sidebar config in `astro.config.mjs`, **When** inspected, **Then** there are exactly 6 top-level entries with the labels `1. Pre-Sales & Business Development`, `2. Discovery`, `3. Requirements & Design`, `4. Delivery`, `5. Deployment / Launch`, `6. Maintenance & Retainer`.
+**And** the Delivery entry contains a nested `items:` array with three sub-groups labeled `Project Management`, `Development`, `QA / Testing` (no leading number prefix on sub-section labels — UX-DR3).
+**And** each sub-group has its own `items:` array listing the sub-section overview as `Overview` plus every leaf page in author-decided order.
+**And** the previous top-level `4. Development` and `5. QA / Testing` groups are removed.
+
+**Given** `pnpm build`, **When** run, **Then** the build passes; every sidebar slug resolves to an existing content file; no 404s in the sidebar.
+
+**Given** the rendered sidebar on desktop and mobile, **When** inspected, **Then** the Delivery entry expands to show three nested sub-groups; each sub-group expands to show its leaf pages; current-page highlight and collapse behavior work across all nesting levels in both themes.
+
+### Story 10.6: Update `architecture.md` (post-implementation cross-check)
+
+As a future agent reading the architecture artifact,
+I want `architecture.md` to accurately reflect the implemented restructure (including any deviations made during stories 10.1–10.5),
+So that the planning artifact and the implementation stay in sync.
+
+**Acceptance Criteria:**
+
+**Given** the changes already committed to `architecture.md` ahead of Epic 10 (phase-slug list reduced to 6, slug-immutability exception recorded, file-and-folder pattern updated, frontmatter `subsection` field documented), **When** cross-checked against the actual implementation produced by stories 10.1–10.5, **Then** any deviations are reconciled — either the implementation is corrected to match the spec, or the spec is updated to record the chosen alternative with a one-line rationale.
+
+**Given** the full architecture file, **When** searched, **Then** no references to `phase: development` or `phase: qa-testing` remain except in historical notes explicitly marked as pre-2026-05-06.
+
+### Story 10.7: Update `prd.md` (post-implementation cross-check)
+
+As a future agent reading the PRD,
+I want `prd.md` to accurately reflect the implemented restructure (sidebar shape, page counts, journeys),
+So that the planning artifact and the implementation stay in sync.
+
+**Acceptance Criteria:**
+
+**Given** the changes already committed to `prd.md` ahead of Epic 10 (sidebar listing reframed around 6 phases with Delivery sub-sections, page count updated to 51, journeys revised, executive summary updated), **When** cross-checked against the implementation, **Then** any drift is reconciled — implementation corrected to match the spec, or spec updated to record the chosen alternative.
+
+**Given** the full PRD, **When** searched, **Then** no references to "7 phases" or "43 pages" remain (except in the revisions log explicitly marked as pre-restructure historical context).
+
+### Story 10.8: Build verification + cross-link audit
+
+As a reader following an internal link from any page,
+I want every `/development/*` and `/qa-testing/*` link rewritten to its new `/delivery/development/*` or `/delivery/qa-testing/*` path,
+So that no internal link 404s after the restructure.
+
+**Acceptance Criteria:**
+
+**Given** the entire `src/content/docs/` tree post-moves, **When** searched for `/development/` and `/qa-testing/` link patterns, **Then** every match has been rewritten to its new path under `/delivery/`. Exception: the moved pages themselves may legitimately reference *external* URLs containing those substrings; review each match and only rewrite internal links.
+
+**Given** `pnpm build`, **When** run, **Then** the build passes with zero schema violations and zero broken sidebar slugs.
+
+**Given** a manual spot-check of the live Delivery overview, three Delivery sub-section overviews, and at least 4 leaf pages, **When** opened in the dev server, **Then** every visible internal link resolves to an existing page (no 404).
+
+**Given** `_bmad-output/implementation-artifacts/sprint-status.yaml`, **When** Epic 10 closes, **Then** `epic-10` is marked `done` and stories 10.1–10.8 are all `done`.
+
+---
+
+## Epic 11: Project Management sub-section content
+
+_Goal: Author the Project Management sub-section overview plus 7 leaf pages, each on the standard 4-section template. PM is the commercial product agencies sell — distinct from the engineering practices in Development and the validation practices in QA / Testing._
+
+**User outcome:** Project Management sub-section is complete and cross-linked. A reader (Priya formalising her freelance offering, or Marcus understanding what his PM does on the engagement) can drill into any PM leaf page and learn what it is, how to do it well, what "done" looks like, and how leading agencies approach it.
+
+**FRs covered:** FR9 (sub-section overview), FR10–FR14 (4-section template), FR15 (stand-alone pages), FR16 (cross-phase + cross-stream links), FR18 (adds 7 leaf pages to the corpus)
+
+**Implementation notes:**
+
+- 8 stories: PM sub-section overview + 7 leaf pages on the activity list (Sprint Planning & Cadence, Backlog Management, Estimation & Sprint Slicing, Status Reporting & Stakeholder Communication, Scope Control & Change Management, Risk & Issue Management, Retrospectives).
+- Every PM page must position PM as the **commercial product** clients pay for in agency engagements — distinct from PM-as-internal-discipline at product companies. Cross-link to Pre-Sales (where PM scope is sold), to Development and QA / Testing (where PM coordinates), and to Deployment / Launch (where PM owns handoff).
+- The Backlog Management page must explicitly distinguish *delivery-time backlog management* from *Requirements & Design's backlog framing*. Cross-link both ways.
+- The Scope Control & Change Management page explicitly handles *delivery-time* scope control and links to Pre-Sales SOW change-control as the contractual root.
+- Each story inherits the shared structural ACs (frontmatter, 4 H2s, voice, no forbidden patterns, base-path-safe links).
+
+**Standalone:** Yes — each leaf page stands alone. The sub-section is shippable in any order, but the sub-section overview is most useful authored first so subsequent leaf pages can reference it.
+
+### Story 11.1: Project Management sub-section overview
+
+As a reader entering the Project Management sub-section under Delivery,
+I want an overview that explains why PM is a sub-section of Delivery (not a separate phase) and what the 7 leaf pages collectively cover,
+So that I understand PM as a commercial product running concurrently with Development and QA / Testing.
+
+**Topic-specific Acceptance Criteria:**
+
+**Given** the overview, **When** read, **Then** `## What happens here` names the 7 leaf pages, frames PM as a **commercial product** clients pay for in agency engagements, and explicitly distinguishes agency PM from product-company PM (no roadmap-owner mandate; cadence + stakeholder communication + scope control are the deliverables).
+**And** `## Best practices` describes the PM cadence that ties Development and QA / Testing together (sprint planning, demo, retro), the artifacts PM owns (status report, change log, risk register, retro outputs), and the anti-pattern of "PM = note-taker."
+**And** `## Desired outcomes` lists the artifacts PM is expected to produce across the engagement (status reports, change-control records, risk register, retro outputs).
+**And** `## What the industry does` contrasts agency PM models (e.g. dedicated PM per engagement vs. fractional PM, billable PM vs. blended-into-team-rate, onshore PM vs. nearshore).
+**And** the page links forward to all 7 PM leaf pages, sideways to `/delivery/development/` and `/delivery/qa-testing/`, and backward to `/pre-sales/sow-contract-drafting/` (PM scope is sold here) and `/pre-sales/pricing-estimation/` (PM is priced here).
+
+**Given** the page file, **When** inspected, **Then** it is at `src/content/docs/delivery/project-management/index.md` with frontmatter `type: sub-section`, `phase: delivery`, `order: 1`; if the schema requires `subsection`, then `subsection: project-management`.
+
+### Story 11.2: Sprint Planning & Cadence
+
+As a PM running an agency engagement,
+I want guidance on sprint planning rituals, cadence selection (1-week vs. 2-week vs. continuous), and how to interlock with Dev/QA streams,
+So that the engagement runs at a predictable cadence and stakeholders know what's coming.
+
+**Topic-specific Acceptance Criteria:**
+
+**Given** `## What happens here`, **When** read, **Then** it defines the sprint as the heartbeat of agency delivery, names typical durations, and explains what each ritual produces (planning, daily, review, retro).
+**And** `## Best practices` names specific facilitation techniques (planning capacity rules, definition-of-ready, definition-of-done involving Dev + QA), how to handle mid-sprint scope intrusion, and stakeholder-visibility expectations.
+**And** `## Desired outcomes` lists: a sprint commitment the team can defend, a stakeholder-visible plan, an audit trail of what was committed vs. delivered.
+**And** `## What the industry does` contrasts agency cadences (Scrum-by-the-book vs. Kanban-with-release-train vs. hybrid), and how billing model (T&M vs. fixed-price) shapes cadence choice.
+**And** the page links to `/delivery/project-management/backlog-management/` (planning input), `/delivery/project-management/estimation-sprint-slicing/` (slicing for sprint fit), and `/delivery/development/` + `/delivery/qa-testing/` (the two streams whose work fills the sprint).
+
+**Given** the page file, **When** inspected, **Then** it is at `src/content/docs/delivery/project-management/sprint-planning-cadence.md` with frontmatter `type: sub-section`, `phase: delivery`, `order: 2`, plus `subsection: project-management` if schema requires.
+
+### Story 11.3: Backlog Management
+
+As a PM stewarding the backlog mid-engagement,
+I want to know how to keep the backlog ordered, refined, and sized to fit upcoming sprints,
+So that planning sessions are productive and the team isn't blocked on missing detail.
+
+**Topic-specific Acceptance Criteria:**
+
+**Given** `## What happens here`, **When** read, **Then** it defines delivery-time backlog management as distinct from Requirements & Design's initial requirements capture (it explicitly cross-links to `/requirements-design/functional-nonfunctional-requirements/`), and frames the PM as the backlog steward — not the sole author.
+**And** `## Best practices` names refinement cadence (separate from sprint planning), prioritisation frameworks (RICE, MoSCoW, value-vs-effort), DoR (definition of ready), and the anti-pattern of "feature dump that no one refines."
+**And** `## Desired outcomes` lists: a refined top-of-backlog 1–2 sprints ahead, a ranked backlog the client can defend, traceability from backlog item to original requirement.
+**And** `## What the industry does` contrasts tooling-led approaches (Jira-heavy) vs. lightweight (single source-of-truth list), and full-team refinement vs. PM+lead refinement.
+**And** the page links to `/delivery/project-management/scope-control-change-management/` (backlog changes that breach SOW), `/delivery/project-management/sprint-planning-cadence/`, and `/requirements-design/functional-nonfunctional-requirements/`.
+
+**Given** the page file, **When** inspected, **Then** it is at `src/content/docs/delivery/project-management/backlog-management.md` with frontmatter `type: sub-section`, `phase: delivery`, `order: 3`, plus `subsection: project-management` if schema requires.
+
+### Story 11.4: Estimation & Sprint Slicing
+
+As a PM working with the team to size and slice work,
+I want to know how to slice large items into sprint-sized pieces, calibrate estimates over time, and surface estimation drift to stakeholders,
+So that sprints are achievable and the gap between Pre-Sales pricing and delivery reality is visible early.
+
+**Topic-specific Acceptance Criteria:**
+
+**Given** `## What happens here`, **When** read, **Then** it defines delivery-time estimation as distinct from Pre-Sales pricing (cross-links to `/pre-sales/pricing-estimation/`) and Discovery cost commitment (cross-links to `/discovery/estimation-cost-commitment/`), and frames it as the calibration loop that closes the gap between sold scope and shippable scope.
+**And** `## Best practices` names slicing techniques (vertical slices, INVEST, splitting on workflow steps), estimation styles (story points, T-shirt, hours-with-confidence-band), and how to calibrate after the first 2–3 sprints.
+**And** `## Desired outcomes` lists: sprint-sized items at the top of the backlog, a velocity baseline by sprint 3, an early signal when actual velocity diverges from the SOW pricing assumption.
+**And** `## What the industry does` contrasts story-point cultures vs. hour-based agencies, and reference-class forecasting vs. team-judgement estimation.
+**And** the page links to `/delivery/project-management/sprint-planning-cadence/`, `/delivery/project-management/risk-issue-management/` (estimation drift is a risk), and `/pre-sales/pricing-estimation/`.
+
+**Given** the page file, **When** inspected, **Then** it is at `src/content/docs/delivery/project-management/estimation-sprint-slicing.md` with frontmatter `type: sub-section`, `phase: delivery`, `order: 4`, plus `subsection: project-management` if schema requires.
+
+### Story 11.5: Status Reporting & Stakeholder Communication
+
+As a PM owning the client conversation,
+I want to know how to structure status updates, what cadence is right, and how to communicate bad news without losing trust,
+So that the client is never surprised and the delivery team isn't shielded from accountability.
+
+**Topic-specific Acceptance Criteria:**
+
+**Given** `## What happens here`, **When** read, **Then** it defines status reporting as the PM-owned client-visible artifact and frames stakeholder communication as PM's primary deliverable — not an admin task.
+**And** `## Best practices` names report structure (RAG status, scope/schedule/budget against baseline, top risks, decisions needed), cadence options (weekly written + monthly steering), and the bad-news playbook (early, factual, with a proposed mitigation).
+**And** `## Desired outcomes` lists: a weekly status artifact the client can forward up to their leadership, a steering-committee record for major decisions, no surprise escalations.
+**And** `## What the industry does` contrasts written-first agencies (everything in writing) vs. meeting-first agencies (status by call), and named-RAG vs. narrative-only formats.
+**And** the page links to `/delivery/project-management/risk-issue-management/` (risks are reported in status), `/delivery/project-management/scope-control-change-management/` (scope changes are surfaced in status), and `/maintenance-retainer/retainer-structure-slas/` (post-launch reporting often re-uses delivery-time templates).
+
+**Given** the page file, **When** inspected, **Then** it is at `src/content/docs/delivery/project-management/status-reporting-stakeholder-communication.md` with frontmatter `type: sub-section`, `phase: delivery`, `order: 5`, plus `subsection: project-management` if schema requires.
+
+### Story 11.6: Scope Control & Change Management (delivery-time)
+
+As a PM holding the line on scope mid-engagement,
+I want a documented change-control flow that ties delivery-time scope changes back to the SOW,
+So that scope creep doesn't silently consume budget and every change has a paper trail.
+
+**Topic-specific Acceptance Criteria:**
+
+**Given** `## What happens here`, **When** read, **Then** it defines delivery-time scope control as the live enforcement of the SOW change-control clause (cross-links to `/pre-sales/sow-contract-drafting/`), frames PM as the gatekeeper, and distinguishes "in-scope refinement" from "change request."
+**And** `## Best practices` names the change-control flow (request → impact assessment → client decision → change order → backlog update), the impact-assessment template (cost, schedule, risk), and the anti-pattern of "we'll squeeze it in."
+**And** `## Desired outcomes` lists: a change log the client co-owns, no unbilled scope expansion, no surprised stakeholders at end-of-sprint demos.
+**And** `## What the industry does` contrasts strict-control agencies (every change billed) vs. relationship-led agencies (small changes absorbed; large changes formally controlled).
+**And** the page links to `/pre-sales/sow-contract-drafting/`, `/delivery/project-management/backlog-management/`, and `/delivery/project-management/status-reporting-stakeholder-communication/`.
+
+**Given** the page file, **When** inspected, **Then** it is at `src/content/docs/delivery/project-management/scope-control-change-management.md` with frontmatter `type: sub-section`, `phase: delivery`, `order: 6`, plus `subsection: project-management` if schema requires.
+
+### Story 11.7: Risk & Issue Management
+
+As a PM tracking what could (or did) go wrong,
+I want to know how to maintain a risk register, distinguish risks from issues, and run mitigation conversations,
+So that surprises are reduced and the team has a shared view of fragility.
+
+**Topic-specific Acceptance Criteria:**
+
+**Given** `## What happens here`, **When** read, **Then** it defines risk vs. issue (probabilistic future event vs. realised problem), frames the register as a living document the PM owns, and describes the cadence for reviewing it.
+**And** `## Best practices` names a register schema (description, probability, impact, owner, mitigation, trigger), review cadence (weekly with team, monthly with client), and escalation thresholds.
+**And** `## Desired outcomes` lists: a current risk register at any sprint boundary, a mitigation owner for every above-threshold risk, an audit trail of issues that did fire and how they were resolved.
+**And** `## What the industry does` contrasts heavy-formal agencies (PMI-style) vs. lightweight (a Markdown file in the repo), and silent-mitigation cultures vs. transparent-with-client cultures.
+**And** the page links to `/delivery/project-management/status-reporting-stakeholder-communication/` (risks are reported), `/delivery/project-management/estimation-sprint-slicing/` (estimation drift is a risk), and `/maintenance-retainer/incident-response/` (post-launch issue handling).
+
+**Given** the page file, **When** inspected, **Then** it is at `src/content/docs/delivery/project-management/risk-issue-management.md` with frontmatter `type: sub-section`, `phase: delivery`, `order: 7`, plus `subsection: project-management` if schema requires.
+
+### Story 11.8: Retrospectives
+
+As a PM running team retros at sprint or milestone boundaries,
+I want to know how to facilitate a retro that produces actionable change, not just venting,
+So that the engagement gets faster and calmer over time instead of accumulating frustration.
+
+**Topic-specific Acceptance Criteria:**
+
+**Given** `## What happens here`, **When** read, **Then** it defines retrospectives as both team-internal (improvement loop) and client-visible (milestone retros), and frames the PM as the facilitator who is *not* the subject of the retro.
+**And** `## Best practices` names facilitation formats (Start/Stop/Continue, 4Ls, sailboat), psychological-safety techniques, and how to convert observations into owned action items with sprint-boundary follow-up.
+**And** `## Desired outcomes` lists: 1–3 actionable improvements per retro, owners assigned, follow-up at the next retro to close the loop.
+**And** `## What the industry does` contrasts every-sprint retros vs. milestone retros, internal-only vs. client-included formats, and written-summary vs. verbal-only outputs.
+**And** the page links to `/delivery/project-management/sprint-planning-cadence/` (retro feeds next sprint's planning) and `/maintenance-retainer/feature-iteration/` (post-launch retros are a similar pattern).
+
+**Given** the page file, **When** inspected, **Then** it is at `src/content/docs/delivery/project-management/retrospectives.md` with frontmatter `type: sub-section`, `phase: delivery`, `order: 8`, plus `subsection: project-management` if schema requires.
+
+---
+
+## Epic 12: Cross-page edits surfaced by the restructure
+
+_Goal: Tighten cross-page references that became stale or under-specified after the Delivery restructure. PM is now a first-class sub-section, so pages that previously alluded to it can now cross-link instead of re-explain. Pages that referenced "the QA / Testing phase" now correctly reference the QA / Testing sub-section under Delivery._
+
+**User outcome:** Any reader following an internal cross-reference from outside Delivery into a Delivery topic lands on the right page with framing that matches the new IA. No page contains the dead-language "QA / Testing phase" or "Development phase" as a top-level construct.
+
+**FRs covered:** FR16 (cross-phase links remain accurate), FR17 (visual hierarchy unchanged but cross-references updated)
+
+**Implementation notes:**
+
+- Scope is small but spread across multiple pages. Confirm during Epic 10 build whether all three stories below are needed; some may collapse into 10.8.
+- Each story is mostly inline-prose surgery — reword phrasing, swap link targets, no structural rewrites.
+
+**Standalone:** Yes, but most useful after Epics 10 + 11 are complete (so the new PM links resolve).
+
+### Story 12.1: Tighten PM mentions in Pre-Sales
+
+As a Pre-Sales reader on `sow-contract-drafting` or `pricing-estimation`,
+I want any reference to project management at delivery time to point at the new PM sub-section instead of re-explaining it,
+So that Pre-Sales pages stay focused on the commercial artefacts and PM-the-product gets explained where it lives.
+
+**Acceptance Criteria:**
+
+**Given** `src/content/docs/pre-sales/sow-contract-drafting.md` and `src/content/docs/pre-sales/pricing-estimation.md`, **When** searched for prose discussing change control, status reporting, sprint cadence, or PM as a product, **Then** any inline re-explanation longer than ~2 sentences has been replaced by a one-sentence link to the corresponding PM leaf page (`/delivery/project-management/scope-control-change-management/`, `/delivery/project-management/status-reporting-stakeholder-communication/`, `/delivery/project-management/sprint-planning-cadence/`, or `/delivery/project-management/`).
+
+**Given** both pages, **When** read post-edit, **Then** they continue to read coherently as Pre-Sales pages — the PM topic is referenced, not redundantly re-taught.
+
+**Given** `pnpm build`, **When** run, **Then** all new links resolve and no schema/build errors appear.
+
+### Story 12.2: Update Maintenance & Retainer cross-links
+
+As a reader on `retainer-structure-slas` or `incident-response`,
+I want references to delivery-time PM, Development, or QA / Testing to point at their new `/delivery/...` paths,
+So that no link from Maintenance & Retainer 404s after the restructure.
+
+**Acceptance Criteria:**
+
+**Given** `src/content/docs/maintenance-retainer/retainer-structure-slas.md` and `src/content/docs/maintenance-retainer/incident-response.md`, **When** searched for `/development/` and `/qa-testing/` link patterns, **Then** every match has been rewritten to its new `/delivery/development/` or `/delivery/qa-testing/` path.
+
+**Given** the same pages, **When** searched for inline references to "PM," "project manager," "sprint cadence," or "status reports," **Then** at least one inline link to the relevant PM leaf page has been added where the reference is substantive (not a passing mention).
+
+**Given** `pnpm build`, **When** run, **Then** all updated links resolve.
+
+### Story 12.3: Audit Deployment / Launch and Maintenance & Retainer for stale phase references
+
+As a future reader of any post-Delivery phase,
+I want any prose that says "in QA / Testing" or "in the Development phase" rephrased to refer to the corresponding sub-section under Delivery,
+So that the IA implied by the prose matches the IA implied by the sidebar.
+
+**Acceptance Criteria:**
+
+**Given** every page under `src/content/docs/deployment-launch/` and `src/content/docs/maintenance-retainer/`, **When** searched for the literal strings "QA / Testing phase," "Development phase," "in QA," "in Development," "during QA," "during Development," and similar phase-level constructions, **Then** each match is reviewed and rephrased to refer to the corresponding sub-section (e.g. "the QA / Testing sub-section of Delivery" or simply "QA / Testing within Delivery") OR confirmed as already correct.
+
+**Given** the same pages, **When** searched for `/development/` and `/qa-testing/` link patterns, **Then** every match has been rewritten to its new `/delivery/...` path.
+
+**Given** `pnpm build`, **When** run, **Then** all updated links resolve and no schema/build errors appear.
+
+**Given** `_bmad-output/implementation-artifacts/sprint-status.yaml`, **When** Epic 12 closes, **Then** `epic-12` is marked `done` and stories 12.1–12.3 are all `done`.
