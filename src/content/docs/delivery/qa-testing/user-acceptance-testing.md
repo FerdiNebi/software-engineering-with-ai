@@ -2,9 +2,9 @@
 title: User Acceptance Testing (UAT)
 description: Client-executed verification of signed acceptance criteria — structured sessions, disciplined triage, explicit sign-off, no scope creep.
 type: sub-section
-phase: qa-testing
+phase: delivery
 order: 6
-lastUpdated: 2026-05-03
+lastUpdated: 2026-05-06
 status: v1
 ---
 

@@ -2,9 +2,9 @@
 title: QA / Testing
 description: Validating the build against signed requirements — strategy, functional and regression cycles, performance, security, UAT, and the path to launch.
 type: phase-overview
-phase: qa-testing
+phase: delivery
 order: 1
-lastUpdated: 2026-05-03
+lastUpdated: 2026-05-06
 status: v1
 ---
 

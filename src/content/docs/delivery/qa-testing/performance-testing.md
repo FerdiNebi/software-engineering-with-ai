@@ -2,9 +2,9 @@
 title: Performance Testing
 description: Load, stress, soak, and spike testing — sized to engagement risk, executed in parity environments, never against shared client infrastructure without consent.
 type: sub-section
-phase: qa-testing
+phase: delivery
 order: 4
-lastUpdated: 2026-05-03
+lastUpdated: 2026-05-06
 status: v1
 ---
 

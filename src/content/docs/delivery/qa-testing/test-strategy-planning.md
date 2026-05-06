@@ -2,9 +2,9 @@
 title: Test Strategy & Planning
 description: Strategy (why and scope) versus plan (what, when, who) — building a traceable, defensible foundation for the test cycles ahead.
 type: sub-section
-phase: qa-testing
+phase: delivery
 order: 2
-lastUpdated: 2026-05-03
+lastUpdated: 2026-05-06
 status: v1
 ---
 

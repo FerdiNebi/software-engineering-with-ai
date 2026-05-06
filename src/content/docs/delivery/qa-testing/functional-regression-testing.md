@@ -2,9 +2,9 @@
 title: Functional & Regression Testing
 description: Verifying behaviour against requirements and against prior-passing state — manual vs automation as an ROI conversation, not a religious one.
 type: sub-section
-phase: qa-testing
+phase: delivery
 order: 3
-lastUpdated: 2026-05-03
+lastUpdated: 2026-05-06
 status: v1
 ---
 

@@ -2,9 +2,9 @@
 title: Security Testing
 description: SAST, DAST, dependency scanning, and pen testing — sized to engagement risk, with triage discipline that distinguishes findings from launch blockers.
 type: sub-section
-phase: qa-testing
+phase: delivery
 order: 5
-lastUpdated: 2026-05-03
+lastUpdated: 2026-05-06
 status: v1
 ---
 
