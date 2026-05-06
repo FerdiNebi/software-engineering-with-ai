@@ -157,8 +157,8 @@ development_status:
   epic-11-retrospective: optional
 
   # Epic 12: Cross-page edits surfaced by the restructure — added 2026-05-06
-  epic-12: backlog
-  12-1-tighten-pm-mentions-in-pre-sales: ready-for-dev
+  epic-12: in-progress
+  12-1-tighten-pm-mentions-in-pre-sales: done
   12-2-update-maintenance-retainer-cross-links: ready-for-dev
   12-3-audit-deployment-launch-and-maintenance-for-stale-phase-references: ready-for-dev
   epic-12-retrospective: optional

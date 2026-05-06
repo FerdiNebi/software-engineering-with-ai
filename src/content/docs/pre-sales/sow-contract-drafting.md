@@ -29,7 +29,7 @@ A typical SOW contains: scope of work, deliverables, acceptance criteria for eac
 
 **Document every assumption.** Assumptions are the soft underbelly of any fixed-price SOW. List them explicitly: "Assumes the client will provide test accounts for the third-party API by week 2," "Assumes the existing authentication service is documented and stable," "Assumes design assets are delivered in a consistent format by the design partner." When an assumption proves false, the documented assumption is the basis for a change request.
 
-**Make change control a process, not a negotiation.** The SOW should specify exactly how scope changes are handled: who can submit a change request, who approves it, how it is priced (fixed-price addendum or T&M against a defined rate), and how the timeline adjusts. A defined process means the conversation about a new feature is "let's open a change request" instead of "do we need to update the contract?"
+**Make change control a process, not a negotiation.** The SOW should specify exactly how scope changes are handled: who can submit a change request, who approves it, how it is priced (fixed-price addendum or T&M against a defined rate), and how the timeline adjusts. A defined process means the conversation about a new feature is "let's open a change request" instead of "do we need to update the contract?" The mechanics of running this process during delivery are covered in [Scope Control & Change Management](/delivery/project-management/scope-control-change-management/) — the SOW clause is the contractual root; the PM stream enforces it sprint-by-sprint.
 
 :::caution
 Vague acceptance criteria are the most common SOW pitfall. "Looks good," "feels right," "matches the brand" are not acceptance criteria — they are open invitations for indefinite revision. Write criteria that a third party could evaluate without consulting either signatory. If you cannot, the criterion is too vague.
@@ -51,7 +51,7 @@ By the end of SOW drafting and signature, both parties have:
 
 - A signed SOW (and signed MSA, if this is a first engagement) covering scope, deliverables, acceptance, payment, IP, change control, and termination
 - Documented scope boundaries with explicit exclusions
-- An agreed change-control process that both parties understand and can invoke
+- An agreed change-control process that both parties understand and can invoke (executed at delivery time per [Scope Control & Change Management](/delivery/project-management/scope-control-change-management/))
 - A documented payment schedule tied to milestones, with payment terms (net 30, net 14, etc.) specified
 - A handoff package for [Discovery](/discovery/): the signed SOW, the proposal it replaced, scoping-call notes, and a roster of named client stakeholders with their roles and authorities
 

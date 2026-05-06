@@ -37,7 +37,7 @@ The five primary pricing models that agencies use:
 
 **Pull the right pricing levers when the headline number is too high.** When the client's budget cannot stretch to the price the agency needs, three levers can close the gap without working for free:
 
-- **Team composition.** A smaller team of senior engineers can sometimes deliver in less calendar time than a larger mixed team — and at lower total cost. Conversely, a more junior team at lower rates may fit a tighter budget if the timeline can stretch.
+- **Team composition.** A smaller team of senior engineers can sometimes deliver in less calendar time than a larger mixed team — and at lower total cost. Conversely, a more junior team at lower rates may fit a tighter budget if the timeline can stretch. Team composition includes the PM allocation; PM is a billable line and should be sized commercially against the engagement, not absorbed silently — see [Project Management](/delivery/project-management/) for the PM-as-product framing.
 - **Timeline compression.** Compressing a 6-month engagement into 4 months almost always increases price (parallel workstreams, more team members, premium for risk). Stretching the same scope across 8 months reduces concurrent staffing and may reduce price.
 - **Risk buffer.** The contingency built into the price reflects scope uncertainty. A higher-buffer price covers the agency on ambiguous scope; a lower-buffer price requires either a phased commitment or a documented assumption set that limits agency exposure.
 
