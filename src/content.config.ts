@@ -2,12 +2,19 @@ import { defineCollection, z } from 'astro:content';
 import { docsLoader } from '@astrojs/starlight/loaders';
 import { docsSchema } from '@astrojs/starlight/schema';
 
+// 2026-05-06 — Delivery restructure: 7-phase model collapsed to 6 phases.
+// `development` and `qa-testing` were removed and `delivery` was added; the
+// previous top-level phases now live as sub-sections under `delivery/`.
+// Decision: rely on file-path encoding for the sub-section second hop rather
+// than adding a `subsection` Zod field. Reason: file path is already unambiguous
+// (`delivery/development/foo.md` → development sub-section); a Zod field would
+// only duplicate that signal and introduce a cross-field validity rule that
+// must hold for `phase: delivery` only. Sidebar wiring is unaffected.
 const phaseSlug = z.enum([
   'pre-sales',
   'discovery',
   'requirements-design',
-  'development',
-  'qa-testing',
+  'delivery',
   'deployment-launch',
   'maintenance-retainer',
 ]);
@@ -43,7 +50,7 @@ export const collections = {
             ctx.addIssue({
               code: z.ZodIssueCode.custom,
               path: ['phase'],
-              message: 'Required for non-home pages: must be one of the 7 phase slugs.',
+              message: 'Required for non-home pages: must be one of the 6 phase slugs.',
             });
           }
           if (data.order === undefined) {
