@@ -189,7 +189,7 @@ The site is organized as a sidebar navigation with **six phases** (Pre-Sales →
 
 **Ferdi** is preparing a training session for three junior-to-mid engineers joining his consulting team. They can code, but they've never touched the client delivery process. He needs to walk them through the entire lifecycle in a structured way, with enough depth that they leave understanding what each phase requires.
 
-**Opening Scene:** Ferdi opens the site on a shared screen. The sidebar shows the full lifecycle at a glance — all seven phases, ordered top to bottom. He starts at Pre-Sales and tells the group: "This is where every project begins. Let's walk through what happens before a single line of code is written."
+**Opening Scene:** Ferdi opens the site on a shared screen. The sidebar shows the full lifecycle at a glance — all six phases, ordered top to bottom, with the Delivery phase expanded to reveal its three concurrent sub-sections. He starts at Pre-Sales and tells the group: "This is where every project begins. Let's walk through what happens before a single line of code is written."
 
 **Rising Action:** Ferdi navigates phase by phase, using each overview page as his training outline. "What happens here" gives context. "Best practices" provides the standard to aim for. "Desired outcomes" gives the team a concrete checklist for each phase. When he reaches Delivery, he stops on the overview page and explicitly walks the team through the cadence — "this is the only phase where three streams run at once" — then expands Project Management to cover sprint planning, status reporting, and scope control before drilling into the Development and QA / Testing sub-sections for engineering practices like Code Review, Developer Testing, Secure Development Practices, and UAT.
 
@@ -291,7 +291,7 @@ The site is organized as a sidebar navigation with **six phases** (Pre-Sales →
 
 ### Sub-Section Navigation
 
-- FR18: Readers can access dedicated content pages for all 35 sub-sections across all 7 phases
+- FR18: Readers can access dedicated content pages for all leaf sub-sections across the 6 phases (post-restructure 2026-05-06: 41 leaf pages plus 3 Delivery sub-section overviews)
 - FR19: Readers can navigate between sub-sections within a phase without returning to the phase overview
 
 ### Display & Appearance
