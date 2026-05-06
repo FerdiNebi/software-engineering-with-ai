@@ -43,7 +43,7 @@ _This document builds collaboratively through step-by-step discovery. Sections a
 
 **Scale & Complexity:**
 
-- Content inventory: 43 pages at v1 launch (1 home + 7 phase overviews + 35 sub-sections).
+- Content inventory: 51 pages at v1 launch (1 home + 6 phase overviews + 3 Delivery sub-section overviews + 41 leaf pages — post-Delivery-restructure 2026-05-06; pre-restructure was 43 pages with a 7-phase model).
 - Primary domain: static documentation site.
 - Complexity level: **low** (PRD classification; content-driven, minimal technical surface area).
 - Estimated architectural components: single static site build + GitHub Actions deploy pipeline + Markdown/MDX content tree + sidebar config + (v2-ready) interactive-component layer for in-page diagrams/explainers.
@@ -187,7 +187,7 @@ Not applicable — no runtime API.
 
 ### Frontend Architecture
 
-- **Routing:** File-based, provided by Astro/Starlight. One route per Markdown file under `src/content/docs/`. 43 routes at v1 (1 home + 7 phase overviews + 35 sub-sections).
+- **Routing:** File-based, provided by Astro/Starlight. One route per Markdown file under `src/content/docs/`. 51 routes at v1 post-Delivery-restructure (1 home + 6 phase overviews + 3 Delivery sub-section overviews + 41 leaf pages).
 - **State management:** None — content is static; no client-side state.
 - **Component architecture:** `.astro` components by default. React islands allowed for interactive widgets when `.astro` isn't sufficient (C3). Component files in `src/components/`.
 - **Interactive-component policy (C1–C4):** static-first, hydrate selectively via islands, always degrade gracefully so core text renders without JS. Mermaid is the leading candidate for diagrams; plugin selection deferred to first-use.
@@ -259,8 +259,7 @@ Not applicable — no runtime API.
 title: "Discovery"                            # string, required, sentence-case, human-readable
 description: "One-sentence page summary."     # string, required, ≤160 chars for meta-description
 type: "phase-overview" | "sub-section"        # discriminant; required for non-home pages
-phase: "pre-sales" | "discovery" | ...         # kebab-case phase slug; required for non-home pages
-subsection: "project-management" | "development" | "qa-testing"  # optional; required only for pages under `phase: delivery` (see Delivery restructure note)
+phase: "pre-sales" | "discovery" | ...         # kebab-case phase slug; required for non-home pages (6 valid values post-2026-05-06)
 order: 2                                       # integer, required, controls sibling sort order
 lastUpdated: 2026-04-20                       # ISO date, required, updated on any content change
 status: "v1" | "v2-ai-ready"                  # optional; for v2 AI-section readiness tracking
@@ -270,7 +269,7 @@ status: "v1" | "v2-ai-ready"                  # optional; for v2 AI-section read
 - Fields appear in the order above. Unknown fields are a build error (Zod schema).
 - Dates use ISO-8601 (`YYYY-MM-DD`), never locale-formatted.
 - `phase` slug values are pinned to the 6 phase kebab identifiers (see File & Folder Structure below) — misspellings fail the build.
-- `subsection` is the second-hop selector for the 3-level `delivery` nesting. It is **required** for any page where `phase: delivery` (including the Delivery overview, which sets `phase: delivery` and omits `subsection` only on the phase-overview index, OR — author choice during story 10.1 — relies on file-path encoding alone). Decide between (a) Zod-enforced `subsection` field or (b) file-path-only encoding in story 10.1; pick the option that yields the simplest sidebar wiring without sacrificing the build-time guarantee.
+- **`subsection` field decision (story 10.1, 2026-05-06):** the implementation chose **file-path-only encoding** for the second hop under Delivery. The Zod schema does **not** carry a `subsection` field; pages know their sub-section by where they live in the tree (`delivery/development/*` vs. `delivery/qa-testing/*` vs. `delivery/project-management/*`). Reason: file path is already unambiguous; a Zod field would only duplicate that signal and would require a cross-field validity rule that holds only when `phase === 'delivery'`. The frontmatter contract for Delivery pages is therefore `phase: delivery` plus the same `type`, `order`, `lastUpdated` fields used elsewhere — no third hop in frontmatter.
 
 **Markdown heading template (FR14 enforcement):**
 
@@ -428,7 +427,7 @@ If any of the three fails, keep it in `.astro`. Diagrams authored in Mermaid tex
 
 - Validate every content file against the Zod content-collection schema before committing.
 - Produce the exact four H2 headings in the specified order on every content page (FR14).
-- Use the pinned 7 phase slugs; never invent new ones without updating the sidebar config and redirect list.
+- Use the pinned 6 phase slugs; never invent new ones without updating the sidebar config and redirect list.
 - Use Starlight's relative-link helper for all internal links.
 - Place images in `src/assets/`, not `public/`, unless the image is a static file that bypasses optimization.
 - Default interactive components to `.astro`. Justify any escalation to React island in the PR description.
