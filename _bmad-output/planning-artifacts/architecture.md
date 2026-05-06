@@ -43,7 +43,7 @@ _This document builds collaboratively through step-by-step discovery. Sections a
 
 **Scale & Complexity:**
 
-- Content inventory: 51 pages at v1 launch (1 home + 6 phase overviews + 3 Delivery sub-section overviews + 41 leaf pages — post-Delivery-restructure 2026-05-06; pre-restructure was 43 pages with a 7-phase model).
+- Content inventory: 52 pages at v1 launch (1 home + 6 phase overviews + 3 Delivery sub-section overviews + 42 leaf pages — post-Delivery-restructure 2026-05-06; pre-restructure was 43 pages with a 7-phase model).
 - Primary domain: static documentation site.
 - Complexity level: **low** (PRD classification; content-driven, minimal technical surface area).
 - Estimated architectural components: single static site build + GitHub Actions deploy pipeline + Markdown/MDX content tree + sidebar config + (v2-ready) interactive-component layer for in-page diagrams/explainers.
@@ -187,7 +187,7 @@ Not applicable — no runtime API.
 
 ### Frontend Architecture
 
-- **Routing:** File-based, provided by Astro/Starlight. One route per Markdown file under `src/content/docs/`. 51 routes at v1 post-Delivery-restructure (1 home + 6 phase overviews + 3 Delivery sub-section overviews + 41 leaf pages).
+- **Routing:** File-based, provided by Astro/Starlight. One route per Markdown file under `src/content/docs/`. 52 routes at v1 post-Delivery-restructure (1 home + 6 phase overviews + 3 Delivery sub-section overviews + 42 leaf pages); Starlight emits a built-in 404, taking the rendered HTML count to 53.
 - **State management:** None — content is static; no client-side state.
 - **Component architecture:** `.astro` components by default. React islands allowed for interactive widgets when `.astro` isn't sufficient (C3). Component files in `src/components/`.
 - **Interactive-component policy (C1–C4):** static-first, hydrate selectively via islands, always degrade gracefully so core text renders without JS. Mermaid is the leading candidate for diagrams; plugin selection deferred to first-use.
@@ -592,7 +592,7 @@ software-engineering-with-ai/
 └── dist/                                       # build output (gitignored; produced by `pnpm build`)
 ```
 
-**Page count check (post-Delivery-restructure 2026-05-06):** 1 home (`index.mdx`) + 6 phase overviews (`<phase>/index.md`) + 3 Delivery sub-section overviews (`delivery/<sub>/index.md`) + 41 leaf pages (4 + 5 + 4 + 7 PM + 9 Dev + 5 QA + 4 + 4) = **51 pages** total. The previous 43-page count assumed a 7-phase model with 35 leaf sub-sections; the restructure adds 1 Delivery overview, 3 sub-section overviews, and 7 PM leaf pages. (For PRD/UX-spec headcount accounting see prd.md "Product Scope" — totals there will be updated alongside this file.)
+**Page count check (post-Delivery-restructure 2026-05-06):** 1 home (`index.mdx`) + 6 phase overviews (`<phase>/index.md`) + 3 Delivery sub-section overviews (`delivery/<sub>/index.md`) + 42 leaf pages (4 + 5 + 4 + 7 PM + 9 Dev + 5 QA + 4 + 4) = **52 pages** total. Starlight emits an additional 404 page in `dist/`, which is why a clean `pnpm build` reports 53 HTML files. The previous 43-page count assumed a 7-phase model with 35 leaf sub-sections; the restructure adds 1 Delivery overview, 3 sub-section overviews, and 7 PM leaf pages. (For PRD/UX-spec headcount accounting see prd.md "Product Scope" — totals there will be updated alongside this file.)
 
 ### Architectural Boundaries
 

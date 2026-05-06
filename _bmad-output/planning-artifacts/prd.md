@@ -26,7 +26,7 @@ classification:
 
 **Revisions:**
 - 2026-04-20 — NFR4 amended during architecture workflow: relaxed from strict "works without JS" to "static-first at build time, with JS permitted for UI features and interactive content enhancements (e.g. dynamic diagrams)". Core page text must still render when interactive components fail.
-- 2026-05-06 — **Delivery phase restructure.** Replaces the 7-phase model with a 6-phase model where the previous *Development* and *QA / Testing* phases are folded into a unified **Delivery** phase that also adds **Project Management** as a third concurrent sub-section. This reflects how agency engagements actually run — PM, Dev, and QA execute in parallel throughout delivery, not sequentially. Old URLs `/development/*` and `/qa-testing/*` will 404; this is an accepted cost (slug-immutability exception recorded in `architecture.md`). User journeys, sidebar structure, and the FR/NFR coverage map are updated below to reflect Delivery as the unit and PM/Dev/QA as concurrent streams.
+- 2026-05-06 — **Delivery phase restructure.** Replaces the 7-phase model with a 6-phase model where the previous *Development* and *QA / Testing* phases are folded into a unified **Delivery** phase that also adds **Project Management** as a third concurrent sub-section. This reflects how agency engagements actually run — PM, Dev, and QA execute in parallel throughout delivery, not sequentially. Old URLs `/development/*` and `/qa-testing/*` will 404; this is an accepted cost (slug-immutability exception recorded in `architecture.md`). User journeys, sidebar structure, and the FR/NFR coverage map are updated below to reflect Delivery as the unit and PM/Dev/QA as concurrent streams. Total content count rises from 43 pages to 52 pages.
 
 ## Executive Summary
 
@@ -56,7 +56,7 @@ The site is organized as a sidebar navigation with **six phases** (Pre-Sales →
 
 ### Business Success
 
-- **v1 shipped:** All six SDLC phases (with the Delivery phase containing three concurrent sub-sections — Project Management, Development, QA / Testing) have complete, well-researched content — no stubs, no placeholders. 51 content pages total (1 home + 6 phase overviews + 3 Delivery sub-section overviews + 41 leaf pages).
+- **v1 shipped:** All six SDLC phases (with the Delivery phase containing three concurrent sub-sections — Project Management, Development, QA / Testing) have complete, well-researched content — no stubs, no placeholders. 52 content pages total (1 home + 6 phase overviews + 3 Delivery sub-section overviews + 42 leaf pages).
 - **Practitioner utility:** Ferdi actively references the site during real client delivery and training sessions and finds the guidance accurate, actionable, and worth returning to.
 - **Public signal (post-launch):** Organic discovery via GitHub stars, developer community sharing, and unsolicited references by engineers Ferdi doesn't know. Quality indicator: engagement from senior engineers and consulting practitioners.
 
@@ -68,7 +68,7 @@ The site is organized as a sidebar navigation with **six phases** (Pre-Sales →
 
 ### Measurable Outcomes
 
-- All 51 content pages have complete content (not stubs)
+- All 52 content pages have complete content (not stubs)
 - Site is deployable with a single command from the repository
 - Ferdi has successfully used the site as a training reference in at least one real session
 - Content can be updated by editing Markdown files and redeploying — no CMS or special tooling required
