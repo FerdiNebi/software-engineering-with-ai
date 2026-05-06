@@ -58,6 +58,7 @@ export default defineConfig({
               label: 'Project Management',
               items: [
                 { label: 'Overview', slug: 'delivery/project-management' },
+                { label: 'Sprint Planning & Cadence', slug: 'delivery/project-management/sprint-planning-cadence' },
               ],
             },
             {

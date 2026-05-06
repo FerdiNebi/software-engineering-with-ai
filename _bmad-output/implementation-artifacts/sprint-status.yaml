@@ -147,7 +147,7 @@ development_status:
   # Epic 11: Project Management sub-section content — added 2026-05-06
   epic-11: in-progress
   11-1-project-management-sub-section-overview: done
-  11-2-sprint-planning-and-cadence: ready-for-dev
+  11-2-sprint-planning-and-cadence: done
   11-3-backlog-management: ready-for-dev
   11-4-estimation-and-sprint-slicing: ready-for-dev
   11-5-status-reporting-and-stakeholder-communication: ready-for-dev
