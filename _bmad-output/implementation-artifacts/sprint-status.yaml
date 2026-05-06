@@ -1,5 +1,5 @@
 # generated: 2026-05-01
-# last_updated: 2026-05-01  # bumped when Epic 9 unconditional stories (9-1..9-5) were created — 9-6..9-9 stay backlog (gated)
+# last_updated: 2026-05-06  # Epics 10/11/12 added for Delivery phase restructure (replaces 7-phase model with 6-phase model + 3-level Delivery nesting)
 # project: Software Development with AI
 # project_key: NOKEY
 # tracking_system: file-system
@@ -35,7 +35,7 @@
 # - Dev moves story to 'review', then runs code-review (fresh context, different LLM recommended)
 
 generated: 2026-05-01
-last_updated: 2026-05-04
+last_updated: 2026-05-06
 project: Software Development with AI
 project_key: NOKEY
 tracking_system: file-system
@@ -131,3 +131,34 @@ development_status:
   9-8-phasebadge-component-conditional: backlog
   9-9-mermaid-diagram-rendering-support-conditional: backlog
   epic-9-retrospective: optional
+
+  # Epic 10: Delivery phase restructure (mechanical move) — added 2026-05-06
+  epic-10: backlog
+  10-1-update-phaseslug-enum-and-decide-subsection-encoding: ready-for-dev
+  10-2-move-development-pages-into-delivery-development: ready-for-dev
+  10-3-move-qa-testing-pages-into-delivery-qa-testing: ready-for-dev
+  10-4-author-the-delivery-phase-overview: ready-for-dev
+  10-5-update-astro-config-sidebar-to-3-level-nesting: ready-for-dev
+  10-6-update-architecture-md-post-implementation-cross-check: ready-for-dev
+  10-7-update-prd-md-post-implementation-cross-check: ready-for-dev
+  10-8-build-verification-and-cross-link-audit: ready-for-dev
+  epic-10-retrospective: optional
+
+  # Epic 11: Project Management sub-section content — added 2026-05-06
+  epic-11: backlog
+  11-1-project-management-sub-section-overview: ready-for-dev
+  11-2-sprint-planning-and-cadence: ready-for-dev
+  11-3-backlog-management: ready-for-dev
+  11-4-estimation-and-sprint-slicing: ready-for-dev
+  11-5-status-reporting-and-stakeholder-communication: ready-for-dev
+  11-6-scope-control-and-change-management: ready-for-dev
+  11-7-risk-and-issue-management: ready-for-dev
+  11-8-retrospectives: ready-for-dev
+  epic-11-retrospective: optional
+
+  # Epic 12: Cross-page edits surfaced by the restructure — added 2026-05-06
+  epic-12: backlog
+  12-1-tighten-pm-mentions-in-pre-sales: ready-for-dev
+  12-2-update-maintenance-retainer-cross-links: ready-for-dev
+  12-3-audit-deployment-launch-and-maintenance-for-stale-phase-references: ready-for-dev
+  epic-12-retrospective: optional
