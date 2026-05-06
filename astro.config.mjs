@@ -61,6 +61,7 @@ export default defineConfig({
                 { label: 'Sprint Planning & Cadence', slug: 'delivery/project-management/sprint-planning-cadence' },
                 { label: 'Backlog Management', slug: 'delivery/project-management/backlog-management' },
                 { label: 'Estimation & Sprint Slicing', slug: 'delivery/project-management/estimation-sprint-slicing' },
+                { label: 'Status Reporting & Stakeholder Communication', slug: 'delivery/project-management/status-reporting-stakeholder-communication' },
               ],
             },
             {
