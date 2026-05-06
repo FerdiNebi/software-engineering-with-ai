@@ -62,6 +62,7 @@ export default defineConfig({
                 { label: 'Backlog Management', slug: 'delivery/project-management/backlog-management' },
                 { label: 'Estimation & Sprint Slicing', slug: 'delivery/project-management/estimation-sprint-slicing' },
                 { label: 'Status Reporting & Stakeholder Communication', slug: 'delivery/project-management/status-reporting-stakeholder-communication' },
+                { label: 'Scope Control & Change Management', slug: 'delivery/project-management/scope-control-change-management' },
               ],
             },
             {
