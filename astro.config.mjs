@@ -51,33 +51,39 @@ export default defineConfig({
           ],
         },
         {
-          label: '4. Development',
+          label: '4. Delivery',
           items: [
-            { label: 'Overview', slug: 'development' },
-            { label: 'Repository Structure & Branching Strategy', slug: 'development/repository-structure-branching' },
-            { label: 'DevOps & CI/CD', slug: 'development/devops-ci-cd' },
-            { label: 'Backend Development', slug: 'development/backend-development' },
-            { label: 'Frontend Development', slug: 'development/frontend-development' },
-            { label: 'Developer Testing', slug: 'development/developer-testing' },
-            { label: 'Code Review', slug: 'development/code-review' },
-            { label: 'Secure Development Practices', slug: 'development/secure-development-practices' },
-            { label: 'Performance Engineering', slug: 'development/performance-engineering' },
-            { label: 'Technical Documentation', slug: 'development/technical-documentation' },
+            { label: 'Overview', slug: 'delivery' },
+            {
+              label: 'Development',
+              items: [
+                { label: 'Overview', slug: 'delivery/development' },
+                { label: 'Repository Structure & Branching Strategy', slug: 'delivery/development/repository-structure-branching' },
+                { label: 'DevOps & CI/CD', slug: 'delivery/development/devops-ci-cd' },
+                { label: 'Backend Development', slug: 'delivery/development/backend-development' },
+                { label: 'Frontend Development', slug: 'delivery/development/frontend-development' },
+                { label: 'Developer Testing', slug: 'delivery/development/developer-testing' },
+                { label: 'Code Review', slug: 'delivery/development/code-review' },
+                { label: 'Secure Development Practices', slug: 'delivery/development/secure-development-practices' },
+                { label: 'Performance Engineering', slug: 'delivery/development/performance-engineering' },
+                { label: 'Technical Documentation', slug: 'delivery/development/technical-documentation' },
+              ],
+            },
+            {
+              label: 'QA / Testing',
+              items: [
+                { label: 'Overview', slug: 'delivery/qa-testing' },
+                { label: 'Test Strategy & Planning', slug: 'delivery/qa-testing/test-strategy-planning' },
+                { label: 'Functional & Regression Testing', slug: 'delivery/qa-testing/functional-regression-testing' },
+                { label: 'Performance Testing', slug: 'delivery/qa-testing/performance-testing' },
+                { label: 'Security Testing', slug: 'delivery/qa-testing/security-testing' },
+                { label: 'User Acceptance Testing (UAT)', slug: 'delivery/qa-testing/user-acceptance-testing' },
+              ],
+            },
           ],
         },
         {
-          label: '5. QA / Testing',
-          items: [
-            { label: 'Overview', slug: 'qa-testing' },
-            { label: 'Test Strategy & Planning', slug: 'qa-testing/test-strategy-planning' },
-            { label: 'Functional & Regression Testing', slug: 'qa-testing/functional-regression-testing' },
-            { label: 'Performance Testing', slug: 'qa-testing/performance-testing' },
-            { label: 'Security Testing', slug: 'qa-testing/security-testing' },
-            { label: 'User Acceptance Testing (UAT)', slug: 'qa-testing/user-acceptance-testing' },
-          ],
-        },
-        {
-          label: '6. Deployment / Launch',
+          label: '5. Deployment / Launch',
           items: [
             { label: 'Overview', slug: 'deployment-launch' },
             { label: 'Infrastructure Provisioning', slug: 'deployment-launch/infrastructure-provisioning' },
@@ -87,7 +93,7 @@ export default defineConfig({
           ],
         },
         {
-          label: '7. Maintenance & Retainer',
+          label: '6. Maintenance & Retainer',
           items: [
             { label: 'Overview', slug: 'maintenance-retainer' },
             { label: 'Bug Fixes & Patch Management', slug: 'maintenance-retainer/bug-fixes-patch-management' },
