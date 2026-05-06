@@ -15,7 +15,7 @@ Functional and regression testing are the two cycles that exercise the build at 
 - **Functional testing.** Does the build do what the [requirements](/requirements-design/functional-nonfunctional-requirements/) say it should do? Each functional test case traces to a specific FR and verifies its acceptance criteria. Run when a feature first lands and re-run when it changes.
 - **Regression testing.** Does the build still do what it did last cycle? Each regression test case verifies behaviour that has previously passed and protects against unintended changes elsewhere in the codebase breaking it. Run on a frequency proportional to engagement risk — every PR for high-risk paths, every cycle for the rest.
 
-Both cycles complement, rather than replace, the [developer testing](/development/developer-testing/) engineers wrote during build. Developer tests run at the line and contract level inside the codebase; functional and regression tests run at the system level against the deployed application. A defect caught by developer testing is a fast feedback loop; a defect caught by functional or regression testing is a system-level integration issue that the line-level tests could not see.
+Both cycles complement, rather than replace, the [developer testing](/delivery/development/developer-testing/) engineers wrote during build. Developer tests run at the line and contract level inside the codebase; functional and regression tests run at the system level against the deployed application. A defect caught by developer testing is a fast feedback loop; a defect caught by functional or regression testing is a system-level integration issue that the line-level tests could not see.
 
 The automation/manual mix is an ROI decision, not a default — and a default to "automate everything" wastes more agency budget than any other QA mistake. Tests that run repeatedly through a long engagement are worth automating; tests that run once or twice are worth executing manually. The discipline is calibrating per cycle, per test case, per engagement. The output of these cycles is a documented test-execution result, a triaged defect list, and a regression suite that protects shipped functionality without consuming disproportionate cycle time.
 
@@ -61,7 +61,7 @@ Do not let regression suites grow without pruning until they are too slow to run
 
 **Document cycle results as test reports.** Each cycle produces a written report: cycles executed, test cases passed/failed/skipped, defects raised, severity distribution, comparison to prior cycles, recommendations for the next cycle. The reports are the artifacts that defend the test programme at sign-off. Verbal summaries dissolve under pressure; written reports survive.
 
-**Calibrate cycle scope to engagement budget.** Not every cycle exercises every test case. Risk-based prioritisation (per the [test strategy](/qa-testing/test-strategy-planning/)) selects which test cases run in which cycles — full regression on the last cycle before launch, smoke regression on intermediate cycles, full functional only when features land that affect those tests. Engagements that run full regression on every cycle either burn through budget or compress cycle scope so much that the cycles do not catch enough.
+**Calibrate cycle scope to engagement budget.** Not every cycle exercises every test case. Risk-based prioritisation (per the [test strategy](/delivery/qa-testing/test-strategy-planning/)) selects which test cases run in which cycles — full regression on the last cycle before launch, smoke regression on intermediate cycles, full functional only when features land that affect those tests. Engagements that run full regression on every cycle either burn through budget or compress cycle scope so much that the cycles do not catch enough.
 
 ## Desired outcomes
 
@@ -73,7 +73,7 @@ By the end of functional and regression testing investment, the engagement has:
 - Manual-deep cycles applied to UX-sensitive flows, exploratory testing, and integration paths where automation would miss the issues
 - A documented bug-triage ritual operating throughout cycles, producing client-visible decisions and credible status reporting
 - Test reports per cycle, archived as deliverables, defending the cycle's coverage and findings at engagement sign-off
-- A handoff state where [performance testing](/qa-testing/performance-testing/) and [security testing](/qa-testing/security-testing/) cycles can run against a build that has cleared functional and regression cycles
+- A handoff state where [performance testing](/delivery/qa-testing/performance-testing/) and [security testing](/delivery/qa-testing/security-testing/) cycles can run against a build that has cleared functional and regression cycles
 
 ## What the industry does
 

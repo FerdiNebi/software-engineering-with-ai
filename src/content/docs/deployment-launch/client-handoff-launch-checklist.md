@@ -15,7 +15,7 @@ Client handoff is the formal ritual that closes the delivery engagement. The age
 The standard handoff artifact set has six classes:
 
 - **Credentials and access.** Cloud accounts, deployment pipelines, monitoring platforms, secrets-management platforms, third-party SaaS subscriptions, domain registrations, certificate registrars. Ownership transitions to the client; the agency's access is revoked at handoff or end of warranty.
-- **Documentation.** The complete [technical documentation](/development/technical-documentation/) set — architecture reference, API reference, operational runbook, onboarding guide, known-issues log — handed over alongside the codebase.
+- **Documentation.** The complete [technical documentation](/delivery/development/technical-documentation/) set — architecture reference, API reference, operational runbook, onboarding guide, known-issues log — handed over alongside the codebase.
 - **Runbooks.** Operational procedures the client's team will execute — deploy, rollback, secrets rotation, common-incident response, escalation contacts. Validated against actual operation, not theoretical.
 - **Training session.** A scheduled knowledge-transfer event where the agency walks the client's named operators through the system — typically 2–4 hours, recorded for future reference, attended by the people who will operate the system post-handoff.
 - **Acceptance signature.** A formal sign-off document confirming the client has received and accepted each deliverable. Names the artifacts, names the signatories, dates the acceptance.

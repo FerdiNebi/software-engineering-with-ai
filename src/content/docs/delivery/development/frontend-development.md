@@ -18,7 +18,7 @@ Three failure modes recur in agency frontend work:
 - **Accessibility gaps at QA.** Accessibility is treated as a post-build QA finding rather than a design-time and build-time discipline. WCAG failures discovered in QA cost multiples to fix because they often require redesigning component compositions.
 - **Component-library bloat.** Engineers create new components instead of using the ones in the design system, producing a parallel component library full of one-off variants. The client inherits a system the design lead cannot maintain.
 
-Frontend work runs in parallel with [backend development](/development/backend-development/) once the API contract is signed. Frontend engineers consume the agreed [design tokens](/requirements-design/ux-ui-design/) and component library, build against the documented FR/NFR set, and run accessibility validation continuously. The output is a deployed frontend matching the signed design, accessibility-verified during build (not as a QA finding), and accompanied by a component inventory the client can maintain post-handoff.
+Frontend work runs in parallel with [backend development](/delivery/development/backend-development/) once the API contract is signed. Frontend engineers consume the agreed [design tokens](/requirements-design/ux-ui-design/) and component library, build against the documented FR/NFR set, and run accessibility validation continuously. The output is a deployed frontend matching the signed design, accessibility-verified during build (not as a QA finding), and accompanied by a component inventory the client can maintain post-handoff.
 
 ## Best practices
 
@@ -62,7 +62,7 @@ By the end of frontend development, the engagement has:
 - A component inventory documenting every component used or built, mapped back to the design system, with location, purpose, and accessibility notes — ready for client handoff
 - Design tokens consumed consistently throughout the codebase, with no hard-coded values for colours, typography, or spacing that exist as tokens
 - Frontend code aligned with the chosen framework's idioms — readable by the next team, maintainable by the client, and free of bespoke patterns that require institutional context to navigate
-- A passing test suite covering critical user flows and component-level interactions, ready for [developer testing](/development/developer-testing/) to extend with broader unit and integration coverage
+- A passing test suite covering critical user flows and component-level interactions, ready for [developer testing](/delivery/development/developer-testing/) to extend with broader unit and integration coverage
 
 ## What the industry does
 

@@ -17,7 +17,7 @@ The two categories answer different questions:
 - **Functional requirements (FRs)** describe behaviour: what the system does in response to inputs, events, or actions. "FR-12: A logged-in admin can revoke an active session." "FR-37: When a user submits a checkout form with an invalid postcode, the system displays an inline validation error and does not advance to the payment step."
 - **Non-functional requirements (NFRs)** describe quality attributes: how well the system performs, scales, secures, recovers, and supports operation. "NFR-4: Page response time at the 95th percentile is under 800ms under steady-state load of 100 concurrent users." "NFR-11: All form inputs meet WCAG 2.2 Level AA contrast and keyboard-operability requirements."
 
-Where they come from: discovery's prioritised feature list (FRs) and constraint catalogue (NFRs), reconciled against scope decisions and prototype findings. Where they go: development uses them as the build target; [QA's test strategy](/qa-testing/test-strategy-planning/) traces test cases against each numbered requirement; UAT signs off against acceptance criteria attached to each requirement; the SOW's acceptance language references the FR/NFR set as the basis for "delivered."
+Where they come from: discovery's prioritised feature list (FRs) and constraint catalogue (NFRs), reconciled against scope decisions and prototype findings. Where they go: development uses them as the build target; [QA's test strategy](/delivery/qa-testing/test-strategy-planning/) traces test cases against each numbered requirement; UAT signs off against acceptance criteria attached to each requirement; the SOW's acceptance language references the FR/NFR set as the basis for "delivered."
 
 The output is a numbered, structured document — sometimes a separate FR document and a separate NFR document, sometimes one consolidated catalogue — typically 30–80 pages on a mid-sized engagement. The document is signed by the named client signatory before any non-trivial development begins. Without this artifact, every QA cycle, every UAT meeting, and every change-control conversation runs on whoever has the loudest memory of what was discussed.
 
@@ -63,7 +63,7 @@ By the end of FR/NFR authoring, the engagement has:
 - A numbered NFR list covering performance, scalability, accessibility, security, observability, and any client-specific constraints (regulatory, compliance, integration), each with measurable thresholds
 - A cross-reference matrix mapping each FR/NFR to the relevant user journey or feature area, used during development planning and QA test design
 - An agreed set of acceptance criteria per FR/NFR — the specific verification each requirement must pass before being considered delivered
-- A traceability backbone that flows forward into [QA's test strategy](/qa-testing/test-strategy-planning/) and SOW acceptance language, and backward into the [requirements workshop](/discovery/requirements-workshops/) decisions log
+- A traceability backbone that flows forward into [QA's test strategy](/delivery/qa-testing/test-strategy-planning/) and SOW acceptance language, and backward into the [requirements workshop](/discovery/requirements-workshops/) decisions log
 - A signed FR/NFR document accepted by the named client signatory as the basis for development and acceptance
 
 ## What the industry does

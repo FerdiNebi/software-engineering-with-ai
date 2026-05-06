@@ -15,7 +15,7 @@ Developer testing is the unit and integration testing engineers own as part of b
 The clean split between developer testing and QA testing:
 
 - **Developer testing.** Unit tests (functions, modules, classes in isolation) and integration tests (modules collaborating, services calling services, code-against-database). Owned by the engineer who wrote the code. Runs on every commit. Catches bugs at the line and contract level. Lives in the repository alongside the code.
-- **[QA testing](/qa-testing/functional-regression-testing/).** System-level testing — functional cycles against signed FRs, regression suites against prior-passing behaviour, end-to-end user-journey verification, performance and security cycles, UAT with the client. Owned by QA. Runs on test cycles, not on every commit. Catches bugs at the system and user level.
+- **[QA testing](/delivery/qa-testing/functional-regression-testing/).** System-level testing — functional cycles against signed FRs, regression suites against prior-passing behaviour, end-to-end user-journey verification, performance and security cycles, UAT with the client. Owned by QA. Runs on test cycles, not on every commit. Catches bugs at the system and user level.
 
 Both are necessary; neither replaces the other. A team that ships only developer tests discovers UAT bugs in week 12; a team that defers all testing to QA discovers in week 12 that the build itself is unstable.
 
@@ -56,7 +56,7 @@ By the end of developer testing investment in this phase, the engagement has:
 - A test suite that runs locally in under five minutes for the typical inner-loop feedback cycle, with a comprehensive cycle reserved for CI
 - Mocking practices that mock at architectural boundaries only, with real dependencies used where their cost is acceptable
 - Documented test conventions covering framework, layout, naming, mock patterns, and operational procedures — ready for client handoff
-- A clean handoff to [QA / Testing](/qa-testing/functional-regression-testing/), where the developer-test suite supports rather than overlaps with system-level QA cycles
+- A clean handoff to [QA / Testing](/delivery/qa-testing/functional-regression-testing/), where the developer-test suite supports rather than overlaps with system-level QA cycles
 
 ## What the industry does
 

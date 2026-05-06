@@ -17,7 +17,7 @@ Test strategy and test plan are different artifacts. Conflating them is one of t
 
 Both trace to the signed [FR/NFR set](/requirements-design/functional-nonfunctional-requirements/). Every test case in the plan covers one or more requirements; every requirement has at least one test case verifying it. The mapping between the two is the traceability matrix — the artifact QA produces that lets the team and the client confirm, item by item, that the build was tested against what was sold.
 
-The QA lead owns both documents. They are produced during the [Requirements & Design](/requirements-design/) phase (drafted from the FR/NFR set as it stabilises) and reviewed at the start of [development](/development/) so the team understands what will be tested and how. The strategy is signed off before development starts; the plan crystallises during the last weeks of build and is signed off at QA kickoff. The output flows into [functional and regression testing](/qa-testing/functional-regression-testing/) as the executable test schedule.
+The QA lead owns both documents. They are produced during the [Requirements & Design](/requirements-design/) phase (drafted from the FR/NFR set as it stabilises) and reviewed at the start of [development](/delivery/development/) so the team understands what will be tested and how. The strategy is signed off before development starts; the plan crystallises during the last weeks of build and is signed off at QA kickoff. The output flows into [functional and regression testing](/delivery/qa-testing/functional-regression-testing/) as the executable test schedule.
 
 ## Best practices
 

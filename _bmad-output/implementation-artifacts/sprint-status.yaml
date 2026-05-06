@@ -133,15 +133,15 @@ development_status:
   epic-9-retrospective: optional
 
   # Epic 10: Delivery phase restructure (mechanical move) — added 2026-05-06
-  epic-10: backlog
-  10-1-update-phaseslug-enum-and-decide-subsection-encoding: ready-for-dev
-  10-2-move-development-pages-into-delivery-development: ready-for-dev
-  10-3-move-qa-testing-pages-into-delivery-qa-testing: ready-for-dev
-  10-4-author-the-delivery-phase-overview: ready-for-dev
-  10-5-update-astro-config-sidebar-to-3-level-nesting: ready-for-dev
-  10-6-update-architecture-md-post-implementation-cross-check: ready-for-dev
-  10-7-update-prd-md-post-implementation-cross-check: ready-for-dev
-  10-8-build-verification-and-cross-link-audit: ready-for-dev
+  epic-10: done
+  10-1-update-phaseslug-enum-and-decide-subsection-encoding: done
+  10-2-move-development-pages-into-delivery-development: done
+  10-3-move-qa-testing-pages-into-delivery-qa-testing: done
+  10-4-author-the-delivery-phase-overview: done
+  10-5-update-astro-config-sidebar-to-3-level-nesting: done
+  10-6-update-architecture-md-post-implementation-cross-check: done
+  10-7-update-prd-md-post-implementation-cross-check: done
+  10-8-build-verification-and-cross-link-audit: done
   epic-10-retrospective: optional
 
   # Epic 11: Project Management sub-section content — added 2026-05-06

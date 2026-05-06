@@ -10,7 +10,7 @@ status: v1
 
 ## What happens here
 
-Deployment execution is the launch-day cutover — the sequence that takes the build from staging to production, runs smoke tests against the result, and either confirms launch success or invokes the rehearsed rollback. It runs against the [provisioned production environment](/deployment-launch/infrastructure-provisioning/) using the [CI/CD pipeline](/development/devops-ci-cd/) the engagement built throughout development. The launch is the planned performance of work that has been rehearsed, not an improvised event.
+Deployment execution is the launch-day cutover — the sequence that takes the build from staging to production, runs smoke tests against the result, and either confirms launch success or invokes the rehearsed rollback. It runs against the [provisioned production environment](/deployment-launch/infrastructure-provisioning/) using the [CI/CD pipeline](/delivery/development/devops-ci-cd/) the engagement built throughout development. The launch is the planned performance of work that has been rehearsed, not an improvised event.
 
 The typical launch-day sequence:
 

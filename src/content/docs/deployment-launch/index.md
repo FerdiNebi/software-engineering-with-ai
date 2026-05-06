@@ -10,7 +10,7 @@ status: v1
 
 ## What happens here
 
-Deployment / Launch is the phase that converts a UAT-signed-off build into a running production system that the client operates. It is the end of the agency's delivery commitment, not the start of new work. By this point, [UAT](/qa-testing/user-acceptance-testing/) has produced a signed acceptance and a go decision; the production cutover, monitoring, and client handoff are all that stand between "the build is done" and "the engagement is closed and invoiced."
+Deployment / Launch is the phase that converts a UAT-signed-off build into a running production system that the client operates. It is the end of the agency's delivery commitment, not the start of new work. By this point, [UAT](/delivery/qa-testing/user-acceptance-testing/) has produced a signed acceptance and a go decision; the production cutover, monitoring, and client handoff are all that stand between "the build is done" and "the engagement is closed and invoiced."
 
 The phase contains four sub-sections, run in sequence:
 
@@ -37,7 +37,7 @@ Do not let launch day be the first day production exists. Production environment
 
 **Define go/no-go gates in advance.** The launch decision is not improvised on the day. The criteria — UAT acceptance signed, all critical bugs closed, monitoring dashboards green, on-call rotation aware, rollback plan documented, communication plan in place — are agreed and documented before the launch window opens. The launch commander makes the call mechanically against the criteria, not politically against stakeholder pressure. Engagements that improvise the go/no-go conversation discover at the last moment that the criteria were never explicit, and the launch becomes a debate.
 
-**Communicate the launch window to all stakeholders.** Internal team, client team, named integrations partners, customer-facing channels (where applicable). The communication includes the start window, expected duration, and contacts for issues. Surprise launches that take down a system the client was actively using produce damage no engagement can fully recover from. The discipline mirrors the [performance test window](/qa-testing/performance-testing/) communication pattern.
+**Communicate the launch window to all stakeholders.** Internal team, client team, named integrations partners, customer-facing channels (where applicable). The communication includes the start window, expected duration, and contacts for issues. Surprise launches that take down a system the client was actively using produce damage no engagement can fully recover from. The discipline mirrors the [performance test window](/delivery/qa-testing/performance-testing/) communication pattern.
 
 ## Desired outcomes
 

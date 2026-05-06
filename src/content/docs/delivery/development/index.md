@@ -16,26 +16,26 @@ The phase contains nine sub-sections grouped into four functional buckets:
 
 **Plumbing** — the day-zero work that makes the team productive:
 
-1. **[Repository Structure & Branching Strategy](/development/repository-structure-branching/)** — repo layout, branch model, commit conventions, mainline protection.
-2. **[DevOps & CI/CD](/development/devops-ci-cd/)** — pipeline stages, secrets handling, environment promotion, deployment runbooks.
+1. **[Repository Structure & Branching Strategy](/delivery/development/repository-structure-branching/)** — repo layout, branch model, commit conventions, mainline protection.
+2. **[DevOps & CI/CD](/delivery/development/devops-ci-cd/)** — pipeline stages, secrets handling, environment promotion, deployment runbooks.
 
 **Build** — the actual code production:
 
-3. **[Backend Development](/development/backend-development/)** — APIs, data model, business logic, observability hooks.
-4. **[Frontend Development](/development/frontend-development/)** — UI implementation against the signed design system, accessibility bake-in, component-library discipline.
+3. **[Backend Development](/delivery/development/backend-development/)** — APIs, data model, business logic, observability hooks.
+4. **[Frontend Development](/delivery/development/frontend-development/)** — UI implementation against the signed design system, accessibility bake-in, component-library discipline.
 
 **Quality-in-dev** — the practices that prevent QA from finding everything:
 
-5. **[Developer Testing](/development/developer-testing/)** — unit and integration tests written by engineers as part of build.
-6. **[Code Review](/development/code-review/)** — review-before-merge as both quality gate and knowledge transfer.
-7. **[Secure Development Practices](/development/secure-development-practices/)** — secrets hygiene, dependency management, threat modelling proportional to risk.
-8. **[Performance Engineering](/development/performance-engineering/)** — performance budgets tied to NFRs, regression detection in CI.
+5. **[Developer Testing](/delivery/development/developer-testing/)** — unit and integration tests written by engineers as part of build.
+6. **[Code Review](/delivery/development/code-review/)** — review-before-merge as both quality gate and knowledge transfer.
+7. **[Secure Development Practices](/delivery/development/secure-development-practices/)** — secrets hygiene, dependency management, threat modelling proportional to risk.
+8. **[Performance Engineering](/delivery/development/performance-engineering/)** — performance budgets tied to NFRs, regression detection in CI.
 
 **Lifecycle** — the artifact that travels with the system after the agency leaves:
 
-9. **[Technical Documentation](/development/technical-documentation/)** — architecture reference, API reference, runbooks, onboarding guides — produced as a deliverable, not as a retrospective exercise.
+9. **[Technical Documentation](/delivery/development/technical-documentation/)** — architecture reference, API reference, runbooks, onboarding guides — produced as a deliverable, not as a retrospective exercise.
 
-Participants are the agency's delivery lead, technical lead, two to twelve engineers depending on engagement size (mid-sized engagements typically run a 4–6 person team), a DevOps or platform engineer (sometimes shared across engagements), and named client engineers on handoff-track engagements. Duration depends on engagement size and team velocity but typically runs 6–24 weeks. The output hands off to [QA / Testing](/qa-testing/), where the build is exercised against the signed requirements before deployment.
+Participants are the agency's delivery lead, technical lead, two to twelve engineers depending on engagement size (mid-sized engagements typically run a 4–6 person team), a DevOps or platform engineer (sometimes shared across engagements), and named client engineers on handoff-track engagements. Duration depends on engagement size and team velocity but typically runs 6–24 weeks. The output hands off to [QA / Testing](/delivery/qa-testing/), where the build is exercised against the signed requirements before deployment.
 
 ## Best practices
 
@@ -76,4 +76,4 @@ By the end of Development, the engagement has the following in place:
 
 **TDD-strict vs. test-as-you-go vs. test-after cultures.** TDD-strict agencies write tests before any production code — red, green, refactor — as the dominant discipline. Test-as-you-go agencies write tests alongside production code in the same commit but without strict TDD ordering. Test-after agencies write production code first and add tests at PR time or at story-end. TDD-strict produces the highest test coverage and the cleanest interfaces but is harder to staff; test-as-you-go is the modern default — most engineers can do it consistently and it produces good-enough coverage; test-after is widespread despite its downsides because it survives sprint pressure better than the alternatives. The test culture is a function of team composition, not a moral choice — picking a discipline the team cannot deliver against produces the same results as having no discipline.
 
-**Trunk-based vs. GitFlow-style branching cultures.** Trunk-based agencies merge small commits to mainline frequently (multiple times per day per engineer) with feature flags for in-progress work. Optimises for fast feedback, continuous integration, and minimal merge conflicts. GitFlow-style agencies maintain long-running develop and feature branches with periodic merges to mainline. Optimises for releases-as-events and explicit gating between feature and production. Trunk-based dominates in modern agencies and in product engineering; GitFlow survives in engagements where releases are external events (regulated industries, B2B platforms with formal release calendars) and where small commits to mainline are operationally infeasible. The choice is set during the [Repository Structure](/development/repository-structure-branching/) sub-section and constrains the rest of the development practices.
+**Trunk-based vs. GitFlow-style branching cultures.** Trunk-based agencies merge small commits to mainline frequently (multiple times per day per engineer) with feature flags for in-progress work. Optimises for fast feedback, continuous integration, and minimal merge conflicts. GitFlow-style agencies maintain long-running develop and feature branches with periodic merges to mainline. Optimises for releases-as-events and explicit gating between feature and production. Trunk-based dominates in modern agencies and in product engineering; GitFlow survives in engagements where releases are external events (regulated industries, B2B platforms with formal release calendars) and where small commits to mainline are operationally infeasible. The choice is set during the [Repository Structure](/delivery/development/repository-structure-branching/) sub-section and constrains the rest of the development practices.

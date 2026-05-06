@@ -10,7 +10,7 @@ status: v1
 
 ## What happens here
 
-Infrastructure design is the plan; DevOps is the execution of the plan. The two are separate activities, run by overlapping people, with different artifacts. Infrastructure design happens here, in Requirements & Design, and produces a documented plan that the [DevOps & CI/CD](/development/devops-ci-cd/) activity then implements during development. Engagements that conflate the two — typically by skipping the planning artifact and letting infrastructure emerge from whichever YAML the first DevOps engineer writes — discover that decisions about regions, secrets handling, environment counts, and cost models were made by accident rather than by analysis.
+Infrastructure design is the plan; DevOps is the execution of the plan. The two are separate activities, run by overlapping people, with different artifacts. Infrastructure design happens here, in Requirements & Design, and produces a documented plan that the [DevOps & CI/CD](/delivery/development/devops-ci-cd/) activity then implements during development. Engagements that conflate the two — typically by skipping the planning artifact and letting infrastructure emerge from whichever YAML the first DevOps engineer writes — discover that decisions about regions, secrets handling, environment counts, and cost models were made by accident rather than by analysis.
 
 The standard infrastructure design deliverable set has six artifacts:
 
@@ -21,7 +21,7 @@ The standard infrastructure design deliverable set has six artifacts:
 - **Secrets model.** How secrets and credentials are stored, rotated, accessed, and audited — covering both engagement-time secrets (CI tokens, deployment keys) and runtime secrets (database passwords, API keys, signing keys). Names the secrets-management platform (AWS Secrets Manager, Vault, GCP Secret Manager, etc.) and the access control rules.
 - **Disaster-recovery plan.** Documented RTO (recovery time objective) and RPO (recovery point objective), backup strategy, restore procedure, region/zone failover behaviour. Sized to the client's actual recovery requirements, not the cloud provider's marketing brochure.
 
-Participants are the agency's technical lead (often the same person who authored the [system architecture](/requirements-design/system-architecture/)), a dedicated DevOps or platform engineer on infrastructure-heavy engagements, and the client's named infrastructure or platform stakeholder. The output flows forward to [DevOps & CI/CD](/development/devops-ci-cd/), where the plan becomes pipelines and IaC, and to [infrastructure provisioning](/deployment-launch/infrastructure-provisioning/) at deployment-launch time, where the plan executes against production.
+Participants are the agency's technical lead (often the same person who authored the [system architecture](/requirements-design/system-architecture/)), a dedicated DevOps or platform engineer on infrastructure-heavy engagements, and the client's named infrastructure or platform stakeholder. The output flows forward to [DevOps & CI/CD](/delivery/development/devops-ci-cd/), where the plan becomes pipelines and IaC, and to [infrastructure provisioning](/deployment-launch/infrastructure-provisioning/) at deployment-launch time, where the plan executes against production.
 
 ## Best practices
 
@@ -60,7 +60,7 @@ By the end of infrastructure design, the engagement has:
 - An IaC-posture commitment for the engagement: which IaC tool, which patterns, which conventions for naming and tagging, which review process for infrastructure changes
 - A documented secrets model — secrets-management platform, scoping rules, rotation cadence, audit access — applied consistently across environments
 - A Day-1 readiness checklist defining the infrastructure state required before development begins, with named owners for each item
-- A signed handoff to [DevOps & CI/CD](/development/devops-ci-cd/) and a forward link to [infrastructure provisioning](/deployment-launch/infrastructure-provisioning/) at deployment time, where the plan executes against production
+- A signed handoff to [DevOps & CI/CD](/delivery/development/devops-ci-cd/) and a forward link to [infrastructure provisioning](/deployment-launch/infrastructure-provisioning/) at deployment time, where the plan executes against production
 
 ## What the industry does
 

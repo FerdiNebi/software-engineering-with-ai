@@ -10,7 +10,7 @@ status: v1
 
 ## What happens here
 
-Requirements & Design is the bridge between [Discovery](/discovery/discovery-deliverables-signoff/) and [Development](/development/). Discovery produced raw material — interview themes, validated requirements at workshop-detail, prototype findings, a refined estimate. Development needs implementable deliverables — atomic and testable FR/NFR documents, design files engineers can build from, an architecture decision document, an infrastructure plan. This phase is the converter, and getting it wrong front-loads risk into delivery that the agency cannot easily recover from.
+Requirements & Design is the bridge between [Discovery](/discovery/discovery-deliverables-signoff/) and [Development](/delivery/development/). Discovery produced raw material — interview themes, validated requirements at workshop-detail, prototype findings, a refined estimate. Development needs implementable deliverables — atomic and testable FR/NFR documents, design files engineers can build from, an architecture decision document, an infrastructure plan. This phase is the converter, and getting it wrong front-loads risk into delivery that the agency cannot easily recover from.
 
 The phase consists of four parallel-but-sequenced activities:
 
@@ -21,7 +21,7 @@ The phase consists of four parallel-but-sequenced activities:
 
 These activities run in partial parallel. FR/NFR work happens first because it constrains every other deliverable. UX/UI and system architecture run alongside it once requirements stabilise. Infrastructure design depends on architecture's tech-stack decisions and runs last. A typical mid-sized engagement allocates 2–6 weeks to this phase. Engagements with already-mature design systems or architecture patterns compress; engagements with novel UX or unfamiliar tech stacks expand.
 
-Participants are the agency's delivery lead, technical lead, UX lead (where design is in scope), and a solutions architect on architecture-heavy engagements. Client-side participants are typically the sponsor (for sign-off), the named technical stakeholder (for architecture review), and end-user representatives (for design review). The output is a development-ready handoff package that hands off to [Development](/development/) on a signed acceptance event.
+Participants are the agency's delivery lead, technical lead, UX lead (where design is in scope), and a solutions architect on architecture-heavy engagements. Client-side participants are typically the sponsor (for sign-off), the named technical stakeholder (for architecture review), and end-user representatives (for design review). The output is a development-ready handoff package that hands off to [Development](/delivery/development/) on a signed acceptance event.
 
 ## Best practices
 
@@ -52,7 +52,7 @@ By the end of Requirements & Design, the engagement has the following in place:
 - An architecture decision document (ADR-style) capturing tech-stack decisions, component boundaries, data flow, integration points, and the risks and trade-offs of each
 - An infrastructure plan covering environments, hosting, network, secrets management, cost estimate, and disaster-recovery posture
 - A signed development-ready handoff package combining all four deliverables, named stakeholders for delivery, and the open-issues backlog
-- A scheduled handoff event to [Development](/development/) with named delivery-team members and a Day-1 readiness review
+- A scheduled handoff event to [Development](/delivery/development/) with named delivery-team members and a Day-1 readiness review
 
 ## What the industry does
 

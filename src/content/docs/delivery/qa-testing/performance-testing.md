@@ -10,7 +10,7 @@ status: v1
 
 ## What happens here
 
-Performance testing in QA validates that the system meets the performance NFRs at production-representative load, with results reported to the client as a sign-off artifact. It is the system-level counterpart to [development-time performance engineering](/development/performance-engineering/), which kept the system within budget throughout build via per-PR regression checks. Where development-time work caught regressions early, QA performance testing answers the question development could not: does the system still hold under realistic, sustained, system-level load?
+Performance testing in QA validates that the system meets the performance NFRs at production-representative load, with results reported to the client as a sign-off artifact. It is the system-level counterpart to [development-time performance engineering](/delivery/development/performance-engineering/), which kept the system within budget throughout build via per-PR regression checks. Where development-time work caught regressions early, QA performance testing answers the question development could not: does the system still hold under realistic, sustained, system-level load?
 
 Four test types matter, each answering a different NFR question:
 
@@ -19,7 +19,7 @@ Four test types matter, each answering a different NFR question:
 - **Soak testing.** Extended duration — 4 hours to 72 hours at expected load. Surfaces memory leaks, file-handle exhaustion, gradual database degradation, and connection-pool issues that short cycles cannot find. Typically run once near launch on engagements where production reliability matters more than launch speed.
 - **Spike testing.** Sudden bursts of traffic followed by return to baseline. Validates auto-scaling, caching warm-up, and database read-replica catch-up. Common in engagements with marketing-driven traffic patterns (campaign launches, time-bounded promotions, news-driven traffic).
 
-Not every engagement runs every type. The discipline is matching test types to NFRs and to engagement risk: a marketing site running on managed infrastructure typically needs only load testing; a B2B SaaS platform with auto-scaling commitments needs load and spike; a long-running operational system with stability NFRs needs all four. Selecting test types is part of the [test strategy](/qa-testing/test-strategy-planning/), not an in-cycle decision.
+Not every engagement runs every type. The discipline is matching test types to NFRs and to engagement risk: a marketing site running on managed infrastructure typically needs only load testing; a B2B SaaS platform with auto-scaling commitments needs load and spike; a long-running operational system with stability NFRs needs all four. Selecting test types is part of the [test strategy](/delivery/qa-testing/test-strategy-planning/), not an in-cycle decision.
 
 ## Best practices
 
@@ -39,7 +39,7 @@ Never load-test shared client infrastructure without written approval. A load te
 
 **Plan the run window with the client.** Even on dedicated infrastructure, performance tests are scheduled events: "Tuesday 2pm–4pm UTC; on-call rotation aware; observability dashboards being watched; rollback plan documented." Surprise tests that hit a system the client is also using produce confusion at best and incidents at worst. The discipline mirrors deployment-window communication — named time, named duration, named participants, documented rollback.
 
-**Document anti-pattern responses.** Performance tests sometimes find issues that cannot be fixed in the cycle. The report classifies findings: "must-fix-before-launch (NFR breach with no workaround); fix-or-defer-with-client-approval (NFR breach with workaround); deferred to post-launch with target date; deferred indefinitely with workaround documented." The classifications mirror the [test strategy's](/qa-testing/test-strategy-planning/) severity model and feed the deferred-bugs conversation at sign-off.
+**Document anti-pattern responses.** Performance tests sometimes find issues that cannot be fixed in the cycle. The report classifies findings: "must-fix-before-launch (NFR breach with no workaround); fix-or-defer-with-client-approval (NFR breach with workaround); deferred to post-launch with target date; deferred indefinitely with workaround documented." The classifications mirror the [test strategy's](/delivery/qa-testing/test-strategy-planning/) severity model and feed the deferred-bugs conversation at sign-off.
 
 ## Desired outcomes
 
@@ -51,7 +51,7 @@ By the end of performance testing in this phase, the engagement has:
 - A test-run window plan agreed with the client (named times, named participants, documented rollback) for any test that touched shared or risk-sensitive infrastructure
 - A reported set of results to the client mapped FR-by-FR or NFR-by-NFR, with sign-off on met thresholds and explicit deferral/acceptance for any unmet thresholds
 - Baseline data archived for [post-launch maintenance](/maintenance-retainer/) comparison — the post-launch team needs the launch baseline to detect production-time degradation
-- A clean handoff state to [security testing](/qa-testing/security-testing/) and onward to [user acceptance testing](/qa-testing/user-acceptance-testing/), with performance no longer a launch risk
+- A clean handoff state to [security testing](/delivery/qa-testing/security-testing/) and onward to [user acceptance testing](/delivery/qa-testing/user-acceptance-testing/), with performance no longer a launch risk
 
 ## What the industry does
 

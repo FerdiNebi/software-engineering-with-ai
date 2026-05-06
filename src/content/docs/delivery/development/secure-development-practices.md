@@ -20,11 +20,11 @@ Five threat surfaces matter for almost every agency engagement:
 - **Input handling and injection vectors.** SQL injection, XSS, command injection, deserialization vulnerabilities — the classic OWASP Top 10 concerns.
 - **Data exposure.** What the system logs, returns in error messages, exposes via public endpoints, or stores without encryption.
 
-The depth of investment scales with the client's industry: marketing-site engagements need disciplined dependency hygiene, secrets management, and basic OWASP discipline; fintech, health, and government engagements need formal threat modelling, third-party penetration testing, SBOM production, and explicit compliance posture (SOC 2, PCI-DSS, HIPAA, ISO 27001) per the regulatory regime. Secure-development practices in this phase land the build-time disciplines; [security testing](/qa-testing/security-testing/) in QA validates them at system level; [client handoff](/deployment-launch/client-handoff-launch-checklist/) transfers the security posture to the client's ongoing operation.
+The depth of investment scales with the client's industry: marketing-site engagements need disciplined dependency hygiene, secrets management, and basic OWASP discipline; fintech, health, and government engagements need formal threat modelling, third-party penetration testing, SBOM production, and explicit compliance posture (SOC 2, PCI-DSS, HIPAA, ISO 27001) per the regulatory regime. Secure-development practices in this phase land the build-time disciplines; [security testing](/delivery/qa-testing/security-testing/) in QA validates them at system level; [client handoff](/deployment-launch/client-handoff-launch-checklist/) transfers the security posture to the client's ongoing operation.
 
 ## Best practices
 
-**Run secrets-scanning in CI from day one.** Pre-commit hooks (gitleaks, trufflehog, detect-secrets) and CI pipeline scans catch secrets before they land in repo history. Once a secret is in git history, removing it is expensive — rewriting history breaks every clone, and rotation is the only safe response. The discipline is preventing the commit, not cleaning up after it. Combined with the [DevOps & CI/CD](/development/devops-ci-cd/) secrets posture (no secrets in repo, secrets-management platform from kickoff, per-environment scoping), secrets become managed resources rather than committed artifacts.
+**Run secrets-scanning in CI from day one.** Pre-commit hooks (gitleaks, trufflehog, detect-secrets) and CI pipeline scans catch secrets before they land in repo history. Once a secret is in git history, removing it is expensive — rewriting history breaks every clone, and rotation is the only safe response. The discipline is preventing the commit, not cleaning up after it. Combined with the [DevOps & CI/CD](/delivery/development/devops-ci-cd/) secrets posture (no secrets in repo, secrets-management platform from kickoff, per-environment scoping), secrets become managed resources rather than committed artifacts.
 
 **Keep dependencies updated on a documented cadence.** Three rules cover the majority of dependency-related incidents:
 
@@ -42,7 +42,7 @@ Engagements without a dependency-update cadence ship with critical CVEs by the t
 
 The discipline is matching the threat-model depth to the engagement risk — not skipping it because the client did not ask for one (every engagement gets at least the lightweight tier) and not over-investing where the engagement does not need it.
 
-**Apply OWASP Top 10 discipline as a baseline.** Every backend code review checks for OWASP Top 10 categories: injection, broken authentication, sensitive data exposure, XML external entities, broken access control, security misconfiguration, XSS, insecure deserialization, vulnerable components, insufficient logging. The discipline is not memorising the list — it is having reviewers actively check for the named categories on every PR. The reviewer's checklist (per [Code Review](/development/code-review/)) names them; the lint and security-scan tooling catches the categories that can be caught automatically.
+**Apply OWASP Top 10 discipline as a baseline.** Every backend code review checks for OWASP Top 10 categories: injection, broken authentication, sensitive data exposure, XML external entities, broken access control, security misconfiguration, XSS, insecure deserialization, vulnerable components, insufficient logging. The discipline is not memorising the list — it is having reviewers actively check for the named categories on every PR. The reviewer's checklist (per [Code Review](/delivery/development/code-review/)) names them; the lint and security-scan tooling catches the categories that can be caught automatically.
 
 **Encode authorisation in the architecture, not as scattered checks.** Authorisation logic distributed across controllers, services, and templates produces gaps the team did not intend. The discipline is centralising authorisation — middleware, policy engines (OPA, Cedar), framework-native auth integration — so the question "is this user allowed to access this resource" has one answer in one place. Engagements that scatter authorisation checks discover at QA that some endpoints check and others do not; the cost of fixing is multiples of the cost of designing centrally from the start.
 
@@ -62,7 +62,7 @@ By the end of secure development investment in this phase, the engagement has:
 - An OWASP Top 10 baseline applied through code review, automated security scanning in CI, and reviewer checklists
 - A centralised authorisation model — middleware, policy engine, or framework-native — rather than scattered access checks
 - A documented security posture for handoff: threat model, dependency procedures, rotation calendar, incident-response procedures, and any compliance artifacts (SOC 2, PCI, HIPAA documentation as applicable)
-- A clean pass through [QA security testing](/qa-testing/security-testing/) — automated SAST/DAST/dependency scans clean (or risk-accepted), with documented residual-risk acceptance from the client
+- A clean pass through [QA security testing](/delivery/qa-testing/security-testing/) — automated SAST/DAST/dependency scans clean (or risk-accepted), with documented residual-risk acceptance from the client
 
 ## What the industry does
 
