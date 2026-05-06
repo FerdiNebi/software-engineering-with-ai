@@ -14,6 +14,7 @@ date: '2026-04-20'
 additionalConstraints:
   - "Deployment target: GitHub Pages (confirmed by user 2026-04-20)"
   - "NFR4 amended 2026-04-20 in PRD: static-first at build time with JS permitted for UI and interactive content enhancements (e.g. dynamic diagrams)"
+  - "Delivery phase restructure 2026-05-06: replaces 7-phase model with 6-phase Delivery-unified model. The slug-immutability rule is consciously broken for this restructure — old `/development/*` and `/qa-testing/*` URLs will 404. See 'Slug-immutability exception' note below."
 ---
 
 # Architecture Decision Document
@@ -257,8 +258,9 @@ Not applicable — no runtime API.
 ---
 title: "Discovery"                            # string, required, sentence-case, human-readable
 description: "One-sentence page summary."     # string, required, ≤160 chars for meta-description
-type: "phase-overview" | "sub-section"        # discriminant; required
-phase: "pre-sales" | "discovery" | ...         # kebab-case phase slug; required
+type: "phase-overview" | "sub-section"        # discriminant; required for non-home pages
+phase: "pre-sales" | "discovery" | ...         # kebab-case phase slug; required for non-home pages
+subsection: "project-management" | "development" | "qa-testing"  # optional; required only for pages under `phase: delivery` (see Delivery restructure note)
 order: 2                                       # integer, required, controls sibling sort order
 lastUpdated: 2026-04-20                       # ISO date, required, updated on any content change
 status: "v1" | "v2-ai-ready"                  # optional; for v2 AI-section readiness tracking
@@ -267,7 +269,8 @@ status: "v1" | "v2-ai-ready"                  # optional; for v2 AI-section read
 
 - Fields appear in the order above. Unknown fields are a build error (Zod schema).
 - Dates use ISO-8601 (`YYYY-MM-DD`), never locale-formatted.
-- `phase` slug values are pinned to the 7 phase kebab identifiers (see File & Folder Structure below) — misspellings fail the build.
+- `phase` slug values are pinned to the 6 phase kebab identifiers (see File & Folder Structure below) — misspellings fail the build.
+- `subsection` is the second-hop selector for the 3-level `delivery` nesting. It is **required** for any page where `phase: delivery` (including the Delivery overview, which sets `phase: delivery` and omits `subsection` only on the phase-overview index, OR — author choice during story 10.1 — relies on file-path encoding alone). Decide between (a) Zod-enforced `subsection` field or (b) file-path-only encoding in story 10.1; pick the option that yields the simplest sidebar wiring without sacrificing the build-time guarantee.
 
 **Markdown heading template (FR14 enforcement):**
 
@@ -313,26 +316,62 @@ src/content/docs/
 ├── discovery/
 │   ├── index.md
 │   └── ...
+├── requirements-design/
+│   ├── index.md
+│   └── ...
+├── delivery/                                  # 3-level nesting under Delivery (restructured 2026-05-06)
+│   ├── index.md                               # Delivery phase overview
+│   ├── project-management/
+│   │   ├── index.md                           # PM sub-section overview
+│   │   ├── sprint-planning-cadence.md
+│   │   ├── backlog-management.md
+│   │   ├── estimation-sprint-slicing.md
+│   │   ├── status-reporting-stakeholder-communication.md
+│   │   ├── scope-control-change-management.md
+│   │   ├── risk-issue-management.md
+│   │   └── retrospectives.md
+│   ├── development/
+│   │   ├── index.md                           # Development sub-section overview
+│   │   └── ... (9 pages)
+│   └── qa-testing/
+│       ├── index.md                           # QA / Testing sub-section overview
+│       └── ... (5 pages)
+├── deployment-launch/
+│   ├── index.md
+│   └── ...
 └── maintenance-retainer/
     ├── index.md
     └── ...
 ```
 
-**Phase slug list (fixed, 7 entries):**
+**Phase slug list (fixed, 6 entries — restructured 2026-05-06):**
 
 1. `pre-sales`
 2. `discovery`
 3. `requirements-design`
-4. `development`
-5. `qa-testing`
-6. `deployment-launch`
-7. `maintenance-retainer`
+4. `delivery`
+5. `deployment-launch`
+6. `maintenance-retainer`
+
+The previous `development` and `qa-testing` top-level phases have been folded into `delivery` as sub-sections (see "Sub-section slug list under Delivery" below). This is a deliberate restructure to reflect that Project Management, Development, and QA / Testing run *concurrently* in agency engagements — not sequentially.
+
+**Sub-section slug list under Delivery (3 entries):**
+
+1. `project-management`
+2. `development`
+3. `qa-testing`
+
+The `delivery` phase has 3-level nesting (phase → sub-section → page). All other phases retain 2-level nesting (phase → page).
 
 **Sub-section slug rules:**
 
 - Lowercase ASCII, kebab-case, no leading/trailing hyphens, no double hyphens.
 - Derived from the sub-section title but shortened where natural (e.g. "SOW & Contract Drafting" → `sow-contract-drafting`; drop articles, symbols, and connector words).
 - Once committed and deployed, slugs are **immutable**. Renames require a redirect config entry, not a rename.
+
+**Slug-immutability exception (2026-05-06):**
+
+The slug-immutability rule was consciously broken for the Delivery restructure on 2026-05-06. The previous top-level paths `/development/*` and `/qa-testing/*` were moved to `/delivery/development/*` and `/delivery/qa-testing/*`, and the `phaseSlug` enum was reduced from 7 entries to 6 (replacing `development` and `qa-testing` with `delivery`). Old URLs will return 404 — no redirect entries were added because the site has no public traffic baseline yet; the cost of breaking those links is accepted. This exception is recorded here so the immutability rule remains the default for all future renames; any subsequent slug rename must either add a redirect entry or document an explicit exception in this section.
 
 **Component/code file layout:**
 
@@ -502,24 +541,35 @@ software-engineering-with-ai/
 │   │       │   ├── ux-ui-design.md
 │   │       │   ├── system-architecture.md
 │   │       │   └── infrastructure-design.md
-│   │       ├── development/
-│   │       │   ├── index.md
-│   │       │   ├── repository-structure-branching.md
-│   │       │   ├── devops-ci-cd.md
-│   │       │   ├── backend-development.md
-│   │       │   ├── frontend-development.md
-│   │       │   ├── developer-testing.md
-│   │       │   ├── code-review.md
-│   │       │   ├── secure-development-practices.md
-│   │       │   ├── performance-engineering.md
-│   │       │   └── technical-documentation.md
-│   │       ├── qa-testing/
-│   │       │   ├── index.md
-│   │       │   ├── test-strategy-planning.md
-│   │       │   ├── functional-regression-testing.md
-│   │       │   ├── performance-testing.md
-│   │       │   ├── security-testing.md
-│   │       │   └── user-acceptance-testing.md
+│   │       ├── delivery/                       # restructured 2026-05-06: 3-level nesting
+│   │       │   ├── index.md                    # Delivery phase overview
+│   │       │   ├── project-management/
+│   │       │   │   ├── index.md
+│   │       │   │   ├── sprint-planning-cadence.md
+│   │       │   │   ├── backlog-management.md
+│   │       │   │   ├── estimation-sprint-slicing.md
+│   │       │   │   ├── status-reporting-stakeholder-communication.md
+│   │       │   │   ├── scope-control-change-management.md
+│   │       │   │   ├── risk-issue-management.md
+│   │       │   │   └── retrospectives.md
+│   │       │   ├── development/
+│   │       │   │   ├── index.md
+│   │       │   │   ├── repository-structure-branching.md
+│   │       │   │   ├── devops-ci-cd.md
+│   │       │   │   ├── backend-development.md
+│   │       │   │   ├── frontend-development.md
+│   │       │   │   ├── developer-testing.md
+│   │       │   │   ├── code-review.md
+│   │       │   │   ├── secure-development-practices.md
+│   │       │   │   ├── performance-engineering.md
+│   │       │   │   └── technical-documentation.md
+│   │       │   └── qa-testing/
+│   │       │       ├── index.md
+│   │       │       ├── test-strategy-planning.md
+│   │       │       ├── functional-regression-testing.md
+│   │       │       ├── performance-testing.md
+│   │       │       ├── security-testing.md
+│   │       │       └── user-acceptance-testing.md
 │   │       ├── deployment-launch/
 │   │       │   ├── index.md
 │   │       │   ├── infrastructure-provisioning.md
@@ -543,7 +593,7 @@ software-engineering-with-ai/
 └── dist/                                       # build output (gitignored; produced by `pnpm build`)
 ```
 
-**Page count check:** 1 home (`index.mdx`) + 7 phase overviews (`<phase>/index.md`) + 35 sub-sections = **43 pages**, matching the PRD.
+**Page count check (post-Delivery-restructure 2026-05-06):** 1 home (`index.mdx`) + 6 phase overviews (`<phase>/index.md`) + 3 Delivery sub-section overviews (`delivery/<sub>/index.md`) + 41 leaf pages (4 + 5 + 4 + 7 PM + 9 Dev + 5 QA + 4 + 4) = **51 pages** total. The previous 43-page count assumed a 7-phase model with 35 leaf sub-sections; the restructure adds 1 Delivery overview, 3 sub-section overviews, and 7 PM leaf pages. (For PRD/UX-spec headcount accounting see prd.md "Product Scope" — totals there will be updated alongside this file.)
 
 ### Architectural Boundaries
 
