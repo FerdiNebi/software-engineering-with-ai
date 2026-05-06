@@ -24,7 +24,7 @@ Real retainers usually blend two or three structures — a base hours bucket plu
 
 **Define inclusions and exclusions explicitly.** A retainer without an exclusions section is an unbillable contract — every ambiguity defaults to "agency does the work." The agreement covers:
 
-- **Inclusions.** Bug fixes against signed acceptance criteria, dependency updates, security patches, incident response per SLA, monthly operational support, monthly status report. Specific enough that a third party could read the agreement and identify what is covered.
+- **Inclusions.** Bug fixes against signed acceptance criteria, dependency updates, security patches, incident response per SLA, monthly operational support, monthly status report (often using the same template the engagement ran during delivery — see [Status Reporting & Stakeholder Communication](/delivery/project-management/status-reporting-stakeholder-communication/)). Specific enough that a third party could read the agreement and identify what is covered.
 - **Exclusions.** Net-new features above the documented size threshold, infrastructure changes, third-party platform migrations, training of new client staff, integration with new third-party systems, work outside the engagement's defined business hours. Specific enough that the client cannot interpret silence as inclusion.
 
 The exclusions list is more important than the inclusions list. Inclusions can drift positively (the agency adds value); exclusions left undefined drift negatively (the agency absorbs scope that should have been priced).
