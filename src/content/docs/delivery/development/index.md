@@ -10,9 +10,9 @@ status: v1
 
 ## What happens here
 
-Development is the phase that converts the signed Requirements & Design package into running, tested, documented software. It is the longest and most expensive phase in the lifecycle, typically 40%–70% of the engagement budget. By the time development starts, [requirements](/requirements-design/functional-nonfunctional-requirements/) are atomic and testable, [designs](/requirements-design/ux-ui-design/) are signed, [architecture](/requirements-design/system-architecture/) is documented as ADRs, and [infrastructure](/requirements-design/infrastructure-design/) has a Day-1 readiness checklist marked green. Anything missing from those inputs gets discovered as friction during build.
+Development is the engineering stream of [Delivery](/delivery/) — the sub-section that converts the signed Requirements & Design package into running, tested, documented software. It runs concurrently with the [Project Management](/delivery/project-management/) and [QA / Testing](/delivery/qa-testing/) sub-sections, not before them. Development is the longest budget line in the engagement, typically 40%–70% of the total, and it is the share most often mistaken for the whole of Delivery. By the time development starts, [requirements](/requirements-design/functional-nonfunctional-requirements/) are atomic and testable, [designs](/requirements-design/ux-ui-design/) are signed, [architecture](/requirements-design/system-architecture/) is documented as ADRs, and [infrastructure](/requirements-design/infrastructure-design/) has a Day-1 readiness checklist marked green. Anything missing from those inputs gets discovered as friction during build.
 
-The phase contains nine sub-sections grouped into four functional buckets:
+The sub-section contains nine pages grouped into four functional buckets:
 
 **Plumbing** — the day-zero work that makes the team productive:
 
@@ -39,7 +39,7 @@ Participants are the agency's delivery lead, technical lead, two to twelve engin
 
 ## Best practices
 
-**Treat the four buckets as one phase, not four parallel projects.** Plumbing without quality-in-dev produces a fast pipeline that ships broken code; build without lifecycle produces software the client cannot maintain post-handoff; quality without plumbing produces engineers who write tests that no pipeline runs. The four buckets compound — strength in one is wasted without competence in the others. Engagements that under-invest in any bucket pay multiples of the saved cost during QA, launch, or maintenance.
+**Treat the four buckets as one stream, not four parallel projects.** Plumbing without quality-in-dev produces a fast pipeline that ships broken code; build without lifecycle produces software the client cannot maintain post-handoff; quality without plumbing produces engineers who write tests that no pipeline runs. The four buckets compound — strength in one is wasted without competence in the others. Engagements that under-invest in any bucket pay multiples of the saved cost during QA, launch, or maintenance.
 
 **Make documentation a parallel deliverable, not a closing task.** Technical documentation written in the last sprint of development is documentation written under deadline pressure by engineers who have rotated mentally to the next engagement. The result is shallow, error-prone, and unread. Docs written incrementally — every API endpoint documented as it ships, every runbook entry written as the runbook need is discovered — produce documentation the client actually uses. Documentation is a deliverable in this phase, not a retrospective exercise.
 
