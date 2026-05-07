@@ -3,8 +3,8 @@ title: Scope Control & Change Management
 description: The live enforcement of the SOW change-control clause at delivery time — the change-control flow, impact-assessment template, and the discipline of saying no to "we'll squeeze it in."
 type: sub-section
 phase: delivery
-order: 6
-lastUpdated: 2026-05-06
+order: 7
+lastUpdated: 2026-05-07
 status: v1
 ---
 

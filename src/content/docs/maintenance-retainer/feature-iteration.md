@@ -3,8 +3,8 @@ title: Feature Iteration
 description: Handling post-launch feature requests — small additions inside the retainer, substantial work re-entering Pre-Sales as a new engagement.
 type: sub-section
 phase: maintenance-retainer
-order: 3
-lastUpdated: 2026-05-03
+order: 4
+lastUpdated: 2026-05-07
 status: v1
 ---
 

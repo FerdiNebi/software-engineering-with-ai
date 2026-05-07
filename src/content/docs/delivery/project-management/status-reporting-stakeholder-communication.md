@@ -3,8 +3,8 @@ title: Status Reporting & Stakeholder Communication
 description: The PM-owned client-visible artefact that ensures no surprises — report structure, cadence options, and the bad-news playbook.
 type: sub-section
 phase: delivery
-order: 5
-lastUpdated: 2026-05-06
+order: 6
+lastUpdated: 2026-05-07
 status: v1
 ---
 

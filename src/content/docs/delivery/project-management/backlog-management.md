@@ -3,8 +3,8 @@ title: Backlog Management
 description: Delivery-time stewardship of the backlog — refinement cadence, prioritisation frameworks, definition of ready, and traceability back to the signed requirements.
 type: sub-section
 phase: delivery
-order: 3
-lastUpdated: 2026-05-06
+order: 4
+lastUpdated: 2026-05-07
 status: v1
 ---
 

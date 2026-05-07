@@ -4,7 +4,7 @@ description: Facilitated sessions that convert interview themes into prioritised
 type: sub-section
 phase: discovery
 order: 3
-lastUpdated: 2026-05-03
+lastUpdated: 2026-05-07
 status: v1
 ---
 

@@ -3,8 +3,8 @@ title: Client Handoff & Launch Checklist
 description: The ritual that closes the engagement — credentials, documentation, training, and signed acceptance, with the gate to retainer or end-of-engagement explicit.
 type: sub-section
 phase: deployment-launch
-order: 5
-lastUpdated: 2026-05-03
+order: 6
+lastUpdated: 2026-05-07
 status: v1
 ---
 

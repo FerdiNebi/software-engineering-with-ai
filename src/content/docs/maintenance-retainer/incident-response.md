@@ -3,8 +3,8 @@ title: Incident Response
 description: Time-bounded, SLO-driven response to production incidents — severity matrix, named commander, client communication, post-incident review.
 type: sub-section
 phase: maintenance-retainer
-order: 4
-lastUpdated: 2026-05-03
+order: 5
+lastUpdated: 2026-05-07
 status: v1
 ---
 

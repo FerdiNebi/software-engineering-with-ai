@@ -3,7 +3,7 @@ title: Accessibility Testing
 description: Verifying the build against WCAG conformance — automated tooling, manual audit, assistive-technology testing, and the contractual implications of accessibility commitments in the SOW.
 type: sub-section
 phase: delivery
-order: 7
+order: 6
 lastUpdated: 2026-05-07
 status: v1
 ---

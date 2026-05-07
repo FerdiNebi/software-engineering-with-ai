@@ -3,8 +3,8 @@ title: Estimation & Sprint Slicing
 description: The delivery-time calibration loop that closes the gap between Pre-Sales pricing and shippable scope — slicing techniques, estimation styles, and surfacing drift early.
 type: sub-section
 phase: delivery
-order: 4
-lastUpdated: 2026-05-06
+order: 5
+lastUpdated: 2026-05-07
 status: v1
 ---
 

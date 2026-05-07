@@ -3,8 +3,8 @@ title: Deployment Execution & Smoke Testing
 description: The launch-day sequence — rehearsed cutover, named commander, scripted smoke tests, pre-defined rollback criteria.
 type: sub-section
 phase: deployment-launch
-order: 3
-lastUpdated: 2026-05-03
+order: 4
+lastUpdated: 2026-05-07
 status: v1
 ---
 

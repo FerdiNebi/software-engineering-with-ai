@@ -3,7 +3,7 @@ title: Delivery Mobilization & Kickoff
 description: The activity that turns a signed delivery SOW into a team that can ship — allocation, account setup, RACI confirmation, and the kickoff meeting that opens Sprint 1.
 type: sub-section
 phase: delivery
-order: 9
+order: 2
 lastUpdated: 2026-05-07
 status: v1
 ---

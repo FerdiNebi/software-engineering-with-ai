@@ -3,8 +3,8 @@ title: Retrospectives
 description: Sprint and milestone retros that produce actionable change rather than venting — facilitation formats, psychological safety techniques, and the action-item follow-up loop.
 type: sub-section
 phase: delivery
-order: 8
-lastUpdated: 2026-05-06
+order: 9
+lastUpdated: 2026-05-07
 status: v1
 ---
 

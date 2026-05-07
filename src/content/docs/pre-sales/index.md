@@ -4,7 +4,7 @@ description: How agency engagements begin — qualifying leads, writing proposal
 type: phase-overview
 phase: pre-sales
 order: 1
-lastUpdated: 2026-05-03
+lastUpdated: 2026-05-07
 status: v1
 ---
 
@@ -12,7 +12,7 @@ status: v1
 
 Pre-Sales is the phase that runs from the moment a prospect makes contact to the moment a signed agreement converts them into a client. Nothing else in the delivery lifecycle happens without it — Pre-Sales is how the agency funds the work that follows.
 
-The phase consists of five sequential activities: **Lead Qualification & Scoping Calls**, **Proposal Writing**, **SOW & Contract Drafting**, **Pricing & Estimation**, and the cross-cutting **[NDA / MSA / DPA legal stack](/pre-sales/legal-stack-nda-msa-dpa/)** that runs underneath every engagement. The first four narrow the funnel: qualification filters serious prospects from noise, the scoping call gathers enough information to price, the proposal sells the engagement, and the SOW makes it binding. The legal-stack page describes the five surrounding contracts (NDA, MSA, SOW, DPA, change orders) and when each is signed — the full picture senior engineers see on every engagement but rarely find documented in one place.
+The phase consists of four sequential activities — **Lead Qualification & Scoping Calls**, **Proposal Writing**, **SOW & Contract Drafting**, and **Pricing & Estimation** — plus a fifth cross-cutting reference, **[NDA / MSA / DPA — the legal stack](/pre-sales/legal-stack-nda-msa-dpa/)**, that documents the layered contracts running underneath every engagement. The four sequential activities narrow the funnel: qualification filters serious prospects from noise, the scoping call gathers enough information to price, the proposal sells the engagement, and the SOW makes it binding. The legal-stack page describes the five contracts in the stack (NDA, MSA, SOW, DPA, change orders) and when each is signed — the full picture senior engineers see on every engagement but rarely find documented in one place.
 
 The actors are typically a sales lead or account manager (who owns the relationship), a technical lead (who validates feasibility and estimates), and sometimes a solutions architect or delivery manager on larger bids. On small agencies, one person often wears all four hats.
 

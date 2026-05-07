@@ -3,7 +3,7 @@ title: Data Migration & Cutover
 description: Moving data and users from the legacy system to the new one on a defined cutover window — migration design, dry runs, freeze windows, rollback criteria, and the cutover runbook.
 type: sub-section
 phase: deployment-launch
-order: 6
+order: 3
 lastUpdated: 2026-05-07
 status: v1
 ---
@@ -43,7 +43,7 @@ Do not run a cutover without a documented rollback path. Rollback design is hard
 
 **Communicate the cutover window to every affected stakeholder.** Internal team, client team, named integration partners, end users (where applicable), customer support, marketing, anyone who runs scheduled jobs against the legacy system. The communication includes start time, expected duration, expected user impact, and contacts for issues. Surprise cutovers that take down a system users are actively working in produce damage no engagement can fully recover from. The communication pattern mirrors the [launch communication](/deployment-launch/deployment-execution-smoke-testing/) discipline.
 
-**Plan parallel-run vs. big-bang explicitly, and pick the cheaper-to-recover model.** A parallel-run cutover keeps the legacy system writable for a defined period after the new system goes live, with both systems running and the team reconciling differences. Cost: higher complexity, dual-write infrastructure, longer total cutover duration. Benefit: rollback is trivially "switch users back to legacy." A big-bang cutover freezes the legacy system at the cutover moment and commits all users to the new system. Cost: a botched migration is a crisis. Benefit: simpler architecture, faster total cutover. The choice depends on the cost of being wrong: financial systems and engagements with low risk tolerance run parallel; greenfield rebuilds and engagements with appetite for clean-cut launches run big-bang. Pick at design time, not under launch-day pressure.
+**Pick the migration topology explicitly at design time, not under launch-day pressure.** Three named topologies cover most engagements. A **parallel-run** cutover keeps the legacy system writable for a defined period after the new system goes live, with both systems running and the team reconciling differences — cost: higher complexity and dual-write infrastructure; benefit: rollback is trivially "switch users back to legacy." A **big-bang** cutover freezes the legacy system at the cutover moment and commits all users to the new system — cost: a botched migration is a crisis; benefit: simpler architecture, faster total cutover. A **phased** cutover migrates users in named cohorts (region 1, then region 2; small clients, then large clients), validating each cohort before the next runs — cost: longest calendar duration; benefit: lowest per-cohort risk and per-cohort rollback. The choice depends on the cost of being wrong, the underlying systems' capability for dual-write or cohort-routing, and the engagement's calendar tolerance. Financial systems and engagements with low risk tolerance run parallel; greenfield rebuilds and engagements with appetite for clean-cut launches run big-bang; B2B platform replacements and multi-region rollouts run phased.
 
 ## Desired outcomes
 

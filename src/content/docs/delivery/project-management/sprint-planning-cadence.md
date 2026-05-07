@@ -3,8 +3,8 @@ title: Sprint Planning & Cadence
 description: The heartbeat of agency delivery — sprint length, ceremonies, definition of ready, definition of done, and how cadence interlocks with Development and QA / Testing.
 type: sub-section
 phase: delivery
-order: 2
-lastUpdated: 2026-05-06
+order: 3
+lastUpdated: 2026-05-07
 status: v1
 ---
 

@@ -4,7 +4,7 @@ description: How signed scope becomes validated requirements — the bridge from
 type: phase-overview
 phase: discovery
 order: 1
-lastUpdated: 2026-05-03
+lastUpdated: 2026-05-07
 status: v1
 ---
 

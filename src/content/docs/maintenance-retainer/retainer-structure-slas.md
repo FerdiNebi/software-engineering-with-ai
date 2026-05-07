@@ -3,8 +3,8 @@ title: Retainer Structure & SLAs
 description: Designing the retainer agreement — structure choices, explicit exclusions, SLA tiers, renewal cadence — and the loop back to Pre-Sales.
 type: sub-section
 phase: maintenance-retainer
-order: 5
-lastUpdated: 2026-05-03
+order: 6
+lastUpdated: 2026-05-07
 status: v1
 ---
 

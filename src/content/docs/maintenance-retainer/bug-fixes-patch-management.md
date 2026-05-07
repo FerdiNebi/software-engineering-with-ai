@@ -3,8 +3,8 @@ title: Bug Fixes & Patch Management
 description: Classifying defects, scheduling patches, and protecting retainer scope from silently absorbing feature work.
 type: sub-section
 phase: maintenance-retainer
-order: 2
-lastUpdated: 2026-05-03
+order: 3
+lastUpdated: 2026-05-07
 status: v1
 ---
 

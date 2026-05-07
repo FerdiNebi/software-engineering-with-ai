@@ -4,7 +4,7 @@ description: The closure ritual that converts discovery work into a signed hando
 type: sub-section
 phase: discovery
 order: 6
-lastUpdated: 2026-05-03
+lastUpdated: 2026-05-07
 status: v1
 ---
 

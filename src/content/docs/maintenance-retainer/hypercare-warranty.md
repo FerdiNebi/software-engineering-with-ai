@@ -3,7 +3,7 @@ title: Hypercare & Warranty Period
 description: The 2–4 week elevated-response window between launch and the start of the formal retainer — what the agency owes, what the client is entitled to, and how the transition into the retainer is gated.
 type: sub-section
 phase: maintenance-retainer
-order: 6
+order: 2
 lastUpdated: 2026-05-07
 status: v1
 ---
@@ -51,7 +51,7 @@ By the end of the hypercare period, the engagement has:
 
 - A signed hypercare close-out document accepting that the named close criteria are met (calendar window elapsed, no Sev-1 in the past N days, all warranty-eligible defects resolved or with documented plans)
 - A complete hypercare ticket log as the engagement's artefact for warranty-period work, classified between defect, change, and operational categories
-- A signed retainer agreement (or an explicit decision that the engagement closes warranty-only) with the retainer's first day starting on or before hypercare's last day to avoid coverage gaps
+- A signed retainer agreement (or an explicit decision that the engagement closes warranty-only) executed before hypercare ends, with the retainer's first day scheduled no later than hypercare's last day to avoid coverage gaps
 - A handover from elevated-response cadence to retainer-rate cadence: SLA tiers transition, daily standup either ends or moves to weekly, on-call rotation continues under the retainer's terms
 - A captured set of launch-quality learnings folded back into the agency's launch playbook, runbook templates, and pre-launch checklist
 - A documented baseline of system stability after hypercare close — defect rate, incident rate, performance trend — that becomes the reference for retainer-period operations and the trigger if any metric degrades materially

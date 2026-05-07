@@ -4,7 +4,7 @@ description: Producing the post-discovery estimate, reconciling it against pre-s
 type: sub-section
 phase: discovery
 order: 5
-lastUpdated: 2026-05-03
+lastUpdated: 2026-05-07
 status: v1
 ---
 

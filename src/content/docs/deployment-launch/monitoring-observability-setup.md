@@ -3,8 +3,8 @@ title: Monitoring & Observability Setup
 description: Dashboards, alerts, and runbook-linked notifications as a client-operable handoff deliverable — not internal-only tooling.
 type: sub-section
 phase: deployment-launch
-order: 4
-lastUpdated: 2026-05-03
+order: 5
+lastUpdated: 2026-05-07
 status: v1
 ---
 

@@ -3,8 +3,8 @@ title: Risk & Issue Management
 description: The PM-owned living register of what could go wrong (risks) and what already has (issues) — register schema, review cadence, and escalation thresholds.
 type: sub-section
 phase: delivery
-order: 7
-lastUpdated: 2026-05-06
+order: 8
+lastUpdated: 2026-05-07
 status: v1
 ---
 
