@@ -101,6 +101,7 @@ export default defineConfig({
           items: [
             { label: 'Overview', slug: 'deployment-launch' },
             { label: 'Infrastructure Provisioning', slug: 'deployment-launch/infrastructure-provisioning' },
+            { label: 'Data Migration & Cutover', slug: 'deployment-launch/data-migration-cutover' },
             { label: 'Deployment Execution & Smoke Testing', slug: 'deployment-launch/deployment-execution-smoke-testing' },
             { label: 'Monitoring & Observability Setup', slug: 'deployment-launch/monitoring-observability-setup' },
             { label: 'Client Handoff & Launch Checklist', slug: 'deployment-launch/client-handoff-launch-checklist' },

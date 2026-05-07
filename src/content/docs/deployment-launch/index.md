@@ -12,12 +12,13 @@ status: v1
 
 Deployment / Launch is the phase that converts a UAT-signed-off build into a running production system that the client operates. It is the end of the agency's delivery commitment, not the start of new work. By this point, [UAT](/delivery/qa-testing/user-acceptance-testing/) has produced a signed acceptance and a go decision; the production cutover, monitoring, and client handoff are all that stand between "the build is done" and "the engagement is closed and invoiced."
 
-The phase contains four sub-sections, run in sequence:
+The phase contains five sub-sections, run in sequence:
 
 1. **[Infrastructure Provisioning](/deployment-launch/infrastructure-provisioning/)** — executes the [infrastructure design plan](/requirements-design/infrastructure-design/) in production: environments created, DNS configured, certificates issued, secrets populated, runtime configuration deployed.
-2. **[Deployment Execution & Smoke Testing](/deployment-launch/deployment-execution-smoke-testing/)** — runs the launch-day cutover with named commander, documented sequence, scripted smoke tests, and pre-defined rollback criteria.
-3. **[Monitoring & Observability Setup](/deployment-launch/monitoring-observability-setup/)** — configures dashboards, alerts, runbook-linked notifications, and the operational visibility the client will use post-launch.
-4. **[Client Handoff & Launch Checklist](/deployment-launch/client-handoff-launch-checklist/)** — formal handoff ritual covering credentials, documentation, training, and acceptance.
+2. **[Data Migration & Cutover](/deployment-launch/data-migration-cutover/)** — moves data and users from the legacy system to the new one on a defined window. Migration design, dry runs, freeze windows, rollback criteria, and the cutover runbook. Skipped only on greenfield engagements where there is no legacy data to migrate.
+3. **[Deployment Execution & Smoke Testing](/deployment-launch/deployment-execution-smoke-testing/)** — runs the launch-day deployment with named commander, documented sequence, scripted smoke tests, and pre-defined rollback criteria.
+4. **[Monitoring & Observability Setup](/deployment-launch/monitoring-observability-setup/)** — configures dashboards, alerts, runbook-linked notifications, and the operational visibility the client will use post-launch.
+5. **[Client Handoff & Launch Checklist](/deployment-launch/client-handoff-launch-checklist/)** — formal handoff ritual covering credentials, documentation, training, and acceptance.
 
 The phase typically runs 1–4 weeks depending on engagement complexity. Participants are the agency's technical lead, a DevOps or platform engineer, the delivery lead, and the client's named operations stakeholder. The output is a live production system, signed-off handoff, monitoring operational, and an engagement-closing invoice. Forward, the engagement transitions to [Maintenance & Retainer](/maintenance-retainer/) — either under a signed retainer agreement or as a clean end-of-engagement with the client operating independently.
 
