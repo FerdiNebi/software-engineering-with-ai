@@ -58,6 +58,7 @@ export default defineConfig({
               label: 'Project Management',
               items: [
                 { label: 'Overview', slug: 'delivery/project-management' },
+                { label: 'Delivery Mobilization & Kickoff', slug: 'delivery/project-management/delivery-mobilization-kickoff' },
                 { label: 'Sprint Planning & Cadence', slug: 'delivery/project-management/sprint-planning-cadence' },
                 { label: 'Backlog Management', slug: 'delivery/project-management/backlog-management' },
                 { label: 'Estimation & Sprint Slicing', slug: 'delivery/project-management/estimation-sprint-slicing' },

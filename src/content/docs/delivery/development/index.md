@@ -48,7 +48,7 @@ Participants are the agency's delivery lead, technical lead, two to twelve engin
 **Define done at the merge level, not the sprint level.** A feature is done when it is merged to mainline with passing tests, completed code review, updated documentation, and any operational concerns (alerts, dashboards, runbook entries) in place. Sprint-end "done" definitions that defer testing or documentation to a later sprint produce work that is never actually finished. The merge gate is the contract; if the team cannot meet it, the team is signalling that the work was incorrectly scoped.
 
 :::tip
-Set up the Day-1 development environment so a new engineer goes from `git clone` to a running, testable system in under 30 minutes. Engagements with multi-day onboarding paths waste a non-trivial fraction of every new engineer's first week and signal a project where the plumbing was under-invested. The investment in onboarding speed pays back across every team rotation, every new client engineer, and every handoff conversation.
+Day-1 onboarding speed (`git clone` to running, testable system in under 30 minutes) is set up during [Delivery Mobilization & Kickoff](/delivery/project-management/delivery-mobilization-kickoff/), not during build. The investment pays back across every team rotation, every new client engineer, and every handoff conversation. The plumbing pages below — [Repository Structure & Branching](/delivery/development/repository-structure-branching/) and [DevOps & CI/CD](/delivery/development/devops-ci-cd/) — are how the under-30-minute target is delivered.
 :::
 
 :::caution

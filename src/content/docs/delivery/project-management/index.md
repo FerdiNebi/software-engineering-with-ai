@@ -14,15 +14,16 @@ Project Management is the third stream that runs concurrently with [Development]
 
 Agency PM is not the same as product-company PM. A product manager at a tech company owns a roadmap, prioritises user-facing features against business outcomes, and reports to a head of product. An agency project manager owns a *delivery cadence* against a *signed scope*. They do not set the roadmap (the SOW already locked it), they do not own commercial outcomes (the client does), and they do not own engineering decisions (the tech lead does). Their deliverables are cadence, transparency, and change control — and on agency engagements, those are the things the client cannot get from anywhere else.
 
-This sub-section contains seven leaf pages, each covering one PM activity:
+This sub-section contains eight leaf pages, each covering one PM activity:
 
-1. **[Sprint Planning & Cadence](/delivery/project-management/sprint-planning-cadence/)** — the heartbeat of delivery. Sprint length, ceremonies, definition of ready, definition of done.
-2. **[Backlog Management](/delivery/project-management/backlog-management/)** — keeping the backlog refined, prioritised, and ready for the next 1–2 sprints. Distinct from [Requirements & Design's initial requirements capture](/requirements-design/functional-nonfunctional-requirements/), which feeds this work.
-3. **[Estimation & Sprint Slicing](/delivery/project-management/estimation-sprint-slicing/)** — calibrating delivery-time estimates against [Pre-Sales pricing](/pre-sales/pricing-estimation/) and slicing work to fit sprint boundaries.
-4. **[Status Reporting & Stakeholder Communication](/delivery/project-management/status-reporting-stakeholder-communication/)** — the PM-owned client-visible artefact that ensures no surprises.
-5. **[Scope Control & Change Management](/delivery/project-management/scope-control-change-management/)** — the live enforcement of the [SOW change-control clause](/pre-sales/sow-contract-drafting/) at delivery time.
-6. **[Risk & Issue Management](/delivery/project-management/risk-issue-management/)** — the living register of what could go wrong and what already has.
-7. **[Retrospectives](/delivery/project-management/retrospectives/)** — the calibration ritual that converts observations into change.
+1. **[Delivery Mobilization & Kickoff](/delivery/project-management/delivery-mobilization-kickoff/)** — the activity that turns a signed delivery SOW into a team that can ship. Allocation, account setup, RACI, and the kickoff meeting that opens Sprint 1.
+2. **[Sprint Planning & Cadence](/delivery/project-management/sprint-planning-cadence/)** — the heartbeat of delivery. Sprint length, ceremonies, definition of ready, definition of done.
+3. **[Backlog Management](/delivery/project-management/backlog-management/)** — keeping the backlog refined, prioritised, and ready for the next 1–2 sprints. Distinct from [Requirements & Design's initial requirements capture](/requirements-design/functional-nonfunctional-requirements/), which feeds this work.
+4. **[Estimation & Sprint Slicing](/delivery/project-management/estimation-sprint-slicing/)** — calibrating delivery-time estimates against [Pre-Sales pricing](/pre-sales/pricing-estimation/) and slicing work to fit sprint boundaries.
+5. **[Status Reporting & Stakeholder Communication](/delivery/project-management/status-reporting-stakeholder-communication/)** — the PM-owned client-visible artefact that ensures no surprises.
+6. **[Scope Control & Change Management](/delivery/project-management/scope-control-change-management/)** — the live enforcement of the [SOW change-control clause](/pre-sales/sow-contract-drafting/) at delivery time.
+7. **[Risk & Issue Management](/delivery/project-management/risk-issue-management/)** — the living register of what could go wrong and what already has.
+8. **[Retrospectives](/delivery/project-management/retrospectives/)** — the calibration ritual that converts observations into change.
 
 Participants are the PM (dedicated or fractional), the technical lead (escalation point for engineering decisions), the QA lead (escalation point for quality decisions), and the named client sponsor. The PM is the only role with continuous client-facing time outside of demos.
 
