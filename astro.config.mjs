@@ -111,10 +111,12 @@ export default defineConfig({
           label: '6. Maintenance & Retainer',
           items: [
             { label: 'Overview', slug: 'maintenance-retainer' },
+            { label: 'Hypercare & Warranty Period', slug: 'maintenance-retainer/hypercare-warranty' },
             { label: 'Bug Fixes & Patch Management', slug: 'maintenance-retainer/bug-fixes-patch-management' },
             { label: 'Feature Iteration', slug: 'maintenance-retainer/feature-iteration' },
             { label: 'Incident Response', slug: 'maintenance-retainer/incident-response' },
             { label: 'Retainer Structure & SLAs', slug: 'maintenance-retainer/retainer-structure-slas' },
+            { label: 'Engagement Closeout & Post-Implementation Review', slug: 'maintenance-retainer/engagement-closeout' },
           ],
         },
       ],

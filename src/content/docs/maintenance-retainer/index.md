@@ -12,12 +12,14 @@ status: v1
 
 Maintenance & Retainer is the lifecycle's closing phase and its loop point. It begins the moment [client handoff](/deployment-launch/client-handoff-launch-checklist/) is signed — not when the first incident fires — and continues either under a defined retainer agreement or as a finite warranty period after which the agency is unavailable for unbilled support. Maintenance also feeds back into [Pre-Sales](/pre-sales/) when the client expands scope, starts a new engagement, or commissions a follow-on project. The lifecycle is a loop, not a one-shot.
 
-The phase contains four sub-sections:
+The phase contains six sub-sections:
 
-1. **[Bug Fixes & Patch Management](/maintenance-retainer/bug-fixes-patch-management/)** — classifying defects, scheduling patches, and maintaining scope discipline so bug-fix work does not silently absorb feature scope.
-2. **[Feature Iteration](/maintenance-retainer/feature-iteration/)** — handling post-launch feature requests through structured intake, mini-SOWs, or full re-entry into Pre-Sales for substantial work.
-3. **[Incident Response](/maintenance-retainer/incident-response/)** — runbook-driven, SLO-aligned response to production incidents with documented severity, named commander, and post-incident review.
-4. **[Retainer Structure & SLAs](/maintenance-retainer/retainer-structure-slas/)** — designing the retainer agreement: hours bucket, feature allocation, SLA tiers, exclusions, renewal cadence.
+1. **[Hypercare & Warranty Period](/maintenance-retainer/hypercare-warranty/)** — the 2–4 week elevated-response window between launch and the start of the formal retainer. What the agency owes, what the client is entitled to, and how the transition into the retainer is gated.
+2. **[Bug Fixes & Patch Management](/maintenance-retainer/bug-fixes-patch-management/)** — classifying defects, scheduling patches, and maintaining scope discipline so bug-fix work does not silently absorb feature scope.
+3. **[Feature Iteration](/maintenance-retainer/feature-iteration/)** — handling post-launch feature requests through structured intake, mini-SOWs, or full re-entry into Pre-Sales for substantial work.
+4. **[Incident Response](/maintenance-retainer/incident-response/)** — runbook-driven, SLO-aligned response to production incidents with documented severity, named commander, and post-incident review.
+5. **[Retainer Structure & SLAs](/maintenance-retainer/retainer-structure-slas/)** — designing the retainer agreement: hours bucket, feature allocation, SLA tiers, exclusions, renewal cadence.
+6. **[Engagement Closeout & Post-Implementation Review](/maintenance-retainer/engagement-closeout/)** — the formal ritual that ends a fixed-price engagement: final acceptance, final invoice, lessons-learned with the client, and the 30–90-day post-implementation review.
 
 Participants depend on the retainer structure. A defined retainer typically allocates a partial team (1–3 engineers, perhaps shared across multiple clients) plus on-call rotation; a break-fix-only relationship has no allocated team and engages on demand. The phase has no fixed end — it runs until the client commissions a substantial new engagement that re-enters [Pre-Sales](/pre-sales/), the relationship terminates by mutual agreement, or the agency declines further work.
 
