@@ -27,6 +27,7 @@ export default defineConfig({
             { label: 'Proposal Writing', slug: 'pre-sales/proposal-writing' },
             { label: 'SOW & Contract Drafting', slug: 'pre-sales/sow-contract-drafting' },
             { label: 'Pricing & Estimation', slug: 'pre-sales/pricing-estimation' },
+            { label: 'NDA / MSA / DPA — the legal stack', slug: 'pre-sales/legal-stack-nda-msa-dpa' },
           ],
         },
         {
