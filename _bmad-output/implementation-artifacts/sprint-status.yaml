@@ -1,5 +1,5 @@
 # generated: 2026-05-01
-# last_updated: 2026-05-06  # Epics 10/11/12 added for Delivery phase restructure (replaces 7-phase model with 6-phase model + 3-level Delivery nesting)
+# last_updated: 2026-05-07  # Epic 13 added for post-launch feedback-driven coverage extensions (6 new sub-section pages + 2 cross-lifecycle reference pages, raising v1 page count from 52 to 60)
 # project: Software Development with AI
 # project_key: NOKEY
 # tracking_system: file-system
@@ -35,7 +35,7 @@
 # - Dev moves story to 'review', then runs code-review (fresh context, different LLM recommended)
 
 generated: 2026-05-01
-last_updated: 2026-05-06
+last_updated: 2026-05-07
 project: Software Development with AI
 project_key: NOKEY
 tracking_system: file-system
@@ -162,3 +162,21 @@ development_status:
   12-2-update-maintenance-retainer-cross-links: done
   12-3-audit-deployment-launch-and-maintenance-for-stale-phase-references: done
   epic-12-retrospective: optional
+
+  # Epic 13: Post-launch feedback-driven coverage extensions — added 2026-05-07
+  # Driven by Feedback.md technical-research review.
+  # Adds 6 new sub-section pages and 2 cross-lifecycle reference pages, raising
+  # v1 page count from 52 to 60. Also fixes the post-2026-05-06 doc-and-code drift
+  # that left the home page linking to broken /development/ and /qa-testing/ URLs.
+  epic-13: done
+  13-1-critical-drift-fixes-phaselist-home-claudemd-readmemd-repo-cleanup: done
+  13-2-discovery-fr-nfr-wording-sweep: done
+  13-3-new-page-delivery-mobilization-and-kickoff: done
+  13-4-new-page-data-migration-and-cutover: done
+  13-5-new-page-hypercare-and-warranty: done
+  13-6-new-page-engagement-closeout-and-pir: done
+  13-7-new-page-accessibility-testing: done
+  13-8-new-page-legal-stack-nda-msa-dpa: done
+  13-9-polish-estimation-cross-links-glossary-deliverables-index: done
+  13-10-update-planning-artifacts-prd-architecture-sprint-status: done
+  epic-13-retrospective: optional

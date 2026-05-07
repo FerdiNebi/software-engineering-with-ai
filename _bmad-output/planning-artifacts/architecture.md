@@ -15,6 +15,7 @@ additionalConstraints:
   - "Deployment target: GitHub Pages (confirmed by user 2026-04-20)"
   - "NFR4 amended 2026-04-20 in PRD: static-first at build time with JS permitted for UI and interactive content enhancements (e.g. dynamic diagrams)"
   - "Delivery phase restructure 2026-05-06: replaces 7-phase model with 6-phase Delivery-unified model. The slug-immutability rule is consciously broken for this restructure — old `/development/*` and `/qa-testing/*` URLs will 404. See 'Slug-immutability exception' note below."
+  - "Post-launch coverage extensions 2026-05-07: 6 new sub-section pages and 2 cross-lifecycle reference pages added (Glossary, Deliverables across the lifecycle), driven by the Feedback.md technical-research review. Total content count rises from 52 pages to 60 pages. The two reference pages live at the top level of `src/content/docs/` (alongside `index.mdx`) and are schema-exempt (no `phase` / `type` / `order` fields) — they are not phase-bound. A new 'Reference' sidebar group sits at the bottom of the sidebar."
 ---
 
 # Architecture Decision Document
@@ -43,7 +44,7 @@ _This document builds collaboratively through step-by-step discovery. Sections a
 
 **Scale & Complexity:**
 
-- Content inventory: 52 pages at v1 launch (1 home + 6 phase overviews + 3 Delivery sub-section overviews + 42 leaf pages — post-Delivery-restructure 2026-05-06; pre-restructure was 43 pages with a 7-phase model).
+- Content inventory: 60 pages at v1 launch (1 home + 6 phase overviews + 3 Delivery sub-section overviews + 48 leaf pages + 2 cross-lifecycle reference pages — post-coverage-extension 2026-05-07; pre-extension was 52 pages, pre-Delivery-restructure was 43 pages with a 7-phase model).
 - Primary domain: static documentation site.
 - Complexity level: **low** (PRD classification; content-driven, minimal technical surface area).
 - Estimated architectural components: single static site build + GitHub Actions deploy pipeline + Markdown/MDX content tree + sidebar config + (v2-ready) interactive-component layer for in-page diagrams/explainers.
@@ -59,7 +60,7 @@ _This document builds collaboratively through step-by-step discovery. Sections a
 
 ### Cross-Cutting Concerns Identified
 
-- **Page-template consistency enforcement** (FR14): the 4-section template must be guaranteed across 43 pages. Likely enforced through Markdown authoring conventions + optional lint, not runtime logic.
+- **Page-template consistency enforcement** (FR14): the 4-section template must be guaranteed across all phase-bound content pages (58 of 60 — the home and the 2 cross-lifecycle reference pages are template-exempt). Likely enforced through Markdown authoring conventions + optional lint, not runtime logic.
 - **Sidebar configuration as single source of truth** (FR2, FR7, FR24, NFR7): navigation order, grouping, and labels live in one config file consumed by both rendering and IA.
 - **Cross-phase linking conventions** (FR16): stable internal URL scheme so inter-phase links survive content reorganization. Likely driven by content-collection slugs.
 - **Theming (light/dark)** (FR20, NFR6): handled by the framework's built-in theme system; custom tokens only if brand palette is defined (none yet).
@@ -93,7 +94,7 @@ Three Node-based documentation-site frameworks evaluated against the PRD:
 - **All FR-level navigation and display requirements are met out of the box** — sidebar (FR1–5), full-text search via Pagefind (FR6), dark/light theme toggle (FR20), responsive mobile (FR5, FR21–22), sequential prev/next (FR3), breadcrumb (FR4), MDX authoring (FR23). No custom UI engineering for v1.
 - **Zod-schema content collections** provide a mechanism to enforce the strict 4-section template (FR14) at build time, turning template consistency from convention into a buildable guardrail.
 - **Official GitHub Pages deployment** via `withastro/action` satisfies NFR3 (auto-deploy on push to `main`) with minimal workflow config.
-- **Build performance** easily under the 60s target (NFR2) at 43 pages on Astro's Vite pipeline.
+- **Build performance** easily under the 60s target (NFR2) at 60 pages on Astro's Vite pipeline (verified ~12–22s end-to-end as of 2026-05-07).
 
 **Initialization Command:**
 
@@ -187,7 +188,7 @@ Not applicable — no runtime API.
 
 ### Frontend Architecture
 
-- **Routing:** File-based, provided by Astro/Starlight. One route per Markdown file under `src/content/docs/`. 52 routes at v1 post-Delivery-restructure (1 home + 6 phase overviews + 3 Delivery sub-section overviews + 42 leaf pages); Starlight emits a built-in 404, taking the rendered HTML count to 53.
+- **Routing:** File-based, provided by Astro/Starlight. One route per Markdown file under `src/content/docs/`. 60 routes at v1 post-coverage-extension 2026-05-07 (1 home + 6 phase overviews + 3 Delivery sub-section overviews + 48 leaf pages + 2 cross-lifecycle reference pages); Starlight emits a built-in 404, taking the rendered HTML count to 61.
 - **State management:** None — content is static; no client-side state.
 - **Component architecture:** `.astro` components by default. React islands allowed for interactive widgets when `.astro` isn't sufficient (C3). Component files in `src/components/`.
 - **Interactive-component policy (C1–C4):** static-first, hydrate selectively via islands, always degrade gracefully so core text renders without JS. Mermaid is the leading candidate for diagrams; plugin selection deferred to first-use.
@@ -521,12 +522,15 @@ software-engineering-with-ai/
 │   │   ├── config.ts                           # Zod schemas for content collections (phase-overview, sub-section)
 │   │   └── docs/
 │   │       ├── index.mdx                       # landing/home page (FR8)
+│   │       ├── glossary.md                     # cross-lifecycle reference (added 2026-05-07; schema-exempt)
+│   │       ├── deliverables.md                 # cross-lifecycle reference (added 2026-05-07; schema-exempt)
 │   │       ├── pre-sales/
 │   │       │   ├── index.md                    # phase overview (FR9)
 │   │       │   ├── lead-qualification-scoping-calls.md
 │   │       │   ├── proposal-writing.md
 │   │       │   ├── sow-contract-drafting.md
-│   │       │   └── pricing-estimation.md
+│   │       │   ├── pricing-estimation.md
+│   │       │   └── legal-stack-nda-msa-dpa.md  # added 2026-05-07
 │   │       ├── discovery/
 │   │       │   ├── index.md
 │   │       │   ├── stakeholder-interviews.md
@@ -544,6 +548,7 @@ software-engineering-with-ai/
 │   │       │   ├── index.md                    # Delivery phase overview
 │   │       │   ├── project-management/
 │   │       │   │   ├── index.md
+│   │       │   │   ├── delivery-mobilization-kickoff.md  # added 2026-05-07
 │   │       │   │   ├── sprint-planning-cadence.md
 │   │       │   │   ├── backlog-management.md
 │   │       │   │   ├── estimation-sprint-slicing.md
@@ -568,19 +573,23 @@ software-engineering-with-ai/
 │   │       │       ├── functional-regression-testing.md
 │   │       │       ├── performance-testing.md
 │   │       │       ├── security-testing.md
+│   │       │       ├── accessibility-testing.md   # added 2026-05-07
 │   │       │       └── user-acceptance-testing.md
 │   │       ├── deployment-launch/
 │   │       │   ├── index.md
 │   │       │   ├── infrastructure-provisioning.md
+│   │       │   ├── data-migration-cutover.md   # added 2026-05-07
 │   │       │   ├── deployment-execution-smoke-testing.md
 │   │       │   ├── monitoring-observability-setup.md
 │   │       │   └── client-handoff-launch-checklist.md
 │   │       └── maintenance-retainer/
 │   │           ├── index.md
+│   │           ├── hypercare-warranty.md       # added 2026-05-07
 │   │           ├── bug-fixes-patch-management.md
 │   │           ├── feature-iteration.md
 │   │           ├── incident-response.md
-│   │           └── retainer-structure-slas.md
+│   │           ├── retainer-structure-slas.md
+│   │           └── engagement-closeout.md      # added 2026-05-07
 │   ├── components/                             # shared .astro components (zero JS by default)
 │   │   └── islands/                            # framework islands (React, etc.) — empty in v1
 │   ├── assets/                                 # optimized images; imported via astro:assets
@@ -592,7 +601,7 @@ software-engineering-with-ai/
 └── dist/                                       # build output (gitignored; produced by `pnpm build`)
 ```
 
-**Page count check (post-Delivery-restructure 2026-05-06):** 1 home (`index.mdx`) + 6 phase overviews (`<phase>/index.md`) + 3 Delivery sub-section overviews (`delivery/<sub>/index.md`) + 42 leaf pages (4 + 5 + 4 + 7 PM + 9 Dev + 5 QA + 4 + 4) = **52 pages** total. Starlight emits an additional 404 page in `dist/`, which is why a clean `pnpm build` reports 53 HTML files. The previous 43-page count assumed a 7-phase model with 35 leaf sub-sections; the restructure adds 1 Delivery overview, 3 sub-section overviews, and 7 PM leaf pages. (For PRD/UX-spec headcount accounting see prd.md "Product Scope" — totals there will be updated alongside this file.)
+**Page count check (post-coverage-extension 2026-05-07):** 1 home (`index.mdx`) + 6 phase overviews (`<phase>/index.md`) + 3 Delivery sub-section overviews (`delivery/<sub>/index.md`) + 48 leaf pages (5 Pre-Sales + 5 Discovery + 4 R&D + 8 PM + 9 Dev + 6 QA + 5 Deployment + 6 Maintenance) + 2 cross-lifecycle reference pages (`glossary.md`, `deliverables.md`) = **60 pages** total. Starlight emits an additional 404 page in `dist/`, which is why a clean `pnpm build` reports 61 HTML files. The previous 52-page count was the post-Delivery-restructure (2026-05-06) state; the 2026-05-07 extension adds 6 leaf pages (Delivery Mobilization & Kickoff, Data Migration & Cutover, Hypercare & Warranty, Engagement Closeout, Accessibility Testing, Legal Stack) plus 2 reference pages. (For PRD headcount accounting see prd.md "Product Scope" — kept in sync with this file via the 2026-05-07 revision-log entry.)
 
 ### Architectural Boundaries
 
@@ -730,7 +739,7 @@ All technology choices compose cleanly — Astro Starlight, pnpm, TypeScript str
 Step-5 patterns (frontmatter schema, heading template, slug rules, link conventions, component placement, islands gating) all reinforce step-4 decisions. Naming conventions match Astro/TypeScript idioms. Sidebar-as-SSoT in step 4 is enforced by the `astro.config.mjs` pattern in step 5 and the file layout in step 6.
 
 **Structure Alignment:**
-The step-6 directory tree exactly supports the step-4 decisions: 43 content files under `src/content/docs/` (matching FR18, PRD count), `src/content/config.ts` holding the Zod schemas, `src/components/islands/` reserved for escalated interactivity (NFR4 revised), `.github/workflows/deploy.yml` wiring the CI/CD decisions (D1–D2). Boundaries (content vs. code, config vs. content, source vs. build, deploy) are explicit and non-overlapping.
+The step-6 directory tree exactly supports the step-4 decisions: 60 content files under `src/content/docs/` (matching FR18, PRD count post-coverage-extension 2026-05-07), `src/content/config.ts` holding the Zod schemas, `src/components/islands/` reserved for escalated interactivity (NFR4 revised), `.github/workflows/deploy.yml` wiring the CI/CD decisions (D1–D2). Boundaries (content vs. code, config vs. content, source vs. build, deploy) are explicit and non-overlapping.
 
 ### Requirements Coverage Validation ✅
 
@@ -777,7 +786,7 @@ The step-6 directory tree exactly supports the step-4 decisions: 43 content file
 All critical decisions documented with specific versions and locations. Starter init command pinned (`pnpm create astro@latest -- --template starlight --typescript strict`). The step-4 "Implementation Sequence" enumerates 10 concrete scaffolding steps in order.
 
 **Structure Completeness:**
-Directory tree is explicit and complete. All 43 content files listed by name with slugs matching step-5 slug rules. Root config files enumerated. CI workflow location specified.
+Directory tree is explicit and complete. All 60 content files listed by name with slugs matching step-5 slug rules (post-2026-05-07 coverage extension). Root config files enumerated. CI workflow location specified.
 
 **Pattern Completeness:**
 All identified conflict points addressed: frontmatter (Zod), headings (template + authoring convention), slugs (kebab-case + immutability), internal links (relative + base-path safe), component placement (`.astro` vs. `islands/`), asset placement (`src/assets/` vs. `public/`), imports (path aliases), Git/branch/commit conventions.
@@ -810,7 +819,7 @@ None requiring architectural changes. Two known soft-spots (FR14 lint deferral, 
 
 **✅ Requirements Analysis**
 - [x] Project context thoroughly analyzed (PRD, brief, distillate)
-- [x] Scale and complexity assessed (43 pages, Low complexity)
+- [x] Scale and complexity assessed (60 pages post-2026-05-07; Low complexity)
 - [x] Technical constraints identified (GitHub Pages, revised NFR4, no backend)
 - [x] Cross-cutting concerns mapped (template, sidebar SSoT, base path, links, interactivity)
 
@@ -827,7 +836,7 @@ None requiring architectural changes. Two known soft-spots (FR14 lint deferral, 
 - [x] Process patterns documented (Git flow, commit convention, CI gate)
 
 **✅ Project Structure**
-- [x] Complete directory structure defined (all 43 content files + full tree)
+- [x] Complete directory structure defined (all 60 content files + full tree, post-2026-05-07)
 - [x] Component boundaries established (.astro vs. islands; content vs. code)
 - [x] Integration points mapped (internal and external)
 - [x] Requirements-to-structure mapping complete

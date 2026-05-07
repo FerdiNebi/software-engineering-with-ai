@@ -18,6 +18,11 @@ This document provides the complete epic and story breakdown for *End-to-End Sof
 
 **Current state (2026-04-24):** The Astro Starlight walking skeleton is live (see `spec-site-scaffold.md`, status: `done`). 43 empty page stubs exist with the frontmatter schema and 4-H2 template in place. Deploy pipeline (`withastro/action@v3`) is wired to both `main` and `master` with a PR build gate. Explicit sidebar in `astro.config.mjs` matches all 43 slugs. Primary remaining work is **content authoring** (the v1 MVP) plus a small set of custom components and pre-launch hygiene.
 
+## Revision Log
+
+- **2026-05-06 — Epics 10/11/12 added** for the Delivery phase restructure (replaces 7-phase model with 6-phase Delivery-unified model, adds 3-level nesting under Delivery and a new Project Management sub-section). Tracked in `sprint-status.yaml`. Page count rose from 43 → 52.
+- **2026-05-07 — Epic 13 added** for post-launch feedback-driven coverage extensions (driven by `Feedback.md` technical-research review). 10 stories: critical drift fixes left from the 2026-05-06 restructure; Discovery FR/NFR wording sweep; 6 new sub-section pages (Delivery Mobilization & Kickoff under PM, Data Migration & Cutover under Deployment / Launch, Hypercare & Warranty + Engagement Closeout under Maintenance, Accessibility Testing under QA, Legal Stack under Pre-Sales); 1 polish story (estimation cross-links + Glossary + Deliverables index reference pages); 1 planning-artifact-update story. Page count rose from 52 → 60. Tracked in `sprint-status.yaml`. Stories are recorded in `sprint-status.yaml` rather than as individual story files (matches the Epic 10/11/12 pattern). Total stories across the project: 73 → 83. Total epics: 12 → 13.
+
 ## Requirements Inventory
 
 ### Functional Requirements
