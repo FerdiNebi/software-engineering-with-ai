@@ -14,7 +14,7 @@ Discovery sign-off is the formal closure ritual that converts six weeks of inter
 
 The standard discovery deliverable set has six artifacts, produced across the previous activities and consolidated into a single handoff package:
 
-- **Requirements document.** A structured statement of validated functional and non-functional requirements at the level of detail needed to feed the formal spec authored in [Requirements & Design](/requirements-design/functional-nonfunctional-requirements/). Not the final FR/NFR doc — that comes next phase.
+- **Prioritised feature list and constraint catalogue.** The validated input — feature names, behaviour summaries, candidate NFR targets, and explicit constraints — at the level of detail needed to feed the formal spec authored in [Requirements & Design](/requirements-design/functional-nonfunctional-requirements/). Discovery's audience is the *business sponsor*; the artifact is signed at this fidelity. The atomic, testable, traceable FR/NFR document — the engineering build target — is authored next phase by R&D.
 - **Scope statement.** What is in scope, what is explicitly excluded, what is parked for future engagements. The exclusions list is as load-bearing as the inclusions list because it is the basis for change control during delivery.
 - **Estimate revision.** The post-discovery estimate with confidence band, reconciled against the [pre-sales price](/pre-sales/pricing-estimation/), and a documented commitment path (accept, scope-adjust, renegotiate, or pause).
 - **Risk register.** Known risks, named owners, mitigation strategies, and items the client has explicitly accepted as residual risk. The accepted-risks list is what the agency cites if any of those items materialise during delivery.

@@ -54,7 +54,7 @@ Do not run a workshop without conducting stakeholder interviews first. A worksho
 
 By the end of the requirements workshop (or workshop series), the discovery team has:
 
-- A documented set of functional and non-functional requirements at the level of detail needed to feed the formal requirements document — feature names, behaviour summaries, acceptance hints, NFR targets
+- A documented feature list and constraint catalogue at the level of detail needed to feed the formal [FR/NFR specification](/requirements-design/functional-nonfunctional-requirements/) — feature names, behaviour summaries, acceptance hints, candidate NFR targets. Discovery is not authoring atomic FRs/NFRs; it is producing the prioritised input that R&D converts into the testable, traceable spec
 - A prioritised feature list with explicit categorisation: critical for launch, included if scope permits, explicitly deferred to a future engagement
 - An agreed scope statement listing what is in scope and what is explicitly excluded — the exclusions list is as important as the inclusions list
 - A risks-and-assumptions log capturing items the workshop could not fully resolve, with named owners and target resolution dates

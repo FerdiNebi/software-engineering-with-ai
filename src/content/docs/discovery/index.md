@@ -20,7 +20,7 @@ Five sequential activities make up the phase:
 4. **[Estimation & Cost Commitment](/discovery/estimation-cost-commitment/)** — the post-discovery re-estimate, reconciled against pre-sales pricing, with a clear commitment path.
 5. **[Discovery Deliverables & Sign-Off](/discovery/discovery-deliverables-signoff/)** — the formal closure ritual that produces the handoff package to Requirements & Design.
 
-The phase typically runs two to six weeks for a mid-sized engagement, though regulated-industry or platform-replacement engagements can stretch to twelve weeks or more. Participants include a delivery lead or principal consultant, a technical lead, a UX lead where design is in scope, and named client stakeholders identified during pre-sales. The outputs land in [Requirements & Design](/requirements-design/), where formal FR/NFR documents, design artifacts, and architecture decisions are produced from discovery's raw material.
+The phase typically runs two to six weeks for a mid-sized engagement, though regulated-industry or platform-replacement engagements can stretch to twelve weeks or more. Participants include a delivery lead or principal consultant, a technical lead, a UX lead where design is in scope, and named client stakeholders identified during pre-sales. The outputs — a prioritised feature list and constraint catalogue, a scope statement, prototype findings, and a refined estimate — land in [Requirements & Design](/requirements-design/), where the atomic, testable, traceable FR/NFR document, design artifacts, and architecture decisions are produced from discovery's validated raw material.
 
 A clean discovery exit is a paid event. The agency invoices on the discovery milestone (typically 15%–30% of total engagement value) regardless of whether the client decides to proceed with delivery. That commercial separation matters: it makes the discovery output a deliverable in its own right, not a pre-sales loss leader.
 
@@ -50,10 +50,10 @@ Do not start workshops without stakeholder interviews. A workshop with cold part
 
 By the end of Discovery, the engagement has the following in place:
 
-- A documented set of validated functional and non-functional requirements ready for formal specification in Requirements & Design
-- A signed discovery sign-off document, listing accepted requirements, agreed scope exclusions, documented assumptions, and an open-risks log
+- A documented, prioritised feature list and constraint catalogue, validated against stakeholder interviews and workshop decisions, ready for formal FR/NFR specification in [Requirements & Design](/requirements-design/functional-nonfunctional-requirements/) — Discovery validates *what should exist*; R&D produces the atomic, testable, traceable spec that engineers build against
+- A signed discovery sign-off document, listing accepted scope, agreed scope exclusions, documented assumptions, and an open-risks log
 - A refined cost estimate that either confirms, raises, lowers, or scope-adjusts the pre-sales price — with a defensible methodology behind the number
-- A handoff package for [Requirements & Design](/requirements-design/): the requirements document, scope statement, prototype findings, decisions log, named stakeholders with roles, and the open-issues backlog
+- A handoff package for [Requirements & Design](/requirements-design/): the prioritised feature list and constraint catalogue, scope statement, prototype findings, decisions log, named stakeholders with roles, and the open-issues backlog
 - A commitment path agreed with the client: proceed at confirmed price, proceed at re-priced price, scope-adjust to fit budget, or pause with discovery deliverables retained
 
 ## What the industry does
