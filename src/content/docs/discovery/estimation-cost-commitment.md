@@ -14,7 +14,7 @@ Discovery-phase estimation is the activity that converts validated requirements,
 
 - **[Pre-sales pricing](/pre-sales/pricing-estimation/)** is the commercial commitment made before discovery, anchored by the scoping-call hypothesis. The number is a starting position, priced with a contingency buffer for unknown scope.
 - **Discovery estimation** (this page) is the post-discovery refinement. The hypothesis has been tested through interviews, workshops, and any prototyping; the estimate is now produced from validated requirements, not assumptions.
-- **Developer-task estimation** is the granular sizing of individual work items during delivery — story points, hours per ticket, sprint forecasting. It happens after the SOW is locked and is bounded by the discovery estimate, not contributing to it.
+- **Developer-task estimation** is the granular sizing of individual work items during delivery — story points, hours per ticket, sprint forecasting. The activity has its own page at [Delivery → Estimation & Sprint Slicing](/delivery/project-management/estimation-sprint-slicing/). It happens after the SOW is locked and is bounded by the discovery estimate, not contributing to it.
 
 Discovery estimation produces one of four outcomes against the pre-sales price:
 

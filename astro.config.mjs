@@ -121,6 +121,13 @@ export default defineConfig({
             { label: 'Engagement Closeout & Post-Implementation Review', slug: 'maintenance-retainer/engagement-closeout' },
           ],
         },
+        {
+          label: 'Reference',
+          items: [
+            { label: 'Deliverables across the lifecycle', slug: 'deliverables' },
+            { label: 'Glossary', slug: 'glossary' },
+          ],
+        },
       ],
     }),
     mdx(),
