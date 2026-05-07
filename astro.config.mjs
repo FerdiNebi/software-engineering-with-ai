@@ -91,6 +91,7 @@ export default defineConfig({
                 { label: 'Functional & Regression Testing', slug: 'delivery/qa-testing/functional-regression-testing' },
                 { label: 'Performance Testing', slug: 'delivery/qa-testing/performance-testing' },
                 { label: 'Security Testing', slug: 'delivery/qa-testing/security-testing' },
+                { label: 'Accessibility Testing', slug: 'delivery/qa-testing/accessibility-testing' },
                 { label: 'User Acceptance Testing (UAT)', slug: 'delivery/qa-testing/user-acceptance-testing' },
               ],
             },

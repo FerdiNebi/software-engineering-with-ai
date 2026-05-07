@@ -12,13 +12,14 @@ status: v1
 
 QA / Testing is the validation stream of [Delivery](/delivery/) — the sub-section that exercises the build against the signed requirements concurrently with [Development](/delivery/development/), not after it. It runs system-level testing that complements (rather than replaces) the [developer testing](/delivery/development/developer-testing/) that engineers wrote during build. The signed FR/NFR set is the contract; QA's job is to verify the deliverable meets it. Engagements that under-invest in QA discover at UAT that the build does not match what was sold.
 
-The sub-section contains five pages:
+The sub-section contains six pages:
 
 1. **[Test Strategy & Planning](/delivery/qa-testing/test-strategy-planning/)** — converts the signed FR/NFR set into a test strategy (scope, approach, entry/exit criteria) and a test plan (what gets executed when).
 2. **[Functional & Regression Testing](/delivery/qa-testing/functional-regression-testing/)** — verifies behaviour against requirements (functional) and against prior-passing state (regression), with the automation/manual mix sized to the engagement.
 3. **[Performance Testing](/delivery/qa-testing/performance-testing/)** — exercises the system at the load profiles the NFRs commit to, validating budgets that [development](/delivery/development/performance-engineering/) maintained throughout build.
 4. **[Security Testing](/delivery/qa-testing/security-testing/)** — applies SAST, DAST, dependency scanning, and (for higher-risk engagements) third-party penetration testing against the codebase and deployed system.
-5. **[User Acceptance Testing](/delivery/qa-testing/user-acceptance-testing/)** — client-executed verification of the signed acceptance criteria, the gate to deployment.
+5. **[Accessibility Testing](/delivery/qa-testing/accessibility-testing/)** — verifies WCAG conformance via automated tooling, manual audit, and assistive-technology testing; produces the VPAT and accessibility statement where required.
+6. **[User Acceptance Testing](/delivery/qa-testing/user-acceptance-testing/)** — client-executed verification of the signed acceptance criteria, the gate to deployment.
 
 Participants are a QA lead (in agencies with a QA discipline), test engineers (manual or automation specialists), the agency's delivery lead, and the client's named UAT participants. Duration depends on engagement size and test-cycle scope but typically runs 1–6 weeks of dedicated cycles, alongside the in-sprint testing that runs throughout Delivery. Delivery as a whole hands off forward to [Deployment / Launch](/deployment-launch/) once UAT is signed off and the bug-and-defect list is either closed or explicitly deferred with client agreement.
 
