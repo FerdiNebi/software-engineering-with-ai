@@ -2,8 +2,9 @@
 
 A free static reference site for senior engineers stepping into consulting and
 agency work. It maps the agency / consulting delivery lifecycle — pre-sales
-through maintenance — across 7 phases and 35 sub-sections, each on a strict
-4-section template:
+through maintenance — across 6 phases (with Delivery containing three
+concurrent sub-sections: Project Management, Development, and QA / Testing)
+and 48 leaf sub-sections, each on a strict 4-section template:
 
 - **What happens here** — what the phase is, who's involved, what produces it
 - **Best practices** — what mature agencies do, and why
@@ -39,7 +40,7 @@ The flow that produced this site:
 4. **UX design specification** — pinned the visual system, callout
    conventions, accessibility targets, and forbidden patterns
    (`ux-design-specification.md`).
-5. **Epics & stories** — broke the PRD into 9 epics and 47 user stories,
+5. **Epics & stories** — broke the PRD into 13 epics and 83 user stories,
    each with bidirectional acceptance criteria, tasks, dev notes, and
    forbidden patterns (`_bmad-output/implementation-artifacts/<n>-<slug>.md`).
 6. **Implementation** — one commit per story, with file lists, completion
@@ -53,7 +54,7 @@ Why this matters for showcasing AI-built work: the value isn't "Claude wrote
 markdown." It's that the **discipline around the model** — pinned specs,
 explicit acceptance criteria per story, forbidden-pattern lists, an
 enforced content template, schema-backed frontmatter, parallel review
-layers — is what kept 43 pages on-template and stopped the model drifting
+layers — is what kept 60 pages on-template and stopped the model drifting
 into marketing tone. The artifacts are checked in so the process is
 auditable, not just the output.
 

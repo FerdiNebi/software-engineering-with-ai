@@ -9,7 +9,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Product, in one paragraph
 
-*End-to-End Software Engineering with AI* — a free static reference site for senior engineers entering consulting/agency work. v1 delivers 43 Markdown-authored pages (1 home + 7 SDLC phase overviews + 35 sub-sections), each following a strict 4-section template: **What happens here**, **Best practices**, **Desired outcomes**, **What the industry does**. v2 layers a 5th section (**AI-assisted workflow**) per page. No runtime APIs, no CMS, no auth. The agency/consulting lifecycle frame (pre-sales → maintenance) is the core differentiator — do not reframe as generic SDLC or product-company process.
+*End-to-End Software Engineering with AI* — a free static reference site for senior engineers entering consulting/agency work. v1 delivers 60 Markdown-authored pages (1 home + 6 SDLC phase overviews + 3 Delivery sub-section overviews + 48 leaf sub-sections + 2 cross-lifecycle reference pages — Glossary and Deliverables index). Every phase/sub-section page follows a strict 4-section template: **What happens here**, **Best practices**, **Desired outcomes**, **What the industry does**. v2 layers a 5th section (**AI-assisted workflow**) per page. No runtime APIs, no CMS, no auth. The agency/consulting lifecycle frame (pre-sales → maintenance) is the core differentiator — do not reframe as generic SDLC or product-company process. The Delivery phase is the unit, with Project Management, Development, and QA / Testing as three concurrent sub-sections — never reframe Development and QA as sequential phases.
 
 ## Working mode
 
