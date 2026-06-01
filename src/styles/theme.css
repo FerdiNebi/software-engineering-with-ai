@@ -11,3 +11,55 @@
   --sl-color-accent: #8ab4c8;
   --sl-color-accent-high: #a8ccdc;
 }
+
+/* ---------------------------------------------------------------------
+ * Top-navigation (v2 — two-tree IA)
+ * Rendered by src/components/Header.astro above Starlight's default
+ * header. Active state derived from URL prefix — no JS dependency.
+ * ------------------------------------------------------------------ */
+.top-nav {
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+  padding: 0.5rem var(--sl-nav-pad-x, 1rem);
+  border-block-end: 1px solid var(--sl-color-gray-5);
+  background: var(--sl-color-bg-nav, var(--sl-color-bg));
+}
+
+.top-nav-link {
+  display: inline-block;
+  padding: 0.4rem 0.25rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--sl-color-text);
+  text-decoration: none;
+  border-block-end: 2px solid transparent;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.top-nav-link:hover,
+.top-nav-link:focus-visible {
+  color: var(--sl-color-accent-high);
+  border-block-end-color: var(--sl-color-accent-low);
+}
+
+.top-nav-link.active {
+  color: var(--sl-color-accent-high);
+  border-block-end-color: var(--sl-color-accent);
+}
+
+.top-nav-link:focus-visible {
+  outline: 2px solid var(--sl-color-accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+@media (max-width: 50rem) {
+  .top-nav {
+    gap: 1rem;
+    padding-inline: 0.75rem;
+  }
+  .top-nav-link {
+    font-size: 0.9rem;
+  }
+}

@@ -19,6 +19,9 @@ export default defineConfig({
       description:
         'The agency and consulting delivery lifecycle for senior software engineers — pre-sales through maintenance.',
       customCss: ['./src/styles/theme.css'],
+      components: {
+        Header: './src/components/Header.astro',
+      },
       // Sidebar is processSidebar only at V2-1.4. The aiSidebar concat is
       // deferred to V2-1.7 because Starlight build-fails on sidebar slugs
       // that point at not-yet-created pages — V2-1.7 lands the landing
