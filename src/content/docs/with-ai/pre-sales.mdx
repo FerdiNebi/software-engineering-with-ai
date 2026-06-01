@@ -10,4 +10,54 @@ lastUpdated: 2026-06-01
 
 [← Process reference: Pre-Sales](/pre-sales/)
 
-_Page is being authored — full content lands in Story V2-2.1. The placeholder satisfies the schema so the sidebar concat resolves; the five-section template will follow._
+## What changes when AI is in the loop
+
+The Pre-Sales activities where AI shifts the dynamic are the document-heavy ones — scoping-call note synthesis, proposal section drafting, SOW template selection and adaptation, and pricing calibration against historical engagements. A 90-minute scoping call that used to produce a one-page summary the next morning now produces a structured synthesis (themes, asks, risks, next-step proposals) within an hour of the call ending. A proposal that used to take three days of senior drafting can land at first-draft quality in half a day. None of this changes whether you win the engagement — the qualification call still happens, the sponsor still has to trust you, the pricing strategy is still the agency's call. AI compresses the *production* phase. It does not compress the *judgement* phase.
+
+What does NOT change: whether the lead is worth pursuing, whether the sponsor is sceptical because of cost or because of internal politics, whether the proposal's commercial frame fits the client's procurement reality, whether the price is defensible. Those are judgement calls the human running the engagement has to make. The AI gives you a draft to push against — it does not give you a position.
+
+The single biggest practical shift: the proposal/SOW production cycle stops being the bottleneck. The bottleneck moves upstream to qualification (have we actually understood the problem?) and downstream to delivery readiness (can we deliver what we just promised?). Teams that adopt AI in Pre-Sales without strengthening qualification and delivery readiness produce more proposals, more contracts, and more failed engagements.
+
+## Tool-agnostic workflow
+
+The Pre-Sales-with-AI loop has four stages, each of which produces a concrete artefact the next stage consumes.
+
+**Stage 1 — scoping-call synthesis.** During the scoping call, capture the conversation in whatever form your agreement with the client allows (live transcription, structured notes, recorded with consent). Within 24 hours of the call, run a synthesis pass: extract the explicit asks, the explicit constraints, the implicit constraints (budget signals, timeline pressure, decision-maker shape), and the open questions. The synthesis is the input to qualification. Senior practitioner reviews the synthesis before any downstream artefact is produced — a synthesis that misreads sponsor priority blows up everything after it.
+
+**Stage 2 — qualify/disqualify decision.** Read the synthesis against the agency's qualification criteria (you have these documented; if you do not, AI cannot help you because it will invent criteria that sound reasonable but are not yours). Decide: pursue, paid-discovery, polite decline. The decision is human. AI can pre-fill a qualification template — sponsor, budget signal, timeline signal, technical fit, commercial fit — but it cannot make the call.
+
+**Stage 3 — proposal drafting.** For each section of the proposal (executive summary, approach, deliverables, team, timeline, pricing frame, terms), produce a draft from the scoping synthesis plus the agency's proposal template plus the engagement-specific qualification notes. AI is fastest on the prose sections (executive summary, approach narrative). It is slower and less useful on commercially-sensitive sections (pricing, terms) which require human judgement against agency commercial policy. Hand-edit every section. A proposal that reads as AI-generated loses the engagement.
+
+**Stage 4 — SOW drafting and pricing calibration.** Once the proposal is countersigned (or signed verbally with a request for SOW), draft the SOW by adapting the agency's SOW template to the agreed scope. The SOW is a contract — AI accelerates the structural fill but the legal language stays exactly as the agency's lawyer has approved it. For pricing, calibrate against the agency's historical engagement database: similar scope, similar team composition, similar timeline pressure, similar risk profile. AI is good at surfacing analogues; the decision on margin, team mix, and risk buffer is the senior practitioner's call.
+
+The artefacts hand off into Discovery — the [AI in Discovery](/with-ai/discovery/) page covers what happens to the SOW and scoping synthesis once delivery begins.
+
+## Battle-tested tools and how to use them
+
+Tool research is in progress; this page will list battle-tested tool recommendations as they are validated in real delivery. The author will not list a tool here until it has shipped at least one engagement to outcome — proposals won, SOWs signed, deliveries that hit the dates. Speculative listings are not the discipline this tree commits to.
+
+## What is not yet ready
+
+**AI generating SOW legal terms unsupervised.** SOWs include MSA references, liability clauses, IP assignment, termination terms, and dispute resolution. These are legal language the agency's lawyer has worked out and will not allow AI to vary without review. The AI can slot the agency's pre-approved legal blocks into the right SOW sections. It cannot draft new legal language. Engagements that have shipped AI-generated terms have lost arbitration cases because the AI invented plausible-sounding language that did not match the lawyer's actual position.
+
+**AI replacing human judgement on lead qualification.** The qualification call is where the practitioner reads the sponsor. The sponsor is hesitating — is it cost? Internal politics? A competing vendor? AI cannot read tone, cannot watch the sponsor's eyes glance at the CFO, cannot infer that "we need to think about it" actually means "the procurement person is blocking us." Use AI to pre-fill the qualification template; do not use AI to decide whether the lead is qualified.
+
+**AI-generated proposal sent to the client without senior review.** Proposals are signed for the engagement, but they are read by procurement, by the sponsor's manager, by anyone in the buying organisation who wants to find a reason to say no. A proposal with an AI tell — a stock phrase, a generic deliverable description, a phrasing the agency does not use — gives them that reason. Every AI-drafted proposal goes through senior practitioner edit. No exceptions.
+
+**AI pricing without a defensible engagement-history baseline.** AI can produce a price; it cannot defend it. If the client pushes back on the price, the senior practitioner needs to say "this is calibrated against our last three engagements of similar shape, here is the team composition assumption, here is the risk buffer." A price that the senior cannot defend is a price that gets cut in negotiation. Calibrate against history; do not generate from scratch.
+
+**Long-context "scope synthesis" on a chat interface.** Pasting a 90-minute transcript into a chat window and asking for a proposal is the wrong shape. The transcript is too long, the chat interface loses signal across the context window, and the output is a generic-sounding proposal. Use a structured pipeline: transcript → themes → asks/risks → proposal sections, with human review at each step.
+
+## What the industry does
+
+Agencies split along three approaches to AI in Pre-Sales.
+
+**The AI-augmented approach** treats AI as a first-class production tool for proposals, SOWs, and scoping syntheses. The agency has standardised on a small set of validated tools, has written prompt templates for each artefact type, and has built the human-review gates into the production workflow. Pre-Sales cycle time drops by 40-60% versus pre-AI baseline. The risk is over-production — winning engagements you should not win because the AI made it cheap to write proposals, and then failing to deliver them.
+
+**The AI-restricted-to-internal-only approach** allows AI to produce internal artefacts (scoping syntheses, qualification fills, pricing analogues) but does not allow AI-generated content to leave the agency without word-by-word senior rewrite. The reasoning: the client never sees AI prose, so the agency's voice and positioning stay intact. The risk is friction — the senior practitioner becomes the bottleneck and AI never realises its full Pre-Sales speedup.
+
+**The AI-tooling-by-consultant-discretion approach** lets each consultant decide what to use AI for and how. There is no agency standard. The risk is voice drift — different consultants produce different-sounding proposals, the agency's brand voice fragments, and the most senior consultants become the de-facto QA gate for everyone else's AI output.
+
+The agencies that ship Pre-Sales-with-AI well land between the first two: AI-augmented production with a non-negotiable human-review gate before any artefact leaves the agency. The third approach generally fails within two engagements because the consistency problem surfaces fast.
+
+Cross-link forward to [AI in Discovery](/with-ai/discovery/) — the scoping synthesis and signed SOW are the inputs that AI-assisted Discovery consumes. Cross-link forward to [AI in Maintenance & Retainer](/with-ai/maintenance-retainer/) for the lifecycle loop — repeat engagements feed Pre-Sales with the agency's strongest historical analogues.
