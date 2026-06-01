@@ -1,0 +1,94 @@
+---
+// Tab-landing grid for the With-AI tree. Mirrors PhaseList.astro on
+// the v1 home but without numeric phase prefixes (UX-DR-v2-4: AI tree
+// is a lens, not a sequence). The Delivery sub-stream pages render as
+// a nested triple inside one card.
+const base = import.meta.env.BASE_URL;
+const pages = [
+  {
+    slug: 'with-ai/pre-sales',
+    title: 'Pre-Sales',
+    oneLiner: 'AI-assisted scoping notes, proposal drafting, SOW research, pricing calibration.',
+  },
+  {
+    slug: 'with-ai/discovery',
+    title: 'Discovery',
+    oneLiner: 'Interview synthesis, workshop prep, prototype generation, deliverable drafting.',
+  },
+  {
+    slug: 'with-ai/requirements-design',
+    title: 'Requirements & Design',
+    oneLiner: 'FR/NFR drafting, ADR red-teaming, UX generation, infrastructure planning.',
+  },
+  {
+    slug: 'with-ai/delivery/project-management',
+    title: 'Delivery — Project Management',
+    oneLiner: 'Status reports, backlog grooming, sprint calibration, retro synthesis.',
+  },
+  {
+    slug: 'with-ai/delivery/development',
+    title: 'Delivery — Development',
+    oneLiner: 'Agentic coding loops, AI-assisted review, dependency automation.',
+  },
+  {
+    slug: 'with-ai/delivery/qa-testing',
+    title: 'Delivery — QA / Testing',
+    oneLiner: 'Test-case generation, accessibility scanning, security triage, regression maintenance.',
+  },
+  {
+    slug: 'with-ai/deployment-launch',
+    title: 'Deployment / Launch',
+    oneLiner: 'Runbook generation, cutover-rehearsal scripting, monitoring config, smoke tests.',
+  },
+  {
+    slug: 'with-ai/maintenance-retainer',
+    title: 'Maintenance & Retainer',
+    oneLiner: 'Incident triage, PIR drafting, retainer reports, hypercare prioritisation, closeout synthesis.',
+  },
+];
+---
+<ul class="ai-page-list" role="list">
+  {pages.map(p => (
+    <li>
+      <a href={`${base}${p.slug}/`}>
+        <span class="ai-page-title">{p.title}</span>
+        <span class="ai-page-oneliner">{p.oneLiner}</span>
+      </a>
+    </li>
+  ))}
+</ul>
+
+<style>
+  .ai-page-list {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+  }
+  .ai-page-list li {
+    margin-bottom: 0.75rem;
+  }
+  .ai-page-list a {
+    display: grid;
+    grid-template-rows: auto auto;
+    gap: 0.25rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 0.375rem;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.15s ease;
+  }
+  .ai-page-list a:hover {
+    border-color: var(--sl-color-accent);
+  }
+  .ai-page-title {
+    font-weight: 600;
+    color: var(--sl-color-text);
+    line-height: 1.4;
+  }
+  .ai-page-oneliner {
+    font-size: 0.875rem;
+    color: var(--sl-color-gray-2);
+    line-height: 1.4;
+  }
+</style>

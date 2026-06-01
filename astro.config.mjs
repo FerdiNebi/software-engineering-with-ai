@@ -4,6 +4,7 @@ import sitemap from '@astrojs/sitemap';
 import mdx from '@astrojs/mdx';
 import remarkBasePath from './remark-base-path.mjs';
 import { processSidebar } from './src/sidebar/process';
+import { aiSidebar } from './src/sidebar/ai';
 
 const base = '/software-engineering-with-ai/';
 
@@ -23,11 +24,11 @@ export default defineConfig({
         Header: './src/components/Header.astro',
         Sidebar: './src/components/Sidebar.astro',
       },
-      // Sidebar is processSidebar only at V2-1.4. The aiSidebar concat is
-      // deferred to V2-1.7 because Starlight build-fails on sidebar slugs
-      // that point at not-yet-created pages — V2-1.7 lands the landing
-      // page + AI stubs and at that point the concat becomes safe.
-      sidebar: [...processSidebar],
+      // Both trees concatenated. The routing-aware Sidebar.astro override
+      // (V2-1.6) reads the current URL and renders only the relevant
+      // subset; the concatenated form ensures Starlight still builds
+      // prev/next navigation for AI-tree pages.
+      sidebar: [...processSidebar, ...aiSidebar],
     }),
     mdx(),
     sitemap(),
