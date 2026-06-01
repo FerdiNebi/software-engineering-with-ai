@@ -5,9 +5,11 @@ type: phase-overview
 phase: discovery
 order: 1
 tree: "process"
-lastUpdated: 2026-05-07
+lastUpdated: 2026-06-01
 status: v1
 ---
+
+> **AI in this phase.** AI in [Discovery](/with-ai/discovery/) compresses interview synthesis, workshop preparation, prototype generation, and deliverable drafting. The workshop itself, the body-language reading, and stakeholder politics stay human — AI does not sit in the chair. See the AI tree for battle-tested tools and the synthesis pipeline the agency runs.
 
 ## What happens here
 

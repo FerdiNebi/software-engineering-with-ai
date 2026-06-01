@@ -5,9 +5,11 @@ type: phase-overview
 phase: maintenance-retainer
 order: 1
 tree: "process"
-lastUpdated: 2026-05-07
+lastUpdated: 2026-06-01
 status: v1
 ---
+
+> **AI in this phase.** AI in [Maintenance & Retainer](/with-ai/maintenance-retainer/) compresses incident triage, PIR drafting, retainer status reports, and engagement-closeout synthesis — the document workflow that used to make maintenance feel like unrewarded overhead. The on-call go/no-go, the political nuance of PIRs, and the closeout narrative stay human. See the AI tree for how retainer engagements convert AI compression into client-visible value.
 
 ## What happens here
 

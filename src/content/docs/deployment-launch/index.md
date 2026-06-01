@@ -5,9 +5,11 @@ type: phase-overview
 phase: deployment-launch
 order: 1
 tree: "process"
-lastUpdated: 2026-05-07
+lastUpdated: 2026-06-01
 status: v1
 ---
+
+> **AI in this phase.** AI in [Deployment / Launch](/with-ai/deployment-launch/) makes complete runbooks, monitoring configs, and post-deploy smoke tests affordable — artefacts that used to be skipped under pre-launch time pressure now ship at draft quality in hours. The go/no-go, the rollback decision, and the client communications stay human. See the AI tree for the three-phase deployment workflow.
 
 ## What happens here
 

@@ -5,9 +5,11 @@ type: phase-overview
 phase: requirements-design
 order: 1
 tree: "process"
-lastUpdated: 2026-05-03
+lastUpdated: 2026-06-01
 status: v1
 ---
+
+> **AI in this phase.** AI in [Requirements & Design](/with-ai/requirements-design/) compresses FR/NFR drafting from a senior-week to a senior-day, gives ADRs a free red-team partner, and generates UX variants from the design system. Trade-off decisions stay with the architect and design lead. See the AI tree for the structured pipeline that catches FR contradictions at draft time rather than sprint-3 time.
 
 ## What happens here
 

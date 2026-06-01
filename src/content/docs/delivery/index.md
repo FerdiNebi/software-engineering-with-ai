@@ -5,9 +5,11 @@ type: phase-overview
 phase: delivery
 order: 1
 tree: "process"
-lastUpdated: 2026-05-06
+lastUpdated: 2026-06-01
 status: v1
 ---
+
+> **AI in this phase.** AI changes each Delivery sub-stream differently — see [Project Management](/with-ai/delivery/project-management/) for the document-workflow compression, [Development](/with-ai/delivery/development/) for the three intensity bands and agentic-loop discipline, and [QA / Testing](/with-ai/delivery/qa-testing/) for the four-band test-coverage expansion. The judgement layer in each stream stays human.
 
 ## What happens here
 

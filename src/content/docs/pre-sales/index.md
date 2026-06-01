@@ -5,9 +5,11 @@ type: phase-overview
 phase: pre-sales
 order: 1
 tree: "process"
-lastUpdated: 2026-05-07
+lastUpdated: 2026-06-01
 status: v1
 ---
+
+> **AI in this phase.** AI in [Pre-Sales](/with-ai/pre-sales/) compresses scoping-call synthesis, proposal drafting, SOW template selection, and pricing calibration against historical engagements — the production work that used to bottleneck the pre-sales cycle. The qualification call, the sponsor read, and the pricing strategy stay human. See the AI tree for battle-tested tools and the production workflow the agency has standardised on.
 
 ## What happens here
 
