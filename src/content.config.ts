@@ -19,19 +19,24 @@ const phaseSlug = z.enum([
   'maintenance-retainer',
 ]);
 
-// 2026-06-01 — v2 schema extension (Story V2-1.1, permissive landing).
-// Adds three new optional fields for the AI tree: `tree`, `aiPageType`,
-// `deliveryStream`. None is required yet — v1 pages without `tree` continue
-// to build. The strict rules (require `tree` for content pages, cross-field
-// constraints between `aiPageType`/`phase`/`deliveryStream`) land in Story
-// V2-1.3 after the v1 sweep (V2-1.2) has added `tree: 'process'` to all
-// existing content pages.
+// 2026-06-01 — v2 schema strict mode (Story V2-1.3).
+// `tree` is now required on any page that triggers the content-page required-set
+// (any page with type/phase/order/tree/aiPageType set). Cross-field rules:
+//
+//   tree === 'process': type/phase/order required (v1 invariant); aiPageType and
+//     deliveryStream forbidden.
+//
+//   tree === 'ai': aiPageType required. Per-aiPageType rules:
+//     - 'landing': phase/order/type forbidden (the tab landing is not phase-bound).
+//     - 'phase': phase required and must be a valid phase slug; order required.
+//     - 'delivery-stream': phase MUST be 'delivery'; deliveryStream required; order required.
+//
+// Schema-exempt files (`index.mdx`, `glossary.md`, `deliverables.md`) declare
+// none of these fields and pass through untouched.
 const tree = z.enum(['process', 'ai']);
 const aiPageType = z.enum(['landing', 'phase', 'delivery-stream']);
 const deliveryStream = z.enum(['project-management', 'development', 'qa-testing']);
 
-// superRefine pattern: a page with ANY of `type`, `phase`, `order` is treated as a content
-// page and must have ALL three. The splash home (`index.mdx`) has none and is exempt.
 export const collections = {
   docs: defineCollection({
     loader: docsLoader(),
@@ -50,29 +55,164 @@ export const collections = {
           const isContent =
             data.type !== undefined ||
             data.phase !== undefined ||
-            data.order !== undefined;
+            data.order !== undefined ||
+            data.tree !== undefined ||
+            data.aiPageType !== undefined;
           if (!isContent) return;
-          if (data.type === undefined) {
+
+          // tree required on every content page
+          if (data.tree === undefined) {
             ctx.addIssue({
               code: z.ZodIssueCode.custom,
-              path: ['type'],
+              path: ['tree'],
               message:
-                "Required for non-home pages: must be 'phase-overview' or 'sub-section'.",
+                "Required for non-home, non-reference pages: 'process' or 'ai'.",
             });
+            return;
           }
-          if (data.phase === undefined) {
-            ctx.addIssue({
-              code: z.ZodIssueCode.custom,
-              path: ['phase'],
-              message: 'Required for non-home pages: must be one of the 6 phase slugs.',
-            });
+
+          // process-tree pages: v1 invariant — type/phase/order all required
+          if (data.tree === 'process') {
+            if (data.aiPageType !== undefined) {
+              ctx.addIssue({
+                code: z.ZodIssueCode.custom,
+                path: ['aiPageType'],
+                message: 'Forbidden on process-tree pages.',
+              });
+            }
+            if (data.deliveryStream !== undefined) {
+              ctx.addIssue({
+                code: z.ZodIssueCode.custom,
+                path: ['deliveryStream'],
+                message: 'Forbidden on process-tree pages.',
+              });
+            }
+            if (data.type === undefined) {
+              ctx.addIssue({
+                code: z.ZodIssueCode.custom,
+                path: ['type'],
+                message:
+                  "Required for process-tree pages: 'phase-overview' or 'sub-section'.",
+              });
+            }
+            if (data.phase === undefined) {
+              ctx.addIssue({
+                code: z.ZodIssueCode.custom,
+                path: ['phase'],
+                message:
+                  'Required for process-tree pages: one of the 6 phase slugs.',
+              });
+            }
+            if (data.order === undefined) {
+              ctx.addIssue({
+                code: z.ZodIssueCode.custom,
+                path: ['order'],
+                message:
+                  'Required for process-tree pages: integer ordering within the phase.',
+              });
+            }
+            return;
           }
-          if (data.order === undefined) {
-            ctx.addIssue({
-              code: z.ZodIssueCode.custom,
-              path: ['order'],
-              message: 'Required for non-home pages: integer ordering within the phase.',
-            });
+
+          // ai-tree pages: aiPageType required, type forbidden, per-type rules
+          if (data.tree === 'ai') {
+            if (data.type !== undefined) {
+              ctx.addIssue({
+                code: z.ZodIssueCode.custom,
+                path: ['type'],
+                message:
+                  "Forbidden on AI-tree pages — use 'aiPageType' instead.",
+              });
+            }
+            if (data.aiPageType === undefined) {
+              ctx.addIssue({
+                code: z.ZodIssueCode.custom,
+                path: ['aiPageType'],
+                message:
+                  "Required on AI-tree pages: 'landing', 'phase', or 'delivery-stream'.",
+              });
+              return;
+            }
+
+            if (data.aiPageType === 'landing') {
+              if (data.phase !== undefined) {
+                ctx.addIssue({
+                  code: z.ZodIssueCode.custom,
+                  path: ['phase'],
+                  message:
+                    "Forbidden on AI landing page: the tab landing is not phase-bound.",
+                });
+              }
+              if (data.order !== undefined) {
+                ctx.addIssue({
+                  code: z.ZodIssueCode.custom,
+                  path: ['order'],
+                  message:
+                    'Forbidden on AI landing page: sits at the root of the AI tree.',
+                });
+              }
+              if (data.deliveryStream !== undefined) {
+                ctx.addIssue({
+                  code: z.ZodIssueCode.custom,
+                  path: ['deliveryStream'],
+                  message: 'Forbidden on AI landing page.',
+                });
+              }
+            }
+
+            if (data.aiPageType === 'phase') {
+              if (data.phase === undefined) {
+                ctx.addIssue({
+                  code: z.ZodIssueCode.custom,
+                  path: ['phase'],
+                  message:
+                    "Required on AI phase page: one of the 6 phase slugs.",
+                });
+              }
+              if (data.order === undefined) {
+                ctx.addIssue({
+                  code: z.ZodIssueCode.custom,
+                  path: ['order'],
+                  message:
+                    'Required on AI phase page: integer ordering in the AI sidebar.',
+                });
+              }
+              if (data.deliveryStream !== undefined) {
+                ctx.addIssue({
+                  code: z.ZodIssueCode.custom,
+                  path: ['deliveryStream'],
+                  message:
+                    "Forbidden on AI phase page: only delivery-stream pages declare it.",
+                });
+              }
+            }
+
+            if (data.aiPageType === 'delivery-stream') {
+              if (data.phase !== 'delivery') {
+                ctx.addIssue({
+                  code: z.ZodIssueCode.custom,
+                  path: ['phase'],
+                  message:
+                    "Required on AI delivery-stream page: must be 'delivery'.",
+                });
+              }
+              if (data.deliveryStream === undefined) {
+                ctx.addIssue({
+                  code: z.ZodIssueCode.custom,
+                  path: ['deliveryStream'],
+                  message:
+                    "Required on AI delivery-stream page: 'project-management' | 'development' | 'qa-testing'.",
+                });
+              }
+              if (data.order === undefined) {
+                ctx.addIssue({
+                  code: z.ZodIssueCode.custom,
+                  path: ['order'],
+                  message:
+                    'Required on AI delivery-stream page: integer ordering in the AI sidebar.',
+                });
+              }
+            }
           }
         }),
     }),
