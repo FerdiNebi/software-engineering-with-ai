@@ -1,0 +1,39 @@
+---
+// Routing-aware Sidebar override per AD-V2-1.
+// Both sidebar trees live in the Starlight global config (concatenated
+// `[...processSidebar, ...aiSidebar]`). This override filters the
+// resolved sidebar array at render time so the reader sees only the
+// tree matching their current URL.
+//
+// Filter rule:
+//   isAiTree (URL starts with /with-ai/)  → keep groups labelled
+//     'With AI' or 'Reference'
+//   otherwise (process tree)              → keep groups NOT labelled
+//     'With AI' (i.e. all six numbered phases + Reference)
+//
+// Labels are the discriminator because they are stable identifiers
+// declared in the sidebar config modules — the URL-prefix-of-first-item
+// alternative is fragile when groups contain mixed slugs (Reference
+// appears in both trees but the labels themselves are unique enough).
+
+import Default from '@astrojs/starlight/components/Sidebar.astro';
+
+const base = import.meta.env.BASE_URL ?? '/';
+const baseWithSlash = base.endsWith('/') ? base : base + '/';
+const aiPrefix = baseWithSlash + 'with-ai/';
+const isAiTree = Astro.url.pathname.startsWith(aiPrefix);
+
+const route = Astro.locals.starlightRoute;
+const fullSidebar = route.sidebar;
+
+const filtered = isAiTree
+  ? fullSidebar.filter((entry) => entry.label === 'With AI' || entry.label === 'Reference')
+  : fullSidebar.filter((entry) => entry.label !== 'With AI');
+
+// Mutate the per-request route so Starlight's Default Sidebar renders the
+// filtered list. This is a per-render mutation; it does not leak across
+// requests because Astro.locals is request-scoped.
+Astro.locals.starlightRoute = { ...route, sidebar: filtered };
+---
+
+<Default><slot /></Default>

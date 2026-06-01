@@ -21,6 +21,7 @@ export default defineConfig({
       customCss: ['./src/styles/theme.css'],
       components: {
         Header: './src/components/Header.astro',
+        Sidebar: './src/components/Sidebar.astro',
       },
       // Sidebar is processSidebar only at V2-1.4. The aiSidebar concat is
       // deferred to V2-1.7 because Starlight build-fails on sidebar slugs
