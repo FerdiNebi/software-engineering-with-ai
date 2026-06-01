@@ -10,4 +10,58 @@ lastUpdated: 2026-06-01
 
 [← Process reference: Requirements & Design](/requirements-design/)
 
-_Page is being authored — full content lands in Story V2-4.1. The placeholder satisfies the schema so the sidebar concat resolves; the five-section template will follow._
+## What changes when AI is in the loop
+
+Requirements & Design is the phase where AI's production speedup is most lopsided. FR/NFR drafting — turning a prioritised feature list into 80-120 atomic, testable, traceable requirements — collapses from a week of senior drafting to two days of senior editing. Architecture Decision Records (ADRs) gain a free red-team partner that can argue every choice against alternatives the architect did not consider. UX generation from a design system produces variants in minutes that would have taken a designer hours. Infrastructure plans drafted against a known cloud reference architecture land at second-draft quality before the senior engineer has finished their first coffee.
+
+What does not change is the *judgement* layer. The architecture trade-off between event-driven and request-response is the architect's call. The UX direction — does this product feel minimalist or feel rich — is the design lead's call. The infrastructure cost ceiling and the security posture are commercial calls the engagement lead makes against agreed budget. AI accelerates the production of options; the human makes the decisions among them.
+
+The biggest practical shift: bad requirements get caught earlier. A 90-FR document that used to take a week to write and then surface gaps only at developer-questions time now gets adversarial-passed by AI before sign-off. The agency catches "this FR contradicts FR-47" or "this FR has no acceptance criterion" or "the NFR for response time conflicts with the architecture choice" at draft time, not at sprint-3 implementation time. The catch happens earlier; the catch quality depends entirely on what you tell the AI to look for.
+
+## Tool-agnostic workflow
+
+Requirements & Design with AI has six stages. The structure is dense because the artefacts are dense and they all feed into the next phase's delivery commitments.
+
+**Stage 1 — prioritised feature list intake.** From Discovery, you have a prioritised feature list and a constraint catalogue (regulatory, technical, organisational, political). Load these as the bounded inputs to the FR-drafting pass. Do not feed everything Discovery produced — only the artefacts that are now contractual inputs to specification.
+
+**Stage 2 — FR/NFR draft.** For each prioritised feature, draft FRs as atomic, testable, traceable statements ("the system shall…"). For each NFR category (performance, security, accessibility, observability, regulatory), draft against the agency's NFR template and the engagement's known constraints. The AI does the volume; the human reviews for atomicity, testability, and traceability. An FR that is not testable is not an FR; the human catches AI-generated FRs that fail the test.
+
+**Stage 3 — adversarial-pass review.** Run an adversarial pass against the FR/NFR draft: contradictions ("FR-12 requires X, FR-47 forbids X"), ambiguities ("FR-23 says 'fast' — what's the NFR?"), gaps ("no FR covers the failure path for the payment flow"), traceability gaps ("FR-91 has no source in the prioritised feature list"). The AI is good at this pass — it does not get bored, it is not invested in defending its earlier draft, it surfaces the gaps a human reviewer would miss after the 50th FR. The output is a defect list. The human resolves each defect — accept the catch, mark as false-positive, or reframe.
+
+**Stage 4 — architecture sketch.** From the FR/NFR set, draft an architecture sketch covering components, integrations, data flow, and the cross-cutting concerns (auth, observability, deployment, scaling). The AI is fastest on the structural sketch and on the alternatives narrative ("considered events-vs-requests because…"). The architect makes the trade-off calls. ADR drafting: human states the decision; AI red-teams it by arguing for the alternatives.
+
+**Stage 5 — UX generation.** For each major flow, generate UX variants from the agency's design system. The AI surfaces multiple directions; the design lead picks one (or instructs the AI to combine two) and edits to design system standards. UX generation is faster for solo-designer or design-light agencies; agencies with a dedicated design team typically use AI generation as a starting point that the design team improves rather than as a deliverable.
+
+**Stage 6 — infrastructure plan.** From the architecture sketch plus the NFRs (scaling, security, compliance), draft the infrastructure plan against the agency's reference cloud architecture. AI accelerates the structural fill; senior engineer reviews against the engagement's commercial constraints (cost ceiling) and security posture (compliance class).
+
+Hand-off into delivery: the FR/NFR set, the architecture document, the UX, and the infrastructure plan become the inputs to [AI in Development](/with-ai/delivery/development/) and [AI in QA / Testing](/with-ai/delivery/qa-testing/).
+
+## Battle-tested tools and how to use them
+
+Tool research is in progress; this page will list battle-tested tool recommendations as they are validated in real delivery.
+
+## What is not yet ready
+
+**Feeding a 100+ FR document into a chat window in one shot.** The chat window loses signal across the context window. By FR-70 the model is forgetting the constraints it was instructed about at FR-5. Use a structured pipeline: 10-20 FRs at a time, the constraint set passed explicitly at each chunk, the chunks composed at the end. The structured approach takes longer to set up but produces a coherent document.
+
+**AI-only ADR generation without architect review.** ADRs commit the engagement to specific architecture choices. An ADR that names the wrong trade-off becomes the document the team points to in sprint 8 when something fails. The AI can draft the structure, name the candidates, write the alternative-narratives section. The decision and the consequences section are the architect's writing. An ADR with a generative tell ("typical patterns include…", "modern approaches often…") is an ADR the architect did not own.
+
+**Using AI-generated wireframes as final design without UX validation.** Wireframes that look polished generate stakeholder commitment. The client agrees to the wireframe; later UX work that varies from it triggers "we already agreed to this." Frame AI wireframes as conversation tools at the requirements stage; do not let them become deliverables.
+
+**AI infrastructure plans without security review.** Cloud reference architectures encode security defaults that may not match the engagement's compliance class. An AI-generated plan for a HIPAA engagement that reuses a generic cloud reference architecture misses the compliance-specific controls. Senior infrastructure engineer reviews every AI-drafted plan against the engagement's compliance and security requirements before it leaves the agency.
+
+**NFR drafting from a generic NFR catalogue without the engagement's context.** Generic NFRs ("the system shall respond within 200ms") are vacuous. Useful NFRs come from the engagement context — "the search endpoint shall return p99 within 300ms at the peak load identified in the discovery synthesis." AI cannot invent the contextual numbers. Pass the contextual numbers in; let AI structure the NFR around them.
+
+**ADR red-team adopted without resolution.** The adversarial pass surfaces issues; "addressed" the issues means the human resolved each one explicitly. An FR/NFR document with 47 surfaced issues, of which 31 are unresolved at sign-off, is a document that will surface those 31 issues as sprint-time blockers. Resolve before sign-off.
+
+## What the industry does
+
+Two industry approaches dominate.
+
+**The structured-pipeline approach** runs FR/NFR drafting as a documented, multi-stage pipeline with explicit human gates between each stage. The agency has standardised on prompt templates for each stage, on review checklists for each gate, on traceability discipline that ties every FR back to the prioritised feature list. Output quality is consistent; output time is roughly half the pre-AI baseline; FR-drafting senior time gets repurposed to architecture and trade-off work, which is where the agency's distinctive value lies anyway.
+
+**The opinion-led approach** treats AI as a junior pair-author for the senior engineer or architect. The senior writes the FR/NFR document in their voice; the AI suggests, the senior accepts/rejects. ADRs are written by the architect with the AI as a red-team partner only. UX is generated by the design lead with the AI as a variant-surfacing partner. The approach is slower than the pipeline approach but preserves the senior's voice through the artefacts — which matters when the engagement's signature deliverables are visible to a client who is choosing whether to renew.
+
+Most agencies in 2026 are at some hybrid of the two: pipeline approach for the bulk of FR drafting (where volume dominates), opinion-led approach for ADRs and UX direction (where positioning dominates). The split tracks where the agency wants to compete on speed versus where it wants to compete on judgement.
+
+Cross-link back to [AI in Discovery](/with-ai/discovery/) — the prioritised feature list and constraint catalogue are the inputs Requirements & Design consumes. Cross-link forward to [AI in Development](/with-ai/delivery/development/) and [AI in QA / Testing](/with-ai/delivery/qa-testing/) for what happens to the FR/NFR set, architecture, UX, and infrastructure plan once delivery begins.
