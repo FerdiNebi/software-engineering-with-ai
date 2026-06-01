@@ -11,4 +11,60 @@ lastUpdated: 2026-06-01
 
 [← Process reference: Development](/delivery/development/)
 
-_Page is being authored — full content lands in Story V2-6.1. The placeholder satisfies the schema so the sidebar concat resolves; the five-section template will follow._
+## What changes when AI is in the loop
+
+Development is the densest AI-affected stream in agency delivery. The shift since 2024 has not been linear — it has been a step change every six months as agentic coding loops have moved from "experimental" to "default for most non-security-sensitive code" in the agencies that adopted them early. The activities most transformed: writing new features against a clear FR, refactoring small-to-medium codebases, generating tests against existing code, updating dependencies and resolving conflicts, doing first-pass code review.
+
+What does not change: architectural judgement inside the loop. Production deploy approvals. Security-sensitive code review. The decision about whether a refactor is worth doing at all. The trade-off between "let the agent finish this" and "stop, this is going sideways." Engineers who treat agentic loops as autonomous output forget that the loops drift — a 90-minute agent run that started against the right FR can end up in a tangent that costs three engineer-hours to unpick.
+
+The biggest practical shift: the bottleneck moves from "writing code" to "reviewing code." A team that used to ship 30 PRs a week now ships 80, but each PR needs roughly the same human review time. Teams that have not strengthened their code-review discipline drown in agent-generated PRs that pass tests but introduce subtle drift. The agencies that ship AI-in-development well have invested in review infrastructure as deliberately as they invested in the agents themselves.
+
+## Tool-agnostic workflow
+
+Development-with-AI runs in three intensity bands. The choice of band is per-task, not per-engineer.
+
+**Band 1 — autocomplete-only.** The IDE suggests completions; the engineer accepts, modifies, or rejects line by line. The engineer's mental model of the codebase remains the source of truth. Used for: security-sensitive code (auth, payment, anything touching PII), code with non-obvious correctness requirements (concurrency, transaction boundaries, ordering invariants), code in unfamiliar parts of the codebase where the engineer needs to think to understand. Band 1 is the slowest band but the safest.
+
+**Band 2 — supervised-completion.** The engineer writes the function signature, the test cases, or the high-level intent; the AI fills in the body. The engineer reads what the AI produced before accepting, runs the tests, and pushes back if the AI's interpretation diverged. Used for: standard CRUD endpoints, well-shaped utility functions, test-case generation against an existing FR, idiomatic implementations of known patterns. Band 2 is the default band for most engineering days.
+
+**Band 3 — agentic loop.** The engineer states the task at a higher level ("implement the user-onboarding flow per FR-23 to FR-31"), the agent runs autonomously across multiple files, executes tests, iterates on failures, and produces a coherent set of changes. The engineer reviews the resulting diff as a single unit. Used for: well-bounded feature work with clear FRs and clear acceptance tests, refactors with a known target shape, dependency updates that touch many files in a uniform way. Band 3 is the fastest band but the riskiest — the agent can drift, the diff can be large, and the review burden concentrates at the end.
+
+The agent loop has six steps that the engineer needs to monitor even when not actively driving: task intake (does the agent understand the FR correctly?), planning (does the agent's plan match the engineer's mental model?), execution (is the agent making progress or stuck in a loop?), test verification (are the tests the right tests?), iteration (is the agent fixing the right bug?), and integration (does the diff fit cleanly into the existing codebase?). The engineer's job is to interrupt at any step where the agent has drifted.
+
+The conditions under which each band is appropriate are not blurry. Security-sensitive code is Band 1, full stop. New features against documented FRs are Band 2 or Band 3 depending on the engineer's comfort. Cross-cutting refactors are Band 3 if and only if the target shape is documented; otherwise Band 2 with the engineer leading the structural decisions.
+
+## Battle-tested tools and how to use them
+
+Tool research is in progress; this page will list battle-tested tool recommendations as they are validated in real delivery. The Development tools landscape moves fastest of any phase — listings stale within a quarter. Validation will cover the three bands separately: an agentic-loop tool, a supervised-completion tool, and a dependency-automation tool, each with a documented engagement reference.
+
+## What is not yet ready
+
+**Blind merge of agentic-loop output without diff review.** The agent finished. Tests pass. The diff is 800 lines across 14 files. Merging without reading every line is a category of mistake the agency cannot ship. The agent can produce code that passes the tests and contains subtle bugs the tests did not cover — a wrong error-handling branch, a missing null check, a race condition that only surfaces under load. Diff review is not optional. The engineer who started the agent run is the engineer who reviews the result.
+
+**Agents touching production deploys.** The agent runs locally or in a sandbox. The agent does not deploy. The deploy gate is human — and not because the agent could not technically run the deploy command, but because deploys carry production risk and the agency's liability does not transfer to the model. Engagements that have shipped agent-run deploys have produced incidents that traced back to "the agent thought the migration was idempotent."
+
+**AI-generated tests merged without human assertion review.** Tests with weak assertions ("the function returns something", "the response is 200") give false confidence. The agent often generates such tests by default — they pass, they look like coverage. Read every test assertion. If the assertion does not check the meaningful invariant, the test is not a test.
+
+**Agentic loops on security-sensitive code without architect sign-off.** Authentication, authorisation, payment, personally identifiable information, anything with regulatory exposure. The agent does not know the threat model. Architect reviews every change to these areas, regardless of which band produced the change.
+
+**Using a model that is not in the team's standardised stack.** Engineers running personal-favourite tools that the team has not validated produces a coordination problem — different output shapes, different prompt styles, different review burdens. The team standardises on a small set of validated tools; new tools enter the standardised set through a documented validation process, not through individual adoption.
+
+**Refactors via agentic loop without a documented target shape.** "Refactor this to be cleaner" produces incoherent change because the agent infers a target. "Refactor this to extract the auth middleware into a separate package per ADR-12, preserving the public API at the existing boundary" produces coherent change. The engineer documents the target before starting the agent.
+
+**Long-running agents on bounded budgets without observation.** An agent left to run for 45 minutes unobserved often produces 30 minutes of useful work and 15 minutes of drift. Set a budget (time, token, or step count) and check in at the budget boundary. Drift gets caught early.
+
+**AI-generated PR descriptions accepted as the source of truth.** The PR description should match what the PR actually does. AI-generated descriptions of AI-generated PRs sometimes drift from the diff — the description says "added X" but the diff also modified Y. Engineer rewrites or verifies the description against the diff before requesting review.
+
+## What the industry does
+
+Agencies split into three Development-with-AI cultures.
+
+**The autocomplete-only culture** uses Band 1 exclusively or near-exclusively. Engineers do all design and most typing; AI surfaces line-by-line suggestions. Common at security-conscious agencies (defence, fintech with strict review regimes, healthtech), at agencies whose senior engineers are deeply sceptical of agentic output, and at agencies whose client mix penalises the risk of AI-introduced subtle bugs. Output velocity is roughly 1.15-1.3× pre-AI baseline.
+
+**The agentic-loop-default culture** uses Band 3 for the majority of new feature work and Band 2 for the rest. Senior engineers spend most of their time reviewing PRs, designing architecture, and unblocking agents. Junior engineers drive the agents under supervision. Output velocity is 2-4× pre-AI baseline on the right kind of work. Risk of subtle-bug introduction is higher; the agencies that ship this culture well have invested heavily in test coverage, observability, and post-deploy verification to compensate.
+
+**The mixed-discipline culture** matches the band to the task: Band 1 for security-sensitive code, Band 2 for most days, Band 3 for well-bounded feature work and large refactors. The senior engineer makes the call per task; the junior engineer follows the senior's call. This is the most common pattern in 2026 agencies that have past the early-adopter phase.
+
+The agencies that ship best mostly run the mixed-discipline culture with explicit prompt standards (consistent prompt patterns across the team), explicit review standards (no agentic-output PR merges without same-day review), and explicit drift-recovery patterns (when an agent goes sideways, the engineer interrupts and resumes from a known good state rather than letting the agent self-correct). The agentic-loop-default culture is faster on the right work but produces more incidents; the autocomplete-only culture produces fewer incidents but loses competitive pricing against agencies that have moved.
+
+Cross-link back to [AI in Requirements & Design](/with-ai/requirements-design/) — the FR/NFR set is the agent's task spec. Cross-link forward to [AI in QA / Testing](/with-ai/delivery/qa-testing/) — the dev-to-QA handoff is now also a dev-AI-to-QA-AI handoff for test generation and triage. Cross-link to [AI in Project Management](/with-ai/delivery/project-management/) — the concurrent PM stream coordinates the velocity shift this culture produces.
