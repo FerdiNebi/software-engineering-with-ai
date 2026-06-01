@@ -10,4 +10,58 @@ lastUpdated: 2026-06-01
 
 [← Process reference: Maintenance & Retainer](/maintenance-retainer/)
 
-_Page is being authored — full content lands in Story V2-9.1. The placeholder satisfies the schema so the sidebar concat resolves; the five-section template will follow._
+## What changes when AI is in the loop
+
+Maintenance and retainer work is dominated by document workflows under reactive time pressure: incident reports during incidents, post-incident reviews after them, monthly retainer status reports, hypercare-window prioritisation triage, and end-of-engagement closeout artefacts. Every one of those activities had been historically squeezed between the next incident and the next sprint of feature work — and they suffered for it. AI compresses each of them dramatically. An incident triage that used to take a senior engineer 20 minutes of reading dashboards before forming a hypothesis now gets pre-triaged by AI within seconds. A post-incident review that used to take a senior afternoon to draft now drafts itself off the incident logs and engineer notes. A retainer status report that used to be a Friday-evening ritual at month end now drafts off the month's ticket activity in 15 minutes.
+
+What does not change: the production go/no-go on the on-call rotation. The political nuance of a post-incident review (which framing reaches the sponsor, which framing reaches the team, which framing reaches the lessons-learned database). The client-facing narrative at engagement closeout — what the agency wants the client to remember, what the agency wants to never repeat. These are practitioner judgements that require knowing the engagement's history and the client's psychology.
+
+The biggest practical shift: maintenance work stops being the unrewarded burden. The retainer engineer's week stops being mostly artefact production. Time freed up by AI artefact compression goes into the higher-value retainer work: anticipating issues before they become incidents, deeper PIR follow-through, real feature iteration that justifies the retainer fee. Agencies that adopt AI in maintenance well grow their retainer revenue because the retainer feels like value instead of like overhead.
+
+## Tool-agnostic workflow
+
+Maintenance-with-AI is best modelled as five recurring activities, each with its own rhythm.
+
+**Activity 1 — incident triage (reactive, minutes).** When alerts fire, AI provides first-pass triage: which service, what severity, what's the likely root cause, has this happened before, who should be paged. The on-call engineer reads the triage, verifies against the live signals, and decides. AI suggesting "this looks like the same DB-connection-pool issue from last month" cuts time-to-diagnosis when correct and adds confusion when wrong — the engineer always verifies before acting.
+
+**Activity 2 — post-incident-review drafting (reactive, hours after incident).** From the incident timeline (alerts, runbook steps taken, mitigations applied, resolution), AI drafts the structured PIR: timeline, contributing factors, customer impact, what went well, what could have gone better, action items. The senior engineer or engagement lead reviews — particularly for political nuance ("we were paged at 3am because the on-call rotation has a gap" is a fact that needs to surface but needs to surface in a way the team can hear, not in a way that triggers defensiveness).
+
+**Activity 3 — retainer status report (monthly).** AI drafts the monthly retainer report from: tickets closed this month (by type — incident, bug, feature, infrastructure), time spent vs retainer hours allocated, upcoming risks visible from the codebase or infrastructure, suggestions for the next month's retainer focus. The retainer lead edits for client-specific framing and adds the narrative the AI does not have (the strategic context, the upcoming engagement-renewal conversation, the political subtext of the client's recent direction changes).
+
+**Activity 4 — hypercare-window prioritisation (during hypercare).** Hypercare windows are time-bounded periods (typically 30 days post-launch) where the agency is on heightened response duty. Multiple issues surface daily; prioritisation under time pressure is hard. AI prioritises by: customer impact severity (from observable signals), regression risk (does fixing this risk introducing other bugs), team capacity (who's available, what's their context), and SLA exposure (which issues threaten contractual breaches). Engineer reviews and approves the priority order before triage begins.
+
+**Activity 5 — engagement-closeout synthesis.** At end of engagement, AI drafts the closeout artefacts: lessons-learned from the engagement's incident history and retro outputs; what worked technically; what would be done differently; the handover document for any future agency or in-house team. Senior practitioner writes the *positions* — the framings the agency wants on record, the lessons the agency wants embedded in its institutional memory, the politically sensitive observations the client may not want to read but the agency needs to capture for itself.
+
+The lifecycle closes here: closeout output feeds the agency's historical engagement database, which becomes the calibration input to future Pre-Sales pricing — cross-link forward to [AI in Pre-Sales](/with-ai/pre-sales/).
+
+## Battle-tested tools and how to use them
+
+Tool research is in progress; this page will list battle-tested tool recommendations as they are validated in real delivery.
+
+## What is not yet ready
+
+**AI-only incident triage without on-call human verification.** AI triage is fast and right most of the time. The most dangerous incidents are the times it's wrong — the alert that looks like a known issue but is actually a new failure mode, the cascading incident where the second alert is the cause of the first, the situation where the runbook step the AI suggests would make the problem worse. On-call engineer verifies every AI-suggested action before executing.
+
+**AI PIRs that omit politically sensitive lessons.** AI drafts neutral PIRs. The most important lesson from an incident is sometimes uncomfortable — the on-call rotation has a gap, the runbook is incomplete because of a corner-cutting decision three sprints ago, the architect's NFR was wrong. AI omits these in the interest of producing a balanced-reading document. The senior practitioner adds them back. The PIR that does not surface the real lesson is a PIR that ensures the lesson recurs.
+
+**AI closeout summaries that fail to surface what the agency would do differently.** The closeout artefact has two audiences: the client and the agency. The client audience wants reassurance the engagement was a success. The agency audience needs to know what the agency itself would change. AI defaults to the client audience and produces glowing-reading closeouts. The agency's internal closeout — what we'd never do again, what we'd insist on next time — has to be written by a human.
+
+**Auto-closed incident tickets without engineer review.** AI can mark incident tickets as resolved when the symptoms have cleared. Sometimes the symptoms have cleared because the actual issue has moved (e.g. a database fix that displaced the bottleneck to the cache). Engineer reviews every auto-closed incident with high severity before the ticket actually closes.
+
+**Retainer reports auto-sent to clients without retainer lead review.** Status reports are commercial documents. An AI report that lands "we used 80% of the retainer this month, mostly on incidents" reads differently when the retainer lead frames it as "we proactively caught and resolved 12 production issues this month — see the incident report; we have 20% of the retainer reserved for the upcoming feature iteration we agreed in last week's review." The data is the same; the commercial framing is the retainer lead's.
+
+**Hypercare prioritisation that optimises for issue count over customer impact.** AI prioritisation can rank by issue count when the engineer would rank by customer impact. The two are different. A single high-impact issue affecting the most important customer matters more than five medium-impact issues affecting nobody specific. The engineer's customer knowledge is the override.
+
+**Lessons-learned databases auto-populated without curation.** A lessons-learned database fed by AI extraction without human curation degenerates into a pile of platitudes ("we should improve testing"). Curation is what makes the database useful in future Pre-Sales and Discovery work.
+
+## What the industry does
+
+Two approaches dominate.
+
+**The retainer-leverage approach** treats AI as the way to make the retainer feel like value. The retainer engineer spends time on the work the client notices — proactive issue catching, deeper PIR follow-through, real feature iteration that improves the product. AI handles the artefact production — reports, PIRs, triage. Retainer renewal rates increase because the engagement feels productive. The risk: artefact quality declines if review discipline slips, and the client eventually notices.
+
+**The maintenance-as-cost-centre approach** uses AI only for incident triage and basic reporting. PIRs and closeouts remain fully human-written. The reasoning: the maintenance phase is where the agency's reputation is at stake (incidents are visible; closeout is enduring) and AI-produced artefacts in this phase carry more reputational risk than the production speedup is worth. Common at boutique agencies with high-touch retainer relationships.
+
+Most agencies converge on the retainer-leverage approach because the retainer-renewal math is too favourable to ignore — but with explicit human review on every PIR and every closeout. The agencies that ship best invest in the retainer engineer as much as in the AI tooling; the engineer's time is the lever, AI is the multiplier.
+
+The lifecycle loops here. Cross-link forward to [AI in Pre-Sales](/with-ai/pre-sales/) — the engagement-history database fed by closeout synthesis becomes the calibration input to future pricing. Cross-link back to [AI in Deployment / Launch](/with-ai/deployment-launch/) — the post-cutover-to-hypercare handoff begins maintenance.
