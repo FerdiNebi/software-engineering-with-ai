@@ -19,6 +19,17 @@ const phaseSlug = z.enum([
   'maintenance-retainer',
 ]);
 
+// 2026-06-01 — v2 schema extension (Story V2-1.1, permissive landing).
+// Adds three new optional fields for the AI tree: `tree`, `aiPageType`,
+// `deliveryStream`. None is required yet — v1 pages without `tree` continue
+// to build. The strict rules (require `tree` for content pages, cross-field
+// constraints between `aiPageType`/`phase`/`deliveryStream`) land in Story
+// V2-1.3 after the v1 sweep (V2-1.2) has added `tree: 'process'` to all
+// existing content pages.
+const tree = z.enum(['process', 'ai']);
+const aiPageType = z.enum(['landing', 'phase', 'delivery-stream']);
+const deliveryStream = z.enum(['project-management', 'development', 'qa-testing']);
+
 // superRefine pattern: a page with ANY of `type`, `phase`, `order` is treated as a content
 // page and must have ALL three. The splash home (`index.mdx`) has none and is exempt.
 export const collections = {
@@ -31,6 +42,9 @@ export const collections = {
           phase: phaseSlug.optional(),
           order: z.number().int().optional(),
           status: z.enum(['v1', 'v2-ai-ready']).optional(),
+          tree: tree.optional(),
+          aiPageType: aiPageType.optional(),
+          deliveryStream: deliveryStream.optional(),
         })
         .superRefine((data, ctx) => {
           const isContent =
