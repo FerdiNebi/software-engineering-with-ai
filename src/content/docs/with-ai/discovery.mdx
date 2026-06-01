@@ -10,4 +10,54 @@ lastUpdated: 2026-06-01
 
 [← Process reference: Discovery](/discovery/)
 
-_Page is being authored — full content lands in Story V2-3.1. The placeholder satisfies the schema so the sidebar concat resolves; the five-section template will follow._
+## What changes when AI is in the loop
+
+Discovery is interview-heavy, workshop-heavy, synthesis-heavy. Those are the activities where AI compresses production time most dramatically. A stakeholder interview that produced a 4-hour synthesis the next day now produces a 60-minute structured synthesis the same evening. A workshop that needed two days of prep notes can be prepped in an afternoon. A clickable prototype that took a frontend specialist a week can land at "demonstration-grade" in a day. Deliverable drafting — the signed-off requirements document at end of discovery — collapses from a senior-week-of-writing to a senior-day-of-editing.
+
+What does not change is anything that happens in the room. The workshop itself remains human-led. The body language reading remains human-led. The "the sponsor said yes but the head of operations went quiet for ninety seconds" observation is not something AI catches from a transcript. Stakeholder politics — who is championing the engagement, who is blocking it, who is the formal sponsor versus the actual decision-maker — are read by a practitioner sitting in the room, not by a model reading a transcript.
+
+The biggest practical shift is that the cost of running good Discovery drops. Agencies that previously cut Discovery to a single week because the synthesis-and-writing budget did not fit can now afford 1.5 weeks of effective Discovery in the same calendar window. The risk: agencies that used to do Discovery well now race through it because AI made the artefacts cheap. The artefacts get cheaper; the *thinking* does not.
+
+## Tool-agnostic workflow
+
+Discovery-with-AI has five stages. Each is intentionally human-anchored at the points where AI degrades.
+
+**Stage 1 — pre-interview research.** Before the first stakeholder interview, run a synthesis pass against the inputs from Pre-Sales — scoping notes, signed SOW, any client-supplied background. The output is a stakeholder map (who you're meeting, in what order, with what known agenda) and an interview-question backbone (open questions to start, probing follow-ups for likely answers). This is the cheapest stage to AI-accelerate because the inputs are bounded.
+
+**Stage 2 — live interview/workshop conduct.** Capture the conversation with consent (live transcription if the client agrees; structured notes if not). The interview itself runs the way an interview always ran — the practitioner asks, listens, probes, reads the room. AI does not sit in the chair.
+
+**Stage 3 — post-session synthesis.** Within 24 hours of each session, run a structured synthesis: themes (what came up repeatedly across stakeholders), explicit asks (what the client said they want), implicit asks (what came up around the explicit asks), constraints (regulatory, technical, organisational, political), open questions for follow-up. The practitioner reviews the synthesis against memory of the room. A synthesis that misreads sponsor energy — flagging a casual aside as a priority, or burying a quiet but important objection — gets corrected before it becomes the basis for downstream artefacts.
+
+**Stage 4 — prototype generation.** For engagements where prototyping is in scope, AI generates first-pass clickable prototypes from the synthesis output. The prototype is a conversation prop, not a UX deliverable. Senior practitioner reviews before showing to client — AI-generated UX has tells (component choices, naming conventions, layout instincts) that experienced clients notice. The prototype's job is to surface assumptions the synthesis did not catch.
+
+**Stage 5 — deliverable drafting.** The end-of-Discovery deliverable (validated requirements, prioritised feature list, refined estimate, sign-off package) is drafted by combining the syntheses across all sessions plus the prototype-validation results plus the SOW context. AI accelerates the structural fill; the senior practitioner writes the *positions* — what the agency recommends, what the agency rejects, what the agency flags as needing a Phase 2 conversation. The deliverable is signed by the client. The signature is a commitment. Do not sign deliverables AI generated without senior re-reading.
+
+Cross-link forward to [AI in Requirements & Design](/with-ai/requirements-design/) — the prioritised feature list and constraint catalogue feed FR/NFR drafting.
+
+## Battle-tested tools and how to use them
+
+Tool research is in progress; this page will list battle-tested tool recommendations as they are validated in real delivery.
+
+## What is not yet ready
+
+**AI facilitating the workshop.** Workshops are facilitation. Facilitation is reading the room, calling on the quiet participant, holding the floor against a domineering one, surfacing the disagreement underneath the surface agreement. AI does none of this. Use AI to prep the workshop, to capture the workshop's output, to synthesise the workshop's output. Do not use AI to run the workshop.
+
+**AI summarisation without human verification of theme accuracy.** Synthesis tools produce confident themes. A theme can be confidently wrong — a phrase that came up twice gets elevated to "a major concern" when it was a passing observation. The senior practitioner who sat in the room knows whether the theme is real. AI cannot self-check this. The verification step is non-negotiable.
+
+**AI-generated prototypes mistaken for validated UX.** A clickable prototype from a model is a conversation tool — it shows the client one possible interpretation of the synthesis. It is not what the UX team will produce in Requirements & Design. Clients who see polished AI prototypes assume design is done; they push back on later UX work because "we already agreed to this." Frame every AI prototype as a conversation prop, label it as such, and tear it down at end of Discovery.
+
+**AI handling stakeholder politics from transcripts.** The synthesis can name themes and constraints. It cannot tell you that the head of operations is privately undermining the engagement, that the sponsor is leaving the company next quarter, that procurement has flagged the agency as too expensive. These come from human signals — the side conversation in the corridor, the meeting that got cancelled at short notice, the call back the next day where someone "wanted to clarify something." Practitioners read these. AI does not.
+
+**Discovery-deliverable drafting from a single mega-prompt.** The deliverable is multi-section: executive summary, stakeholder map, validated requirements, prioritised feature list, refined estimate, open questions, risk register, sign-off page. Drafting all of it in one AI pass produces a document that reads as generated. Section-by-section drafting with human anchoring between sections produces a document that reads as the agency's.
+
+## What the industry does
+
+Agencies cluster into two approaches in Discovery-with-AI practice.
+
+**The synthesis-pipeline approach** treats AI as a backbone of the Discovery production line — transcription tool feeds synthesis tool feeds deliverable-drafting tool, each stage with a documented human-review gate. The agency has standardised on a small set of validated tools, has trained the team on the prompts, and has built the gates into the project plan. Discovery cycle time drops, deliverable quality stays consistent because the templates are stable, and the senior practitioner's time is freed up for the room-reading work that AI cannot do.
+
+**The room-led approach** uses AI sparingly — transcription for the record, occasionally synthesis for an interview, but workshop facilitation, prototype direction, and deliverable writing remain human-led end to end. The reasoning: Discovery is where the agency demonstrates the qualitative judgement that justifies the price. AI-shaped outputs erode the demonstration. The risk is slower Discovery and higher senior-practitioner load; the upside is engagements where Discovery output is genuinely the agency's distinctive voice.
+
+The pipeline approach wins on speed and consistency; the room-led approach wins on positioning. Most agencies are converging on the pipeline approach with strong human-review gates — pattern most similar to Pre-Sales practice. The room-led approach persists at boutique agencies whose pricing depends on the qualitative-judgement signal.
+
+Cross-link back to [AI in Pre-Sales](/with-ai/pre-sales/) — the scoping synthesis from Pre-Sales is the input to Discovery's pre-interview research stage. Cross-link forward to [AI in Requirements & Design](/with-ai/requirements-design/) for what happens to the validated requirements and prioritised feature list after sign-off.
