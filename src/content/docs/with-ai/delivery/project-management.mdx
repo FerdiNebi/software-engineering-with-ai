@@ -11,4 +11,58 @@ lastUpdated: 2026-06-01
 
 [← Process reference: Project Management](/delivery/project-management/)
 
-_Page is being authored — full content lands in Story V2-5.1. The placeholder satisfies the schema so the sidebar concat resolves; the five-section template will follow._
+## What changes when AI is in the loop
+
+Project Management in agency delivery is a high-volume document workflow under sustained time pressure. The PM produces status reports weekly, refines the backlog continuously, plans sprints fortnightly, synthesises retros every two-to-six weeks, and drafts change logs whenever scope shifts. AI compresses each of these from a senior-half-day to a senior-half-hour. The status report that used to be written Friday afternoon and read by sponsors Monday morning now drafts itself off the week's Jira/Linear activity and senior notes — the PM edits for tone and political nuance and ships in 30 minutes.
+
+What does not change: the sponsor escalations. The risk judgement calls. The team-dynamics observations. When the PM walks into a retro knowing that two engineers had a sharp exchange in code review yesterday and the architect is quietly disengaging, AI does not see any of that. It sees the tickets that closed and the retro form responses. The PM still has to read the room.
+
+The biggest practical shift: PM time stops being writing time. The senior PM gets their week back for the work that distinguishes the agency — sponsor management, scope defence, risk surfacing, team coaching. The risk: junior PMs whose writing skills used to be how they developed senior judgement now produce competent-looking artefacts without the judgement underneath. The judgement comes from doing the work AI now does for them; agencies that lean too hard on AI for the production work create a generation of PMs who never developed the underlying instincts.
+
+## Tool-agnostic workflow
+
+PM-with-AI runs as a continuous weekly cadence with five recurring stages.
+
+**Stage 1 — backlog refinement.** Continuous, but with a weekly checkpoint. AI reviews backlog tickets against acceptance criteria conventions ("does this ticket have a testable AC?", "is the user story shape correct?", "is this ticket scoped to a single developer-week?"). The PM accepts the surfaced defects or marks them as false-positive. AI is also useful for spotting duplicates and dependencies the team would miss in fresh-eyes review.
+
+**Stage 2 — sprint planning calibration.** Before sprint planning, AI compares the proposed sprint scope against the team's last 5-8 sprints — capacity, complexity, who's on PTO, what type of work the team historically over- or under-estimates. The output is a "calibrated sprint commitment" recommendation. The PM uses it as a check against the team's own planning, not as a replacement. Plans where the AI projection diverges sharply from the team's projection are the plans worth discussing — usually one or the other is missing context.
+
+**Stage 3 — execution monitoring.** Mid-sprint, AI watches for surfacing risks: tickets stuck in review for more than two days, tickets reopened, tickets whose scope appears to have grown, sprint burndown deviation. Output is a daily or twice-weekly digest the PM reads in five minutes. The PM acts on signals; the AI provides the signals.
+
+**Stage 4 — status report.** Weekly, ahead of the sponsor sync. AI drafts the status report from the week's ticket activity, stage-3 surfaced risks, and PM-supplied narrative notes (sponsor-facing wins, sponsor-facing concerns, asks-of-sponsor). The PM edits for tone and political nuance — particularly the "concerns" and "risks" sections, which AI tends to flatten. The published report goes through senior PM or engagement lead review.
+
+**Stage 5 — retro synthesis.** End-of-sprint or every two sprints, AI synthesises retro responses (whether from a structured form, a meeting transcript, or both) into themes and action items. The PM reviews against memory of the retro session — does the synthesis miss the controversial theme everyone wanted to discuss but no one wanted to type? does it elevate a passing observation? The action items get committed only after PM verification.
+
+Cross-link forward to the concurrent Delivery streams: [AI in Development](/with-ai/delivery/development/) and [AI in QA / Testing](/with-ai/delivery/qa-testing/). PM is the connective tissue across both.
+
+## Battle-tested tools and how to use them
+
+Tool research is in progress; this page will list battle-tested tool recommendations as they are validated in real delivery.
+
+## What is not yet ready
+
+**AI generating status reports without PM verification of sponsor-sensitive items.** Sponsor reports name what went well, what is at risk, and what is asked for. AI synthesises the work; it does not understand the political layer (which sponsor wants which framing, what the procurement team is reading for, what the sponsor's manager will fixate on). PMs who ship AI-drafted reports without senior edit lose sponsor confidence within three sprints.
+
+**AI retro synthesis that flattens controversial themes.** Retros surface uncomfortable signals — engineers frustrated with the PM, designers feeling cut out of decisions, the architect pushing back on scope. AI synthesis tends to round controversial themes into neutral language. The PM has to keep the sharp edges visible — that is the entire point of retro.
+
+**AI sprint plans not validated against actual team capacity.** AI knows the team's average velocity from history. It does not know the architect is interviewing for a job next week, the senior engineer is on the late shift because of a baby, the QA lead is the only one who can do the security pass and is in a workshop Wednesday. PM holds the human capacity model; AI calibrates against averages.
+
+**Risk dashboards as a substitute for risk conversations.** AI dashboards make risks visible; they do not make the sponsor *act* on the risk. PMs who treat the dashboard as the risk-management artefact lose sponsor engagement when the dashboard reads "Amber" for three sprints and nothing changes. The dashboard surfaces; the conversation resolves.
+
+**AI-drafted change logs without scope-control review.** Change logs are contractual artefacts in fixed-price engagements. An AI-drafted change log that misframes a scope addition as a clarification ("the FR was always implied") becomes the basis for an argument with the client three months later. Senior PM or engagement lead reads every change log before client delivery.
+
+**Velocity / efficiency metric reports without team context.** AI can produce velocity, throughput, and cycle-time metrics that look like management dashboards. Used as performance metrics, they distort behaviour — team gamifies the metric instead of doing the work. Used as conversation prompts in retro, they surface real signal. PM controls how the metrics are used.
+
+## What the industry does
+
+Two industry approaches dominate, with a third emerging.
+
+**The full-AI-pipeline approach** runs PM as a continuous AI-assisted workflow: backlog refinement is AI-led with PM oversight, sprint plans are AI-calibrated and PM-confirmed, status reports are AI-drafted and PM-edited, retros are AI-synthesised and PM-reviewed. The PM's job becomes "AI editor" and "sponsor manager." Agencies that adopt this approach typically free up 30-50% of PM time, which they redirect into sponsor work and scope defence. The risk is PM-skill atrophy at the junior level — a PM who has never written a status report from scratch struggles when AI is wrong about the political layer.
+
+**The hybrid approach** keeps the high-touch human-anchored artefacts (status reports, retros) in PM voice with AI as a junior pair-author. The low-touch artefacts (backlog refinement, sprint calibration, execution monitoring) go full AI with PM oversight. This is the most common pattern in 2026.
+
+**The minimal-AI approach** uses AI only for narrow execution-monitoring tasks (ticket-stuck alerts, burndown deviation flags) and keeps everything else PM-written. Boutique agencies whose pricing depends on the PM-relationship signal sometimes hold here, but the gap from the hybrid approach is widening — clients increasingly expect AI-accelerated delivery and the minimal-AI approach reads as slow.
+
+The fastest-growing pattern is the hybrid with explicit junior-PM development scaffolding: AI does the production work, but the junior PM writes the status report draft *first*, then compares against the AI draft. The juniors develop the underlying instincts; the AI ensures the final artefact is consistent.
+
+Cross-link forward to [AI in Development](/with-ai/delivery/development/) and [AI in QA / Testing](/with-ai/delivery/qa-testing/) — the concurrent Delivery sub-streams PM coordinates with. Cross-link back to [AI in Requirements & Design](/with-ai/requirements-design/) for the FR/NFR set PM defends scope against.
