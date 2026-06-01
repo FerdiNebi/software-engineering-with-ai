@@ -4,6 +4,7 @@ description: Classifying defects, scheduling patches, and protecting retainer sc
 type: sub-section
 phase: maintenance-retainer
 order: 3
+tree: "process"
 lastUpdated: 2026-05-07
 status: v1
 ---

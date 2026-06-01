@@ -4,6 +4,7 @@ description: Sizing security work to the engagement — secrets, dependencies, a
 type: sub-section
 phase: delivery
 order: 8
+tree: "process"
 lastUpdated: 2026-05-06
 status: v1
 ---

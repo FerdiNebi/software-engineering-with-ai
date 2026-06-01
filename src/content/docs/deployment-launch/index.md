@@ -4,6 +4,7 @@ description: Going live as a planned event — infrastructure provisioning, depl
 type: phase-overview
 phase: deployment-launch
 order: 1
+tree: "process"
 lastUpdated: 2026-05-07
 status: v1
 ---

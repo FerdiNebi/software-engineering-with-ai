@@ -4,6 +4,7 @@ description: The live enforcement of the SOW change-control clause at delivery t
 type: sub-section
 phase: delivery
 order: 7
+tree: "process"
 lastUpdated: 2026-05-07
 status: v1
 ---

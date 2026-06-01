@@ -4,6 +4,7 @@ description: Surfacing context, constraints, and political realities through 1:1
 type: sub-section
 phase: discovery
 order: 2
+tree: "process"
 lastUpdated: 2026-05-03
 status: v1
 ---

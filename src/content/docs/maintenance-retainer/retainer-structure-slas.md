@@ -4,6 +4,7 @@ description: Designing the retainer agreement — structure choices, explicit ex
 type: sub-section
 phase: maintenance-retainer
 order: 6
+tree: "process"
 lastUpdated: 2026-05-07
 status: v1
 ---

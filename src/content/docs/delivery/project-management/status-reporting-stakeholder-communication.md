@@ -4,6 +4,7 @@ description: The PM-owned client-visible artefact that ensures no surprises — 
 type: sub-section
 phase: delivery
 order: 6
+tree: "process"
 lastUpdated: 2026-05-07
 status: v1
 ---

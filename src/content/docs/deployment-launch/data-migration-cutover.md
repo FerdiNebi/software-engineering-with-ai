@@ -4,6 +4,7 @@ description: Moving data and users from the legacy system to the new one on a de
 type: sub-section
 phase: deployment-launch
 order: 3
+tree: "process"
 lastUpdated: 2026-05-07
 status: v1
 ---

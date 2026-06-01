@@ -4,6 +4,7 @@ description: How to qualify a lead, run a productive scoping call, and decide wh
 type: sub-section
 phase: pre-sales
 order: 2
+tree: "process"
 lastUpdated: 2026-05-03
 status: v1
 ---

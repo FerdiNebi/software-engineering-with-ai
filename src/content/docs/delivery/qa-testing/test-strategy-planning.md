@@ -4,6 +4,7 @@ description: Strategy (why and scope) versus plan (what, when, who) — building
 type: sub-section
 phase: delivery
 order: 2
+tree: "process"
 lastUpdated: 2026-05-06
 status: v1
 ---

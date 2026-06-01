@@ -4,6 +4,7 @@ description: Day-0 repo decisions — layout, branching, mainline protection, an
 type: sub-section
 phase: delivery
 order: 2
+tree: "process"
 lastUpdated: 2026-05-06
 status: v1
 ---

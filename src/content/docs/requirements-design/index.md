@@ -4,6 +4,7 @@ description: The bridge phase that converts discovery outputs into a development
 type: phase-overview
 phase: requirements-design
 order: 1
+tree: "process"
 lastUpdated: 2026-05-03
 status: v1
 ---

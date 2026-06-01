@@ -4,6 +4,7 @@ description: Executing the infrastructure-design plan and operating the pipeline
 type: sub-section
 phase: delivery
 order: 3
+tree: "process"
 lastUpdated: 2026-05-06
 status: v1
 ---

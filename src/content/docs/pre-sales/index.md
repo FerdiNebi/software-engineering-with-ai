@@ -4,6 +4,7 @@ description: How agency engagements begin — qualifying leads, writing proposal
 type: phase-overview
 phase: pre-sales
 order: 1
+tree: "process"
 lastUpdated: 2026-05-07
 status: v1
 ---

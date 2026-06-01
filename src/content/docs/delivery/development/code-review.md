@@ -4,6 +4,7 @@ description: Review-before-merge as both quality gate and knowledge-transfer rit
 type: sub-section
 phase: delivery
 order: 7
+tree: "process"
 lastUpdated: 2026-05-06
 status: v1
 ---

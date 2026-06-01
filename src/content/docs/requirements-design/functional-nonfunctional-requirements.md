@@ -4,6 +4,7 @@ description: Authoring atomic, testable, traceable FRs and NFRs that survive bui
 type: sub-section
 phase: requirements-design
 order: 2
+tree: "process"
 lastUpdated: 2026-05-03
 status: v1
 ---

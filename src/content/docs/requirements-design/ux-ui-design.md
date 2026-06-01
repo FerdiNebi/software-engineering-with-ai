@@ -4,6 +4,7 @@ description: Producing signed-off design artifacts during Requirements & Design 
 type: sub-section
 phase: requirements-design
 order: 3
+tree: "process"
 lastUpdated: 2026-05-03
 status: v1
 ---

@@ -4,6 +4,7 @@ description: The heartbeat of agency delivery — sprint length, ceremonies, def
 type: sub-section
 phase: delivery
 order: 3
+tree: "process"
 lastUpdated: 2026-05-07
 status: v1
 ---

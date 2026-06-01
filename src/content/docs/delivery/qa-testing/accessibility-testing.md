@@ -4,6 +4,7 @@ description: Verifying the build against WCAG conformance — automated tooling,
 type: sub-section
 phase: delivery
 order: 6
+tree: "process"
 lastUpdated: 2026-05-07
 status: v1
 ---

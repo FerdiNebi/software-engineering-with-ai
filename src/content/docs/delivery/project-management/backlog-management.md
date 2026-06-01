@@ -4,6 +4,7 @@ description: Delivery-time stewardship of the backlog — refinement cadence, pr
 type: sub-section
 phase: delivery
 order: 4
+tree: "process"
 lastUpdated: 2026-05-07
 status: v1
 ---

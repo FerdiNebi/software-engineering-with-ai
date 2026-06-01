@@ -4,6 +4,7 @@ description: The layered contract structure that runs underneath agency engageme
 type: sub-section
 phase: pre-sales
 order: 6
+tree: "process"
 lastUpdated: 2026-05-07
 status: v1
 ---

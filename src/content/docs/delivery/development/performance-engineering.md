@@ -4,6 +4,7 @@ description: NFR-driven performance work — define the budget, profile before t
 type: sub-section
 phase: delivery
 order: 9
+tree: "process"
 lastUpdated: 2026-05-06
 status: v1
 ---

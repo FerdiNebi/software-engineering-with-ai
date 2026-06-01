@@ -4,6 +4,7 @@ description: Time-bounded, SLO-driven response to production incidents — sever
 type: sub-section
 phase: maintenance-retainer
 order: 5
+tree: "process"
 lastUpdated: 2026-05-07
 status: v1
 ---

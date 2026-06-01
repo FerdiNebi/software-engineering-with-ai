@@ -4,6 +4,7 @@ description: The activity that turns a signed delivery SOW into a team that can 
 type: sub-section
 phase: delivery
 order: 2
+tree: "process"
 lastUpdated: 2026-05-07
 status: v1
 ---

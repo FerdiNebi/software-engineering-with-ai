@@ -4,6 +4,7 @@ description: Time-boxed, disposable validation of risky technical, UX, or integr
 type: sub-section
 phase: discovery
 order: 4
+tree: "process"
 lastUpdated: 2026-05-03
 status: v1
 ---

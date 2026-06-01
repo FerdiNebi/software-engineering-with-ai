@@ -4,6 +4,7 @@ description: Documentation as a handoff deliverable — written for the client t
 type: sub-section
 phase: delivery
 order: 10
+tree: "process"
 lastUpdated: 2026-05-06
 status: v1
 ---

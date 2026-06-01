@@ -4,6 +4,7 @@ description: Sprint and milestone retros that produce actionable change rather t
 type: sub-section
 phase: delivery
 order: 9
+tree: "process"
 lastUpdated: 2026-05-07
 status: v1
 ---

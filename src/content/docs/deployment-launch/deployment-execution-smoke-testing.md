@@ -4,6 +4,7 @@ description: The launch-day sequence — rehearsed cutover, named commander, scr
 type: sub-section
 phase: deployment-launch
 order: 4
+tree: "process"
 lastUpdated: 2026-05-07
 status: v1
 ---

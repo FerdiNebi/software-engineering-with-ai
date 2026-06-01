@@ -4,6 +4,7 @@ description: SAST, DAST, dependency scanning, and pen testing — sized to engag
 type: sub-section
 phase: delivery
 order: 5
+tree: "process"
 lastUpdated: 2026-05-06
 status: v1
 ---

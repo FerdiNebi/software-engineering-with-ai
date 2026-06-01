@@ -4,6 +4,7 @@ description: Mapping requirements to a technical design through ADR-format decis
 type: sub-section
 phase: requirements-design
 order: 4
+tree: "process"
 lastUpdated: 2026-05-03
 status: v1
 ---

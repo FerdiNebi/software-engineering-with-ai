@@ -4,6 +4,7 @@ description: The formal ritual that ends a fixed-price engagement — final acce
 type: sub-section
 phase: maintenance-retainer
 order: 7
+tree: "process"
 lastUpdated: 2026-05-07
 status: v1
 ---

@@ -4,6 +4,7 @@ description: Validating the build against signed requirements — strategy, func
 type: phase-overview
 phase: delivery
 order: 1
+tree: "process"
 lastUpdated: 2026-05-07
 status: v1
 ---

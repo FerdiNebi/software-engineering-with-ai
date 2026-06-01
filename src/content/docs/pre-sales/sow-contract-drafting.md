@@ -4,6 +4,7 @@ description: Drafting a Statement of Work that protects both parties and survive
 type: sub-section
 phase: pre-sales
 order: 4
+tree: "process"
 lastUpdated: 2026-05-03
 status: v1
 ---

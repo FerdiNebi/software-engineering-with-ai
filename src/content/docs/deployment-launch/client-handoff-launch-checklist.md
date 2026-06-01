@@ -4,6 +4,7 @@ description: The ritual that closes the engagement — credentials, documentatio
 type: sub-section
 phase: deployment-launch
 order: 6
+tree: "process"
 lastUpdated: 2026-05-07
 status: v1
 ---

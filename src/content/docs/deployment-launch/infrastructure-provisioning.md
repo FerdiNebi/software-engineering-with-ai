@@ -4,6 +4,7 @@ description: Executing the infrastructure-design plan in production — IaC-firs
 type: sub-section
 phase: deployment-launch
 order: 2
+tree: "process"
 lastUpdated: 2026-05-03
 status: v1
 ---

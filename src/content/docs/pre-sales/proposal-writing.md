@@ -4,6 +4,7 @@ description: Structuring an agency proposal that wins the engagement and sets co
 type: sub-section
 phase: pre-sales
 order: 3
+tree: "process"
 lastUpdated: 2026-05-03
 status: v1
 ---

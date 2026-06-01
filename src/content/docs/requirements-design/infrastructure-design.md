@@ -4,6 +4,7 @@ description: Producing the environment, hosting, network, secrets, and DR plan s
 type: sub-section
 phase: requirements-design
 order: 5
+tree: "process"
 lastUpdated: 2026-05-03
 status: v1
 ---

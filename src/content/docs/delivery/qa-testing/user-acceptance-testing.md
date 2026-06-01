@@ -4,6 +4,7 @@ description: Client-executed verification of signed acceptance criteria — stru
 type: sub-section
 phase: delivery
 order: 7
+tree: "process"
 lastUpdated: 2026-05-07
 status: v1
 ---
