@@ -11,4 +11,56 @@ lastUpdated: 2026-06-01
 
 [← Process reference: QA / Testing](/delivery/qa-testing/)
 
-_Page is being authored — full content lands in Story V2-7.1. The placeholder satisfies the schema so the sidebar concat resolves; the five-section template will follow._
+## What changes when AI is in the loop
+
+QA in agency delivery is where AI's leverage on volume is most visible. Test-case generation from FRs collapses from "QA engineer writes 200 test cases in three days" to "QA engineer reviews 200 AI-generated test cases in half a day, then rewrites or rejects the ones that miss the meaningful invariant." Accessibility scanning that used to be a single-developer afternoon now runs continuously across every PR, surfacing issues at the moment they are introduced rather than at the pre-launch audit. Security findings from automated scanners — historically a long triage backlog — get an AI-assisted first pass that prioritises by likely exploitability. Regression suites that used to silently rot now get reviewed for missing coverage continuously.
+
+What does not change is the *exploratory testing* instinct. The QA engineer who, looking at the UX, says "let me try entering 700 characters into this field" or "what happens if I close the laptop mid-flow" is making creative leaps that AI does not replicate. Accessibility nuance beyond the automated scanners — does the experience actually work for a screen-reader user navigating non-visually — is not something a scanner catches. Threat-model design is a security-architect's call, not a model's.
+
+The biggest practical shift: bugs surface earlier. The team catches issues at PR review or at sprint-test that used to surface in UAT or hypercare. The cost: more apparent issues at any given sprint moment, which can read as "QA is slipping" when it is actually "QA is finding the bugs the team would otherwise ship to staging." PMs and engagement leads need to recalibrate what "good QA cadence" looks like under AI assistance.
+
+## Tool-agnostic workflow
+
+QA-with-AI is best modelled as a four-band activity that mirrors the Development bands.
+
+**Band 1 — automated scans on every PR.** Accessibility, security (SAST plus dependency scans), basic correctness checks. AI-augmented scanners produce richer signal than 2023-era tools — they triage findings by likely exploitability, deduplicate against known false-positives, and flag findings as "needs human verification" versus "high-confidence." Output is a per-PR scan summary. Findings get tickets only after human triage.
+
+**Band 2 — test-case generation against FRs.** From the FR/NFR set produced in Requirements & Design, AI generates test cases per FR. QA engineer reviews each test case for: does the assertion check the meaningful invariant; does the test cover the failure paths the FR implies; is the test deterministic. AI-generated tests with weak assertions are deleted, not silently retained.
+
+**Band 3 — exploratory test prompting.** QA engineer feeds AI the FR set plus the deployed feature; AI surfaces "what would you try?" prompts the QA engineer might otherwise not consider. This is most useful early in QA when the engineer is building a mental model of the feature. AI gives breadth; the engineer's instincts give depth. Treat the prompts as input to exploratory testing, not as a substitute.
+
+**Band 4 — regression-suite maintenance.** Continuous. AI reviews the regression suite against the codebase for: tests that no longer assert anything meaningful (the underlying API changed but the test still passes because it was weakly asserted); tests that are flaky and silently disabled; coverage gaps where new code paths exist without corresponding regression coverage. QA engineer reviews the surfaced issues and acts.
+
+Cross-link forward to [AI in Deployment / Launch](/with-ai/deployment-launch/) — the smoke-test set QA hands off becomes the basis for the post-deploy smoke run. Cross-link back to the concurrent [AI in Development](/with-ai/delivery/development/) — the dev-to-QA finding-feedback loop is now also a dev-AI-to-QA-AI loop.
+
+## Battle-tested tools and how to use them
+
+Tool research is in progress; this page will list battle-tested tool recommendations as they are validated in real delivery.
+
+## What is not yet ready
+
+**Trusting AI-generated tests without human assertion review.** Tests pass; coverage looks good; the team feels safe. Then production breaks in a way the tests should have caught, and inspection reveals the assertion was "response.status === 200" when it should have been "response.body.amount === expectedAmount." The assertion review is non-negotiable. A test that does not check the meaningful invariant is not a test.
+
+**AI-only accessibility passes that miss screen-reader nuance.** Automated accessibility scanners (axe-core lineage and its successors) catch a documented fraction of accessibility issues — roughly 30-40% of WCAG 2.2 violations are statically detectable. The rest require actual screen-reader testing by an actual screen-reader user. AI does not replace the testing; it covers the testable layer and frees the human accessibility tester to focus on the harder cases.
+
+**AI security triage that auto-closes findings without engineer verification.** Automated security scanners produce false positives. AI triage that closes findings as false-positive saves time when right and ships exploits to production when wrong. Engineer verifies every auto-closed finding above a certain severity threshold; the threshold depends on the engagement's risk profile.
+
+**AI regression-suite updates that delete tests judged "redundant".** Tests can look redundant from a coverage-percentage view but cover important edge cases that the AI does not understand the history of. A test that looks redundant might be there because of a 2024 incident the team paid for. Deletion requires human review and ideally a comment explaining why the test was originally added.
+
+**AI exploratory-test prompts treated as exhaustive coverage.** The prompts surface ideas; they do not replace the QA engineer's creative instinct. A QA engineer who runs only AI-prompted exploration misses the "let me try this weird thing" that finds the high-impact bugs.
+
+**Performance testing under AI-generated load profiles without context.** AI can generate load profiles from FR descriptions; the profiles often do not match the engagement's actual load shape. Use the engagement's actual production telemetry (or discovery-stage load assumptions if pre-launch) as the load-profile baseline.
+
+**UAT scripts generated and signed off by AI without business-user verification.** UAT is the client's check that the system does what they agreed it would do. An AI-generated UAT script signed off by the AI-as-reviewer is not UAT. The business user — who actually represents the client — owns the sign-off.
+
+## What the industry does
+
+Two approaches dominate.
+
+**The QA-as-leverage-multiplier approach** treats AI as the way to expand QA coverage at the same headcount. The agency runs Band 1 continuously, Band 2 against every FR, Band 4 weekly. Band 3 (exploratory) gets the headcount the AI-bands freed up. QA team output expands roughly 2-3× pre-AI baseline; QA discipline gets richer because the engineers spend their time on the qualitative work.
+
+**The QA-as-guardrail approach** runs Band 1 continuously and Bands 2-4 only against critical paths. The reasoning: more coverage produces more noise, more noise produces more triage time, the team's actual safety improvement is marginal beyond the critical path. Common at agencies whose engagement profile is low-risk or whose QA team is small.
+
+Most agencies in 2026 run a hybrid — Band 1 on everything, Bands 2-4 with QA-engineer judgement about where the coverage matters. The agencies that ship best invest as heavily in the QA-AI tooling validation as they do in the Development-AI tooling validation; QA is where the agency's safety posture is most visible to the client when something goes wrong.
+
+Cross-link forward to [AI in Deployment / Launch](/with-ai/deployment-launch/) — the post-deploy smoke test set carries forward. Cross-link to [AI in Development](/with-ai/delivery/development/) — the dev-to-QA finding feedback loop. Cross-link to [AI in Project Management](/with-ai/delivery/project-management/) — the velocity recalibration PM needs as bugs surface earlier.
