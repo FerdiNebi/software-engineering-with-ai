@@ -10,4 +10,64 @@ lastUpdated: 2026-06-01
 
 [← Process reference: Deployment / Launch](/deployment-launch/)
 
-_Page is being authored — full content lands in Story V2-8.1. The placeholder satisfies the schema so the sidebar concat resolves; the five-section template will follow._
+## What changes when AI is in the loop
+
+Deployment is a phase where the *production* artefacts AI can accelerate (runbooks, scripts, monitoring config, smoke tests) are exactly the artefacts that are too often skipped under time pressure. The pre-launch week historically compresses every checklist item because something else slipped earlier in delivery — and the runbook ends up half-written, the monitoring half-configured, the smoke tests half-thought-out. AI flips this: drafting a complete runbook from the architecture documentation takes an hour, drafting comprehensive monitoring config from the NFRs takes another hour, drafting post-deploy smoke tests from the FR set takes another. The team has every artefact at draft quality with three engineer-hours, instead of skipping them.
+
+What does not change is the go/no-go call. The rollback decision in the middle of a cutover. The client-facing communications. The judgement about whether a Tuesday-afternoon deploy or a Saturday-morning deploy fits the engagement's risk profile. These are human decisions because they carry production and commercial risk, and AI cannot hold the contextual information (the client's tolerance for downtime, the team's actual on-call capacity, the regulatory exposure of this release).
+
+The biggest practical shift: deployment-time runbook coverage stops being a stretch goal. Most agencies historically shipped without runbooks at the quality they would have wanted. AI changes the cost-benefit calculation — the runbook is now affordable. Agencies that adopt the practice see fewer post-deploy incidents, faster recovery when incidents occur, and a smoother hypercare-phase handoff.
+
+## Tool-agnostic workflow
+
+Deployment-with-AI has three phases.
+
+**Phase 1 — pre-cutover preparation (week before launch).**
+
+Sub-stage 1a: runbook drafting. Inputs: the architecture document, the infrastructure plan, the deploy pipeline definition. Output: a runbook covering normal-path deploy, common failure modes and recovery, rollback procedure, and post-deploy verification. The senior engineer reviews against the actual infrastructure — every step the runbook describes gets verified against what the deploy machinery actually does.
+
+Sub-stage 1b: cutover-rehearsal scripting. For data-migration or cut-over-heavy launches, AI drafts the dry-run script from the data-migration plan in the architecture. The team runs the dry-run script against a production-like environment. Bugs in the script are bugs caught before the actual cutover.
+
+Sub-stage 1c: monitoring config drafting. From the NFR set (response time, error rate, throughput, availability) plus the architecture's observability section, AI drafts monitoring config for the engagement's monitoring tool. The senior engineer reviews against the actual SLO targets — generic AI-generated thresholds are often wrong for the engagement's specifics.
+
+Sub-stage 1d: smoke-test generation. From the FR set, AI generates post-deploy smoke tests covering the business-critical flows. QA reviews the smoke set against their existing test coverage — the smoke tests are a subset focused on "is the deploy working" rather than full feature coverage.
+
+**Phase 2 — cutover execution.**
+
+The runbook is read step by step. Each step is human-executed (or human-verified if automated). AI is useful at this stage for: anomaly detection against the monitoring dashboards (faster than human visual scan), suggesting next steps if the runbook hits an unanticipated state, and triaging early-warning signals from the smoke tests. AI is NOT useful for the go/no-go calls between runbook steps — those remain human, with explicit named decision-makers.
+
+**Phase 3 — post-cutover verification (first 4-24 hours).**
+
+Smoke tests run automatically against production at intervals. Monitoring alerts route to the on-call team. AI summarises the post-deploy state every 15-30 minutes for the engagement lead — error rate trend, response-time trend, surface-anomalous-events list. The engagement lead reads the summary and acts. Hand-off to hypercare ([AI in Maintenance & Retainer](/with-ai/maintenance-retainer/)) happens at the agreed window — typically 24-72 hours post-deploy.
+
+## Battle-tested tools and how to use them
+
+Tool research is in progress; this page will list battle-tested tool recommendations as they are validated in real delivery.
+
+## What is not yet ready
+
+**AI-generated runbooks not validated against the actual infrastructure.** The runbook describes a deploy procedure; the actual deploy machinery has quirks, gotchas, half-documented steps, and undocumented manual approvals. An AI runbook that looks complete on paper but does not match the real procedure leads the cutover team into wrong actions during a live deploy. Every runbook step is dry-run-validated before launch.
+
+**AI cutover scripts run without dry-run.** Scripts that touch production data are scripts that need to run successfully in a production-like environment first. The dry-run is not optional even when the script "looks simple." Engagements that have shipped untested cutover scripts have created the biggest incidents in the engagement's history.
+
+**AI monitoring configs that miss the right SLO targets.** Default monitoring thresholds are generic. The engagement has specific SLOs from the NFRs and the contract. AI-drafted configs need senior-engineer calibration against the contract before deploying.
+
+**AI smoke tests that don't cover business-critical flows.** AI generates smoke tests from FRs, weighted by FR count or FR complexity. Business-critical flows are not always the FR-heaviest — sometimes the most critical flow is a single FR (payment, identity verification, regulatory compliance) the AI underweights. QA reviews smoke coverage against business-criticality, not against FR coverage.
+
+**Auto-rollback triggers without engineer confirmation.** Automatic rollback on error-rate breach is a tempting design that has shipped real incidents — the auto-rollback triggered on a transient spike, the rollback failed because the data was already mid-migration, and the system entered a state neither version of the application could handle. Engineer-confirmed rollback (with the engineer's tap-to-confirm under a 90-second timeout) catches the false-positives.
+
+**Post-deploy summaries that read as "fine" when alerts are stacking.** AI summaries can mask real signal by aggregating ("error rate is 0.3%") when the right disaggregation ("error rate on the payment endpoint is 4.2%") would surface the issue. The engineering lead reads the disaggregated dashboard, not the AI summary, during the first 4 hours.
+
+**Cutover decisions delegated to AI.** "The metrics look green so let's proceed" is a human decision, not a model decision. The model can produce the input ("the smoke tests passed, the monitoring is in nominal range, no alerts pending"); the human carries the decision.
+
+## What the industry does
+
+Two approaches dominate.
+
+**The AI-augmented-deployment approach** runs Phases 1-3 with AI assistance at every step, with documented human checkpoints. The agency has standardised on a small set of validated deployment tools and on prompt templates for runbook drafting, cutover scripting, monitoring config, and smoke generation. Deployments are smoother, runbook coverage is higher, hypercare handoffs are cleaner. The risk: the team becomes dependent on AI-generated artefacts and loses muscle memory for the underlying procedures. Engagements that mix AI-mature and AI-novice infrastructure (e.g., a legacy on-prem system mid-migration) hit AI limits faster.
+
+**The runbook-led approach** uses AI for runbook drafting and smoke test generation but keeps the cutover execution itself purely human-led with no AI in the loop during the cutover window. The reasoning: the cutover is the moment of maximum risk, and adding AI to the loop adds a source of uncertainty (was that summary right? did the model miss something?) at exactly the wrong time. Common at agencies whose engagement profile is high-stakes (financial, healthcare, public-sector launches).
+
+Most agencies are converging on a hybrid: AI for the pre-cutover production work, AI for the post-cutover summarisation, human-led cutover execution. The agencies that ship best invest in the dry-run discipline as deliberately as they invest in the AI tooling — the dry-run is what de-risks the AI-generated artefacts.
+
+Cross-link back to [AI in QA / Testing](/with-ai/delivery/qa-testing/) — the smoke test set carries forward from QA into deployment. Cross-link forward to [AI in Maintenance & Retainer](/with-ai/maintenance-retainer/) — the hypercare-phase handoff begins at deploy + N hours.
