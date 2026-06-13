@@ -135,49 +135,40 @@
 }
 
 /* ---------------------------------------------------------------------
- * Narrow viewports: drop the tab row beneath the brand row. The brand +
- * utilities stay on row 1; the section tabs span the full width on row 2,
- * which is the standard mobile fallback for header tabs.
+ * Narrow viewports: keep everything on a SINGLE row — brand + tabs +
+ * search all fit on the first line. Starlight hides the search label/kbd
+ * below 50rem (icon-only), so the section tabs have room. The header
+ * stays at Starlight's default mobile height (3.5rem); we no longer
+ * override --sl-nav-height or wrap the tabs.
  * ------------------------------------------------------------------ */
 @media (max-width: 50rem) {
-  :root {
-    /* brand row (3.5rem, Starlight mobile default) + tab row (2.75rem) */
-    --sl-nav-height: 6.25rem;
-  }
-
   .site-header {
-    flex-wrap: wrap;
-    align-content: center;
-    column-gap: 1rem;
-    row-gap: 0;
+    column-gap: 0.75rem;
   }
 
-  /* Row 1 keeps its own height so the tab row sits cleanly below it. */
-  .brand,
+  /* Let the search collapse to its natural icon size (it was being forced
+     to a fixed width by the desktop rule above) so the tabs fit. */
+  .site-header__search {
+    width: auto;
+  }
+
   .site-header__end {
-    height: 3.5rem;
+    gap: 0.5rem;
   }
 
-  .section-tabs {
-    order: 3;
-    flex-basis: 100%;
-    height: 2.75rem;
-    gap: 0;
-    /* full-bleed divider line under row 1 */
-    margin-inline: calc(-1 * var(--sl-nav-pad-x));
-    padding-inline: calc(var(--sl-nav-pad-x) - 0.9rem);
-    border-top: 1px solid var(--sl-color-hairline-shade, var(--sl-color-gray-6));
-  }
-
-  /* Pin the floating menu button to the brand row, not the taller band. */
-  starlight-menu-button button {
-    top: calc((3.5rem - var(--sl-menu-button-size)) / 2);
+  /* Slightly tighter tabs so brand + both tabs + search share one line. */
+  .section-tab {
+    padding-inline: 0.6rem;
   }
 }
 
 @media (max-width: 30rem) {
-  /* Mark-only brand on very small screens to protect row 1 space. */
+  /* Mark-only brand on very small screens to protect first-line space. */
   .brand__text {
     display: none;
+  }
+  .section-tab {
+    padding-inline: 0.5rem;
+    font-size: var(--sl-text-xs, 0.8rem);
   }
 }
