@@ -1,35 +1,57 @@
 ---
-// Custom Header override per AD-V2-2.
-// Renders the top-nav strip (Process | With AI) above Starlight's
-// default header (site title + search + theme/social). Active tab
-// is derived from URL prefix — works without JavaScript per NFR-v2-5.
+// Custom site header (v2 — two-tree IA, reworked per UX review).
+//
+// Standard documentation-site pattern: a single header row with the
+// brand on the left, the two top-level section tabs (Process | With AI)
+// inline immediately after it, and the utilities (search + theme) on the
+// right — the same layout React.dev (Learn / Reference), Mintlify, and
+// most modern docs use. Replaces the earlier non-standard design where a
+// full-width tab strip sat stacked *above* the title.
+//
+// The active tab is derived from the URL prefix, so it works with no
+// JavaScript (NFR-v2-5). On narrow viewports the tab row wraps below the
+// brand row (see theme.css) — the standard mobile fallback.
+//
+// We render Starlight's own Search and ThemeSelect via their virtual
+// component entrypoints so behaviour/keyboard shortcuts stay identical;
+// only the surrounding chrome is custom.
 
-import Default from '@astrojs/starlight/components/Header.astro';
+import Search from 'virtual:starlight/components/Search';
+import ThemeSelect from 'virtual:starlight/components/ThemeSelect';
 
 const base = import.meta.env.BASE_URL ?? '/';
-// Ensure trailing slash so startsWith() does not match a prefix that
-// happens to share a leading segment with /with-ai (e.g. /with-ai-foo).
+// Trailing slash so startsWith() can't match /with-ai-foo as the AI tree.
 const baseWithSlash = base.endsWith('/') ? base : base + '/';
 const aiPrefix = baseWithSlash + 'with-ai/';
 const processHref = baseWithSlash;
 const isAiTree = Astro.url.pathname.startsWith(aiPrefix);
 ---
 
-<nav class="top-nav" aria-label="Tree switch">
-  <a
-    href={processHref}
-    class:list={['top-nav-link', { active: !isAiTree }]}
-    aria-current={!isAiTree ? 'page' : undefined}
-  >
-    Process
+<div class="site-header">
+  <a class="brand" href={processHref} aria-label="Software Engineering with AI — home">
+    <span class="brand__mark" aria-hidden="true">&lt;/&gt;</span>
+    <span class="brand__text">Software Engineering <span class="brand__accent">with AI</span></span>
   </a>
-  <a
-    href={aiPrefix}
-    class:list={['top-nav-link', { active: isAiTree }]}
-    aria-current={isAiTree ? 'page' : undefined}
-  >
-    With AI
-  </a>
-</nav>
 
-<Default><slot /></Default>
+  <nav class="section-tabs" aria-label="Documentation sections">
+    <a
+      href={processHref}
+      class:list={['section-tab', { active: !isAiTree }]}
+      aria-current={!isAiTree ? 'page' : undefined}
+    >
+      Process
+    </a>
+    <a
+      href={aiPrefix}
+      class:list={['section-tab', { active: isAiTree }]}
+      aria-current={isAiTree ? 'page' : undefined}
+    >
+      With AI
+    </a>
+  </nav>
+
+  <div class="site-header__end">
+    <div class="site-header__search"><Search /></div>
+    <div class="site-header__theme sl-hidden md:sl-flex"><ThemeSelect /></div>
+  </div>
+</div>
