@@ -13,15 +13,58 @@
 }
 
 /* ---------------------------------------------------------------------
+ * Header height compensation (v2 — two-tree IA)
+ * Header.astro stacks a custom .top-nav strip ABOVE Starlight's default
+ * header row (site title + search). Starlight's fixed <header> is sized
+ * to --sl-nav-height and the inner default row fills it (height:100%),
+ * while the sidebar/content are offset below by the same variable. A bare
+ * extra strip therefore overflows the band and paints over the content.
+ *
+ * Fix: grow --sl-nav-height by the strip's height so the offset clears
+ * BOTH rows, then turn the fixed <header> into a flex column — the strip
+ * takes its fixed height and the inner default row flexes into whatever
+ * remains (≈ the original --header-row-height). Block padding on the
+ * outer header is zeroed so the two rows own their own spacing.
+ *
+ * These rules are intentionally unlayered: Starlight ships its header CSS
+ * inside @layer starlight.core, so any unlayered rule here wins the
+ * cascade regardless of selector specificity.
+ * ------------------------------------------------------------------ */
+:root {
+  --header-row-height: 4rem; /* the original single-row header height */
+  --top-nav-height: 3.25rem;
+  --sl-nav-height: calc(var(--header-row-height) + var(--top-nav-height));
+}
+
+/* Outer fixed header → stack the strip above the default row. */
+.page > header.header {
+  display: flex;
+  flex-direction: column;
+  padding-block: 0;
+}
+
+/* Inner Starlight header row: stop filling the (now taller) band; take
+ * only the space the strip leaves. flex absorbs sub-pixel/border rounding. */
+.page > header.header > .header {
+  height: auto;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+/* ---------------------------------------------------------------------
  * Top-navigation (v2 — two-tree IA)
  * Rendered by src/components/Header.astro above Starlight's default
  * header. Active state derived from URL prefix — no JS dependency.
  * ------------------------------------------------------------------ */
 .top-nav {
+  box-sizing: border-box;
+  flex: none;
+  height: var(--top-nav-height);
   display: flex;
   gap: 1.25rem;
   align-items: center;
-  padding: 0.5rem var(--sl-nav-pad-x, 1rem);
+  padding-block: 0;
+  padding-inline: var(--sl-nav-pad-x, 1rem);
   border-block-end: 1px solid var(--sl-color-gray-5);
   background: var(--sl-color-bg-nav, var(--sl-color-bg));
 }
