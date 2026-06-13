@@ -6,15 +6,21 @@
 // tree matching their current URL.
 //
 // Filter rule:
-//   isAiTree (URL starts with /with-ai/)  → keep groups labelled
-//     'With AI' or 'Reference'
-//   otherwise (process tree)              → keep groups NOT labelled
-//     'With AI' (i.e. all six numbered phases + Reference)
+//   isAiTree (URL starts with /with-ai/)  → keep the 'With AI' group
+//   otherwise (process tree)              → keep the six numbered phases
+//                                           (every group NOT 'With AI')
+// then append the single shared 'Reference' group once, at the bottom.
+//
+// The shared Reference group is appended (via ./reference) to BOTH
+// processSidebar and aiSidebar, so the concatenated global config
+// `[...processSidebar, ...aiSidebar]` contains it twice. A naive
+// label-based keep therefore rendered TWO Reference groups per tree.
+// We strip all Reference groups during filtering and re-add exactly one
+// at the end so it always appears once, in the correct bottom position.
 //
 // Labels are the discriminator because they are stable identifiers
 // declared in the sidebar config modules — the URL-prefix-of-first-item
-// alternative is fragile when groups contain mixed slugs (Reference
-// appears in both trees but the labels themselves are unique enough).
+// alternative is fragile when groups contain mixed slugs.
 
 import Default from '@astrojs/starlight/components/Sidebar.astro';
 
@@ -26,9 +32,17 @@ const isAiTree = Astro.url.pathname.startsWith(aiPrefix);
 const route = Astro.locals.starlightRoute;
 const fullSidebar = route.sidebar;
 
-const filtered = isAiTree
-  ? fullSidebar.filter((entry) => entry.label === 'With AI' || entry.label === 'Reference')
-  : fullSidebar.filter((entry) => entry.label !== 'With AI');
+const REFERENCE_LABEL = 'Reference';
+
+const treeGroups = isAiTree
+  ? fullSidebar.filter((entry) => entry.label === 'With AI')
+  : fullSidebar.filter(
+      (entry) => entry.label !== 'With AI' && entry.label !== REFERENCE_LABEL
+    );
+
+// The two Reference copies are the same imported object, so either works.
+const reference = fullSidebar.find((entry) => entry.label === REFERENCE_LABEL);
+const filtered = reference ? [...treeGroups, reference] : treeGroups;
 
 // Mutate the per-request route so Starlight's Default Sidebar renders the
 // filtered list. This is a per-render mutation; it does not leak across
